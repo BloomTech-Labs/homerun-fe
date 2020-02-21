@@ -15,19 +15,31 @@ const SignUp = () => {
         <Form>
           <Form.Field>
             <label>Username</label>
-            <input placeholder="Username" />
+            <input 
+              type="text"
+              placeholder="Username" 
+            />
           </Form.Field>
           <Form.Field>
             <label>Email</label>
-            <input placeholder="Email" />
+            <input 
+              type="email"
+              placeholder="Email" 
+            />
           </Form.Field>
           <Form.Field>
             <label>Password</label>
-            <input placeholder="Password" />
+            <input 
+              type="password"
+              placeholder="Password" 
+            />
           </Form.Field>
           <Form.Field>
             <label>Repeat Password</label>
-            <input placeholder="Repeat Password" />
+            <input 
+              type="password"
+              placeholder="Repeat Password" 
+            />
           </Form.Field>
           <Button type="submit">Submit</Button>
         </Form>
