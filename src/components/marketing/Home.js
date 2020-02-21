@@ -14,9 +14,11 @@ const Home = () => {
             Home
         </div>
 
-        <Button>
-            <NavLink to="/email/signup">Go to Email Sign Up</NavLink>
-        </Button>
+        <NavLink to="/email/signup">
+            <Button primary>
+                Go to Email Sign Up
+            </Button>
+        </NavLink>
         </>
     );
 };
