@@ -1,25 +1,38 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/test_coverage)
+
+
+
+
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
+🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ Title of project goes here
+# 1️⃣ Welcome to TidyHive! 
 
 1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
 
 ## 4️⃣ Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
+|                                       [Heather Ridgill ](https://github.com/Heather-Ridgill)                                        |                                       [Micah Jank](https://github.com/MicahJank)                                        |                                       [Katrina Roaix](https://github.com/kroaix)                                        |                                       [Yankho Trumble](https://github.com/Mayankho)                                        |                                                                             |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                      [<img src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4" width = "200" />](https://github.com/Heather-Ridgill)                       |                      [<img src="https://avatars3.githubusercontent.com/u/40408940?s=460&v=4" width = "200" />](https://github.com/MicahJank)                       |                      [<img src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4" width = "200" />](https://github.com/kroaix)                       |                      [<img src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4" width = "200" />](https://github.com/Mayankho)                       |                                            |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Heather-Ridgill)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MicahJank)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kroaix)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mayankho)           |                        |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/heatherridgill/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/micah-jank/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kroaix/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/yankho/) |
 
+_____________________________________________________________________________________________________________________
+
+|                                       [Zach Taylor ](https://github.com/zbtaylor)                                        |                                       [Vinnie Hoke](https://github.com/vinnihoke)                                        |                                       [Brandon Dresselle - TL](https://github.com/BDesselle)                                        |                                                                             |
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|                      [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "200" />](https://github.com/zbtaylor)                       |                      [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "200" />](https://github.com/vinnihoke)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/BDesselle)                       |                                             |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zbtaylor)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vinnihoke)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BDesselle)            |             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zach-taylor-97b90a196/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/vinnihoke/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/) |  |
 <br>
 <br>
+
 
 🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
@@ -33,17 +46,16 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+1️⃣ [Trello Board](https://trello.com/b/dUO3ZNeC/labspt7-homerun)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+1️⃣ [Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
+1️⃣ [PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
 
-🚫 Replace lorem ipsum with a description of your project
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Intro
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+TidyHive simplifies home management with an easy-to-use interface and a robust feature set allowing you organize everything in your home from day-to-day tasks to larger projects. 
 
 
 ### 4️⃣ Key Features
@@ -71,7 +83,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 #### Front end deployed to `🚫insert service here`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/homerun-be) built using:
 
 #### 🚫 back end framework goes here
 
