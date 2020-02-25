@@ -1,5 +1,11 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
 import SignUp from './components/auth/SignUp';
+
+// Home component is where the beginning of the app starts
+import Home from './components/marketing/Home.js';
+
 import "semantic-ui-css/semantic.min.css";
 import ReactGA from "react-ga";
 
@@ -17,7 +23,11 @@ function App() {
   initializeAnalytics()
   return (
     <div className="App">
-      <SignUp />
+
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/email/signup" component={SignUp} /> 
+      </Switch>
     </div>
   );
 }
