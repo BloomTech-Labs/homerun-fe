@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 const SignInLanding = () => {
   return (
@@ -8,8 +8,14 @@ const SignInLanding = () => {
         <Icon name="google" />
         &nbsp;&nbsp;&nbsp;Sign in with Google
       </Button>
+      <br />
+      <br />
       <Button>Sign in with Email</Button>
-      <p>Don't have an account? <a href="">Sign Up</a></p>
+      <br />
+      <br />
+      <p>
+        Don't have an account? <a href="/signin/email">Sign Up</a>
+      </p>
     </div>
   );
 }
