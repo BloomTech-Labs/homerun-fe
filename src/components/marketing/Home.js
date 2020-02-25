@@ -14,7 +14,7 @@ const Home = () => {
             Home
         </div>
 
-        <NavLink to="/email/signup">
+        <NavLink to="/signup">
             <Button primary>
                 Go to Email Sign Up
             </Button>

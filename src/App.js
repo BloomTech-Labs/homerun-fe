@@ -4,10 +4,10 @@ import { Route, Switch } from 'react-router-dom';
 // Sign up component with form for email and gmail button
 import SignUp from './components/auth/SignUp';
 
-//Sign in landing page with two buttons email/gmail
+// Sign in landing page with two buttons email/gmail
 import SignInLanding from './components/auth/SignIn-Landing';
 
-//Component for email sign in
+// Component for email sign in
 import SignInEmail from './components/auth/SignIn-Email';
 
 // Home component is where the beginning of the app starts
