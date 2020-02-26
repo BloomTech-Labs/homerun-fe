@@ -25,7 +25,7 @@
 
 | [Zach Taylor ](https://github.com/zbtaylor) | [Vinni Hoke](https://github.com/vinnihoke) | [Brandon Dresselle - TL](https://github.com/BDesselle) |
 |    :---:     |     :---:      |     :---:     |
-| [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "188" />](https://github.com/zbtaylor)   | [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "188" />](https://github.com/vinnihoke)     | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "188" />](https://github.com/BDesselle)    |
+| [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "188" />](https://github.com/zbtaylor)   | [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "188" />](https://github.com/vinnihoke)     | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UCBK6FRD5-c149fef438f7-512" width = "188" />](https://github.com/BDesselle)    |
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zbtaylor)     | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vinnihoke)       | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BDesselle)      |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zach-taylor-97b90a196/)     | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/vinnihoke/)       | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/)      |
 
