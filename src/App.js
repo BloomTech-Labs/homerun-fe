@@ -7,8 +7,20 @@ import SignUp from './components/auth/SignUp';
 import Home from './components/marketing/Home.js';
 
 import "semantic-ui-css/semantic.min.css";
+import ReactGA from "react-ga";
+
+
+
+function initializeAnalytics (){
+
+  ReactGA.initialize("UA-150184896-3");
+  ReactGA.pageview('/SignUp');
+}
+
+
 
 function App() {
+  initializeAnalytics()
   return (
     <div className="App">
 
