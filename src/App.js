@@ -6,7 +6,7 @@ import SignUp from './components/auth/SignUp';
 // Home component is where the beginning of the app starts
 import Home from './components/marketing/Home.js';
 
-import "semantic-ui-css/semantic.min.css";
+// import "semantic-ui-css/semantic.min.css";
 import ReactGA from "react-ga";
 
 
