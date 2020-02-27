@@ -29,7 +29,7 @@ function initializeAnalytics (){
 
 function App() {
   initializeAnalytics()
-  return (
+  return ( 
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
