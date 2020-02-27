@@ -14,7 +14,7 @@ const SignInLanding = () => {
       <br />
       <br />
       <p>
-        Don't have an account? <a href="/signin/email">Sign Up</a>
+        Don't have an account? <a href="/signup">Sign Up</a>
       </p>
     </div>
   );
