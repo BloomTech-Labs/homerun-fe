@@ -6,14 +6,12 @@ import { Form, Input, Icon } from 'semantic-ui-react';
 const TodoForm = () => {
 
     return (
-        <Form>
-            <Form.Field width='13' >
-                <label>task</label>
-                <Input id='form-input-control-task' placeholder='Task' type='text'/>
-                <Icon name='add user' />
-                <Icon name='clock' />
-            </Form.Field>
-        </Form>
+        <form className='ui right icon input'>
+            <input type='text' placeholder='Task' />
+            <button className='ui primary button'><i aria-hidden="true" className='add user icon'></i></button>
+            <button className='ui positive button'><i aria-hidden="true" className='clock icon'></i></button>
+        </form>
+        // <Input icon='add user' iconPosition='right' />
     );
 }
 
