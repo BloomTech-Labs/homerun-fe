@@ -8,20 +8,17 @@ import {
   Loader,
   Dimmer
 } from "semantic-ui-react";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const SignInEmail = props => {
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: ""
-  });
+  const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/login", credentials)
+      .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/dashboard");
@@ -29,11 +26,6 @@ const SignInEmail = props => {
       .catch(err => {
         console.log(err);
       });
-  };
-
-  const handleChange = e => {
-    e.preventDefault();
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (
@@ -51,16 +43,16 @@ const SignInEmail = props => {
             <Loader size="large">Loading</Loader>
           </Dimmer>
         ) : (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Field>
               <label>Email</label>
               <input
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={credentials.email}
-                onChange={handleChange}
+                ref={register({ required: "Email is invalid." })}
               />
+              {errors.email && <p>{errors.email.message}</p>}
             </Form.Field>
             <Form.Field>
               <label>Password</label>
@@ -68,9 +60,9 @@ const SignInEmail = props => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={credentials.password}
-                onChange={handleChange}
+                ref={register({ required: "Password is invalid." })}
               />
+              {errors.password && <p>{errors.password.message}</p>}
             </Form.Field>
             <Button type="submit">Submit</Button>
           </Form>
