@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
-const HouseholdForm = () => {
+const HouseholdForm = (props) => {
 
     return (
             <Form>
@@ -12,7 +12,7 @@ const HouseholdForm = () => {
               <Form.Field>
                 <Checkbox label='Child?' />
               </Form.Field>
-              <Button type='submit'>Add</Button>
+              <Button onClick={() => props.setModalOpen(false)} type='submit'>Add</Button>
             </Form>
           )
 }

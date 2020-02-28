@@ -7,7 +7,7 @@ const Household = () => {
     return (
         <div>
             <List />
-            <HouseholdForm />
+
         </div>
     )
 }

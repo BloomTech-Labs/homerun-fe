@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Name from "./Name";
 import { Button, Modal } from 'semantic-ui-react';
+import HouseholdForm from './HouseholdForm';
 
 const List = () => {
+ const [modalOpen, setModalOpen] = useState(false);
 
         return (
             <div>
                 <Name />
                 <Modal
-                    trigger={<Button>Add Member</Button>}
-                    header='Reminder!'
-                    content='Call Benjamin regarding the reports.'
-                    actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
-  />            </div>
+                    open={modalOpen}
+                    trigger={<Button onClick={() => setModalOpen(true)}>Add Member</Button>}
+                    header='Add a member'
+                    content={<HouseholdForm setModalOpen={setModalOpen} />}
+                    >
+
+                    </Modal>
+            </div>
         )
     }
 
