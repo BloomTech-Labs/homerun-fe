@@ -1,19 +1,20 @@
 import React from "react";
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 const HouseholdForm = () => {
 
     return (
-        <form>
-            <h1> Setup Household </h1>
-            <input
-            name="name"
-            type="text"
-            placeholder="Member"
-            />
-            <button>Add</button>
-            <button>Delete</button>
-        </form>
-    )
+            <Form>
+              <Form.Field>
+                <label>Name</label>
+                <input placeholder='Member' />
+              </Form.Field>
+              <Form.Field>
+                <Checkbox label='Child?' />
+              </Form.Field>
+              <Button type='submit'>Add</Button>
+            </Form>
+          )
 }
 
 export default HouseholdForm;
