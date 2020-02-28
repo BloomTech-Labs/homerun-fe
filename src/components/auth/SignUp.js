@@ -9,21 +9,17 @@ import {
   Loader,
   Dimmer
 } from "semantic-ui-react";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const SignUp = props => {
-  const [credentials, setCredentials] = useState({
-    username: "",
-    email: "",
-    password: ""
-  });
+  const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/signup", credentials)
+      .post("https://stage-homerun-be.herokuapp.com/auth/signup", data)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/dashboard");
@@ -32,10 +28,6 @@ const SignUp = props => {
         console.log(err);
       });
   };
-
-  const handleChange = e => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value})
-  }
 
   return (
     <Container text>
@@ -52,16 +44,16 @@ const SignUp = props => {
             <Loader size="large">Loading</Loader>
           </Dimmer>
         ) : (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Field>
               <label>Username</label>
               <input
                 type="text"
                 placeholder="Username"
                 name="username"
-                value={credentials.username}
-                onChange={handleChange}
+                ref={register({ required: "Username is required."})}
               />
+              {errors.username && <p>{errors.username.message}</p>}
             </Form.Field>
             <Form.Field>
               <label>Email</label>
@@ -69,9 +61,9 @@ const SignUp = props => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={credentials.email}
-                onChange={handleChange}
+                ref={register({ required: "Email is required."})}
               />
+              {errors.email && <p>{errors.email.message}</p>}
             </Form.Field>
             <Form.Field>
               <label>Password</label>
@@ -79,9 +71,9 @@ const SignUp = props => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={credentials.password}
-                onChange={handleChange}
+                ref={register({ required: "Password is required.", minLength: {value: 8, message: "Password must be at least 8 characters long."} })}
               />
+              {errors.password && <p>{errors.password.message}</p>}
             </Form.Field>
             {/*<Form.Field>
               <label>Repeat Password</label>
