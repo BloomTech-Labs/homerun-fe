@@ -2,12 +2,14 @@ import React from "react";
 import List from "./List";
 import HouseholdForm from "./HouseholdForm";
 
+import '../../SASS/Household.scss';
+
 import { Button, Icon } from 'semantic-ui-react';
 
 const Household = () => {
 
     return (
-        <div>
+        <div className='household container'>
             <Button>Join Household?</Button>
             <List />
             <Button animated>
