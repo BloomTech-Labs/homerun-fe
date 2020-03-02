@@ -18,7 +18,7 @@ import Home from './components/marketing/Home.js';
 import Household from './components/household/Household';
 
 import "semantic-ui-css/semantic.min.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga"; 
 
 
 
