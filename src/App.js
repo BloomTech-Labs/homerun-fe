@@ -14,8 +14,11 @@ import SignInEmail from './components/auth/SignIn-Email';
 // Home component is where the beginning of the app starts
 import Home from './components/marketing/Home.js';
 
+//Adding and deleting members
+import Household from './components/household/Household';
+
 import "semantic-ui-css/semantic.min.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga"; 
 
 
 
@@ -37,6 +40,7 @@ function App() {
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} /> 
         <Route path="/dashboard" component={Dashboard} /> 
+        <Route path="/household" component={Household} />
       </Switch>
     </div>
   );
