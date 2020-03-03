@@ -14,15 +14,18 @@ import SignInEmail from './components/auth/SignIn-Email';
 // Home component is where the beginning of the app starts
 import Home from './components/marketing/Home.js';
 
-// import "semantic-ui-css/semantic.min.css";
-import ReactGA from "react-ga";
+//Adding and deleting members
+import Household from './components/household/Household';
+
+import "semantic-ui-css/semantic.min.css";
+import ReactGA from "react-ga"; 
 
 
 
 function initializeAnalytics (){
 
   ReactGA.initialize("UA-150184896-3");
-  ReactGA.pageview('/SignUp');
+  ReactGA.pageview('/email/signUp');
 }
 
 
@@ -37,6 +40,7 @@ function App() {
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} /> 
         <Route path="/dashboard" component={Dashboard} /> 
+        <Route path="/household" component={Household} />
       </Switch>
     </div>
   );
