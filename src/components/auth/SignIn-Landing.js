@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
-const SignInLanding = () => {
+const SignInLanding = props => {
   return (
     <div>
       <Button icon>
@@ -10,7 +10,7 @@ const SignInLanding = () => {
       </Button>
       <br />
       <br />
-      <Button>Sign in with Email</Button>
+      <Button onClick={() => props.history.push("/signin/email")}>Sign in with Email</Button>
       <br />
       <br />
       <p>
