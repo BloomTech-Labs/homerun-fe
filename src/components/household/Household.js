@@ -1,6 +1,5 @@
 import React from "react";
 import List from "./List";
-import HouseholdForm from "./HouseholdForm";
 
 import '../../SASS/Household.scss';
 
