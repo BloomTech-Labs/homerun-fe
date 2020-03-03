@@ -14,6 +14,9 @@ import SignInEmail from "../components/auth/SignIn-Email";
 // Home component is where the beginning of the app starts
 import Home from "../components/marketing/Home.js";
 
+// Household component
+import Household from '../components/household/Household'
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -36,6 +39,7 @@ const Routes = () => {
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/household" component={Household} />
       </Switch>
     </div>
   );

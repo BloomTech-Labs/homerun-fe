@@ -1,20 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import { Form, Input, Icon } from 'semantic-ui-react';
+import { Form, Input, Icon, Button } from "semantic-ui-react";
 
+import "../../SASS/TaskForm.scss";
 
 const TodoForm = () => {
-
-    return (
-        <Form>
-            <Form.Field width='13' >
-                <label>task</label>
-                <Input id='form-input-control-task' placeholder='Task' type='text'/>
-                <Icon name='add user' />
-                <Icon name='clock' />
-            </Form.Field>
-        </Form>
-    );
-}
+  return (
+    <Form className="ui right icon input taskForm">
+      <Input type="text" placeholder="Task" />
+      <Button className="ui primary button">
+        <Icon aria-hidden="true" className="add user icon" />
+      </Button>
+      <Button className="ui positive button">
+        <Icon aria-hidden="true" className="clock icon" />
+      </Button>
+    </Form>
+    // <Input icon='add user' iconPosition='right' />
+  );
+};
 
 export default TodoForm;

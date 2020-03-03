@@ -1,6 +1,9 @@
 import React from "react";
-import { Button } from 'semantic-ui-react';
+import TodoList from "./TodoList";
 import TodoForm from "./TodoForm.js";
+import { Button } from "semantic-ui-react";
+
+import "../../SASS/Dashboard.scss";
 
 const Dashboard = props => {
   return (
@@ -14,6 +17,7 @@ const Dashboard = props => {
       >
         Logout
       </Button>
+      <TodoList />
       <TodoForm />
     </>
   );
