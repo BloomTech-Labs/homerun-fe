@@ -1,11 +1,11 @@
 import React from "react";
 
 
-const Name = () => {
+const Name = (props) => {
 
     return (
         <div>
-            FirstName
+            {props.name}
         </div>
     )
 }
