@@ -11,8 +11,8 @@ const TodoForm = () => {
             <input type='text' placeholder='Task' />
             <button className='ui primary button'><i aria-hidden="true" className='add user icon'></i></button>
             <button className='ui positive button'><i aria-hidden="true" className='clock icon'></i></button>
+            <button><i aria-hidden="true" className='checkmark icon'></i></button>
         </form>
-        // <Input icon='add user' iconPosition='right' />
     );
 }
 
