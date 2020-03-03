@@ -11,7 +11,7 @@ function initializeAnalytics (){
 function App() {
   initializeAnalytics()
   return (
-    <div className="App">
+    <div className="App"> 
       <Routes />
     </div>
   );
