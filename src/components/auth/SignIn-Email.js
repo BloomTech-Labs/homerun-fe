@@ -65,6 +65,7 @@ const SignInEmail = props => {
               {errors.password && <p>{errors.password.message}</p>}
             </Form.Field>
             <Button type="submit">Submit</Button>
+            <a href="#">Forgot password</a>
           </Form>
         )}
       </div>
