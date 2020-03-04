@@ -9,7 +9,7 @@ import { Header as UiHeader } from 'semantic-ui-react';
 const Header = () => {
     
     return (
-        <div>
+        <div className='header-container'>
             <PinNumber />
             <UiHeader as='h2'>Setup Household</UiHeader>
             <AccountSettings />
