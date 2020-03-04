@@ -9,7 +9,7 @@ import {
   Loader,
   Dimmer
 } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import axios from "axios";
 
 const SignUp = props => {
