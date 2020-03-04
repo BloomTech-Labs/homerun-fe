@@ -24,9 +24,4 @@ const TodoList= () => (
   </List>
 )
 
-
 export default TodoList;
-
-
-
-

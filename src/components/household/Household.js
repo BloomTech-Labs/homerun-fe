@@ -1,10 +1,10 @@
 import React from "react";
 import List from "./List";
-import HouseholdForm from "./HouseholdForm";
 
 import '../../SASS/Household.scss';
 
 import { Button, Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 const Household = () => {
 
@@ -12,14 +12,16 @@ const Household = () => {
         <div className='household container'>
             <Button>Join Household?</Button>
             <List />
-            <Button animated>
-                <Button.Content visible>
-                    Dashboard
-                </Button.Content>
-                <Button.Content hidden>
-                    <Icon name='arrow right' />
-                </Button.Content>
-            </Button>
+            <NavLink to='/dashboard'>
+                <Button animated>
+                    <Button.Content visible>
+                        Dashboard
+                    </Button.Content>
+                    <Button.Content hidden>
+                        <Icon name='arrow right' />
+                    </Button.Content>
+                </Button>
+            </NavLink>
         </div>
     )
 }
