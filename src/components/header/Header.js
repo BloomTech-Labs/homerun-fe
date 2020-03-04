@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <div className='header-container'>
             <PinNumber />
-            <UiHeader as='h2'>Setup Household</UiHeader>
+            <UiHeader as='h3'>Setup Household</UiHeader>
             <AccountSettings />
         </div>
     )
