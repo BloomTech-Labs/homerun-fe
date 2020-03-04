@@ -37,7 +37,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => {
   return (
     <div>
-      <Route path={['/dashboard', '/household']} component={Header} />
+      <PrivateRoute path={['/dashboard', '/household']} component={Header} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
