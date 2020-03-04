@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Name from "./Name";
 
+import axios from 'axios';
+
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
 import { Button, Modal, Image, List as UiList } from 'semantic-ui-react';
 import HouseholdForm from './HouseholdForm';
 
 const List = () => {
  const [modalOpen, setModalOpen] = useState(false);
+ const [members, setMembers] = useState([]);
+
+ useEffect(() => {
+    axios.get('https://my.api.mockaroo.com/householdMembers?key=0523bb20')
+        .then(res => {
+            setMembers(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+ }, [])
 
         return (
             <div>
                 <UiList selection verticalAlign='middle'>
-                    <Name name='Lilly' />
-                    <Name name='Billy' />
-                    <Name name='Silly' />
+                    {members.map(member => {
+                        return <Name name={member.username} />
+                    })}
                 </UiList>
                 <Modal
                     open={modalOpen}
