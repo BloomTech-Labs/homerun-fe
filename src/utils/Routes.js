@@ -17,6 +17,9 @@ import Home from "../components/marketing/Home.js";
 // Household component
 import Household from '../components/household/Household'
 
+// Header
+import Header from '../components/header/Header.js';
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -29,10 +32,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
-
+// Header component needs to render on multiple routes and since the Switch already has a dashboard route and household route
+// the header component needs to render outside the switch
 const Routes = () => {
   return (
     <div>
+      <Route path={['/dashboard', '/household']} component={Header} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
