@@ -4,7 +4,7 @@ import Name from "./Name";
 import axios from 'axios';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
-import { Button, Modal, Image, List as UiList } from 'semantic-ui-react';
+import { Button, Modal, Image, List as UiList, Loader } from 'semantic-ui-react';
 import HouseholdForm from './HouseholdForm';
 
 const List = () => {
@@ -25,7 +25,7 @@ const List = () => {
             <div>
                 <UiList selection verticalAlign='middle'>
                     {members.map(member => {
-                        return <Name name={member.username} />
+                        return <Name key={member.id} name={member.username} />
                     })}
                 </UiList>
                 <Modal
