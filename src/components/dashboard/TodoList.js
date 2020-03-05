@@ -1,27 +1,27 @@
 import React from 'react'
-import { Image, List } from 'semantic-ui-react'
+import { Icon, List } from 'semantic-ui-react'
 
-const TodoList= () => (
-  <List divided verticalAlign='middle'>
+const TodoList = () => (
+  <List divided verticalAlign="middle">
     <List.Item>
-      <Image avatar src='' />
+      <Icon aria-hidden="true" className="checkmark" />
       <List.Content>
-        <List.Header as='a'>Task 1 </List.Header>
+        <List.Header as="a">Task 1 </List.Header>
       </List.Content>
     </List.Item>
     <List.Item>
-      <Image avatar src='' />
+      <Icon aria-hidden="true" className="checkmark" />
       <List.Content>
-        <List.Header as='a'>Task 2</List.Header>
+        <List.Header as="a">Task 2</List.Header>
       </List.Content>
     </List.Item>
     <List.Item>
-      <Image avatar src='' />
+      <Icon aria-hidden="true" className="checkmark" />
       <List.Content>
-        <List.Header as='a'>Task 3</List.Header>
+        <List.Header as="a">Task 3</List.Header>
       </List.Content>
     </List.Item>
   </List>
-)
+);
 
 export default TodoList;
