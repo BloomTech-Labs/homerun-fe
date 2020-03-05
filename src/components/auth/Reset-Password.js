@@ -1,17 +1,20 @@
 import React from "react";
-import { useParams } from 'react-router';
+import { useParams } from "react-router";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const ResetPW = () => {
   const { register, handleSubmit, errors } = useForm();
-  
+
   let { hash } = useParams();
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/reset", {...data, hash})
+      .post("https://stage-homerun-be.herokuapp.com/auth/reset", {
+        ...data,
+        hash
+      })
       .then(res => {
         console.log(res);
       })
@@ -24,12 +27,18 @@ const ResetPW = () => {
     <div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field>
-        <label>New Password</label>
+          <label>New Password</label>
           <input
             type="password"
             placeholder="New Password"
             name="password"
-            ref={register({ required: "New Password is required." })}
+            ref={register({
+              required: "New Password is required.",
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters long."
+              }
+            })}
           />
           {errors.password && <p>{errors.password.message}</p>}
           {/*<Form.Field>
