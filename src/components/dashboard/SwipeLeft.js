@@ -6,7 +6,7 @@ const SwipeLeft = () => {
 
     return (
         <List.Item className='swipe-left'>
-            <Icon aria-hidden="true" className="trash" size='small' />
+            <Icon aria-hidden="true" className="trash alternate" size='small' />
         </List.Item>
     )
 }
