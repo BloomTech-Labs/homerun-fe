@@ -49,7 +49,7 @@ const Routes = () => {
         <Route path="/signup" component={SignUp} />
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:id" component={ResetPW} />
-        <Route path="confirm-account/:id" component={ConfirmAcct} />
+        <Route path="/confirm-account/:id" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
