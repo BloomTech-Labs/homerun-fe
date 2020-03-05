@@ -1,16 +1,21 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
-const SignInLanding = () => {
+const SignInLanding = props => {
+  const googleAuth = () => {
+    window.open("https://stage-homerun-be.herokuapp.com/connect/google");
+  };
   return (
     <div>
-      <Button icon>
+      <Button onClick={googleAuth} icon>
         <Icon name="google" />
         &nbsp;&nbsp;&nbsp;Sign in with Google
       </Button>
       <br />
       <br />
-      <Button>Sign in with Email</Button>
+      <Button onClick={() => props.history.push("/signin/email")}>
+        Sign in with Email
+      </Button>
       <br />
       <br />
       <p>

@@ -10,7 +10,6 @@ level of experience, education, socio-economic status, nationality, personal
 appearance, race, religion, or sexual identity and orientation.
 
 ## Our Standards
-
 Examples of behavior that contributes to creating a positive environment
 include:
 
