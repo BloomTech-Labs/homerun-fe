@@ -5,7 +5,7 @@ import { Button, Icon } from 'semantic-ui-react';
 const AccountSettings = () => {
 
     return (
-        <button>
+        <button className='header-btns'>
              <Icon size='big' name='user circle'/>
         </button>
     )
