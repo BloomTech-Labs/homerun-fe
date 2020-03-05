@@ -10,7 +10,7 @@ import SwipeLeft from './SwipeLeft';
 const Todo = props => {
 
     return (
-        <List.Item>
+        <List.Item className='todo'>
         <SwipeableListItem
             swipeLeft={{
                 content: <SwipeLeft />,
@@ -22,8 +22,8 @@ const Todo = props => {
             }}
         >
            
-                <List.Content>
-                <List.Header as='a'>{props.task} </List.Header>
+                <List.Content className='todo-container'>
+                    <List.Header as='a'>{props.task} </List.Header>
                 </List.Content>
          
         </SwipeableListItem>
