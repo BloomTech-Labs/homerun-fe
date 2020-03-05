@@ -1,8 +1,8 @@
-import React from 'react'
-import { Icon, List } from 'semantic-ui-react'
+import React from 'react';
+import { Icon, List } from 'semantic-ui-react';
 
 const TodoList= () => (
-  <List divided verticalAlign='middle'>
+  <List dividaed verticalAlign='middle'>
     <List.Item>
       <Icon aria-hidden="true" className="checkmark" />
       <List.Content>
