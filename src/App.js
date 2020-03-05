@@ -9,7 +9,7 @@ function initializeAnalytics (){
 }
 
 function App() {
-  initializeAnalytics()
+  // initializeAnalytics()
   return (
     <div className="App"> 
       <Routes />

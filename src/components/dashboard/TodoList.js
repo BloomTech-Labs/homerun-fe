@@ -14,24 +14,10 @@ import Todo from './Todo.js';
 const TodoList= () => {
 
   return (
-    <List size='massive' divided verticalAlign='middle'>
-      <SwipeableList>
-        <SwipeableListItem
-        swipeLeft = {{
-          content: <SwipeLeft />,
-          action: () => console.log("Worked!")
-        }}
-        swipeRight={{
-          content: <div>SwipeRight</div>,
-          action: () => console.log('swiping')
-        }}
-        >
-          <Todo task={'Task 1'} />
-        </SwipeableListItem>
-        
+    <List size='massive' celled verticalAlign='middle'>
+        <Todo task='Task 1' />
         <Todo task={'Task 2'} />
         <Todo task={'Task 3'} />
-      </SwipeableList>
     </List>
     )
 
