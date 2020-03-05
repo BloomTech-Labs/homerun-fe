@@ -1,12 +1,8 @@
 import React from 'react';
 import { List } from 'semantic-ui-react';
 
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../SASS/TodoList.scss';
-
-import SwipeLeft from './SwipeLeft.js';
 
 import Todo from './Todo.js';
 
