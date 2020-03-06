@@ -11,22 +11,22 @@ const Todo = props => {
 
     return (
         <List.Item className='todo'>
-        <SwipeableListItem
-            swipeLeft={{
-                content: <SwipeLeft />,
-                action: () => console.log('Working')
-            }}
-            swipeRight={{
-                content: <div>SwipeRight</div>,
-                action: () => console.log('Working')
-            }}
-        >
-           
-                <List.Content className='todo-container'>
-                    <List.Header as='a'>{props.task} </List.Header>
-                </List.Content>
-         
-        </SwipeableListItem>
+            <SwipeableListItem
+                swipeLeft={{
+                    content: <SwipeLeft />,
+                    action: () => console.log('Working')
+                }}
+                swipeRight={{
+                    content: <div>SwipeRight</div>,
+                    action: () => console.log('Working')
+                }}
+            >
+            
+                    <List.Content className='todo-container'>
+                        <List.Header as='a'>{props.task} </List.Header>
+                    </List.Content>
+            
+            </SwipeableListItem>
         </List.Item>
     )
 }
