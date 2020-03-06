@@ -10,5 +10,4 @@ const SwipeLeft = () => {
         </List.Item>
     )
 }
-
 export default SwipeLeft;

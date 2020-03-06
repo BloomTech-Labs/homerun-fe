@@ -23,6 +23,8 @@ import Header from '../components/header/Header.js';
 // Settings
 import Settings from '../components/allSettings/Settings.js';
 
+
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}

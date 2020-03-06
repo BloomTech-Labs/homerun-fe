@@ -15,7 +15,6 @@ const TodoForm = () => {
         <Icon aria-hidden="true" className="clock icon" />
       </Button>
     </Form>
-    // <Input icon='add user' iconPosition='right' />
   );
 };
 

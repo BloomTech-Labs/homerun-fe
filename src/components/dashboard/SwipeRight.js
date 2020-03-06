@@ -2,21 +2,11 @@ import React from "react";
 import { List, Icon } from 'semantic-ui-react'; 
 
 
-// const swipeRightData = () => {
-//     content: (
-//       <ItemContent
-//         icon= {<SwipeRight/>}
-//         label="Complete"
-//         side="right"
-//         color="green"
-//       />
-// }
-
 const SwipeRight = () => {
     
     return (
-        <List.Item>
-            <Icon aria-hidden="true" className = "checkmark"  size='massive' />
+        <List.Item className = "swipe-right">
+            <Icon aria-hidden="true" className = "check"  size='small' />
         </List.Item>
     )
 }

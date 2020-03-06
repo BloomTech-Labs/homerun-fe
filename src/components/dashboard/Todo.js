@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { List, Icon } from 'semantic-ui-react';
+import { List, Icon, Input} from 'semantic-ui-react';
 
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-import '../../SASS/TodoList.scss';
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import SwipeLeft from './SwipeLeft';
+import SwipeRight from './SwipeRight.js';
 
 const Todo = props => {
 
@@ -17,7 +17,7 @@ const Todo = props => {
                     action: () => console.log('Working')
                 }}
                 swipeRight={{
-                    content: <div>SwipeRight</div>,
+                    content: <SwipeRight />,
                     action: () => console.log('Working')
                 }}
             >
@@ -25,7 +25,6 @@ const Todo = props => {
                     <List.Content className='todo-container'>
                         <List.Header as='a'>{props.task} </List.Header>
                     </List.Content>
-            
             </SwipeableListItem>
         </List.Item>
     )

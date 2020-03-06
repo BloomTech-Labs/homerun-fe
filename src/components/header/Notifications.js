@@ -8,5 +8,4 @@ const Notifications = () => {
         <Button circular icon='bell' />
     )
 }
-
 export default Notifications;

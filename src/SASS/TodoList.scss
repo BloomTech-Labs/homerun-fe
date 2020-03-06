@@ -11,6 +11,15 @@
 
 }
 
+.swipe-right {
+    background-color:green;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
 .todo-container {
     width: 100%;
     display: flex;
