@@ -21,7 +21,7 @@ import Household from '../components/household/Household'
 import Header from '../components/header/Header.js';
 
 // Settings
-import Settings from '../components/allSettings/AdultSettings.js';
+import Settings from '../components/allSettings/Settings.js';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -48,7 +48,6 @@ const Routes = () => {
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
-        <PrivateRoute path= "/settings" component= {Settings} />
       </Switch>
     </div>
   );
