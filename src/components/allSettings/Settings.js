@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Dropdown from './Dropdown.js';
 import AccountSettings from '../header/AccountSettings.js';
 
-import { Sidebar, Segment, Menu,  Header, Icon, Image } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
-const Settings = (props) => {
+const Settings = () => {
    
     return (
         <>

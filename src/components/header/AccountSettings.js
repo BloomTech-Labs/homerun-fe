@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Button, Icon } from 'semantic-ui-react';
 
-const AccountSettings = () => {
+const AccountSettings = (props) => {
 
     return (
-        <button className='header-btns'>
+        <button onClick={props.setSettingsOn} className='header-btns'>
              <Icon size='big' name='user circle'/>
         </button>
     )

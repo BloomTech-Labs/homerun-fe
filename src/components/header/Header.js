@@ -15,7 +15,7 @@ const Header = () => {
     // location is an object that contains the current url path on the 'pathname' property
     const location = useLocation();
 
-    const [settingsOn, setSettingsOn] = useState(false);
+    const [settingsOn, setSettingsOn] = useState(true);
 
     return (
         <>
@@ -24,9 +24,9 @@ const Header = () => {
                 <UiHeader as='h3'>
                 { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
                     </UiHeader>
-                <AccountSettings />
+                <AccountSettings setSettingsOn={setSettingsOn} />
             </div>
-                <Sidebar.Pushable as={Segment}>
+               
                 <Sidebar
                     as={Menu}
                     animation='overlay'
@@ -34,15 +34,20 @@ const Header = () => {
                     inverted
                     onHide={() => setSettingsOn(false)}
                     vertical
+                    direction='right'
                     visible={settingsOn}
                     width='thin'
                 >
-                <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                     <Sidebar.Pushable as={Segment} className=''>
+                        <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                    </Sidebar.Pushable>
                 </Sidebar>
-                <Sidebar.Pusher dimmed={settingsOn}>
-
-            </Sidebar.Pusher>
-            </Sidebar.Pushable>
+                {/* <Sidebar.Pusher dimmed={settingsOn}>
+                    <div className='dimmed'>
+                        asdfasdfasd
+                    </div>
+                </Sidebar.Pusher> */}
+            
         </>
     )
 }
