@@ -15,7 +15,7 @@ const Header = () => {
     // location is an object that contains the current url path on the 'pathname' property
     const location = useLocation();
 
-    const [settingsOn, setSettingsOn] = useState(true);
+    const [settingsOn, setSettingsOn] = useState(false);
 
     return (
         <>
@@ -28,6 +28,7 @@ const Header = () => {
             </div>
                
                 <Sidebar
+                    className='settings'
                     as={Menu}
                     animation='overlay'
                     icon='labeled'
@@ -36,12 +37,14 @@ const Header = () => {
                     vertical
                     direction='right'
                     visible={settingsOn}
-                    width='thin'
+                    width='wide'
                 >
                      <Sidebar.Pushable as={Segment} className=''>
                         <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                     </Sidebar.Pushable>
                 </Sidebar>
+
+                {/* TODO -> background needs to be dimmed when settings is activated */}
                 {/* <Sidebar.Pusher dimmed={settingsOn}>
                     <div className='dimmed'>
                         asdfasdfasd
