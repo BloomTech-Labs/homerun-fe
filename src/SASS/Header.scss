@@ -20,4 +20,13 @@
     width: 85% !important; // <-- overrides the default width for semantic ui sidebar
 }
 
+.settings-header {
+    display: flex;
+    padding: 20px;
+
+}
+
+.icons-size {
+    font-size: 2.5rem !important; // <-- overrides icons default sizes given by semantic ui - sizes were either too small or too big
+}
 
