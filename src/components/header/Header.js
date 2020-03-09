@@ -39,8 +39,10 @@ const Header = () => {
                     visible={settingsOn}
                     width='wide'
                 >
-                     <Sidebar.Pushable as={Segment} className=''>
-                         <AccountSettings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                     <Sidebar.Pushable as={Segment}>
+                        <div className='settings-header'>
+                            <AccountSettings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                        </div>
                         <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                     </Sidebar.Pushable>
                 </Sidebar>
