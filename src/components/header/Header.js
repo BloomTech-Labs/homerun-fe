@@ -40,6 +40,7 @@ const Header = () => {
                     width='wide'
                 >
                      <Sidebar.Pushable as={Segment} className=''>
+                         <AccountSettings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                         <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                     </Sidebar.Pushable>
                 </Sidebar>

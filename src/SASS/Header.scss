@@ -4,14 +4,20 @@
     margin: 20px 0;
 
 
-    .header-btns {
-        border: none;
-        background: none;
-      
-        i {
-            color: #0074D9;
-        }
+}
+
+
+.header-btns {
+    border: none;
+    background: none;
+  
+    i {
+        color: #0074D9;
     }
+}
+
+.settings {
+    width: 85% !important; // <-- overrides the default width for semantic ui sidebar
 }
 
 
