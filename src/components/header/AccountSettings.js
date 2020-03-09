@@ -6,7 +6,7 @@ const AccountSettings = (props) => {
 
     return (
         <button onClick={() => props.setSettingsOn(!props.settingsOn)} className='header-btns'>
-             <Icon size='big' name='user circle'/>
+             <Icon className='icons-size' size='big' name='user circle'/>
         </button>
     )
 }
