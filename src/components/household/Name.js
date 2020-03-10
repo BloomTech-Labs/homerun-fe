@@ -1,12 +1,16 @@
 import React from "react";
 
+import { Image, List } from 'semantic-ui-react';
 
-const Name = () => {
+const Name = (props) => {
 
     return (
-        <div>
-            FirstName
-        </div>
+        <List.Item>
+            <Image avatar src='https://react.semantic-ui.com/images/avatar/small/helen.jpg' />
+            <List.Content>
+                <List.Header>{props.name}</List.Header>
+            </List.Content>
+        </List.Item>
     )
 }
 

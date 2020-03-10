@@ -1,27 +1,33 @@
-import React from 'react'
-import { Icon, List } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react';
+import { List } from 'semantic-ui-react';
 
-const TodoList = () => (
-  <List divided verticalAlign="middle">
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 1 </List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 2</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 3</List.Header>
-      </List.Content>
-    </List.Item>
-  </List>
-);
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import '../../SASS/TodoList.scss';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import Todo from './Todo.js';
+
+
+const TodoList= () => {
+  const [todos, setTodos] = useState([]);
+  // hard coded Household id right now
+  useEffect(() => {
+    axiosWithAuth().get(`/todos/a12345`)
+      .then(res => {
+        console.log(res);
+        setTodos(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
+  return (
+    <List size='massive' celled verticalAlign='middle'>
+      {todos.map(todo => {
+        return <Todo id={todo.id} task={todo.title} />
+      })}
+    </List>
+    )
+  }
 
 export default TodoList;
