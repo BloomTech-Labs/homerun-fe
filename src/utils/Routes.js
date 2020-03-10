@@ -24,7 +24,7 @@ import Header from '../components/header/Header.js';
 import Settings from '../components/allSettings/Settings.js';
 
 //Error 404 Page
-// import NotFound from "../components/dashboard/NotFound.js";
+import NotFound from "../components/dashboard/NotFound.js";
 
 
 
@@ -54,7 +54,7 @@ const Routes = () => {
         <Route exact path="/signin" component={SignInLanding} />
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
-        {/* <Route path= "*" component ={NotFound}/> */}
+        <Route path= "*" component ={NotFound}/>
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
       </Switch>
