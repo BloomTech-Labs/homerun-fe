@@ -11,7 +11,6 @@ import Todo from './Todo.js';
 
 const TodoList= () => {
   const [todos, setTodos] = useState([]);
-
   // hard coded Household id right now
   useEffect(() => {
     axiosWithAuth().get(`/todos/a12345`)
@@ -23,7 +22,6 @@ const TodoList= () => {
         console.log(err);
       })
   }, [])
-
 
   return (
     <List size='massive' celled verticalAlign='middle'>
