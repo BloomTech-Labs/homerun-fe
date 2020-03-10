@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <>
             <div className='header-container'>
-                {location.pathname === '/household' ? <PinNumber /> : <Notifications />}
+                {location.pathname === '/household' ? <PinNumber /> : <Notifications /> }
                 <UiHeader as='h3'>
                 { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
                     </UiHeader>

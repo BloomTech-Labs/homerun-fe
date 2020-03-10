@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Icon } from 'semantic-ui-react';
+import { button, Icon } from 'semantic-ui-react';
 
 const AccountSettings = (props) => {
 

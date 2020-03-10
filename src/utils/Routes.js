@@ -23,6 +23,10 @@ import Header from '../components/header/Header.js';
 // Settings
 import Settings from '../components/allSettings/Settings.js';
 
+//Error 404 Page
+// import NotFound from "../components/dashboard/NotFound.js";
+
+
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -37,6 +41,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
+
+
 // Header component needs to render on multiple routes and since the Switch already has a dashboard route and household route
 // the header component needs to render outside the switch
 const Routes = () => {
@@ -48,6 +54,7 @@ const Routes = () => {
         <Route exact path="/signin" component={SignInLanding} />
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
+        {/* <Route path= "*" component ={NotFound}/> */}
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
       </Switch>
