@@ -3,9 +3,7 @@ import { List } from 'semantic-ui-react';
 
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../SASS/TodoList.scss';
-
 import axiosWithAuth from '../../utils/AxiosWithAuth.js';
-
 import Todo from './Todo.js';
 
 
@@ -30,8 +28,6 @@ const TodoList= () => {
       })}
     </List>
     )
-
   }
-
 
 export default TodoList;

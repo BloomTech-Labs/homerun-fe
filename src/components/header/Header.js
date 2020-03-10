@@ -28,32 +28,17 @@ const Header = () => {
             </div>
                
                 <Sidebar
-                    className='settings'
-                    as={Menu}
-                    animation='overlay'
-                    icon='labeled'
-                    inverted
-                    onHide={() => setSettingsOn(false)}
-                    vertical
-                    direction='right'
-                    visible={settingsOn}
-                    width='wide'
-                >
+                    className='settings' as={Menu} animation='overlay' icon='labeled' inverted vertical direction='right' visible={settingsOn} width='wide'
+                    onHide={() => setSettingsOn(false)} >
+                        
                      <Sidebar.Pushable as={Segment}>
                         <div className='settings-header'>
                             <AccountSettings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                         </div>
                         <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                     </Sidebar.Pushable>
-                </Sidebar>
-
-                {/* TODO -> background needs to be dimmed when settings is activated */}
-                {/* <Sidebar.Pusher dimmed={settingsOn}>
-                    <div className='dimmed'>
-                        asdfasdfasd
-                    </div>
-                </Sidebar.Pusher> */}
-            
+              </Sidebar>
+                {/* TODO -> background needs to be dimmed when settings is activated */}    
         </>
     )
 }

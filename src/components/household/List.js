@@ -28,13 +28,8 @@ const List = () => {
                         return <Name key={member.id} name={member.username} />
                     })}
                 </UiList>
-                <Modal
-                    open={modalOpen}
-                    trigger={<Button onClick={() => setModalOpen(true)}>Add Member</Button>}
-                    header='Add a member'
-                    content={<HouseholdForm setModalOpen={setModalOpen} />}
-                    >
-                    </Modal>
+                <Modal open={modalOpen} trigger={<Button onClick={() => setModalOpen(true)}>Add Member</Button>} header='Add a member' content={<HouseholdForm setModalOpen={setModalOpen} />}>
+                </Modal>
             </div>
         )
     }
