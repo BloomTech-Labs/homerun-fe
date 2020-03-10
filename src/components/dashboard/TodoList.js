@@ -14,7 +14,7 @@ const TodoList= () => {
 
   // hard coded Household id right now
   useEffect(() => {
-    axiosWithAuth().get('/todos/a12345`)
+    axiosWithAuth().get(`/todos/a12345`)
       .then(res => {
         console.log(res);
         setTodos(res.data);
