@@ -2,11 +2,11 @@ import React from 'react'
 import { Button, Dropdown as SemanticDropDown } from 'semantic-ui-react'
 
 const options = [
-  { key: 'edit', icon: 'edit', text: 'Edit Post', value: 'edit' },
-  { key: 'delete', icon: 'delete', text: 'Remove Post', value: 'delete' },
-  { key: 'hide', icon: 'hide', text: 'Hide Post', value: 'hide' },
+  { icon: 'user', text: 'Mom', value: 'Mom' },
+  { icon: 'user', text: 'Dad', value: 'Dad' },
+  { icon: 'user', text: 'Daughter', value: 'Daughter' },
+  {icon: 'user', text: 'Son', value: 'Son' },
 ]
-
 const Dropdown = () => {
  
  

@@ -13,7 +13,13 @@ const TodoList= () => {
   useEffect(() => {
     axiosWithAuth().get(`/todos/a12345`)
       .then(res => {
-        console.log(res);
+        let date = parseInt(res.data[0].due);
+        // let date = new Date()
+        // date = date.toString();
+        // date = date.toDateString();
+
+        console.log(typeof date)
+        console.log(date);
         setTodos(res.data);
       })
       .catch(err => {
