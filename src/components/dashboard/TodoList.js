@@ -28,7 +28,7 @@ const TodoList= () => {
   return (
     <List size='massive' celled verticalAlign='middle'>
       {todos.map(todo => {
-        return <Todo task={todo.title} />
+        return <Todo id={todo.id} task={todo.title} />
       })}
     </List>
     )
