@@ -2,7 +2,7 @@ import React from "react";
 
 import { Form, Input, Icon, Button, Modal, Header, Dropdown as SemanticDropDown } from "semantic-ui-react";
 
-import "../../SASS/TaskForm.scss";
+import "../../../SASS/TaskForm.scss";
 
 const options = [
   {icon: 'member', text: 'Mom' , value: 'Mom'},
