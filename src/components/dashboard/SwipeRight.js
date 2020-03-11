@@ -3,7 +3,6 @@ import { List, Icon } from 'semantic-ui-react';
 
 
 const SwipeRight = () => {
-
     
     return (
         <List.Item className = "swipe-right">
