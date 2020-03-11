@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Dropdown } from 'semantic-ui-react';
 
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../SASS/TodoList.scss';
@@ -27,12 +27,15 @@ const TodoList= () => {
   }, [])
 
   return (
+    <>
+    <Dropdown />
     <List size='massive' celled verticalAlign='middle'>
       {todos.map(todo => {
         todo.due = dayjs(todo.due).format('MM/DD/YYYY');
         return <Todo id={todo.id} task={todo} />
       })}
     </List>
+    </>
     )
   }
 
