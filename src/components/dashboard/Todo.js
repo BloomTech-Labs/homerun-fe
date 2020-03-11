@@ -7,8 +7,10 @@ import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import SwipeLeft from './SwipeLeft';
 import SwipeRight from './SwipeRight.js';
 
-const Todo = props => {
 
+
+const Todo = props => {
+    console.log(props);
     return (
         <List.Item className='todo'>
             <SwipeableListItem
@@ -23,7 +25,10 @@ const Todo = props => {
             >
             
                     <List.Content className='todo-container'>
-                        <List.Header as='a'>{props.task} </List.Header>
+                        <div className='todo-left'>
+                            <List.Header as='a'>{props.task.title} </List.Header>
+                            <List.Header as={'h5'}>Due {props.task.due}</List.Header>
+                        </div>
                     </List.Content>
             </SwipeableListItem>
         </List.Item>
