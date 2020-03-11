@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { Icon, Button } from 'semantic-ui-react';
 
 const AssignUserButton = () => {
 
     return (
-        <button>Assign</button>
+        <Button circular icon='add user' />
     )
 }
 
