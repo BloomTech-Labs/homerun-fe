@@ -28,7 +28,6 @@ const TodoList= () => {
 
   return (
     <>
-    <Dropdown />
     <List size='massive' celled verticalAlign='middle'>
       {todos.map(todo => {
         todo.due = dayjs(todo.due).format('MM/DD/YYYY');

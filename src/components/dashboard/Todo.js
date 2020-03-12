@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { List, Icon, Input, Modal, Button} from 'semantic-ui-react';
+import { List, Icon, Input, Modal, Button, Dropdown} from 'semantic-ui-react';
 
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
@@ -16,6 +16,13 @@ const Todo = props => {
     const [modalOpen, setModalOpen] = useState(false);
 
     console.log(props);
+
+    const options = [
+        { key: 'memberId', text: 'Mom', value: 'Mom' },
+        { key: 'memberId', text: 'Dad', value: 'Dad' },
+        { key: 'memberId', text: 'Daughter', value: 'Daughter' },
+        { key: 'memberId', text: 'Son', value: 'Son' },
+    ]
     return (
         <>
         <DeleteTodoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
@@ -32,11 +39,13 @@ const Todo = props => {
                 }}
             >
                     <List.Content className='todo-container'>
+                        
                         <div className='todo-left'>
                             <List.Header as='a'>{props.task.title} </List.Header>
                             <List.Header as={'h5'}>Due {props.task.due}</List.Header>
                         </div>
                         <div className='todo-right'>
+                           
                             <Assign />
                         </div>
                     </List.Content>
