@@ -37,7 +37,7 @@ const TodoForm = () => {
       <Input type="text" placeholder="Task" />
 
       <AssignMember> </AssignMember>
-      <AssignTime>  </AssignTime>
+      {/* <AssignTime>  </AssignTime> */}
       
     </Form>
   );
@@ -47,7 +47,7 @@ const TodoForm = () => {
 
 const AssignMember = () => (
   <Modal trigger={ModalButton()}>
-    <Modal.Header> Assign a Member to a task</Modal.Header>
+    <Modal.Header> AWho would you like to assign this task to? </Modal.Header>
       <SemanticDropDown
         className= 'button icon'
         floating
@@ -58,31 +58,31 @@ const AssignMember = () => (
 )
 
 
-const AssignTime = () => (
+// const AssignTime = () => (
   
-  <Modal trigger={timeModal()}>
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <h3 id="myModalLabel">Date/Time Picker</h3>
-  </div>
-  <div class="modal-body">
-    <div id="datetimepicker1" class="input-append date">
-      <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
-      <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
+//   <Modal trigger={timeModal()}>
+//   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+//   <div class="modal-header">
+//     <h3 id="myModalLabel">Date/Time Picker</h3>
+//   </div>
+//   <div class="modal-body">
+//     <div id="datetimepicker1" class="input-append date">
+//       <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+//       <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+//     </div>
+//   </div>
+//   <div class="modal-footer">
+//     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+//   </div>
+// </div>
 
 
         
-  </Modal>
+//   </Modal>
 
 
 
 
-)
+// )
 
 export default TodoForm;
