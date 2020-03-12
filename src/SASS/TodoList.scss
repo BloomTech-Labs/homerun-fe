@@ -45,14 +45,15 @@
     margin-right: 10px;
 }
 
-.date-picker {
     .date-picker {
+        width:150px;
         padding: 15px;
         width: 150px;
         border: none;
         border-bottom: 1px solid black;
       }
-}
+
+
 
 .visible.menu.transition {
     position: absolute;
