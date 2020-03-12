@@ -23,13 +23,37 @@
 .todo-container {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 
-    a {
-        padding: 10px;
-    }
 }
 
 .todo {
     padding: 0 !important; // <-- needed to override semantic ui padding
+}
+
+.todo-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.todo-right {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.date-picker {
+    .date-picker {
+        padding: 15px;
+        width: 150px;
+        border: none;
+        border-bottom: 1px solid black;
+      }
+}
+
+.ui.dropdown .visible.menu.transition {
+    position: absolute;
 }
