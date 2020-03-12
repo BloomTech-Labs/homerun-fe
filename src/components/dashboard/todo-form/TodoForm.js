@@ -4,6 +4,7 @@ import { Form, Input, Icon, Button, Modal, Header, Dropdown as SemanticDropDown 
 
 import "../../../SASS/TaskForm.scss";
 
+
 const options = [
   {icon: 'member', text: 'Mom' , value: 'Mom'},
   {icon: 'member', text: 'Dad' , value: 'Dad'},
@@ -58,6 +59,7 @@ const AssignMember = () => (
 
 
 const AssignTime = () => (
+  
   <Modal trigger={timeModal()}>
   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
