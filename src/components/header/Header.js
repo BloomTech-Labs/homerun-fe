@@ -19,7 +19,7 @@ const Header = () => {
             {location.pathname === '/household' ? <PinNumber /> : <Notifications />}
             <UiHeader as='h3'>
                { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
-                </UiHeader>
+            </UiHeader>
             <AccountSettings />
         </div>
     )

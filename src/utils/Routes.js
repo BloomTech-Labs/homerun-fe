@@ -15,7 +15,16 @@ import SignInEmail from "../components/auth/SignIn-Email";
 import Home from "../components/marketing/Home.js";
 
 // Household component
-import Household from '../components/household/Household'
+import Household from '../components/household/Household';
+
+//Forgot Password component
+import ForgotPW from '../components/auth/Forgot-Password';
+
+//Reset Password component
+import ResetPW from "../components/auth/Reset-Password";
+
+import Auth from "../components/auth/Auth";
+import ConfirmAcct from "../components/auth/Confirm-Account";
 
 // Header
 import Header from '../components/header/Header.js';
@@ -43,6 +52,10 @@ const Routes = () => {
         <Route exact path="/signin" component={SignInLanding} />
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/forgot-password" component={ForgotPW} />
+        <Route path="/reset-password/:hash" component={ResetPW} />
+        <Route path="/confirm-account/:hash" component={ConfirmAcct} />
+        <Route path="/auth" component={Auth} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
       </Switch>
