@@ -13,7 +13,7 @@
 
 # 1️⃣ Welcome to TidyHive! 
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+1️⃣ You can find the deployed project at TidyHive (https://dashboard.heroku.com/apps/stage-homerun-fe).
 
 ## 4️⃣ Contributors
 

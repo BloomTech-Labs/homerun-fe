@@ -4,13 +4,29 @@
     margin: 20px 0;
 
 
-    .header-btns {
-        border: none;
-        background: none;
-      
-        i {
-            color: #0074D9;
-        }
+}
+
+
+.header-btns {
+    border: none;
+    background: none;
+  
+    i {
+        color: #0074D9;
     }
+}
+
+.settings {
+    width: 85% !important; // <-- overrides the default width for semantic ui sidebar
+}
+
+.settings-header {
+    display: flex;
+    padding: 20px;
+
+}
+
+.icons-size {
+    font-size: 2.5rem !important; // <-- overrides icons default sizes given by semantic ui - sizes were either too small or too big
 }
 

@@ -1,0 +1,69 @@
+.swipe-left {
+    background-color: #FF4136;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    color: white;
+
+}
+
+.swipe-right {
+    background-color:green;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
+.todo-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.todo {
+    padding: 0 !important; // <-- needed to override semantic ui padding
+}
+
+.todo-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.todo-right {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+    .date-picker {
+        width:150px;
+        padding: 15px;
+        width: 150px;
+        border: none;
+        border-bottom: 1px solid black;
+      }
+
+
+
+// button to assign users to task
+.ui.icon.button {
+    padding: 0 !important;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .add.user.icon {
+        position: absolute;
+        z-index: 1;
+    }
+}
