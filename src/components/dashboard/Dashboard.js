@@ -1,5 +1,5 @@
 import React from "react";
-import TodoList from "./TodoList";
+import TodoList from "./todos/TodoList.js";
 import TodoForm from "./add-todo/TodoForm.js";
 import { Button } from "semantic-ui-react";
 

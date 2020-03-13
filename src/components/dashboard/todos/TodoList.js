@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { List, Dropdown } from 'semantic-ui-react';
 
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-import '../../SASS/TodoList.scss';
-import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import '../../../SASS/TodoList.scss';
+import axiosWithAuth from '../../../utils/AxiosWithAuth.js';
 import Todo from './Todo.js';
 import DatePicker from "react-datepicker";
 import advancedFormat from "dayjs/plugin/advancedFormat";

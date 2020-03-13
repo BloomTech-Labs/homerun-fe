@@ -47,7 +47,7 @@ const TodoForm = () => {
 
 const AssignMember = () => (
   <Modal trigger={ModalButton()}>
-    <Modal.Header> AWho would you like to assign this task to? </Modal.Header>
+    <Modal.Header> Who would you like to assign this task to? </Modal.Header>
       <SemanticDropDown
         className= 'button icon'
         floating
