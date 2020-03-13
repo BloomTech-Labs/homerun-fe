@@ -20,23 +20,23 @@ const options = [
 
 
 
-const ModalButton = () => {
-  return (
-    <Button className="ui primary button">
-        <Icon aria-hidden="true" className="add user icon" />
+// const ModalButton = () => {
+//   return (
+//     <Button className="ui primary button">
+//         <Icon aria-hidden="true" className="add user icon" />
 
-      </Button>
-  )
-}
+//       </Button>
+//   )
+// }
 
-const timeModal = () => {
-  return (
-    <Button className="ui positive button">
-    <Icon aria-hidden="true" className="clock icon" />
-  </Button>
+// const timeModal = () => {
+//   return (
+//     <Button className="ui positive button">
+//     <Icon aria-hidden="true" className="clock icon" />
+//   </Button>
 
-  )
-}
+//   )
+// }
 
 const TodoForm = () => {
   return (
@@ -53,7 +53,7 @@ const TodoForm = () => {
 
 
 const AssignMember = () => (
-  <Modal trigger={ModalButton()}>
+  <Modal trigger={TodoForm()}>
     <Modal.Header> Assign a Member to a task</Modal.Header>
       <SemanticDropDown
         className= 'button icon'
@@ -69,7 +69,7 @@ const AssignTime = () => {
   const futureDate = dayjs(startDate.toString()).format("x");
   console.log(<DatePicker />, "This is the date picker")
   return (
-  <Modal trigger={timeModal()}>
+  <Modal trigger={TodoForm()}>
     <Modal.Header>Set Time</Modal.Header>
     <Modal.Content datepicker>
       <Modal.Description>
