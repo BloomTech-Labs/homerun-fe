@@ -17,7 +17,7 @@ export const AssignUserModal = () => {
         <Modal.Header> Assign a Member to a task</Modal.Header>
           <Modal.Content>
             <p>Some Stuff Here</p>
-            <Dropdown fluid multiple selection options={options} />
+            <Dropdown openOnFocus fluid multiple selection options={options} />
           </Modal.Content>
         </>
 
