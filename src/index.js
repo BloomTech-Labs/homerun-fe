@@ -7,6 +7,8 @@ import 'semantic-ui-less/semantic.less';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './SASS/GeneralStyles.scss';
+
 ReactDOM.render(
 <Router>
     <App />

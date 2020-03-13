@@ -9,7 +9,7 @@ import {
   Loader,
   Dimmer
 } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import axios from "axios";
 
 const SignUp = props => {
@@ -27,6 +27,9 @@ const SignUp = props => {
       .catch(err => {
         console.log(err);
       });
+  };
+  const googleAuth = () => {
+    window.open("https://stage-homerun-be.herokuapp.com/connect/google");
   };
 
   return (
@@ -51,7 +54,7 @@ const SignUp = props => {
                 type="text"
                 placeholder="Username"
                 name="username"
-                ref={register({ required: "Username is required."})}
+                ref={register({ required: "Username is required." })}
               />
               {errors.username && <p>{errors.username.message}</p>}
             </Form.Field>
@@ -61,7 +64,7 @@ const SignUp = props => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                ref={register({ required: "Email is required."})}
+                ref={register({ required: "Email is required." })}
               />
               {errors.email && <p>{errors.email.message}</p>}
             </Form.Field>
@@ -71,7 +74,13 @@ const SignUp = props => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                ref={register({ required: "Password is required.", minLength: {value: 8, message: "Password must be at least 8 characters long."} })}
+                ref={register({
+                  required: "Password is required.",
+                  minLength: {
+                    value: 8,
+                    message: "Password must be at least 8 characters long."
+                  }
+                })}
               />
               {errors.password && <p>{errors.password.message}</p>}
             </Form.Field>
@@ -85,9 +94,9 @@ const SignUp = props => {
       </div>
       <Divider horizontal>OR</Divider>
       <div align="center">
-        <Button icon>
+        <Button onClick={googleAuth} icon>
           <Icon name="google" />
-          &nbsp;&nbsp;&nbsp;Sign up with Google
+          &nbsp;&nbsp;&nbsp;Sign in with Google
         </Button>
         <p>
           Already have an account? <a href="/signin">Sign In</a>

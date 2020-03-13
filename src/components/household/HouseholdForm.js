@@ -3,6 +3,10 @@ import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 const HouseholdForm = (props) => {
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    props.setModalOpen(false)
+  }
     return (
             <Form>
               <Form.Field>
@@ -12,7 +16,7 @@ const HouseholdForm = (props) => {
               <Form.Field>
                 <Checkbox label='Child?' />
               </Form.Field>
-              <Button onClick={() => props.setModalOpen(false)} type='submit'>Add</Button>
+              <Button onClick={onSubmit} type='submit'>Add</Button>
             </Form>
           )
 }

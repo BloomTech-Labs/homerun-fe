@@ -1,27 +1,41 @@
-import React from 'react'
-import { Image, List } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react';
+import { List, Dropdown } from 'semantic-ui-react';
 
-const TodoList= () => (
-  <List divided verticalAlign='middle'>
-    <List.Item>
-      <Image avatar src='' />
-      <List.Content>
-        <List.Header as='a'>Task 1 </List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Image avatar src='' />
-      <List.Content>
-        <List.Header as='a'>Task 2</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Image avatar src='' />
-      <List.Content>
-        <List.Header as='a'>Task 3</List.Header>
-      </List.Content>
-    </List.Item>
-  </List>
-)
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import '../../SASS/TodoList.scss';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import Todo from './Todo.js';
+import DatePicker from "react-datepicker";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+
+import dayjs from 'dayjs';
+
+
+const TodoList= () => {
+  const [todos, setTodos] = useState([]);
+  // hard coded Household id right now
+  useEffect(() => {
+    axiosWithAuth().get(`/todos/a12345`)
+      .then(res => {
+        console.log(res.data)
+        let date = dayjs(1583889820327).format('MM/DD/YYYY'); // Look into Human interval package for giving due dates time
+        setTodos(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
+
+  return (
+    <>
+    <List size='massive' celled verticalAlign='middle'>
+      {todos.map(todo => {
+        todo.due = dayjs(todo.due).format('MM/DD/YYYY');
+        return <Todo id={todo.id} task={todo} />
+      })}
+    </List>
+    </>
+    )
+  }
 
 export default TodoList;
