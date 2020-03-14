@@ -5,11 +5,11 @@ import ReactGA from "react-ga";
 
 function initializeAnalytics (){
   ReactGA.initialize("UA-150184896-3");
-  ReactGA.pageview('/email/signUp');
+  ReactGA.pageView('/email/signUp');
 }
 
 function App() {
-  initializeAnalytics()
+  // initializeAnalytics()
   return (
     <div className="App"> 
       <Routes />
