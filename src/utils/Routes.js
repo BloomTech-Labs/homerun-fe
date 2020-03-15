@@ -26,6 +26,11 @@ import Settings from '../components/allSettings/Settings.js';
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
 
+import ForgotPW from '../components/auth/Forgot-Password.js';
+import ResetPW from '../components/auth/Reset-Password.js';
+import ConfirmAcct from '../components/auth/Confirm-Account.js';
+import Auth from '../components/auth/Auth.js';
+
 
 
 
@@ -55,6 +60,10 @@ const Routes = () => {
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
         <Route path= "/error" component ={NotFound}/>
+        <Route path="/forgot-password" component={ForgotPW} />
+        <Route path="/reset-password/:hash" component={ResetPW} />
+        <Route path="/confirm-account/:hash" component={ConfirmAcct} />
+        <Route path="/auth/:token" component={Auth} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
       </Switch> 
