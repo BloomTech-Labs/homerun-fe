@@ -5,11 +5,14 @@ import axios from 'axios';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
 import { Button, Modal, Image, List as UiList, Loader } from 'semantic-ui-react';
-import HouseholdForm from './HouseholdForm';
+import AddChild from './AddChild.js';
+import InviteMember from './InviteMember.js';
 
 const List = () => {
- const [modalOpen, setModalOpen] = useState(false);
- const [members, setMembers] = useState([]);
+ const [childModal, setChildModal] = useState(false);
+ const [memberModal, setMemberModal] = useState(false);
+ const [members, setMembers] = useState([]); 
+
 
  useEffect(() => {
     axios.get('https://my.api.mockaroo.com/householdMembers?key=0523bb20')
@@ -28,8 +31,8 @@ const List = () => {
                         return <Name key={member.id} name={member.username} />
                     })}
                 </UiList>
-                <Modal open={modalOpen} trigger={<Button onClick={() => setModalOpen(true)}>Add Member</Button>} header='Add a member' content={<HouseholdForm setModalOpen={setModalOpen} />}>
-                </Modal>
+                <Modal open={memberModal} trigger={<Button onClick={() => setMemberModal(true)}>Invite Member</Button>} header='Invite a user to your household' content={<InviteMember setMemberModal={setMemberModal} />}></Modal>
+                <Modal open={childModal} trigger={<Button onClick={() => setChildModal(true)}>Add Child</Button>} header='Add a member' content={<AddChild setChildModal={setChildModal} />}></Modal>
             </div>
         )
     }

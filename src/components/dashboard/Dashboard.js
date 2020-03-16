@@ -1,6 +1,6 @@
 import React from "react";
 import TodoList from "./todos/TodoList.js";
-import TodoForm from "./add-todo/TodoForm.js";
+import TodoForm from "./todo-form/TodoForm.js";
 import { Button } from "semantic-ui-react";
 
 import "../../SASS/Dashboard.scss";
