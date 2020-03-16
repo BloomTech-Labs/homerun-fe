@@ -23,7 +23,11 @@ const Todo = props => {
 
     const addSelection = e => {
         let selection = e.target.value
-        setAssigned([...assigned, selection])
+        if (!assigned.includes(selection)) {
+            setAssigned([...assigned, selection])
+        } else {
+            return null
+        }
     }
     const removeSelection = (selection) => {
         if (assigned.includes(selection)) {
