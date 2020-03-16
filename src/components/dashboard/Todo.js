@@ -15,7 +15,7 @@ import { DeleteTodoModal } from './DeleteTodoModal.js';
 
 const Todo = props => {
 
-    console.log(props)
+    const { task } = props
 
     const [modalOpen, setModalOpen] = useState(false);
     const [assigned, setAssigned] = useState([])
@@ -34,7 +34,9 @@ const Todo = props => {
     }
 
     useEffect(() => {
-
+        axios.get(`https://stage-homerun-be.herokuapp.com/members/${task.household}/assign`)
+            .then(res => setAssignees(res.data))
+            .catch(err => console.log(err.message))
     }, [assigned])
 
     return (
@@ -64,10 +66,9 @@ const Todo = props => {
                             })}
                             <div className="ui buttons">
                                 <select className="ui floating dropdown button" onChange={addSelection}>
-                                    <option value="a">A</option>
-                                    <option value="b">B</option>
-                                    <option value="c">C</option>
-                                    <option value="d">D</option>
+                                    {assignees.map((member, index) => {
+                                        return <option key={index} value={member.username}>{member.username}</option>
+                                    })}
                                 </select>
                             </div>
 
