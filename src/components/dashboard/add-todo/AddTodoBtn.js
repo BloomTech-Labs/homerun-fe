@@ -1,5 +1,5 @@
 import React from "react";
-import TodoForm from "./TodoForm";
+import TodoForm from "../todo-form/TodoForm";
 
 import {Button, Modal, Icon} from "semantic-ui-react";
 
