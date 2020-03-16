@@ -29,9 +29,9 @@ const TodoList = () => {
   return (
     <>
       <List celled verticalAlign='middle'>
-        {todos.map(todo => {
+        {todos.map((todo, index) => {
           todo.due = dayjs(todo.due).format('MM/DD/YYYY');
-          return <Todo id={todo.id} task={todo} />
+          return <Todo key={index} id={todo.id} task={todo} />
         })}
       </List>
     </>

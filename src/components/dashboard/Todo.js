@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { List, Icon, Input, Modal, Button, Dropdown, Label } from 'semantic-ui-react';
 
@@ -13,19 +14,28 @@ import { DeleteTodoModal } from './DeleteTodoModal.js';
 
 
 const Todo = props => {
-    const [modalOpen, setModalOpen] = useState(false);
-    let assigned = []
 
-    const handleAssignee = e => {
-        let item = e.target.value
-        if (assigned.includes(item)) {
-            let idx = assigned.indexOf(item)
-            assigned.splice(idx, 1)
+    console.log(props)
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [assigned, setAssigned] = useState([])
+    const [assignees, setAssignees] = useState([])
+
+    const addSelection = e => {
+        let selection = e.target.value
+        setAssigned([...assigned, selection])
+    }
+    const removeSelection = (selection) => {
+        if (assigned.includes(selection)) {
+            setAssigned(assigned.filter(element => element !== selection))
         } else {
-            assigned.push(item)
+            throw new Error()
         }
     }
 
+    useEffect(() => {
+
+    }, [assigned])
 
     return (
         <>
@@ -49,15 +59,18 @@ const Todo = props => {
                             <List.Header as={'h5'}>Due {props.task.due}</List.Header>
                         </div>
                         <div className='todo-right'>
+                            {assigned.map((selection, index) => {
+                                return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
+                            })}
                             <div className="ui buttons">
-                                <select className="ui floating dropdown button" onChange={handleAssignee}>
+                                <select className="ui floating dropdown button" onChange={addSelection}>
                                     <option value="a">A</option>
                                     <option value="b">B</option>
                                     <option value="c">C</option>
                                     <option value="d">D</option>
                                 </select>
                             </div>
-                            {console.log(assigned)}
+
                         </div>
                     </List.Content>
                 </SwipeableListItem>
