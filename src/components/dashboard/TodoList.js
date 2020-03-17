@@ -11,7 +11,7 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import dayjs from 'dayjs';
 
 
-const TodoList= () => {
+const TodoList = () => {
   const [todos, setTodos] = useState([]);
   // hard coded Household id right now
   useEffect(() => {
@@ -28,14 +28,14 @@ const TodoList= () => {
 
   return (
     <>
-    <List size='massive' celled verticalAlign='middle'>
-      {todos.map(todo => {
-        todo.due = dayjs(todo.due).format('MM/DD/YYYY');
-        return <Todo id={todo.id} task={todo} />
-      })}
-    </List>
+      <List celled verticalAlign='middle'>
+        {todos.map((todo, index) => {
+          todo.due = dayjs(todo.due).format('MM/DD/YYYY');
+          return <Todo key={index} id={todo.id} task={todo} />
+        })}
+      </List>
     </>
-    )
-  }
+  )
+}
 
 export default TodoList;
