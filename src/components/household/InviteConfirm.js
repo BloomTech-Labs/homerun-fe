@@ -10,11 +10,11 @@ export const InviteConfirm = () => {
     const { history } = useHistory();
 
     useEffect(() => {
-        axios.put('https://stage-homerun-be.herokuapp.com/member', { householdID })
+        axios.put('https://stage-homerun-be.herokuapp.com/member', { householdID }) 
             .then(res => {
                 // should be getting back the updated user with the new household assigned to them
                 console.log(res);
-                // save the data for the user however we need it
+                // save the data for the user however we need it asdf
 
 
                 // user should be directed to the household if they successfully accepted invite
