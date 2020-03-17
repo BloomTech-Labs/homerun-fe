@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";

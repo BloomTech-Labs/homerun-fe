@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon, List } from 'semantic-ui-react';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import dayjs from 'dayjs';
+import Todo from './todos/Todo.js';
 
+const TodoList = () => {
+  const [todos, setTodos] = useState([]);
+  // hard coded Household id right now
+  useEffect(() => {
+    axiosWithAuth().get(`/todos/a12345`)
+      .then(res => {
+        console.log(res.data)
+        let date = dayjs(1583889820327).format('MM/DD/YYYY'); // Look into Human interval package for giving due dates time
+        setTodos(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
 
-const TodoList = () => (
-  <List divided verticalAlign="middle">
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 1 </List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 2</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon aria-hidden="true" className="checkmark" />
-      <List.Content>
-        <List.Header as="a">Task 3</List.Header>
-      </List.Content>
-    </List.Item>
-  </List>
-);
+  return (
+    <>
+      <List celled verticalAlign='middle'>
+        {todos.map((todo, index) => {
+          todo.due = dayjs(todo.due).format('MM/DD/YYYY');
+          return <Todo key={index} id={todo.id} task={todo} />
+        })}
+      </List>
+    </>
+  )
+}
 
 export default TodoList;
