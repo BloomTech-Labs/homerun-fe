@@ -21,6 +21,7 @@ const SignUp = props => {
     axios
       .post("https://stage-homerun-be.herokuapp.com/auth/signup", data)
       .then(res => {
+        console.log('signup data', res);
         localStorage.setItem("token", res.data.payload);
         props.history.push("/dashboard");
       })
