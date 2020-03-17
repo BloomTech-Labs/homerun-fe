@@ -1,28 +1,23 @@
 import React, {useState} from "react";
-import DatePicker from "react-datepicker";
-import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import { Form, Input, Icon, Button, Modal, Header, Dropdown as SemanticDropDown } from "semantic-ui-react";
-import "react-datepicker/dist/react-datepicker.css";
+import { Form, Input, Dropdown as SemanticDropDown } from "semantic-ui-react";
+
 
 import "../../../SASS/TaskForm.scss";
 import "../../../SASS/TodoList.scss";
-dayjs.extend(advancedFormat);
 
 
 const options = [
-  {icon: 'member', text: 'Mom' , value: 'Mom'},
-  {icon: 'member', text: 'Dad' , value: 'Dad'},
-  {icon: 'member', text: 'Daughter' , value: 'Daughter'},
-  {icon: 'member', text: 'Son' , value: 'Son'},
-
+  { key: '1', text: 'Mom', value: 'Mom' },
+  { key: '2', text: 'Dad', value: 'Dad' },
+  { key: '3', text: 'Daughter', value: 'Daughter' },
+  { key: '4', text: 'Son', value: 'Son' },
 ]
 
 
 const TodoForm = () => {
   return (
     <Form className="ui right icon input taskForm">
-      <Input type="text" placeholder="Task" />
+      <Input type="text" placeholder="Task" /> <br></br>
     </Form>
   );
 };
