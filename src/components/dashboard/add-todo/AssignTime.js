@@ -6,7 +6,20 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const AssignTime = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const futureDate = dayjs(startDate.toString()).format("x");
+    
+
+    useEffect(() => {
+        axiosWithAuth().post('todos/assign/')
+            .then(res => {
+                console.log(res.data)
+                const futureDate = dayjs(startDate.toString()).format("x");
+                setDate(res.data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []) 
+
     console.log(<DatePicker />, "This is the date picker")
     return (   
         <DatePicker 
