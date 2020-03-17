@@ -9,7 +9,7 @@ const AssignTime = () => {
     
 
     useEffect(() => {
-        axiosWithAuth().post('todos/assign/')
+        axiosWithAuth().put('/todos/a12345')
             .then(res => {
                 console.log(res.data)
                 const futureDate = dayjs(startDate.toString()).format("x");
