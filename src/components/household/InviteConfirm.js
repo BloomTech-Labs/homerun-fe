@@ -21,7 +21,7 @@ export const InviteConfirm = () => {
                 history.push('/household');
             })
             .catch(err => {
-                console.log(err);
+                console.log(err); 
             })
     }, [])
 
