@@ -10,7 +10,8 @@ let history = useHistory();
 useEffect(() => {
   localStorage.setItem("token", token);
   history.push('/household');
-}, [])
+}, []);
+
   return(
   <Dimmer active inverted>
     <Loader size="large">Loading</Loader>
