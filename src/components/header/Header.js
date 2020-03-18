@@ -23,7 +23,7 @@ const Header = () => {
             <UiHeader as='h3'>
                { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
             </UiHeader>
-            <AccountSettings />
+            <AccountSettings setSettingsOn={setSettingsOn} settingsOn={settingsOn} />
         </div>
     )
 }
