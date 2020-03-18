@@ -9,8 +9,9 @@ const InviteMember = (props) => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
+    console.log(data);
 
-    axiosWithAuth().post('/household/invite', data)
+    axiosWithAuth().post('/members/household/invite', data)
       .then(res => {
         console.log("onSubmit -> res", res)
         
