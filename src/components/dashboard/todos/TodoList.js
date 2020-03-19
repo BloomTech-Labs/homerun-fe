@@ -15,7 +15,7 @@ const TodoList= () => {
   const [todos, setTodos] = useState([]);
   // hard coded Household id right now
   useEffect(() => {
-    axiosWithAuth().get(`/todos/a12345`)
+    axiosWithAuth().get(`https://stage-homerun-be.herokuapp.com/todos/`)
       .then(res => {
         console.log(res.data)
         let date = dayjs(1583889820327).format('MM/DD/YYYY'); // Look into Human interval package for giving due dates time
