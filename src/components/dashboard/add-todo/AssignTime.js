@@ -20,20 +20,20 @@ const AssignTime = (props) => {
         setInfo ({...info, due: futureDate })
     }
     
-    useEffect(() => {
-        axiosWithAuth().put(`https://stage-homerun-be.herokuapp.com/todosa12345/5`)
-            .then(res => {
-                console.log(res.data)
-                const futureDate = dayjs(startDate.toString()).format("x");  
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, []) 
+    // useEffect(() => {
+    //     axiosWithAuth().post(`https://stage-homerun-be.herokuapp.com/todos/household`)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             const futureDate = dayjs(startDate.toString()).format("x");  
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // }, []) 
 
-    console.log(startDate, "this is start date data")
-    console.log(<DatePicker />, "This is the date picker")
-    console.log( "Added")
+    // console.log(startDate, "this is start date data")
+    // console.log(<DatePicker />, "This is the date picker")
+    // console.log( "Added")
     return (   
         <DatePicker 
         wrapped size = "medium"
