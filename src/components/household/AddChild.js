@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
-const HouseholdForm = (props) => {
+const AddChild = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.setModalOpen(false)
+    props.setChildModal(false)
   }
     return (
             <Form>
@@ -21,4 +21,4 @@ const HouseholdForm = (props) => {
           )
 }
 
-export default HouseholdForm;
+export default AddChild;

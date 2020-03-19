@@ -20,7 +20,8 @@ const SignInEmail = props => {
     axios
       .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
+        console.log("res", res)
+        localStorage.setItem("token", res.data.token);
         props.history.push("/dashboard");
       })
       .catch(err => {

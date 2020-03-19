@@ -45,15 +45,25 @@
     margin-right: 10px;
 }
 
-.date-picker {
     .date-picker {
+        width:150px;
         padding: 15px;
         width: 150px;
         border: none;
         border-bottom: 1px solid black;
       }
-}
 
-.ui.dropdown .visible.menu.transition {
-    position: absolute;
+
+
+// button to assign users to task
+.ui.icon.button {
+    padding: 0 !important;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .add.user.icon {
+        position: absolute;
+        z-index: 1;
+    }
 }

@@ -15,16 +15,7 @@ import SignInEmail from "../components/auth/SignIn-Email";
 import Home from "../components/marketing/Home.js";
 
 // Household component
-import Household from '../components/household/Household';
-
-//Forgot Password component
-import ForgotPW from '../components/auth/Forgot-Password';
-
-//Reset Password component
-import ResetPW from "../components/auth/Reset-Password";
-
-import Auth from "../components/auth/Auth";
-import ConfirmAcct from "../components/auth/Confirm-Account";
+import Household from '../components/household/Household'
 
 // Header
 import Header from '../components/header/Header.js';
@@ -34,6 +25,13 @@ import Settings from '../components/allSettings/Settings.js';
 
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
+
+import ForgotPW from '../components/auth/Forgot-Password.js';
+import ResetPW from '../components/auth/Reset-Password.js';
+import ConfirmAcct from '../components/auth/Confirm-Account.js';
+import Auth from '../components/auth/Auth.js';
+
+import { InviteConfirm } from '../components/household/InviteConfirm.js';
 
 
 
@@ -57,7 +55,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => {
   return (
     <div>
-      <PrivateRoute path={['/dashboard', '/household']} component={Header} />
+      <PrivateRoute path={['/dashboard','/household']} component={Header} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
@@ -67,10 +65,11 @@ const Routes = () => {
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
-        <Route path="/auth" component={Auth} />
+        <Route path="/auth/:token" component={Auth} />
+        <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
-      </Switch>
+      </Switch> 
     </div>
   );
 };
