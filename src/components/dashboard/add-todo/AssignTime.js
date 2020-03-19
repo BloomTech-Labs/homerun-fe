@@ -21,7 +21,7 @@ const AssignTime = (props) => {
     }
     
     useEffect(() => {
-        axiosWithAuth().put(`https://stage-homerun-be.herokuapp.com/todosa12345/5`)
+        axiosWithAuth().post(`https://stage-homerun-be.herokuapp.com/todosa12345/5`)
             .then(res => {
                 console.log(res.data)
                 const futureDate = dayjs(startDate.toString()).format("x");  
