@@ -15,7 +15,7 @@ const options = [
 
 const ModalButton = () => {
     return (
-      <Button className="ui primary button">
+      <Button className="ui primary">
           <Icon aria-hidden="true" className="add" />
   
         </Button>
