@@ -18,13 +18,28 @@ const Header = () => {
     const [settingsOn, setSettingsOn] = useState(false);
 
     return (
+        <>
         <div className='header-container'>
-            {location.pathname === '/household' ? <PinNumber /> : <Notifications />}
-            <UiHeader as='h3'>
-               { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
-            </UiHeader>
-            <AccountSettings />
-        </div>
+                {location.pathname === '/household' ? <PinNumber /> : <Notifications /> }
+                <UiHeader as='h3'>
+                { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
+                    </UiHeader>
+                <AccountSettings setSettingsOn={setSettingsOn} />
+            </div>
+               
+                <Sidebar
+                    className='settings' as={Menu} animation='overlay' icon='labeled' inverted vertical direction='right' visible={settingsOn} width='wide'
+                    onHide={() => setSettingsOn(false)} >
+                        
+                     <Sidebar.Pushable as={Segment}>
+                        <div className='settings-header'>
+                            <AccountSettings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                        </div>
+                        <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
+                    </Sidebar.Pushable>
+              </Sidebar>
+                {/* TODO -> background needs to be dimmed when settings is activated */}   
+        </> 
     )
 }
 

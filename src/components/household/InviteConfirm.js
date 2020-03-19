@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams, useHistory } from "react-router";
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import { useParams, useHistory } from "react-router-dom";
 import { Loader, Dimmer } from 'semantic-ui-react';
 
 
 export const InviteConfirm = () => {
     const [loading, setLoading] = useState(true);
-    const { householdID } = useParams();
-    const { history } = useHistory();
+    const { hash, householdId } = useParams();
+    const history  = useHistory();
 
     useEffect(() => {
-        axios.put('https://stage-homerun-be.herokuapp.com/member', { householdID })
+        axiosWithAuth().put('/members', { hash, householdId }) 
             .then(res => {
                 // should be getting back the updated user with the new household assigned to them
                 console.log(res);
