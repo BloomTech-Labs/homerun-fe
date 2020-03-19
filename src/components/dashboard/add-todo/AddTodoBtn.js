@@ -14,11 +14,11 @@ const options = [
   { key: '4', text: 'Son', value: 'Son' },
 ]
 
-<<<<<<< HEAD
 const ModalButton = () => {
     return (
       <Button className="ui primary">
           <Icon aria-hidden="true" className="add" />
+  
   
         </Button>
     )
@@ -29,8 +29,6 @@ const ModalButton = () => {
   //   e.preventDefault();
   //   const {completed} = this.state;
   //   const newItem = this.newItem.value;
-=======
->>>>>>> 591c5195bd3a190bb60355a87040e936794759f8
 
 
   const AddTodoBtn = ({todo, toggleCompleted, completed, deleteTodo}) => {
