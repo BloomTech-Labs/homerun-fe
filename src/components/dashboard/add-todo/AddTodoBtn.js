@@ -36,7 +36,7 @@ const options = [
 
     const handleSubmit = () => {
     axios
-    .post(`https://stage-homerun-be.herokuapp.com/todos/a12345`)
+    .post(`https://stage-homerun-be.herokuapp.com/todos/household`)
     .then(res => {
       console.log(res.data, res, "res")
     })
@@ -44,6 +44,7 @@ const options = [
       console.log(err)
     })
     }  
+
     return(
       <Modal trigger={
           <Button className="ui primary button">
@@ -62,7 +63,7 @@ const options = [
             <AssignTime setInfo={setInfo} info={info}></AssignTime> <br></br>
           {/* <Form.Select name="" onChange={handleChange} options={options} placeholder='Household Member' error /> <br></br> */}
           <Form.Checkbox name="child" onChange={handleCheck} label='This member is a Child' error /><br></br>
-          <Button> add</Button>
+          <Button type = "submit" > add</Button>
         </Form>
       </Modal>
     )
