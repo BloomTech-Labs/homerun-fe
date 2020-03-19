@@ -16,6 +16,21 @@ const options = [
   { key: '4', text: 'Son', value: 'Son' },
 ]
 
+const ModalButton = () => {
+    return (
+      <Button className="ui primary">
+          <Icon aria-hidden="true" className="add" />
+  
+  
+        </Button>
+    )
+  }
+
+
+  // addItem(e){
+  //   e.preventDefault();
+  //   const {completed} = this.state;
+  //   const newItem = this.newItem.value;
 
   const AddTodoBtn = ({todo, toggleCompleted, completed, deleteTodo}) => {
     const [ info, setInfo ] = useState({
