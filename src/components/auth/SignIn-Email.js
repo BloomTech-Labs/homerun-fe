@@ -21,7 +21,7 @@ const SignInEmail = props => {
       .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
       .then(res => {
         console.log(res);
-        localStorage.setItem("token", res.data.payload);
+        localStorage.setItem("token", res.data.token);
         props.history.push("/dashboard");
       })
       .catch(err => {
