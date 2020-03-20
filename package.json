@@ -6,7 +6,7 @@
     "node": "12.16.1"
   },
   "dependencies": {
-    "@sandstreamdev/react-swipeable-list": "github:sandstreamdev/react-swipeable-list",
+    "@sandstreamdev/react-swipeable-list": "^0.4.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",

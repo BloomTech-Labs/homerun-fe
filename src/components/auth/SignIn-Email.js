@@ -20,7 +20,6 @@ const SignInEmail = props => {
     axios
       .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
       .then(res => {
-        console.log(res);
         localStorage.setItem("token", res.data.payload);
         props.history.push("/dashboard");
       })
@@ -38,12 +37,15 @@ const SignInEmail = props => {
           <Header.Subheader>Sign in to your account.</Header.Subheader>
         </Header>
       </div>
-      <div>
+      
         {isLoading ? (
+        <div>
           <Dimmer active inverted>
             <Loader size="large">Loading</Loader>
           </Dimmer>
+        </div>
         ) : (
+        <div>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Field>
               <label>Email</label>
@@ -67,11 +69,11 @@ const SignInEmail = props => {
             </Form.Field>
             <Button type="submit">Submit</Button>
           </Form>
-        )}
-      </div>
-      <Button onClick={() => props.history.push("/forgot-password")}>
-        Forgot password
-      </Button>
+          <Button onClick={() => props.history.push("/forgot-password")}>
+            Forgot password
+          </Button>
+        </div>
+      )}
     </Container>
   );
 };
