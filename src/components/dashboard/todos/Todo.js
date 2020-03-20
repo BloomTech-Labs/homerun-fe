@@ -7,8 +7,6 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import SwipeLeft from './SwipeLeft';
 import SwipeRight from './SwipeRight.js';
-
-import Assign from './AssignUserButton.js';
 import { DeleteTodoModal } from './DeleteTodoModal.js';
 import axiosWithAuth from '../../../utils/AxiosWithAuth';
 

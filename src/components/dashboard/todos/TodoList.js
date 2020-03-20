@@ -6,7 +6,7 @@ import '../../../SASS/TodoList.scss';
 import axiosWithAuth from '../../../utils/AxiosWithAuth.js';
 import Todo from './Todo.js';
 
-import AddTodoBtn from "../add-todo/AddTodoBtn"
+import ControlTodo from "./ControlTodo.js"
 
 import dayjs from 'dayjs';
 
@@ -18,9 +18,6 @@ const TodoList = () => {
     axiosWithAuth().get(`/todos/household`)
       .then(res => {
         console.log(res)
-        // Dummy date
-        let date = dayjs(1583889820327).format('MM/DD/YYYY');
-
         setTodos(res.data);
       })
       .catch(err => {
@@ -36,7 +33,7 @@ const TodoList = () => {
           return <Todo key={index} id={todo.id} task={todo} />
         })}
       </List>
-      <AddTodoBtn />
+      <ControlTodo />
     </>
   )
 }
