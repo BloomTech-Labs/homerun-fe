@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import TodoForm from "../todo-form/TodoForm";
 import AssignTime from "../add-todo/AssignTime";
-import axios from "axios";
 
-import {Button, Modal, input, Form, Icon, Dropdown as SemanticDropDown} from "semantic-ui-react";
+import { Button, Modal, input, Form, Icon, Dropdown as SemanticDropDown } from "semantic-ui-react";
 
 import styled from "styled-components";
 import { checkPropTypes } from "prop-types";
@@ -17,72 +16,72 @@ const options = [
 ]
 
 const ModalButton = () => {
-    return (
-      <Button className="ui primary">
-          <Icon aria-hidden="true" className="add" />
-  
-  
-        </Button>
-    )
+  return (
+    <Button className="ui primary">
+      <Icon aria-hidden="true" className="add" />
+
+
+    </Button>
+  )
+}
+
+
+// addItem(e){
+//   e.preventDefault();
+//   const {completed} = this.state;
+//   const newItem = this.newItem.value;
+
+const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
+  const [info, setInfo] = useState({
+    title: "",
+    due: null,
+    household: "a12345",
+    created_at: Date.now(),
+  })
+
+  console.log("Line 46 AddTodoBtn.js", info)
+
+  const handleChange = (e) => {
+    setInfo({ ...info, [e.target.name]: e.target.value })
+  }
+  const handleCheck = (e) => {
+    setInfo({ ...info, child: !info.child })
   }
 
-
-  // addItem(e){
-  //   e.preventDefault();
-  //   const {completed} = this.state;
-  //   const newItem = this.newItem.value;
-
-  const AddTodoBtn = ({todo, toggleCompleted, completed, deleteTodo}) => {
-    const [ info, setInfo ] = useState({
-      title: "",
-      due: null,
-      created_at: Date.now(),
-      child: false
-    })
-
-    console.log("Line 46 AddTodoBtn.js", info)
-
-    const handleChange = (e) => {
-      setInfo({...info, [e.target.name]: e.target.value })
-    }
-    const handleCheck = (e) => {
-      setInfo({...info, child: !info.child })
-    }
-
-    const handleSubmit = () => {
-    axios
-    .post(`https://stage-homerun-be.herokuapp.com/todos/household`)
-    .then(res => {
-      console.log(res.data, res, "res")
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    }  
-
-    return(
-      <Modal trigger={
-          <Button className="ui primary button">
-            <Icon aria-hidden="true" className="add" />
-          </Button>
-        }>
-        <Modal.Header> Add a new task below! </Modal.Header>
-          <Form className="form-inline"
-          onSubmit = {handleSubmit}
-          >
-            <Form.Group widths='equal'>
-            <Form.Input name="title" onChange={handleChange} type="text" placeholder="Task" /> <br></br>
-            
-          </Form.Group>
-            <h3> Pick Date/Time below</h3>
-            <AssignTime setInfo={setInfo} info={info}></AssignTime> <br></br>
-          {/* <Form.Select name="" onChange={handleChange} options={options} placeholder='Household Member' error /> <br></br> */}
-          <Form.Checkbox name="child" onChange={handleCheck} label='This member is a Child' error /><br></br>
-          <Button type = "submit" > add</Button>
-        </Form>
-      </Modal>
-    )
+  const handleSubmit = () => {
+    // Currently sending an empty object
+    console.log("Getting the info setup", info)
+    axiosWithAuth()
+      .post(`/todos/add`, info)
+      .then(res => {
+        console.log(res.data, res, "res")
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
-  export default AddTodoBtn;
+  return (
+    <Modal trigger={
+      <Button className="ui primary button">
+        <Icon aria-hidden="true" className="add" />
+      </Button>
+    }>
+      <Modal.Header> Add a new task below! </Modal.Header>
+      <Form className="form-inline"
+        onSubmit={handleSubmit}
+      >
+        <Form.Group widths='equal'>
+          <Form.Input name="title" onChange={handleChange} type="text" placeholder="Task" /> <br></br>
+
+        </Form.Group>
+        <h3> Pick Date/Time below</h3>
+        <AssignTime setInfo={setInfo} info={info}></AssignTime> <br></br>
+        <Button type="submit" > add</Button>
+      </Form>
+    </Modal>
+  )
+}
+
+export default AddTodoBtn;
 

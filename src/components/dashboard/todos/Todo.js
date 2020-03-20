@@ -10,6 +10,7 @@ import SwipeRight from './SwipeRight.js';
 
 import Assign from './AssignUserButton.js';
 import { DeleteTodoModal } from './DeleteTodoModal.js';
+import axiosWithAuth from '../../../utils/AxiosWithAuth';
 
 
 
@@ -38,7 +39,7 @@ const Todo = props => {
     }
 
     useEffect(() => {
-        axios.get(`https://stage-homerun-be.herokuapp.com/members/${task.household}/assign`)
+        axiosWithAuth().get(`/members/household/assignable`)
             .then(res => setAssignees(res.data))
             .catch(err => console.log(err.message))
     }, [assigned])
