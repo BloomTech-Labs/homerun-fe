@@ -8,6 +8,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import './SASS/GeneralStyles.scss';
+import "semantic-ui-css/semantic.min.css";
 
 ReactDOM.render(
 <Router>

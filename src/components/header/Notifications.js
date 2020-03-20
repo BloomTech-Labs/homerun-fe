@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Button } from 'semantic-ui-react';
+import { button, Icon } from 'semantic-ui-react';
 
 const Notifications = () => {
 
     return (
-        <Button circular icon='bell' />
+        <button className="header-btns">
+        <Icon size="big" aria-hidden="true" className="bell"/>
+        </button>
     )
 }
 export default Notifications;

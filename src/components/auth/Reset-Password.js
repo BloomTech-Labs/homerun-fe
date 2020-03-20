@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-const ResetPW = () => {
+const ResetPW = props => {
   const { register, handleSubmit, errors } = useForm();
 
   let { hash } = useParams();
@@ -16,6 +16,7 @@ const ResetPW = () => {
         hash
       })
       .then(res => {
+        props.history.push("/signin/email");
         console.log(res);
       })
       .catch(err => {

@@ -19,7 +19,7 @@ const Header = () => {
 
     return (
         <>
-            <div className='header-container'>
+        <div className='header-container'>
                 {location.pathname === '/household' ? <PinNumber /> : <Notifications /> }
                 <UiHeader as='h3'>
                 { location.pathname === '/household' ? 'Setup Household' : 'Dashboard' }
@@ -38,8 +38,8 @@ const Header = () => {
                         <Settings settingsOn={settingsOn} setSettingsOn={setSettingsOn} />
                     </Sidebar.Pushable>
               </Sidebar>
-                {/* TODO -> background needs to be dimmed when settings is activated */}    
-        </>
+                {/* TODO -> background needs to be dimmed when settings is activated */}   
+        </> 
     )
 }
 
