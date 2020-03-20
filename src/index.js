@@ -8,12 +8,14 @@ import * as serviceWorker from './serviceWorker';
 
 import './SASS/GeneralStyles.scss';
 import "semantic-ui-css/semantic.min.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 ReactDOM.render(
-<Router>
-    <App />
-</Router>
-, document.getElementById('root'));
+    <Router>
+        <App />
+    </Router>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

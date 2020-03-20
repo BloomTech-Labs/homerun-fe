@@ -77,6 +77,10 @@ const Todo = props => {
                                 </select>
                             </div>
 
+                            <Button className="circular ui button" >
+                                <i className="icon settings" />
+                            </Button>
+
                         </div>
                     </List.Content>
                 </SwipeableListItem>

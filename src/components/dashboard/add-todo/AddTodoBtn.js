@@ -1,51 +1,24 @@
 import React, { useState } from "react";
-import TodoForm from "../todo-form/TodoForm";
-import AssignTime from "../add-todo/AssignTime";
-
-import { Button, Modal, input, Form, Icon, Dropdown as SemanticDropDown } from "semantic-ui-react";
-
-import styled from "styled-components";
-import { checkPropTypes } from "prop-types";
+import DatePicker from "react-datepicker";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
 import axiosWithAuth from "../../../utils/AxiosWithAuth";
-
-const options = [
-  { key: '1', text: 'Mom', value: 'Mom' },
-  { key: '2', text: 'Dad', value: 'Dad' },
-  { key: '3', text: 'Daughter', value: 'Daughter' },
-  { key: '4', text: 'Son', value: 'Son' },
-]
-
-const ModalButton = () => {
-  return (
-    <Button className="ui primary">
-      <Icon aria-hidden="true" className="add" />
-
-
-    </Button>
-  )
-}
-
-
-// addItem(e){
-//   e.preventDefault();
-//   const {completed} = this.state;
-//   const newItem = this.newItem.value;
+import { Button, Modal, Form, Icon } from "semantic-ui-react";
+dayjs.extend(advancedFormat);
 
 const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
   const [info, setInfo] = useState({
     title: "",
+    desc: "",
     due: null,
-    household: "a12345",
     created_at: Date.now(),
   })
-
-  console.log("Line 46 AddTodoBtn.js", info)
+  const [due, setDue] = useState(new Date());
+  const futureDate = dayjs(due.toString()).format('x')
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value })
-  }
-  const handleCheck = (e) => {
-    setInfo({ ...info, child: !info.child })
+    console.log(info.created_at, "this is created date")
   }
 
   const handleSubmit = () => {
@@ -54,11 +27,19 @@ const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
     axiosWithAuth()
       .post(`/todos/add`, info)
       .then(res => {
-        console.log(res.data, res, "res")
+        console.log("Res AddTodoBtn :31", res.data)
       })
       .catch(err => {
         console.log(err)
       })
+  }
+
+
+
+  const handleTime = (date) => {
+    setDue(date)
+    console.log(date, "this is the due date")
+    setInfo({ ...info, due: futureDate })
   }
 
   return (
@@ -68,16 +49,25 @@ const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
       </Button>
     }>
       <Modal.Header> Add a new task below! </Modal.Header>
-      <Form className="form-inline"
-        onSubmit={handleSubmit}
-      >
-        <Form.Group widths='equal'>
-          <Form.Input name="title" onChange={handleChange} type="text" placeholder="Task" /> <br></br>
-
-        </Form.Group>
-        <h3> Pick Date/Time below</h3>
-        <AssignTime setInfo={setInfo} info={info}></AssignTime> <br></br>
-        <Button type="submit" > add</Button>
+      <Form onSubmit={handleSubmit} style={{ padding: "30px" }}>
+        <Form.Input name="title" onChange={handleChange} type="text" placeholder="Task" />
+        <Form.Input name="desc" onChange={handleChange} type="text" placeholder="Description" />
+        <Form.Field>
+          <h3> Pick Date/Time below</h3>
+          <DatePicker
+            wrapped size="medium"
+            className="date-picker"
+            selected={due}
+            onChange={handleTime}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            minDate={new Date()}
+            timeCaption="time"
+            dateFormat="MMMM d, yyyy h:mm aa"
+          />
+        </Form.Field>
+        <Button type="submit">Add</Button>
       </Form>
     </Modal>
   )

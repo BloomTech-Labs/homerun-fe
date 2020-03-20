@@ -5,8 +5,8 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../../SASS/TodoList.scss';
 import axiosWithAuth from '../../../utils/AxiosWithAuth.js';
 import Todo from './Todo.js';
-import DatePicker from "react-datepicker";
-import advancedFormat from "dayjs/plugin/advancedFormat";
+
+import AddTodoBtn from "../add-todo/AddTodoBtn"
 
 import dayjs from 'dayjs';
 
@@ -20,6 +20,7 @@ const TodoList = () => {
         console.log(res)
         // Dummy date
         let date = dayjs(1583889820327).format('MM/DD/YYYY');
+
         setTodos(res.data);
       })
       .catch(err => {
@@ -30,11 +31,12 @@ const TodoList = () => {
   return (
     <>
       <List size='massive' celled verticalAlign='middle'>
-        {todos.map(todo => {
+        {todos.map((todo, index) => {
           todo.due = dayjs(todo.due).format('MM/DD/YYYY');
-          return <Todo id={todo.id} task={todo} />
+          return <Todo key={index} id={todo.id} task={todo} />
         })}
       </List>
+      <AddTodoBtn />
     </>
   )
 }
