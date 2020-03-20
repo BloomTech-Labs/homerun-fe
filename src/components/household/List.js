@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Name from "./Name";
 
-import axios from 'axios';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
 import { Button, Modal, Image, List as UiList, Loader } from 'semantic-ui-react';
@@ -15,8 +15,9 @@ const List = () => {
 
 
  useEffect(() => {
-    axios.get('https://my.api.mockaroo.com/householdMembers?key=0523bb20')
+    axiosWithAuth().get('/members/household/assignable')
         .then(res => {
+        console.log("List -> res", res)
             setMembers(res.data);
         })
         .catch(err => {

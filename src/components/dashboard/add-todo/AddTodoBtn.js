@@ -36,8 +36,8 @@ const ModalButton = () => {
     const [ info, setInfo ] = useState({
       title: "",
       due: null,
-      created_at: Date.now(),
-      child: false
+      desc: '',
+      created_at: Date.now()
     })
 
     console.log("Line 46 AddTodoBtn.js", info)
