@@ -9,15 +9,9 @@ function initializeAnalytics (){
 }
 
 function App() {
-<<<<<<< HEAD
   initializeAnalytics()
   return ( 
     <div className="App">
-=======
-  // initializeAnalytics()
-  return (
-    <div className="App"> 
->>>>>>> 831099f97e87e8352b01bbd5145b19e3f76f1dff
       <Routes />
     </div>
   );

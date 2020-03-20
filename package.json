@@ -22,13 +22,9 @@
     "react-hook-form": "^4.9.8",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-<<<<<<< HEAD
-    "semantic-ui-react": "^0.88.2"
-=======
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.0.1"
->>>>>>> 6f4fdd2e10ed4787fd82ad147c519b19e24a9c34
   },
   "scripts": {
     "start": "craco start",
