@@ -1,11 +1,12 @@
 import React from "react";
 import { Button, Checkbox, Form } from 'semantic-ui-react';
-
+import { useForm } from 'react-hook-form';
 const AddChild = (props) => {
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.setChildModal(false)
+    props.setModal(false)
   }
     return (
             <Form>
@@ -13,10 +14,7 @@ const AddChild = (props) => {
                 <label>Name</label>
                 <input placeholder='Member' />
               </Form.Field>
-              <Form.Field>
-                <Checkbox label='Child?' />
-              </Form.Field>
-              <Button onClick={onSubmit} type='submit'>Add</Button>
+              <Button onClick={onSubmit} floated='right' primary type='submit'>Add</Button>
             </Form>
           )
 }

@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
 
     return axios.create({
-        baseURL: process.env.REACT_APP_BE_URL,
+        baseURL: process.env.REACT_APP_BE_URL || 'https://stage-homerun-be.herokuapp.com',
         headers: {
             Authorization: token
         }
