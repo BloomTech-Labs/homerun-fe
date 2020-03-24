@@ -9,33 +9,33 @@ import AddChild from './AddChild.js';
 import InviteMember from './InviteMember.js';
 
 const List = () => {
- const [childModal, setChildModal] = useState(false);
- const [memberModal, setMemberModal] = useState(false);
- const [members, setMembers] = useState([]); 
+    const [childModal, setChildModal] = useState(false);
+    const [memberModal, setMemberModal] = useState(false);
+    const [members, setMembers] = useState([]);
 
 
- useEffect(() => {
-    axios.get('https://my.api.mockaroo.com/householdMembers?key=0523bb20')
-        .then(res => {
-            setMembers(res.data);
-        })
-        .catch(err => {
-            console.log(err);
-        })
- }, [])
+    useEffect(() => {
+        axios.get('https://my.api.mockaroo.com/householdMembers?key=0523bb20')
+            .then(res => {
+                setMembers(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
 
-        return (
-            <div>
-                <UiList selection verticalAlign='middle'>
-                    {members.map(member => {
-                        return <Name key={member.id} name={member.username} />
-                    })}
-                </UiList>
-                <Modal open={memberModal} trigger={<Button onClick={() => setMemberModal(true)}>Invite Member</Button>} header='Invite a user to your household' content={<InviteMember setMemberModal={setMemberModal} />}></Modal>
-                <Modal open={childModal} trigger={<Button onClick={() => setChildModal(true)}>Add Child</Button>} header='Add a member' content={<AddChild setChildModal={setChildModal} />}></Modal>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <UiList selection verticalAlign='middle'>
+                {members.map(member => {
+                    return <Name key={member.id} name={member.username} />
+                })}
+            </UiList>
+            <Modal open={memberModal} trigger={<Button onClick={() => setMemberModal(true)}>Invite Member</Button>} header='Invite a user to your household' content={<InviteMember setMemberModal={setMemberModal} />}></Modal>
+            <Modal open={childModal} trigger={<Button onClick={() => setChildModal(true)}>Add Child</Button>} header='Add a member' content={<AddChild setChildModal={setChildModal} />}></Modal>
+        </div>
+    )
+}
 
 
 export default List;
