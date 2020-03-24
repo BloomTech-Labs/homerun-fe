@@ -12,6 +12,8 @@ import * as serviceWorker from './serviceWorker';
 
 import './SASS/GeneralStyles.scss';
 import "semantic-ui-css/semantic.min.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const store = configRedux()
 

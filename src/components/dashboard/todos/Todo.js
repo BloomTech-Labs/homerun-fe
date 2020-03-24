@@ -7,9 +7,8 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import SwipeLeft from './SwipeLeft';
 import SwipeRight from './SwipeRight.js';
-
-import Assign from './AssignUserButton.js';
 import { DeleteTodoModal } from './DeleteTodoModal.js';
+import axiosWithAuth from '../../../utils/AxiosWithAuth';
 
 
 
@@ -38,7 +37,7 @@ const Todo = props => {
     }
 
     useEffect(() => {
-        axios.get(`https://stage-homerun-be.herokuapp.com/members/${task.household}/assign`)
+        axiosWithAuth().get(`/members/household/assignable`)
             .then(res => setAssignees(res.data))
             .catch(err => console.log(err.message))
     }, [assigned])
@@ -75,6 +74,10 @@ const Todo = props => {
                                     })}
                                 </select>
                             </div>
+
+                            <Button className="circular ui button" >
+                                <i className="icon settings" />
+                            </Button>
 
                         </div>
                     </List.Content>

@@ -5,8 +5,8 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../../SASS/TodoList.scss';
 import axiosWithAuth from '../../../utils/AxiosWithAuth.js';
 import Todo from './Todo.js';
-import DatePicker from "react-datepicker";
-import advancedFormat from "dayjs/plugin/advancedFormat";
+
+import ControlTodo from "./ControlTodo.js"
 
 import dayjs from 'dayjs';
 
@@ -15,10 +15,9 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   // hard coded Household id right now
   useEffect(() => {
-    axiosWithAuth().get(`https://stage-homerun-be.herokuapp.com/todos/household`)
+    axiosWithAuth().get(`/todos/household`)
       .then(res => {
-        console.log(res.data)
-        let date = dayjs(1583889820327).format('MM/DD/YYYY'); // Look into Human interval package for giving due dates time
+        console.log(res)
         setTodos(res.data);
       })
       .catch(err => {
@@ -29,11 +28,12 @@ const TodoList = () => {
   return (
     <>
       <List size='massive' celled verticalAlign='middle'>
-        {todos.map(todo => {
+        {todos.map((todo, index) => {
           todo.due = dayjs(todo.due).format('MM/DD/YYYY');
-          return <Todo id={todo.id} task={todo} />
+          return <Todo key={index} id={todo.id} task={todo} />
         })}
       </List>
+      <ControlTodo />
     </>
   )
 }
