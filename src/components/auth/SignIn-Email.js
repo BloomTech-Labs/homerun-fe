@@ -44,30 +44,30 @@ const SignInEmail = props => {
             <Loader size="large">Loading</Loader>
           </Dimmer>
         ) : (
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Field>
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                ref={register({ required: "Email is invalid." })}
-              />
-              {errors.email && <p>{errors.email.message}</p>}
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                ref={register({ required: "Password is invalid." })}
-              />
-              {errors.password && <p>{errors.password.message}</p>}
-            </Form.Field>
-            <Button type="submit">Submit</Button>
-          </Form>
-        )}
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form.Field>
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  ref={register({ required: "Email is invalid." })}
+                />
+                {errors.email && <p>{errors.email.message}</p>}
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  ref={register({ required: "Password is invalid." })}
+                />
+                {errors.password && <p>{errors.password.message}</p>}
+              </Form.Field>
+              <Button type="submit">Submit</Button>
+            </Form>
+          )}
       </div>
       <Button onClick={() => props.history.push("/forgot-password")}>
         Forgot password
