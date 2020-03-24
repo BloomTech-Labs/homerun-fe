@@ -1,0 +1,79 @@
+.wrapper{
+  background-color: #d2bba0;
+  h1{
+    color: #f7ffe0;
+  }
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40px;
+  height: 200px;
+}
+
+.marketing-nav{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 150px;
+}
+
+.nav-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  button.ui.primary.button{
+    width: 195px;
+    margin: 0;
+    background-color: #f7ffe0;
+    color: #9f7e69;
+    &:hover{
+      background-color: #f2efc7;
+      transition: 0.7s ease;
+    }
+  }
+}
+
+.nav-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+    a{
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #FFF;
+      line-height: 1.5em;
+      position: relative;
+      &:hover{
+        color: #f7ffe0;
+      }
+      &:after{
+        bottom: -2px;
+        content: "";          
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #f7ffe0;
+        -webkit-transition: width 0.3s ease, left 0.3s ease 0s;
+        transition: width 0.3s ease, left 0.3s ease 0s;
+        width: 0;
+      }
+      
+      
+      &:hover{
+        &:after{
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+}
+
+.active{
+  color: #f7ffe0!important;
+  border-bottom: 2px solid #f7ffe0;
+}
