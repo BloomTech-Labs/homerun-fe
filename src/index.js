@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// Redux
+import configRedux from './configRedux.js'
+import { Provider } from 'react-redux'
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -11,9 +15,13 @@ import "semantic-ui-css/semantic.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
+const store = configRedux()
+
 ReactDOM.render(
     <Router>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </Router>
     , document.getElementById('root'));
 
