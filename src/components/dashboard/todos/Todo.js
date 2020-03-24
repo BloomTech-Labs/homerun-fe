@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { List, Icon, Input, Modal, Button, Dropdown, Label } from 'semantic-ui-react';
-
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import { List, Icon, Label, Popup } from 'semantic-ui-react';
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import SwipeLeft from './SwipeLeft';
 import SwipeRight from './SwipeRight.js';
+import DatePicker from "react-datepicker";
 import { DeleteTodoModal } from './DeleteTodoModal.js';
 import axiosWithAuth from '../../../utils/AxiosWithAuth';
 
@@ -14,11 +13,13 @@ import axiosWithAuth from '../../../utils/AxiosWithAuth';
 
 const Todo = props => {
 
-    const { task } = props
-
     const [modalOpen, setModalOpen] = useState(false);
     const [assigned, setAssigned] = useState([])
     const [assignees, setAssignees] = useState([])
+    const [reschedule, setReschedule] = useState({
+        popup: false,
+        due: new Date()
+    })
 
     const addSelection = e => {
         let selection = e.target.value
@@ -34,6 +35,10 @@ const Todo = props => {
         } else {
             throw new Error()
         }
+    }
+
+    const handleDue = (date) => {
+        setReschedule({ due: date })
     }
 
     useEffect(() => {
@@ -74,11 +79,30 @@ const Todo = props => {
                                     })}
                                 </select>
                             </div>
-
-                            <Button className="circular ui button" >
-                                <i className="icon settings" />
-                            </Button>
-
+                            <Popup
+                                on='click'
+                                onClose={() => setReschedule({ popup: false })}
+                                onOpen={() => setReschedule({ popup: true })}
+                                open={reschedule.popup}
+                                position="right center"
+                                trigger={<i className="ui icon small clock"></i>}
+                            >
+                                <div style={{ width: "300px" }}>
+                                    <h3>Reschedule</h3>
+                                    <DatePicker
+                                        wrapped size="medium"
+                                        className="date-picker"
+                                        selected={reschedule.due}
+                                        onChange={handleDue}
+                                        showTimeSelect
+                                        timeFormat="HH:mm"
+                                        timeIntervals={15}
+                                        minDate={new Date()}
+                                        timeCaption="time"
+                                        dateFormat="MMMM d, yyyy h:mm aa"
+                                    />
+                                </div>
+                            </Popup>
                         </div>
                     </List.Content>
                 </SwipeableListItem>

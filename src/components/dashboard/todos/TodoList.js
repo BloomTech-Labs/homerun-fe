@@ -17,7 +17,6 @@ const TodoList = () => {
   useEffect(() => {
     axiosWithAuth().get(`/todos/household`)
       .then(res => {
-        console.log(res)
         setTodos(res.data);
       })
       .catch(err => {
