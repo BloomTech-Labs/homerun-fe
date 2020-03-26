@@ -4,18 +4,25 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { Button, Modal, Form, Icon } from "semantic-ui-react";
+import { useSelector, useDispatch } from 'react-redux'
+import actions from '../../../actions/index.js';
+
 dayjs.extend(advancedFormat);
 
-const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
+const ControlTodo = () => {
   const [info, setInfo] = useState({
     title: "",
     desc: "",
     due: null,
     created_at: Date.now(),
   })
+
+  const store = useSelector(state => state.todos)
+  const dispatch = useDispatch()
+
   const [due, setDue] = useState(new Date());
   const [showModal, setShowModal] = useState(false)
-  const futureDate = dayjs(due.toString()).format('x')
+  const futureDate = dayjs(due).unix()
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value })
@@ -26,15 +33,8 @@ const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
   }
 
   const handleSubmit = () => {
-    axiosWithAuth()
-      .post(`/todos/add`, info)
-      .then(res => {
-        console.log("Res AddTodoBtn :31", res.data)
-        handleModal()
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    dispatch(actions.todo.addTodo(info))
+    handleModal()
   }
 
   const handleDue = (date) => {
@@ -75,5 +75,5 @@ const AddTodoBtn = ({ todo, toggleCompleted, completed, deleteTodo }) => {
   )
 }
 
-export default AddTodoBtn;
+export default ControlTodo;
 

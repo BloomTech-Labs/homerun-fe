@@ -1,9 +1,11 @@
 // Import any group of actions pertaining to a specific task
 import userActions from './userActions.js'
+import todoActions from './todoActions.js'
 
-const allActions = {
+const actions = {
 	// Add any actions here.
-	userActions
+	user: userActions,
+	todo: todoActions
 }
 
-export default allActions
+export default actions

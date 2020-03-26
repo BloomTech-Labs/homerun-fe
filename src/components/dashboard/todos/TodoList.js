@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { List, Dropdown } from 'semantic-ui-react';
-
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import '../../../SASS/TodoList.scss';
-import axiosWithAuth from '../../../utils/AxiosWithAuth.js';
 import Todo from './Todo.js';
+import { useDispatch, useSelector } from 'react-redux'
+import actions from '../../../actions/index.js'
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import ControlTodo from "./ControlTodo.js"
 
@@ -12,28 +12,23 @@ import dayjs from 'dayjs';
 
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-  // hard coded Household id right now
+
+  const store = useSelector(state => state.todos)
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axiosWithAuth().get(`/todos/household`)
-      .then(res => {
-        setTodos(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }, [])
+    dispatch(actions.todo.setTodos())
+  }, [dispatch])
 
   return (
-    <>
-      <List size='massive' celled verticalAlign='middle'>
-        {todos.map((todo, index) => {
-          todo.due = dayjs(todo.due).format('MM/DD/YYYY');
-          return <Todo key={index} id={todo.id} task={todo} />
+    <section className="ui container">
+      <SwipeableList>
+        {store.map((todo, index) => {
+          return <Todo key={index} {...todo} />
         })}
-      </List>
+      </SwipeableList>
       <ControlTodo />
-    </>
+    </section>
   )
 }
 
