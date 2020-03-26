@@ -10,8 +10,8 @@ function initializeAnalytics (){
 
 function App() {
   // initializeAnalytics()
-  return (
-    <div className="App"> 
+  return ( 
+    <div className="App">
       <Routes />
     </div>
   );

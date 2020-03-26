@@ -18,7 +18,7 @@ const SignInEmail = props => {
   const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);

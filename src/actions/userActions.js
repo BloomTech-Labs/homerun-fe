@@ -4,5 +4,5 @@ const setUser = (user) => dispatch => {
 }
 
 export default {
-	setUser
-}
+  setUser
+};

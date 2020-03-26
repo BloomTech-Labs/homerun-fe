@@ -1,14 +1,10 @@
-const initialState = {
-	name: "Test"
-}
+const userReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_USER":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
-const userReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case "SET_USER":
-			return state
-		default:
-			return state
-	}
-}
-
-export default userReducer
+export default userReducer;
