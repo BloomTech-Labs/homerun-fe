@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Name from "./Name";
-
 import axiosWithAuth from "../../utils/AxiosWithAuth.js";
+
+import { useSelector, useDispatch } from 'react-redux';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
 import {
@@ -19,6 +20,9 @@ const List = () => {
   const [childModal, setChildModal] = useState(false);
   const [memberModal, setMemberModal] = useState(false);
   const [members, setMembers] = useState([]);
+
+  const household = useSelector(state => state.userReducer)
+  console.log(household);
 
   useEffect(() => {
     axiosWithAuth()
