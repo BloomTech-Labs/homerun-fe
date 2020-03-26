@@ -1,16 +1,21 @@
 const initialState = {
-	user: {
-		name: "Test"
-	}
-}
+  user: {
+    member_id: null,
+    username: "",
+    points: null
+  }
+};
 
 const userReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case "SET_USER":
-			return state
-		default:
-			return state
-	}
-}
+  switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.payload
+      };
+    default:
+      return state;
+  }
+};
 
-export default userReducer
+export default userReducer;

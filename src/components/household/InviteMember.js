@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Button, Icon, Header, Form, Container, Loader, Dimmer } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axiosWithAuth from '../../utils/AxiosWithAuth.js';
@@ -10,18 +10,16 @@ const InviteMember = (props) => {
   const onSubmit = (data) => {
     setIsLoading(true);
     console.log(data);
-
-    axiosWithAuth().post('/members/household/invite', data)
+    const axiosURL = props.inviteMember ?  '/members/household/invite' : props.addChild ? '/members/household/children' : null;
+    axiosWithAuth().post(axiosURL, data)
       .then(res => {
         console.log("onSubmit -> res", res)
         
-        props.setMemberModal(false);
+        props.setModal(false);
       })
       .catch(err => {
         console.log(err);
       })
-
-    
   }
     return isLoading ? ( <Dimmer active inverted><Loader size="large">Loading</Loader></Dimmer>)
                      : (<Form onSubmit={handleSubmit(onSubmit)}>

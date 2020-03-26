@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Loader, Dimmer } from "semantic-ui-react";
+import queryString from "query-string";
+import { useDispatch } from "react-redux";
+import actions from "../../actions";
 
 const Auth = () => {
-const { token } = useParams();
-let history = useHistory();
+  const { token } = useParams();
+  const location = useLocation();
+  const query = queryString.parse(location.search);
+  let history = useHistory();
 
-useEffect(() => {
-  localStorage.setItem("token", token);
-  history.push('/household');
-}, []);
+  const dispatch = useDispatch();
 
-  return(
-  <Dimmer active inverted>
-    <Loader size="large">Loading</Loader>
-  </Dimmer>
-  )
-}
+  useEffect(() => {
+    localStorage.setItem("token", query.token);
+    dispatch(actions.user.setUser(query));
+    history.push("/household");
+  }, []);
+
+  return (
+    <Dimmer active inverted>
+      <Loader size="large">Loading</Loader>
+    </Dimmer>
+  );
+};
 
 export default Auth;
