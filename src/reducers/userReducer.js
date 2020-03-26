@@ -1,18 +1,7 @@
-const initialState = {
-  user: {
-    member_id: null,
-    username: "",
-    points: null
-  }
-};
-
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_USER":
-      return {
-        ...state,
-        user: action.payload
-      };
+      return action.payload;
     default:
       return state;
   }

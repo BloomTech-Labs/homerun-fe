@@ -10,9 +10,14 @@ import { Provider } from 'react-redux'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// UI
 import './SASS/GeneralStyles.scss';
 import "semantic-ui-css/semantic.min.css";
 import "react-datepicker/dist/react-datepicker.css";
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+
+// Antd Imports
+import 'antd/lib/grid/style/index.css'
 
 
 const store = configRedux()
