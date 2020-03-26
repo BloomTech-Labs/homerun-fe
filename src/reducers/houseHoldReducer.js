@@ -1,11 +1,9 @@
 import { FETCH_MEMBERS_FAIL, FETCH_MEMBERS_SUCCESS, FETCH_MEMBERS_START } from '../actions/houseHoldActions.js';
 
 const initialState = {
-    household: {
       members: [],
       error: '',
       loadingMembers: false
-    }
   };
   
   const houseHoldReducer = (state = initialState, action) => {
