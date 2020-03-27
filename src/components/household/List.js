@@ -22,7 +22,7 @@ const List = () => {
   const [memberModal, setMemberModal] = useState(false);
   const [members, setMembers] = useState([]);
 
-  const household = useSelector(state => state.houseHoldReducer)
+  const household = useSelector(state => state.household)
   console.log(household);
 
   useEffect(() => {
