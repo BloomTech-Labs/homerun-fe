@@ -31,7 +31,7 @@ const fetchHousehold = () => dispatch => {
       console.log(res);
       dispatch({ 
         type: ADD_CHILD,
-        payload: res.data
+        payload: res.data[0]
         })
     })
     .catch(err => {

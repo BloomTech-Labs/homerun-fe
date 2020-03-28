@@ -23,7 +23,8 @@ const initialState = {
             }
         case ADD_CHILD:
             return {
-                ...state
+                ...state,
+                members: [...state.members, action.payload]
 
             }
         case ERROR:
