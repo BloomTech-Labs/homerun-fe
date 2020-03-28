@@ -3,7 +3,7 @@ import Name from "./Name";
 import axiosWithAuth from "../../utils/AxiosWithAuth.js";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { household } from '../../actions/index'
+import actions from '../../actions/index'
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
 import {
@@ -20,27 +20,19 @@ import InviteMember from "./InviteMember.js";
 const List = () => {
   const [childModal, setChildModal] = useState(false);
   const [memberModal, setMemberModal] = useState(false);
-  const [members, setMembers] = useState([]);
 
   const household = useSelector(state => state.household)
+  const dispatch = useDispatch();
   console.log(household);
 
   useEffect(() => {
-    axiosWithAuth()
-      .get("/members/household/assignable")
-      .then(res => {
-        console.log("List -> res", res);
-        setMembers(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    dispatch(actions.houseHold.fetchHousehold())
   }, []);
 
   return (
     <div>
       <UiList selection verticalAlign="middle">
-        {members.map(member => {
+        {household.members.map(member => {
           return <Name key={member.username} name={member.username} />;
         })}
       </UiList>

@@ -2,17 +2,23 @@ import React from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axiosWithAuth from "../../utils/AxiosWithAuth";
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
+
 const AddChild = props => {
   const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/members/household/children", data)
-      .then(res => {
-        console.log(res);
-        props.setModal(false);
-      });
+    // axiosWithAuth()
+    //   .post("/members/household/children", data)
+    //   .then(res => {
+    //     console.log(res);
+    //     props.setModal(false);
+    //   });
+      dispatch(actions.houseHold.addChild(data));
+      props.setModal(false);
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

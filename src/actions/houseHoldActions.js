@@ -1,12 +1,13 @@
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
-export const FETCH_MEMBERS_START = 'FETCH_MEMBERS_START';
+export const LOADING = 'LOADING';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
-export const FETCH_MEMBERS_FAIL = 'FETCH_MEMBERS_FAIL';
+export const ERROR = 'ERROR';
+export const ADD_CHILD = 'ADD_CHILD';
 
 // Action Creators
 const fetchHousehold = () => dispatch => {
-     dispatch({ type: FETCH_MEMBERS_START});
+     dispatch({ type: LOADING});
      axiosWithAuth().get('/members/household/assignable')
         .then(res => {
             console.log(res.data);
@@ -17,13 +18,32 @@ const fetchHousehold = () => dispatch => {
         })
         .catch(err => {
             dispatch({
-                type: FETCH_MEMBERS_FAIL,
+                type: ERROR,
                 payload: err
             })
         })
   };
+
+  const addChild = (data) => dispatch => {
+      dispatch({ type: LOADING })
+    axiosWithAuth().post("/members/household/children", data)
+    .then(res => {
+      console.log(res);
+      dispatch({ 
+        type: ADD_CHILD,
+        payload: res.data
+        })
+    })
+    .catch(err => {
+        dispatch({
+            type: ERROR,
+            payload: err
+        })
+    })
+  }
   
   export default {
-    fetchHousehold
+    fetchHousehold,
+    addChild
   };
   
