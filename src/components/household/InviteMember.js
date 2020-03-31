@@ -9,7 +9,7 @@ import '../../SASS/InviteMember.scss';
 import { Alert } from 'antd';
 
 const InviteMember = (props) => {
-  const { register, handleSubmit} = useForm();
+  const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const stateError = useSelector(state => state.household.error)
   const loadingState = useSelector(state => state.household.loading);
