@@ -19,18 +19,18 @@ const SignUp = props => {
   const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/signup", data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
       .then(res => {
         console.log('signup data', res);
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/dashboard");
+        localStorage.setItem(`token`, res.data.payload);
+        props.history.push(`/dashboard`);
       })
       .catch(err => {
         console.log(err);
       });
   };
   const googleAuth = () => {
-    window.open("https://stage-homerun-be.herokuapp.com/connect/google");
+    window.open(`${process.env.REACT_APP_BE_URL}/connect/google`);
   };
 
   return (
