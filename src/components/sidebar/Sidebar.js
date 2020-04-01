@@ -6,7 +6,7 @@ import {
   Divider,
   Menu
 } from "semantic-ui-react";
-import Settings from "../allSettings/Settings.js";
+import Settings from "../settings/Settings.js";
 
 const Sidebar = props => {
   const { opened, setOpened } = props;

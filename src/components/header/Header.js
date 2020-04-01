@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
-import Settings from "../allSettings/Settings.js";
 import Sidebar from "../sidebar/Sidebar.js";
 
 import "../../SASS/Header.scss";
