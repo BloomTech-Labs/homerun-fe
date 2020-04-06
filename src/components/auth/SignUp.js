@@ -34,7 +34,7 @@ const SignUp = props => {
       });
   };
   const googleAuth = () => {
-    window.open(`${process.env.REACT_APP_BE_URL}/connect/google`);
+    window.location(`${process.env.REACT_APP_BE_URL}/connect/google`);
   };
 
   return (
