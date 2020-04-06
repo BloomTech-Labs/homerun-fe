@@ -5,12 +5,13 @@ import { Dropdown, Icon, Loader, Dimmer } from 'semantic-ui-react';
 
 const HouseholdSettings = () => {
   const members = useSelector(state => state.household.members);
+  console.log("HouseholdSettings -> members", members)
   const currentUser = useSelector(state => state.users);
   console.log("HouseholdSettings -> currentUser", currentUser)
 
 const trigger = (<span> <Icon name='user' /> Hello, {currentUser.username}</span>);
   const dropdownOptions = members.map(member => {
-    return { key: member.id, text: member.username, value: member.username };
+    return { key: member.id, text: member.username, value: member.username, disabled: member.child ? false : true };
   });
   console.log("HouseholdSettings -> dropdownOptions", dropdownOptions)
   
