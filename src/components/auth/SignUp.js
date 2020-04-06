@@ -22,8 +22,12 @@ const SignUp = props => {
       .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
       .then(res => {
         console.log('signup data', res);
-        localStorage.setItem(`token`, res.data.payload);
-        props.history.push(`/dashboard`);
+        // rather than pushing to the dashboard and setting the token here we should have a popup show that tells the user a confirmation email has been sent to them
+        // the confirmation route can then handle setting the token and pushing
+        
+        // localStorage.setItem(`token`, res.data.payload);
+        // props.history.push(`/dashboard`);
+        setIsLoading(false);
       })
       .catch(err => {
         console.log(err);
