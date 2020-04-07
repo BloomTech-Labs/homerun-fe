@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { useSelector } from 'react-redux';
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
@@ -13,7 +15,8 @@ import {
   Icon,
   Image,
   Segment,
-  Menu
+  Menu,
+  Button
 } from "semantic-ui-react";
 
 const Header = props => {
@@ -23,6 +26,13 @@ const Header = props => {
   // location is an object that contains the current url path on the 'pathname' property
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
+  const currentUser = useSelector(state => state.user.userInfo);
+
+  useEffect(() => {
+    if(currentUser.child) {
+      setSidebarOpened(false);
+    }
+  }, [currentUser])
 
   return (
     <>
@@ -31,12 +41,13 @@ const Header = props => {
         <UiHeader as="h3">
           {location.pathname === "/household" ? "Setup Household" : "Dashboard"}
         </UiHeader>
-        <button
+        <Button
+          disabled={currentUser.child ? true : false}
           onClick={() => setSidebarOpened(!sidebarOpened)}
           className="header-btns"
         >
           <Icon className="icons-size" size="big" name="cog" />
-        </button>
+        </Button>
       </div>
       <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
       {/* TODO -> background needs to be dimmed when settings is activated */}
