@@ -14,10 +14,9 @@ const addTodo = (todo) => dispatch => {
 		.catch(err => console.log(err.message))
 }
 
-const removeTodo = (todoid) => dispatch => {
-	console.log("Todoid from line 12", todoid)
-	axiosWithAuth().delete(`/todos/${todoid}`)
-		.then(res => dispatch({ type: "REMOVE_TODO", payload: todoid }))
+const removeTodo = (todoId) => dispatch => {
+	axiosWithAuth().delete(`/todos/${todoId}`)
+		.then(res => dispatch({ type: "REMOVE_TODO", payload: todoId }))
 		// .then(res => console.log(res.data))
 		.catch(err => console.log(err.message))
 }

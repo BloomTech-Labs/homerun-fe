@@ -12,10 +12,8 @@ import { Row, Col, Menu, Dropdown } from 'antd';
 
 const Todo = props => {
 
-    console.log("Props from todo.js", props)
     const { id } = props
 
-    const store = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
 
@@ -64,10 +62,6 @@ const Todo = props => {
             .catch(err => console.log(err.message))
     }, [assigned])
 
-    useEffect(() => {
-
-    }, [dispatch])
-
 
     return (
         <SwipeableListItem
@@ -78,7 +72,7 @@ const Todo = props => {
             }}
             swipeRight={{
                 content: <SwipeRight />,
-                action: () => console.log('Working')
+                action: () => alert('Task Completed! (TODO)')
             }}
         >
             <Row align="middle" style={{ width: "100%", padding: '10px 30px', borderTop: "1px solid whitesmoke", borderBottom: "1px solid whitesmoke" }}>
