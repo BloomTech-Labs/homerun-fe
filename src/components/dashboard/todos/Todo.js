@@ -18,7 +18,7 @@ const Todo = props => {
     const store = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
-    const [modalOpen, setModalOpen] = useState(false);
+
     const [assigned, setAssigned] = useState([])
     const [assignees, setAssignees] = useState([])
     const [reschedule, setReschedule] = useState({
