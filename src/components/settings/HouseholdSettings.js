@@ -36,7 +36,7 @@ const HouseholdSettings = () => {
         setModal(true);
       } else {
         dispatch(actions.user.changeUser(user))
-        history.push('/dashboard');
+        // history.push('/dashboard');
       }
     }
   }
