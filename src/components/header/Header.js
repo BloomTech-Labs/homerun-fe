@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
-import Settings from "../allSettings/Settings.js";
+import Settings from "../settings/Settings.js";
 import Sidebar from "../sidebar/Sidebar.js";
 
 import "../../SASS/Header.scss";
@@ -14,10 +14,10 @@ import {
   Icon,
   Image,
   Segment,
-  Menu
+  Menu,
 } from "semantic-ui-react";
 
-const Header = props => {
+const Header = (props) => {
   // If child is true, we'll need conditionally render the contents of account settings. Props or useSelector()
   const { child } = props;
 
