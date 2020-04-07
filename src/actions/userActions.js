@@ -8,6 +8,7 @@ const setUser = (user) => dispatch => {
 const changeUser = (user) => dispatch => {
   const { email, password } = user;
   if(!user.child) {
+    dispatch({ type: "LOAD_USER"})
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, {email, password })
       .then(res => {
