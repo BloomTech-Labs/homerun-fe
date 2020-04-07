@@ -8,9 +8,7 @@ import axiosWithAuth from '../../../utils/AxiosWithAuth';
 import { useDispatch, useSelector } from 'react-redux'
 import actions from '../../../actions/index.js';
 
-import { Row, Col } from 'antd'
-
-
+import { Row, Col, Menu, Dropdown } from 'antd';
 
 const Todo = props => {
 
@@ -28,14 +26,14 @@ const Todo = props => {
         due: new Date()
     })
 
-    const addSelection = e => {
-        let selection = e.target.value
-        if (!assigned.includes(selection)) {
-            setAssigned([...assigned, selection])
+    const addSelection = ({ key }) => {
+        if (!assigned.includes(key)) {
+            setAssigned([...assigned, key])
         } else {
             return null
         }
     }
+
     const removeSelection = (selection) => {
         if (assigned.includes(selection)) {
             setAssigned(assigned.filter(element => element !== selection))
@@ -52,6 +50,14 @@ const Todo = props => {
         dispatch(actions.todo.removeTodo(id))
     }
 
+    const userSelect = (
+        <Menu onClick={addSelection}>
+            {assignees.map((member) => {
+                return <Menu.Item key={member.username}>{member.username}</Menu.Item>
+            })}
+        </Menu>
+    )
+
     useEffect(() => {
         axiosWithAuth().get(`/members/household/assignable`)
             .then(res => setAssignees(res.data))
@@ -61,6 +67,7 @@ const Todo = props => {
     useEffect(() => {
 
     }, [dispatch])
+
 
     return (
         <SwipeableListItem
@@ -83,20 +90,22 @@ const Todo = props => {
                     {assigned.map((selection, index) => {
                         return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
                     })}
-                    <div className="ui buttons">
-                        <select className="ui floating dropdown button" onChange={addSelection}>
-                            {assignees.map((member, index) => {
-                                return <option key={index} value={member.username}>{member.username}</option>
-                            })}
-                        </select>
-                    </div>
+
+                    {/* Select user dropdown */}
+                    <Dropdown overlay={userSelect} trigger={['click']}>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            <Icon name="add user" size='large'></Icon>
+                        </a>
+                    </Dropdown>
+
+                    {/* Reschedule popup */}
                     <Popup
                         on='click'
                         onClose={() => setReschedule({ popup: false })}
                         onOpen={() => setReschedule({ popup: true })}
                         open={reschedule.popup}
                         position="right center"
-                        trigger={<i className="ui icon small clock"></i>}
+                        trigger={<Icon name="clock" size='large' />}
                     >
                         <div style={{ width: "300px" }}>
                             <h3>Reschedule</h3>
