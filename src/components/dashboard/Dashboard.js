@@ -11,6 +11,8 @@ const Dashboard = props => {
       <Button
         onClick={() => {
           localStorage.removeItem("token");
+          localStorage.removeItem("username");
+          localStorage.removeItem("member_id");
           props.history.push("/signin");
         }}
       >

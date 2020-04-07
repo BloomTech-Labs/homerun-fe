@@ -25,6 +25,8 @@ const SignInEmail = props => {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.username);
+        localStorage.setItem("member_id", res.data.member_id);
         dispatch(actions.user.setUser(res.data));
         props.history.push("/dashboard");
       })
