@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // Redux
 import configRedux from './configRedux.js'
 import { Provider } from 'react-redux'
+import { saveState } from './utils/localStorage.js';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -21,6 +22,9 @@ import 'antd/lib/grid/style/index.css'
 
 
 const store = configRedux()
+store.subscribe(() => {
+    saveState(store.getState())
+})
 
 ReactDOM.render(
     <Router>
