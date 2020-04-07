@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Dropdown, Icon, Loader, Dimmer, Modal, Input, Button } from 'semantic-ui-react';
+import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 import actions from "../../actions";
 
 const HouseholdSettings = () => {
   const members = useSelector(state => state.household.members);
-  const currentUser = useSelector(state => state.users);
+  const currentUser = useSelector(state => state.user.userInfo);
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState(currentUser.username);
   const [options, setOptions] = useState([]);
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState('');
+  const history = useHistory();
   
+  console.log("HouseholdSettings -> currentUser", currentUser)
  useEffect(() => {
    const children = members.filter(member => member.child).map(child => {
      return { key: child.id, text: child.username, value: child.username }
@@ -33,6 +36,7 @@ const HouseholdSettings = () => {
         setModal(true);
       } else {
         dispatch(actions.user.changeUser(user))
+        history.push('/dashboard');
       }
     }
   }
@@ -53,7 +57,7 @@ const HouseholdSettings = () => {
         header="Please enter that users password to continue"
         content={(
           <>
-        <Input onChange={handleChange} value={password} type='password' fluid placeholder={'Enter Password...'}/>
+        <Input loading onChange={handleChange} value={password} type='password' fluid placeholder={'Enter Password...'}/>
         <Button onClick={handleSubmit} content='Submit' />
         </>
         )}
