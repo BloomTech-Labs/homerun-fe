@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Dropdown, Icon, Loader, Dimmer, Modal, Input, Button } from 'semantic-ui-react';
 
@@ -10,12 +10,17 @@ const HouseholdSettings = () => {
   const currentUser = useSelector(state => state.users);
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState(currentUser.username);
+  const [options, setOptions] = useState([]);
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState('');
-
-  const dropdownOptions = members.map(member => {
-    return { key: member.id, text: member.username, value: member.username }; 
-  });
+  
+ useEffect(() => {
+   const children = members.filter(member => member.child).map(child => {
+     return { key: child.id, text: child.username, value: child.username }
+   });
+   
+    setOptions([...children, { key: currentUser.id, text: currentUser.username, value: currentUser.username }])
+ }, [])
   
   const handleChange = (event, { value }) => {
     event.persist();
@@ -40,8 +45,8 @@ const HouseholdSettings = () => {
 
   return (
     <div>
-      <h3>Household Settings</h3>
-      <Dropdown selection onChange={handleChange} placeholder={`Welcome, ${currentUser.username}`} value={dropDownValue} fluid options={dropdownOptions} />
+      <h3>Welcome {currentUser.username}</h3>
+      <Dropdown selection onChange={handleChange} placeholder={`Welcome, ${currentUser.username}`} value={dropDownValue} fluid options={options} />
       <Modal
         open={modal}
         onClose={() => setModal(false)}

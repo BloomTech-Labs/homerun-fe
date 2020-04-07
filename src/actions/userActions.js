@@ -19,7 +19,7 @@ const changeUser = (user) => dispatch => {
         console.log(err);
       });
   } else  {
-    setUser(user);
+    dispatch({ type: "SET_USER", payload: user })
   }
   
   // return dispatch({ type: "CHANGE_USER", payload: user})
