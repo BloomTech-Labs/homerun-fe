@@ -7,7 +7,6 @@ import "../../SASS/Dashboard.scss";
 const Dashboard = props => {
   return (
     <section className="ui container">
-      <h1>Dashboard</h1>
       <TodoList />
     </section>
   );

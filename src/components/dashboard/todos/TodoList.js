@@ -21,7 +21,7 @@ const TodoList = () => {
   }, [dispatch])
 
   return (
-    <section className="ui container">
+    <section>
       <SwipeableList>
         {store.map((todo, index) => {
           return <Todo key={index} {...todo} />
