@@ -19,7 +19,7 @@ const SignInLanding = props => {
       <br />
       <br />
       <p>
-        Don't have an account? <a href="/signup">Sign Up</a>
+        Don't have an account? <a href="/signin">Sign Up</a>
       </p>
     </div>
   );
