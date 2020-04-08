@@ -48,9 +48,6 @@ const Todo = props => {
         dispatch(actions.todo.removeTodo(id))
     }
 
-<<<<<<< HEAD
-    // TODO: no need to axios call here since all current members should be saved in the household reducer you can simply grab that state
-=======
     const userSelect = (
         <Menu onClick={addSelection}>
             {assignees.map((member) => {
@@ -59,7 +56,6 @@ const Todo = props => {
         </Menu>
     )
 
->>>>>>> c4563c6a83b737bf2a9522fed66c9e55ff345ef4
     useEffect(() => {
         axiosWithAuth().get(`/members/household/assignable`)
             .then(res => setAssignees(res.data))
