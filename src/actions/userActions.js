@@ -26,7 +26,12 @@ const changeUser = (user) => dispatch => {
   // return dispatch({ type: "CHANGE_USER", payload: user})
 }
 
+const setChild = child => dispatch => {
+  return dispatch({ type: "SET_CHILD", payload: child });
+}
+
 export default {
   setUser,
-  changeUser
+  changeUser,
+  setChild
 };

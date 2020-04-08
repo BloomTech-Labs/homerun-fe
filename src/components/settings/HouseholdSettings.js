@@ -35,7 +35,7 @@ const HouseholdSettings = () => {
       if(!user.child) { // no need to put in a password for a child user
         setModal(true);
       } else {
-        dispatch(actions.user.changeUser(user))
+        dispatch(actions.user.setChild(user))
       }
     }
   }
