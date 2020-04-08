@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
@@ -10,6 +10,7 @@ import Sidebar from "../sidebar/Sidebar.js";
 import "../../SASS/Header.scss";
 
 import { useLocation } from "react-router-dom";
+import actions from "../../actions/index.js";
 
 import {
   Header as UiHeader,
@@ -29,6 +30,7 @@ const Header = (props) => {
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
   const currentUser = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(currentUser.childActive === true) {
@@ -53,6 +55,7 @@ const Header = (props) => {
 
   const modalButtonClick = () => {
     // dispatch action for checking pin and changing the child boolean in state to false
+    dispatch(actions.user.setChildActive(false));
     console.log(pinInput);
     setPinInput('');
     setPinModal(false);
