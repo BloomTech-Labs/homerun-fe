@@ -10,18 +10,24 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import actions from "../../actions";
 
 const SignInEmail = props => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/login", data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.username);
+        localStorage.setItem("member_id", res.data.member_id);
+        dispatch(actions.user.setUser(res.data));
         props.history.push("/dashboard");
       })
       .catch(err => {

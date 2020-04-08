@@ -1,7 +1,11 @@
 .container {
     height: 100vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
+
+    .dashboard-btn {
+        align-self: flex-start !important;
+    }
 }
