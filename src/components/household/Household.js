@@ -11,9 +11,9 @@ const Household = () => {
 
     return (
         <div className='household container'>
-            <Button>Join Household?</Button>
+            {/* <Button>Join Household?</Button> */}
             <List />
-            <NavLink to='/dashboard'>
+            <NavLink className='dashboard-btn' to='/dashboard'>
                 <Button animated>
                     <Button.Content visible>
                         Dashboard
