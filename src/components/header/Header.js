@@ -17,23 +17,46 @@ import {
   Image,
   Segment,
   Menu,
-  Button
+  Button,
+  Modal,
+  Input
 } from "semantic-ui-react";
 
 const Header = (props) => {
-  // If child is true, we'll need conditionally render the contents of account settings. Props or useSelector()
-  const { child } = props;
-
+  const [pinInput, setPinInput] = useState('');
+  const [pinModal, setPinModal] = useState(false);
   // location is an object that contains the current url path on the 'pathname' property
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const currentUser = useSelector(state => state.user.userInfo);
+  const currentUser = useSelector(state => state.user);
 
   useEffect(() => {
-    if(currentUser.child) {
+    if(currentUser.childActive === true) {
       setSidebarOpened(false);
     }
-  }, [currentUser])
+  }, [currentUser]);
+
+
+  // handles what happens when a user clicks on the settings icon or the lock icon when it is a child
+  const handleClick = () => {
+    if(currentUser.childActive === true) {
+      setPinModal(true);
+    } else {
+      setSidebarOpened(!sidebarOpened)
+    }
+  }
+
+  const handleChange = e => {
+    e.persist();
+    setPinInput(e.target.value);
+  }
+
+  const modalButtonClick = () => {
+    // dispatch action for checking pin and changing the child boolean in state to false
+    console.log(pinInput);
+    setPinInput('');
+    setPinModal(false);
+  }
 
   return (
     <>
@@ -43,13 +66,19 @@ const Header = (props) => {
           {location.pathname === "/household" ? "Setup Household" : "Dashboard"}
         </UiHeader>
         <Button
-          disabled={currentUser.child ? true : false}
-          onClick={() => setSidebarOpened(!sidebarOpened)}
-          className="header-btns"
-        >
-          <Icon className="icons-size" size="big" name="cog" />
+          onClick={handleClick}
+          className="header-btns">
+          <Icon className="icons-size" size="big" name={currentUser.childActive === true ? 'lock' : `cog`} />
         </Button>
       </div>
+      <Modal open={pinModal}>
+        <Modal.Header>Admin Access</Modal.Header>
+        <Modal.Description>You must enter the household pin to get access to user settings.</Modal.Description>
+        <Modal.Content>
+          <Input type='text' placeholder='Enter household pin' name='pin' value={pinInput} onChange={handleChange} />
+          <Button onClick={modalButtonClick} primary content='Submit' />
+        </Modal.Content>
+      </Modal>
       <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
       {/* TODO -> background needs to be dimmed when settings is activated */}
     </>
