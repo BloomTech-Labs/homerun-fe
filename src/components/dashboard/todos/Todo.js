@@ -24,20 +24,43 @@ const Todo = props => {
         due: new Date()
     })
 
-    const addSelection = ({ key }) => {
-        if (!assigned.includes(key)) {
-            setAssigned([...assigned, key])
-        } else {
-            return null
+    const addSelection = (props) => {
+        const toAssign = {
+            id: props.item.props.member.id,
+            type: props.item.props.member.child ? "child" : "member",
+            username: props.item.props.member.username
+        };
+
+        const alreadyAssigned = assigned.find((obj) => {
+            return obj.id === toAssign.id;
+        });
+
+        if (!alreadyAssigned) {
+            setAssigned([...assigned, toAssign])
         }
+
+        let request = {
+            assignees: assigned
+        }
+
+        // TODO Assignees is not updated at this point. This needs more work.
+        console.log(assigned)
+        axiosWithAuth().post(`/todos/assign/${id}`, JSON.stringify(request))
+            .then(res => console.log(res))
+            .catch(err => console.log(err.message))
+
+
     }
 
     const removeSelection = (selection) => {
-        if (assigned.includes(selection)) {
-            setAssigned(assigned.filter(element => element !== selection))
-        } else {
-            throw new Error()
+        setAssigned(assigned.filter(obj => obj.username !== selection.username))
+        let request = {
+            assignees: assigned
         }
+        console.log(request)
+        axiosWithAuth().post(`/todos/unassign/${id}`, JSON.stringify(request))
+            .then(res => console.log(res))
+            .catch(err => console.log(err.message))
     }
 
     const handleDue = (date) => {
@@ -51,7 +74,7 @@ const Todo = props => {
     const userSelect = (
         <Menu onClick={addSelection}>
             {assignees.map((member) => {
-                return <Menu.Item key={member.username}>{member.username}</Menu.Item>
+                return <Menu.Item key={member.username} member={member}>{member.username}</Menu.Item>
             })}
         </Menu>
     )
@@ -81,8 +104,10 @@ const Todo = props => {
                     <p>Due {props.due}</p>
                 </Col>
                 <Col span={12} style={{ textAlign: 'right' }}>
+
+                    {/* Testing mapping over with selection as an object */}
                     {assigned.map((selection, index) => {
-                        return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
+                        return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection.username} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
                     })}
 
                     {/* Select user dropdown */}
