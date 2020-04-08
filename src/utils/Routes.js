@@ -20,12 +20,6 @@ import Household from "../components/household/Household";
 // Header
 import Header from "../components/header/Header.js";
 
-<<<<<<< HEAD
-// Settings
-
-
-=======
->>>>>>> c4563c6a83b737bf2a9522fed66c9e55ff345ef4
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
 
