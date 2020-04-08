@@ -13,7 +13,8 @@ import dayjs from 'dayjs';
 
 const TodoList = () => {
 
-  const store = useSelector(state => state.todos)
+  const store = useSelector(state => state.todos);
+  const currentUser = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const TodoList = () => {
           return <Todo key={index} {...todo} />
         })}
       </SwipeableList>
-      <ControlTodo />
+     { !currentUser.childActive ? <ControlTodo /> : ''}
     </section>
   )
 }
