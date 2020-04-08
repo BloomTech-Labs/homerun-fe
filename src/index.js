@@ -18,6 +18,12 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 // Antd Imports
 import 'antd/lib/grid/style/index.css'
+import "antd/lib/dropdown/style/index.css"
+import 'antd/es/menu/style/css'
+import 'antd/lib/menu/style/index.css'
+
+// Do not leave on
+// import 'antd/dist/antd.css';
 
 
 const store = configRedux()
