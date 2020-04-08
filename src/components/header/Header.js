@@ -4,6 +4,10 @@ import { useSelector } from 'react-redux';
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
+<<<<<<< HEAD
+=======
+import Settings from "../settings/Settings.js";
+>>>>>>> c4563c6a83b737bf2a9522fed66c9e55ff345ef4
 import Sidebar from "../sidebar/Sidebar.js";
 
 import "../../SASS/Header.scss";
@@ -16,10 +20,13 @@ import {
   Image,
   Segment,
   Menu,
+<<<<<<< HEAD
   Button
+=======
+>>>>>>> c4563c6a83b737bf2a9522fed66c9e55ff345ef4
 } from "semantic-ui-react";
 
-const Header = props => {
+const Header = (props) => {
   // If child is true, we'll need conditionally render the contents of account settings. Props or useSelector()
   const { child } = props;
 

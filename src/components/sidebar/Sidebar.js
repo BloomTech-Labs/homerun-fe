@@ -4,11 +4,12 @@ import {
   Segment,
   Icon,
   Divider,
-  Menu
+  Menu,
+  Button,
 } from "semantic-ui-react";
 import Settings from "../settings/Settings.js";
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   const { opened, setOpened } = props;
   const [active, setActive] = useState(null);
   return (
@@ -43,6 +44,14 @@ const Sidebar = props => {
           Household
         </Menu.Item>
         <Settings active={active} />
+        <Button
+          onClick={() => {
+            localStorage.removeItem("token");
+            props.history.push("/signin");
+          }}
+        >
+          Logout
+        </Button>
       </SemSidebar.Pushable>
     </SemSidebar>
   );
