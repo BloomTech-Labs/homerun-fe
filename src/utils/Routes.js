@@ -20,9 +20,6 @@ import Household from "../components/household/Household";
 // Header
 import Header from "../components/header/Header.js";
 
-// Settings
-import Settings from "../components/allSettings/Settings.js";
-
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
 
@@ -36,7 +33,7 @@ import { InviteConfirm } from "../components/household/InviteConfirm.js";
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       localStorage.getItem("token") ? (
         <Component {...props} />
       ) : (
