@@ -19,10 +19,10 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(currentUser.userChild) {
+    if(currentUser.childActive === true) {
       history.push('/dashboard');    
     }
-  }, [currentUser])
+  }, [currentUser.childActive])
   return ( 
     <div className="App">
       <Routes />
