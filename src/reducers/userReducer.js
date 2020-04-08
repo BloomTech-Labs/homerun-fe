@@ -1,7 +1,8 @@
 const intialState = {
-  loading: false,
   userInfo: {},
-  userChild: {}
+  userChild: {},
+  loading: false,
+  childActive: false
 }
 
 const userReducer = (state = intialState, action) => {
@@ -11,7 +12,10 @@ const userReducer = (state = intialState, action) => {
 
     case "SET_CHILD": 
       return { ...state, userChild: action.payload, loading: false };
-      
+
+    case "CHILD_ACTIVE":
+      return { ...state, loading: false, childActive: action.payload };
+
     default:
       return state;
   }
