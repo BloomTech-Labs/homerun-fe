@@ -4,7 +4,7 @@ import todoReducer from './todoReducer.js';
 import houseHoldReducer from './houseHoldReducer.js';
 
 const rootReducer = combineReducers({
-	users: userReducer,
+	user: userReducer,
 	todos: todoReducer,
 	household: houseHoldReducer
 })

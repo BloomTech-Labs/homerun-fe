@@ -7,7 +7,7 @@ const actions = {
 	// Add any actions here.
 	user: userActions,
 	todo: todoActions,
-  houseHold: houseHoldActions
+  	houseHold: houseHoldActions
 }
 
-export default actions
+export default actions;

@@ -13,7 +13,6 @@ const Auth = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     localStorage.setItem("token", query.token);
     dispatch(actions.user.setUser(query));

@@ -1,31 +1,37 @@
-import { FETCH_MEMBERS_FAIL, FETCH_MEMBERS_SUCCESS, FETCH_MEMBERS_START } from '../actions/houseHoldActions.js';
+import { ERROR, FETCH_MEMBERS_SUCCESS, LOADING, ADD_CHILD } from '../actions/houseHoldActions.js';
 
 const initialState = {
       members: [],
       error: '',
-      loadingMembers: false
+      loading: false
   };
   
   const houseHoldReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_MEMBERS_START:
+        case LOADING:
             return {
             ...state,
             error: '',
-            loadingMembers: true
+            loading: true
             }
         case FETCH_MEMBERS_SUCCESS:
             return {
                 ...state,
                 error: '',
-                loadingMembers: false,
+                loading: false,
                 members: action.payload
             }
-        case FETCH_MEMBERS_FAIL:
+        case ADD_CHILD:
+            return {
+                ...state,
+                members: [...state.members, action.payload]
+
+            }
+        case ERROR:
             return {
                 ...state,
                 error: action.payload,
-                loadingMembers: false
+                loading: false
             } 
       default:
         return state;
