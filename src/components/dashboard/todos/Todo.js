@@ -14,7 +14,8 @@ const Todo = props => {
 
     const { id } = props
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const currentUser = useSelector(state => state.user);
 
 
     const [assigned, setAssigned] = useState([])
@@ -45,7 +46,12 @@ const Todo = props => {
     }
 
     const handleRemove = () => {
-        dispatch(actions.todo.removeTodo(id))
+        if(currentUser.childActive === true) {
+            // alert for now but ideally would be updated to display this information to a user in a better way
+            alert('Children cannot delete todos');
+        } else {
+            dispatch(actions.todo.removeTodo(id))
+        }
     }
 
     const userSelect = (
@@ -85,15 +91,17 @@ const Todo = props => {
                         return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
                     })}
 
-                    {/* Select user dropdown */}
-                    <Dropdown overlay={userSelect} trigger={['click']}>
+                    {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
+                  { !currentUser.childActive ? (<Dropdown overlay={userSelect} trigger={['click']}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                             <Icon name="add user" size='large'></Icon>
                         </a>
-                    </Dropdown>
+                    </Dropdown>)
+                    : ''
+                    }
 
-                    {/* Reschedule popup */}
-                    <Popup
+                    {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
+                    { !currentUser.childActive ? (<Popup
                         on='click'
                         onClose={() => setReschedule({ popup: false })}
                         onOpen={() => setReschedule({ popup: true })}
@@ -116,7 +124,9 @@ const Todo = props => {
                                 dateFormat="MMMM d, yyyy h:mm aa"
                             />
                         </div>
-                    </Popup>
+                        </Popup>)
+                      : ''
+                    }
 
 
                 </Col>
