@@ -1,6 +1,8 @@
+
+
 const todoReducer = (state = [], action) => {
 	switch (action.type) {
-		case "SET_TODOS":
+		case "FETCH_TODOS":
 			return action.payload
 		case "ADD_TODO":
 			return [...state, action.payload]

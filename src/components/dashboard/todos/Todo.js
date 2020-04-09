@@ -85,6 +85,7 @@ const Todo = props => {
         </Menu>
     )
 
+    // this can go - no need for it - we can get the current household members by accessing the members state in redux householdReducer
     useEffect(() => {
         axiosWithAuth().get(`/members/household/assignable`)
             .then(res => setAssignees(res.data))

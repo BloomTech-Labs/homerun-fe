@@ -1,9 +1,9 @@
 import axiosWithAuth from '../utils/AxiosWithAuth.js'
 
 // Action Creators
-const setTodos = () => dispatch => {
+const fetchTodos = () => dispatch => {
 	axiosWithAuth().get(`/todos/household`)
-		.then(res => dispatch({ type: "SET_TODOS", payload: res.data }))
+		.then(res => dispatch({ type: "FETCH_TODOS", payload: res.data }))
 		// .then(res => console.log(res.data))
 		.catch(err => console.log(err.message))
 }
@@ -22,7 +22,7 @@ const removeTodo = (todoId) => dispatch => {
 }
 
 export default {
-	setTodos,
+	fetchTodos,
 	addTodo,
 	removeTodo,
 }

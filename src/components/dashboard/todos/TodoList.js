@@ -18,7 +18,7 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.todo.setTodos())
+    dispatch(actions.todo.fetchTodos())
   }, [dispatch])
 
   return (
