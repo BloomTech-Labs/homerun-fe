@@ -19,7 +19,7 @@ const Todo = (props) => {
   });
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user);
+  const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
 
   const assign = (props) => {
@@ -60,7 +60,7 @@ const Todo = (props) => {
   };
 
   const handleRemove = () => {
-    if (currentUser.childActive === true) {
+    if (userIsChild) {
       // TODO: replace with permanent functionality
       alert("Children cannot delete todos");
     } else {
@@ -81,8 +81,8 @@ const Todo = (props) => {
   );
 
   useEffect(() => {
-    dispatch(actions.todo.fetchAssignedUsers(id));
-    dispatch(actions.houseHold.fetchHousehold());
+    // dispatch(actions.todo.fetchAssignedUsers(id));
+    // dispatch(actions.houseHold.fetchHousehold());
   }, [id]);
 
   return (
@@ -122,7 +122,7 @@ const Todo = (props) => {
           })}
 
           {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
-          {!currentUser.childActive ? (
+          {!userIsChild ? (
             <Dropdown overlay={userSelect} trigger={["click"]}>
               <a
                 className="ant-dropdown-link"
@@ -136,7 +136,7 @@ const Todo = (props) => {
           )}
 
           {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
-          {!currentUser.childActive ? (
+          {!userIsChild ? (
             <Popup
               on="click"
               onClose={() => setReschedule({ popup: false })}
