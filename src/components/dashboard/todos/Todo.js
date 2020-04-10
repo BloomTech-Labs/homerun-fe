@@ -36,16 +36,8 @@ const Todo = (props) => {
   };
 
   const unassign = (user) => {
-    axiosWithAuth()
-      .post(`/todos/unassign/${id}`, {
-        id: user.id,
-        type: user.child ? "child" : "member",
-      })
-      .then((res) => {
-        console.log(res);
-        setAssignedUsers(res.data);
-      })
-      .catch((err) => console.log(err.message));
+    const type = user.child ? "child" : "member";
+    dispatch(actions.todo.unassignUser(id, user.id, type));
   };
 
   const handleDue = (date) => {

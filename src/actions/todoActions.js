@@ -34,7 +34,22 @@ const assignUser = (todoId, userId, type) => (dispatch) => {
     })
     .then((res) => {
       dispatch({
-        type: "ASSIGN_USER",
+        type: "UPDATE_ASSIGNEES",
+        payload: { todoId: todoId, assigned: res.data },
+      });
+    })
+    .catch((err) => console.log(err.message));
+};
+
+const unassignUser = (todoId, userId, type) => (dispatch) => {
+  axiosWithAuth()
+    .post(`/todos/unassign/${todoId}`, {
+      id: userId,
+      type: type,
+    })
+    .then((res) => {
+      dispatch({
+        type: "UPDATE_ASSIGNEES",
         payload: { todoId: todoId, assigned: res.data },
       });
     })
@@ -46,4 +61,5 @@ export default {
   addTodo,
   removeTodo,
   assignUser,
+  unassignUser,
 };

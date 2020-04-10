@@ -6,7 +6,7 @@ const todoReducer = (state = [], action) => {
       return [...state, action.payload];
     case "REMOVE_TODO":
       return action.payload;
-    case "ASSIGN_USER":
+    case "UPDATE_ASSIGNEES":
       const newState = state.map((obj) => {
         const newObj = { ...obj };
         if (obj.id === action.payload.todoId) {
