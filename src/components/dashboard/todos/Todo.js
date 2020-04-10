@@ -42,33 +42,64 @@ const Todo = props => {
         // });
 
         const alreadyAssigned = request.assignees.find((obj) => {
-            return obj.id === toAssign.id;
+            return obj.username === toAssign.username;
         });
 
         if (!alreadyAssigned) {
-            // setAssigned([...assigned, toAssign])
-            setRequest({
-                assignees: [...request.assignees, toAssign]
-            })
+            setRequest({ assignees: [...request.assignees, toAssign] })
+            axiosWithAuth().post(`/todos/assign/${id}`, request)
+            .then(res =>  setRequest({
+                assignees: res.data
+            }))
+            .catch(err => console.log(err.message))
+           console.log('FIRED!')
         }
 
-        // TODO Assignees is not updated at this point. This needs more work.
 
-        
+        // Promise.all([requestPromise])
+        // .then(() => {
+        //         console.log("removeSelection -> request", request)
+        //         axiosWithAuth().post(`/todos/unassign/${id}`, request)
+        //         .then(res => console.log(res))
+        //         .catch(err => console.log(err.message))
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
 
+      
     }
 
-    const removeSelection = (selection) => {
-        // setAssigned(assigned.filter(obj => obj.username !== selection.username))
-        setRequest({
-            assignees: request.assignees.filter(obj => obj.username !== selection.username)
-        })
-        // let request = {
-        //     assignees: assigned
-        // }
-        axiosWithAuth().post(`/todos/unassign/${id}`, JSON.stringify(request))
-            .then(res => console.log(res))
-            .catch(err => console.log(err.message))
+    const removeSelection = (removed) => {
+        // setAssigned(assigned.filter(obj => obj.username !== removed.username))
+        // setRequest({
+        //     assignees: request.assignees.filter(obj => obj.username !== removed.username)
+        // })
+
+        // const requestPromise = setRequest({
+        //     assignees: request.assignees.filter(obj => obj.username !== removed.username)
+        // })
+      console.log('HELLLOOOOOO!')
+      const object = {
+          assignees: [removed]
+      }
+      console.log("removeSelection -> object", object)
+      
+        axiosWithAuth().post(`/todos/unassign/${id}`, object)
+                .then(res => setRequest({ assignees: res.data }))
+                .catch(err => console.log(err.message))
+        
+        // Promise.all([requestPromise])
+        // .then(() => {
+        //         console.log("removeSelection -> request", request)
+        //         axiosWithAuth().post(`/todos/unassign/${id}`, request)
+        //         .then(res => console.log(res))
+        //         .catch(err => console.log(err.message))
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
+       
     }
 
     const handleDue = (date) => {
@@ -97,12 +128,16 @@ const Todo = props => {
        dispatch(actions.houseHold.fetchHousehold());
     }, [id])
 
-    useEffect(() => {
-        axiosWithAuth().post(`/todos/assign/${id}`, request)
-        .then(res => console.log(res))
-        .catch(err => console.log(err.message))
+    // useEffect(() => {
+    //     axiosWithAuth().post(`/todos/assign/${id}`, request)
+    //     .then(res => console.log(res.data))
+    //     .catch(err => console.log(err.message))
 
-    }, [request, id])
+    // }, [request, id])
+
+    // useEffect(() => {
+       
+    // }, [id, handleRemove])
 
 
     return (
