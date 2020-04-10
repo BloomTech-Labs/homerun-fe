@@ -12,7 +12,7 @@ import { Row, Col, Menu, Dropdown } from "antd";
 
 const Todo = (props) => {
   const { id, assigned } = props;
-  const [assignedUsers, setAssignedUsers] = useState(assigned);
+  const [assignedUsers, setAssignedUsers] = useState(assigned || []);
   const [reschedule, setReschedule] = useState({
     popup: false,
     due: new Date(),
