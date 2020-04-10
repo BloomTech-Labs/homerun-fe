@@ -23,6 +23,9 @@ import Header from "../components/header/Header.js";
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
 
+//About us page from the marketing side
+import aboutUs from "../components/marketing/aboutUs";
+
 import ForgotPW from "../components/auth/Forgot-Password.js";
 import ResetPW from "../components/auth/Reset-Password.js";
 import ConfirmAcct from "../components/auth/Confirm-Account.js";
@@ -59,6 +62,7 @@ const Routes = () => {
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
+        <Route path="/aboutus" component={aboutUs}/>
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
