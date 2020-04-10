@@ -7,7 +7,7 @@ const todoReducer = (state = [], action) => {
 		case "ADD_TODO":
 			return [...state, action.payload]
 		case "REMOVE_TODO":
-			return state.filter(todo => todo.id !== action.payload)
+			return action.payload
 		default:
 			return state
 	}

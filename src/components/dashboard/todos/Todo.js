@@ -13,13 +13,18 @@ import { Row, Col, Menu, Dropdown } from 'antd';
 const Todo = props => {
 
     const { id } = props
+    console.log(id);
 
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.user);
+    const assignees = useSelector(state => state.household.members);
 
 
-    const [assigned, setAssigned] = useState([])
-    const [assignees, setAssignees] = useState([])
+    // const [assigned, setAssigned] = useState([])
+    const [request, setRequest] = useState({
+        assignees: []
+    });
+    // const [assignees, setAssignees] = useState([])
     const [reschedule, setReschedule] = useState({
         popup: false,
         due: new Date()
@@ -32,33 +37,35 @@ const Todo = props => {
             username: props.item.props.member.username
         };
 
-        const alreadyAssigned = assigned.find((obj) => {
+        // const alreadyAssigned = assigned.find((obj) => {
+        //     return obj.id === toAssign.id;
+        // });
+
+        const alreadyAssigned = request.assignees.find((obj) => {
             return obj.id === toAssign.id;
         });
 
         if (!alreadyAssigned) {
-            setAssigned([...assigned, toAssign])
-        }
-
-        let request = {
-            assignees: assigned
+            // setAssigned([...assigned, toAssign])
+            setRequest({
+                assignees: [...request.assignees, toAssign]
+            })
         }
 
         // TODO Assignees is not updated at this point. This needs more work.
-        console.log(assigned)
-        axiosWithAuth().post(`/todos/assign/${id}`, JSON.stringify(request))
-            .then(res => console.log(res))
-            .catch(err => console.log(err.message))
 
+        
 
     }
 
     const removeSelection = (selection) => {
-        setAssigned(assigned.filter(obj => obj.username !== selection.username))
-        let request = {
-            assignees: assigned
-        }
-        console.log(request)
+        // setAssigned(assigned.filter(obj => obj.username !== selection.username))
+        setRequest({
+            assignees: request.assignees.filter(obj => obj.username !== selection.username)
+        })
+        // let request = {
+        //     assignees: assigned
+        // }
         axiosWithAuth().post(`/todos/unassign/${id}`, JSON.stringify(request))
             .then(res => console.log(res))
             .catch(err => console.log(err.message))
@@ -85,12 +92,17 @@ const Todo = props => {
         </Menu>
     )
 
-    // this can go - no need for it - we can get the current household members by accessing the members state in redux householdReducer
     useEffect(() => {
-        axiosWithAuth().get(`/members/household/assignable`)
-            .then(res => setAssignees(res.data))
-            .catch(err => console.log(err.message))
-    }, [assigned])
+        dispatch(actions.todo.fetchAssignedUsers(id))
+       dispatch(actions.houseHold.fetchHousehold());
+    }, [id])
+
+    useEffect(() => {
+        axiosWithAuth().post(`/todos/assign/${id}`, request)
+        .then(res => console.log(res))
+        .catch(err => console.log(err.message))
+
+    }, [request, id])
 
 
     return (
@@ -113,7 +125,7 @@ const Todo = props => {
                 <Col span={12} style={{ textAlign: 'right' }}>
 
                     {/* Testing mapping over with selection as an object */}
-                    {assigned.map((selection, index) => {
+                    {request.assignees.map((selection, index) => {
                         return <Label circular key={index} onClick={() => removeSelection(selection)}>{selection.username} <Icon style={{ paddingLeft: "4px" }} name='remove circle' /></Label>
                     })}
 

@@ -19,7 +19,7 @@ const TodoList = () => {
 
   useEffect(() => {
     dispatch(actions.todo.fetchTodos())
-  }, [dispatch])
+  }, [])
 
   return (
     <section>

@@ -16,13 +16,25 @@ const addTodo = (todo) => dispatch => {
 
 const removeTodo = (todoId) => dispatch => {
 	axiosWithAuth().delete(`/todos/${todoId}`)
-		.then(res => dispatch({ type: "REMOVE_TODO", payload: todoId }))
-		// .then(res => console.log(res.data))
+		.then(res => {
+			dispatch({ type: "REMOVE_TODO", payload: res.data });
+		})
 		.catch(err => console.log(err.message))
+}
+
+const fetchAssignedUsers = (todoID) => dispatch => {
+	axiosWithAuth().get(`/todos/assigned/${todoID}`)
+		.then(res => {
+			console.log(res);
+		})
+		.catch(err => {
+			console.log(err);
+		})
 }
 
 export default {
 	fetchTodos,
 	addTodo,
 	removeTodo,
+	fetchAssignedUsers
 }
