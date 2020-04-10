@@ -74,9 +74,8 @@ const Todo = (props) => {
   );
 
   useEffect(() => {
-    // dispatch(actions.todo.fetchAssignedUsers(id));
-    // dispatch(actions.houseHold.fetchHousehold());
-  }, [id]);
+    setAssignedUsers(assigned);
+  }, [assigned]);
 
   return (
     <SwipeableListItem
