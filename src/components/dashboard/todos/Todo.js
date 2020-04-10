@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { Icon, Label, Popup } from "semantic-ui-react";
 import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
@@ -23,20 +24,16 @@ const Todo = (props) => {
 
   const assign = (props) => {
     const user = props.item.props.member;
-    const newAssignee = {
-      id: user.id,
-      type: user.child ? "child" : "member",
-      username: user.username,
-    };
 
     const alreadyAssigned = assignedUsers.find((obj) => {
-      return obj.username === newAssignee.username;
+      return obj.username === user.username;
     });
 
     if (!alreadyAssigned) {
       axiosWithAuth()
         .post(`/todos/assign/${id}`, {
-          assignees: [...assignedUsers, newAssignee],
+          id: user.id,
+          type: user.child ? "child" : "member",
         })
         .then((res) => {
           setAssignedUsers(res.data);
@@ -45,10 +42,12 @@ const Todo = (props) => {
     }
   };
 
-  const unassign = (removed) => {
-    console.log(removed);
+  const unassign = (user) => {
     axiosWithAuth()
-      .post(`/todos/unassign/${id}`, { assignees: [removed] })
+      .post(`/todos/unassign/${id}`, {
+        id: user.id,
+        type: user.child ? "child" : "member",
+      })
       .then((res) => {
         console.log(res);
         setAssignedUsers(res.data);
@@ -62,7 +61,7 @@ const Todo = (props) => {
 
   const handleRemove = () => {
     if (currentUser.childActive === true) {
-      // alert for now but ideally would be updated to display this information to a user in a better way
+      // TODO: replace with permanent functionality
       alert("Children cannot delete todos");
     } else {
       dispatch(actions.todo.removeTodo(id));
