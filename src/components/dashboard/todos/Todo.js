@@ -30,15 +30,8 @@ const Todo = (props) => {
     });
 
     if (!alreadyAssigned) {
-      axiosWithAuth()
-        .post(`/todos/assign/${id}`, {
-          id: user.id,
-          type: user.child ? "child" : "member",
-        })
-        .then((res) => {
-          setAssignedUsers(res.data);
-        })
-        .catch((err) => console.log(err.message));
+      const type = user.child ? "child" : "member";
+      dispatch(actions.todo.assignUser(id, user.id, type));
     }
   };
 

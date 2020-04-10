@@ -26,9 +26,24 @@ const removeTodo = (todoId) => (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
+const assignUser = (todoId, userId, type) => (dispatch) => {
+  axiosWithAuth()
+    .post(`/todos/assign/${todoId}`, {
+      id: userId,
+      type: type,
+    })
+    .then((res) => {
+      dispatch({
+        type: "ASSIGN_USER",
+        payload: { todoId: todoId, assigned: res.data },
+      });
+    })
+    .catch((err) => console.log(err.message));
+};
+
 export default {
   fetchTodos,
   addTodo,
   removeTodo,
-  fetchAssignedUsers,
+  assignUser,
 };
