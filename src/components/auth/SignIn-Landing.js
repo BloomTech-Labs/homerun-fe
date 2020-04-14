@@ -1,9 +1,9 @@
-import React from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import React from "react";
+import { Button, Icon } from "semantic-ui-react";
 
 const SignInLanding = props => {
   const googleAuth = () => {
-    window.open("https://stage-homerun-be.herokuapp.com/connect/google");
+    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
   return (
     <div>
@@ -19,10 +19,10 @@ const SignInLanding = props => {
       <br />
       <br />
       <p>
-        Don't have an account? <a href="/signup">Sign Up</a>
+        Don't have an account? <a href="/signin">Sign Up</a>
       </p>
     </div>
   );
-}
+};
 
 export default SignInLanding;
