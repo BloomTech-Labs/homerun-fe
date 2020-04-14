@@ -33,7 +33,7 @@ import Auth from '../components/auth/Auth.js';
 
 import { InviteConfirm } from '../components/household/InviteConfirm.js';
 
-
+import ContactUsForm from '../components/marketing/ContactUsForm';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -62,6 +62,7 @@ const Routes = () => {
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
         <Route path= "/error" component ={NotFound}/>
+        <Route path="/contact" component={ContactUsForm}/>
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />

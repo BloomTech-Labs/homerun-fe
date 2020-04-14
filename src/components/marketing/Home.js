@@ -27,10 +27,16 @@ const Home = () => {
               </NavLink>
               <NavLink to="/signin">About</NavLink>
               <NavLink to="/signin">Features</NavLink>
-              <NavLink to="/signin">Contact</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </div>
           </nav>
         </div>
+
+
+      <div>
+
+      </div>
+
       </div>
     );
 };

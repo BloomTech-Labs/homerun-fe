@@ -20,8 +20,6 @@ const ModalButton = () => {
     return (
       <Button className="ui primary">
           <Icon aria-hidden="true" className="add" />
-  
-  
         </Button>
     )
   }
