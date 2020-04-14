@@ -4,6 +4,8 @@ import { Button, Icon } from "semantic-ui-react";
 import devices from '../../Logos/devices.png';
 import '../../SASS/Marketing.scss';
 import Navigation from '../marketing/Navigation';
+import { Row, Col } from "antd";
+
 
 // right now the button takes us to the email sign up but from the Home page the next step would actually be the initial sign in page where the user can choose to sign in with
 // google or email - once those components are built out we can have the navlink take us to that route
@@ -14,16 +16,25 @@ const Home = () => {
         <Navigation />
         <div className="content">
           <div className="banner">
-            <img src={devices} />
-            <div className="text">
-              <h1>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </h1>
-              <Button>
-              <Link to="/signup">Signup for free <Icon name="arrow right"/></Link>
-              </Button>
-            </div>
+            <Row>
+              <Col xs={24} sm={24} md={11} lg={11}>
+                <img src={devices} />
+              </Col>
+              <Col xs={24} sm={24} md={13} lg={13}>
+                <div className="text">
+                  <h1>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </h1>
+                  <Button>
+                    <Link to="/signup">
+                      Signup for free <Icon name="arrow right" />
+                    </Link>
+                  </Button>
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
         <div className="mission-statement">

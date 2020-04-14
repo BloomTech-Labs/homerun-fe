@@ -5,7 +5,9 @@
   width: 1100px;
   margin: 100px auto;
 }
-
+img{
+  max-width: 100%;
+}
 .banner{
   display: flex;
   .text{

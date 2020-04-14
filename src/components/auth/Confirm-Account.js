@@ -10,10 +10,10 @@ const ConfirmAcct = props => {
 
   useEffect(() => {
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/confirm", { hash })
+      .post(`${process.env.REACT_APP_BE_URL}/auth/confirm`, { hash })
       .then(res => {
+        alert(res.data.message);
         props.history.push("/signin/email");
-        console.log(res);
       })
       .catch(err => {
         console.log(err);

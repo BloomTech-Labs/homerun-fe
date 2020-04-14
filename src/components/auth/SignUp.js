@@ -20,18 +20,22 @@ const SignUp = props => {
   const onSubmit = data => {
     setIsLoading(true);
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/signup", data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
       .then(res => {
         console.log('signup data', res);
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/dashboard");
+        // rather than pushing to the dashboard and setting the token here we should have a popup show that tells the user a confirmation email has been sent to them
+        // the confirmation route can then handle setting the token and pushing
+        
+        // localStorage.setItem(`token`, res.data.payload);
+        // props.history.push(`/dashboard`);
+        setIsLoading(false);
       })
       .catch(err => {
         console.log(err);
       });
   };
   const googleAuth = () => {
-    window.open("https://stage-homerun-be.herokuapp.com/connect/google");
+    window.location(`${process.env.REACT_APP_BE_URL}/connect/google`);
   };
 
   return (
@@ -103,7 +107,7 @@ const SignUp = props => {
           &nbsp;&nbsp;&nbsp;Sign in with Google
         </Button>
         <p>
-          Already have an account? <a href="/signin">Sign In</a>
+          Already have an account? <a href="/signin/email">Sign In</a>
         </p>
       </div>
     </Container>
