@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FaGithub, FaLinkedin, FaTwitter } from '@fortawesome/react-fontawesome';
 import {faGithub} from '@fortawesome/free-solid-svg-icons';
 import {faLinkedin} from '@fortawesome/free-solid-svg-icons';
 import {faTwitter} from '@fortawesome/free-solid-svg-icons';
+// library.add(faGithub, faLinkedIn, faTwitter);
 const AboutUsDraft = () => {
   return (
     <>
@@ -26,7 +28,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Vinnies Github*/}, '_blank')
+                window.open("https://github.com/vinnihoke", '_blank')
               }
             >
               <faGithub />
@@ -36,7 +38,7 @@ const AboutUsDraft = () => {
               type='button'
               onClick={() =>
                 window.open(
-                  {/* Vinnies LinkedIn */},
+                  "https://www.linkedin.com/in/vinnihoke/",
                   '_blank',
                 )
               }
@@ -72,7 +74,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Micah's github */}, '_blank')
+                window.open("https://github.com/MicahJank", '_blank')
               }
             >
               <faGithub />
@@ -82,7 +84,7 @@ const AboutUsDraft = () => {
               type='button'
               onClick={() =>
                 window.open(
-                  {/* Micah's LinkedIN*/},
+                  "https://www.linkedin.com/in/micah-jank/",
                   '_blank',
                 )
               }
@@ -160,7 +162,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Katrinas Github */}, '_blank')
+                window.open("https://github.com/kroaix", '_blank')
               }
             >
               <faGithub />
@@ -169,7 +171,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Katrina's LinkedIn */}, '_blank')
+                window.open("https://www.linkedin.com/in/kroaix/", '_blank')
               }
             >
               <faLinkedin />
@@ -203,7 +205,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Heathers Github */}, '_blank')
+                window.open("https://github.com/Heather-Ridgill", '_blank')
               }
             >
               <faGithub />
@@ -213,7 +215,7 @@ const AboutUsDraft = () => {
               type='button'
               onClick={() =>
                 window.open(
-                  {/* Heathers LinkedIn */},
+                  "https://www.linkedin.com/in/heatherridgill/",
                   '_blank',
                 )
               }
