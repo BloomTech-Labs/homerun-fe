@@ -18,8 +18,9 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.todo.setTodos())
-  }, [dispatch])
+    dispatch(actions.todo.fetchTodos())
+    dispatch(actions.houseHold.fetchHousehold());
+  }, [])
 
   return (
     <section>
