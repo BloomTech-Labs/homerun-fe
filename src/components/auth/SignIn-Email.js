@@ -25,8 +25,6 @@ const SignInEmail = props => {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("username", res.data.username);
-        localStorage.setItem("member_id", res.data.member_id);
         dispatch(actions.user.setUser(res.data));
         props.history.push("/dashboard");
       })
@@ -44,38 +42,38 @@ const SignInEmail = props => {
           <Header.Subheader>Sign in to your account.</Header.Subheader>
         </Header>
       </div>
-      
-        {isLoading ? (
+
+      {isLoading ? (
         <div>
           <Dimmer active inverted>
             <Loader size="large">Loading</Loader>
           </Dimmer>
         </div>
-        ) : (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Field>
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              ref={register({ required: "Email is invalid." })}
-            />
-            {errors.email && <p>{errors.email.message}</p>}
-          </Form.Field>
-          <Form.Field>
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              ref={register({ required: "Password is invalid." })}
-            />
-            {errors.password && <p>{errors.password.message}</p>}
-          </Form.Field>
-          <Button type="submit">Submit</Button>
-        </Form>
-      )}
+      ) : (
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Field>
+              <label>Email</label>
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                ref={register({ required: "Email is invalid." })}
+              />
+              {errors.email && <p>{errors.email.message}</p>}
+            </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                ref={register({ required: "Password is invalid." })}
+              />
+              {errors.password && <p>{errors.password.message}</p>}
+            </Form.Field>
+            <Button type="submit">Submit</Button>
+          </Form>
+        )}
       <Button onClick={() => props.history.push("/forgot-password")}>
         Forgot password
       </Button>

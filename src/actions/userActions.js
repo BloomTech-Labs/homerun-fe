@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Action Creators
 const setUser = (user) => dispatch => {
-	return dispatch({ type: "SET_USER", payload: user })
+	dispatch({ type: "SET_USER", payload: user })
 }
 
 const changeUser = (user) => dispatch => {
@@ -22,11 +22,22 @@ const changeUser = (user) => dispatch => {
   } else  {
     dispatch({ type: "SET_USER", payload: user })
   }
-  
-  // return dispatch({ type: "CHANGE_USER", payload: user})
+}
+
+// sets the state to have the child details stored in redux
+const setChild = child => dispatch => {
+  dispatch({ type: "SET_CHILD", payload: child });
+  dispatch({ type: "CHILD_ACTIVE", payload: true });
+}
+
+// sets whether a child account is active or not by the boolean value that is passed in
+const setChildActive = isActive => dispatch => {
+  dispatch({ type: "CHILD_ACTIVE", payload: isActive })
 }
 
 export default {
   setUser,
-  changeUser
+  changeUser,
+  setChild,
+  setChildActive
 };
