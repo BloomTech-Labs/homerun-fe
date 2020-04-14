@@ -1,7 +1,70 @@
+*{
+  color: #333;
+}
+.content{
+  width: 1100px;
+  margin: 100px auto;
+}
+img{
+  max-width: 100%;
+}
+.banner{
+  display: flex;
+  .text{
+    margin: 0 40px;
+    h1{
+      font-size: 2.5em;
+    }
+    button{
+      width: 195px;
+    margin: 0;
+    background-color: #01BAEF;
+    a{
+      color: #FFF;
+    }
+    &:hover{
+      background-color: #01BAEF;
+      transition: 0.7s ease;
+    }
+    }
+  }
+}
+.arrow.icon.right{
+  color: #FFF;
+}
+
+.mission-statement{
+  background-color: #FFBF69;
+  height: 300px;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.features{
+  margin: 100px 40px 30px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  div{
+    margin: 0 auto;
+  }
+}
+.create, .complete{
+  h2{
+    margin-left: 10px;
+  }
+}
+
 .wrapper{
-  background-color: #d2bba0;
+  background-color: #DFE6ED;
+  margin-bottom: 80px;
   h1{
-    color: #f7ffe0;
+    color: #FF9F1C;
   }
 }
 .header{
@@ -28,10 +91,11 @@
   button.ui.primary.button{
     width: 195px;
     margin: 0;
-    background-color: #f7ffe0;
-    color: #9f7e69;
+    background-color: #01BAEF;
+    a{
+      color: #FFF;
+    }
     &:hover{
-      background-color: #f2efc7;
       transition: 0.7s ease;
     }
   }
@@ -44,20 +108,22 @@
     a{
       font-size: 1.2em;
       text-decoration: none;
-      color: #FFF;
+      color: #4B5C6B;
       line-height: 1.5em;
       position: relative;
+      border-bottom: 2px bottom #DFE6ED;
+      height: 30px;
       &:hover{
-        color: #f7ffe0;
+        color: #4B5C6B;
       }
       &:after{
-        bottom: -2px;
+        bottom: -1px;
         content: "";          
         display: block;
         height: 2px;
         left: 50%;
         position: absolute;
-        background: #f7ffe0;
+        background: #FF9F1C;
         -webkit-transition: width 0.3s ease, left 0.3s ease 0s;
         transition: width 0.3s ease, left 0.3s ease 0s;
         width: 0;
@@ -74,9 +140,29 @@
 }
 
 .active{
-  color: #f7ffe0!important;
-  border-bottom: 2px solid #f7ffe0;
+  color: #4B5C6B!important;
+  border-bottom: 2px solid #FF9F1C;
 }
+
+.feature-description{
+    font-size: 1.5em;
+    width: 1100px;
+    margin: 0 auto 80px;
+}
+
+footer{
+  p{
+    font-size: 1em;
+    background-color: #DFE6ED;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// Katies Ends
+// Form Begins
 
 
 label, input, textarea {
