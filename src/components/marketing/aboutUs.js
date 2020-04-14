@@ -16,23 +16,38 @@ const aboutUs = () => {
             <div className = "Total-content-controller">
             <div class="ui four column doubling stackable grid container">
   <div class="column">
-      <h1>Vinnie</h1>
+      <h1 className = "person-icon" >Vinnie</h1>
     <p></p>
     <p></p>
   </div>
   <div class="column">
-      <h1>Heather</h1>
+      <h1 className = "person-icon">Heather</h1>
     <p></p>
     <p></p>
   </div>
   <div class="column">
-      <h1>Micah</h1>
+      <h1 className = "person-icon">Micah</h1>
 
     <p></p>
     <p></p>
   </div>
   <div class="column">
-      <h1>Yankho</h1>
+      <h1 className = "person-icon"> Yankho</h1>
+    <p></p>
+    <p></p>
+  </div>
+  <div class="column">
+      <h1 className = "person-icon"> Heather</h1>
+    <p></p>
+    <p></p>
+  </div>
+  <div class="column">
+      <h1 className = "person-icon"> Katrina</h1>
+    <p></p>
+    <p></p>
+  </div>
+  <div class="column">
+      <h1 className = "person-icon"> Brandon</h1>
     <p></p>
     <p></p>
   </div>
