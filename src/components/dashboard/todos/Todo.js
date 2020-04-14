@@ -5,19 +5,20 @@ import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
 import SwipeLeft from "./SwipeLeft";
 import SwipeRight from "./SwipeRight.js";
 import DatePicker from "react-datepicker";
-import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
+import useAsyncState from '../../../hooks/useAsyncState.js';
 import { Row, Col, Menu, Dropdown } from "antd";
+import dayjs from "dayjs"
 
 const Todo = (props) => {
   const { id, assigned } = props;
   const [assignedUsers, setAssignedUsers] = useState(assigned || []);
-  const [reschedule, setReschedule] = useState({
+  const [reschedule, setReschedule] = useAsyncState({
     popup: false,
     due: new Date(),
   });
-  
+
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
@@ -41,7 +42,12 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    setReschedule({ due: date });
+    setReschedule({ due: date }).then(() => {
+      if (reschedule.due !== undefined) {
+        // console.log(reschedule.due)
+        dispatch(actions.todo.rescheduleTodo(id, { due: dayjs(reschedule.due).unix() }))
+      }
+    });
   };
 
   const handleRemove = () => {
@@ -92,7 +98,7 @@ const Todo = (props) => {
       >
         <Col span={12}>
           <h3>{props.title}</h3>
-          <p>Due {props.due}</p>
+          <p>Due {dayjs.unix(props.due).format("MM/DD/YY h:mm a")}</p>
         </Col>
         <Col span={12} style={{ textAlign: "right" }}>
           {/* Testing mapping over with selection as an object */}
@@ -111,14 +117,15 @@ const Todo = (props) => {
               <a
                 className="ant-dropdown-link"
                 onClick={(e) => {
-                  e.preventDefault()}}
+                  e.preventDefault()
+                }}
               >
                 <Icon name="add user" size="large"></Icon>
               </a>
             </Dropdown>
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
           {!userIsChild ? (
@@ -136,7 +143,7 @@ const Todo = (props) => {
                   wrapped
                   size="medium"
                   className="date-picker"
-                  selected={reschedule.due}
+                  selected={new Date()}
                   onChange={handleDue}
                   showTimeSelect
                   timeFormat="HH:mm"
@@ -148,8 +155,8 @@ const Todo = (props) => {
               </div>
             </Popup>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </Col>
       </Row>
     </SwipeableListItem>

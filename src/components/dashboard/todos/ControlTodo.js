@@ -14,7 +14,7 @@ const ControlTodo = () => {
     title: "",
     desc: "",
     due: null,
-    created_at: Date.now(),
+    created_at: dayjs().unix(),
   })
 
   const store = useSelector(state => state.todos);

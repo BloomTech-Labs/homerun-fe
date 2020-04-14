@@ -15,6 +15,8 @@ const todoReducer = (state = [], action) => {
         return newObj;
       });
       return newState;
+    case "RESCHEDULE_TODO":
+      return state.filter(obj => obj.id === action.payload.id ? action.payload : obj)
     default:
       return state;
   }
