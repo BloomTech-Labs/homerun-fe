@@ -42,11 +42,13 @@ const SignInEmail = props => {
           <Header.Subheader>Sign in to your account.</Header.Subheader>
         </Header>
       </div>
-      <div>
+      
         {isLoading ? (
+        <div>
           <Dimmer active inverted>
             <Loader size="large">Loading</Loader>
           </Dimmer>
+        </div>
         ) : (
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Field>
@@ -72,7 +74,6 @@ const SignInEmail = props => {
               <Button type="submit">Submit</Button>
             </Form>
           )}
-      </div>
       <Button onClick={() => props.history.push("/forgot-password")}>
         Forgot password
       </Button>
