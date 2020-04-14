@@ -17,7 +17,7 @@ const Todo = (props) => {
     popup: false,
     due: new Date(),
   });
-
+  
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
@@ -110,7 +110,8 @@ const Todo = (props) => {
             <Dropdown overlay={userSelect} trigger={["click"]}>
               <a
                 className="ant-dropdown-link"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.preventDefault()}}
               >
                 <Icon name="add user" size="large"></Icon>
               </a>

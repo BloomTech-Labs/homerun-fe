@@ -19,6 +19,7 @@ const TodoList = () => {
 
   useEffect(() => {
     dispatch(actions.todo.fetchTodos())
+    dispatch(actions.houseHold.fetchHousehold());
   }, [])
 
   return (
