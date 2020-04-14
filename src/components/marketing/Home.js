@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Button, Icon } from "semantic-ui-react";
 import devices from '../../Logos/devices.png';
 import '../../SASS/Marketing.scss';
+import Navigation from '../marketing/Navigation';
 
 // right now the button takes us to the email sign up but from the Home page the next step would actually be the initial sign in page where the user can choose to sign in with
 // google or email - once those components are built out we can have the navlink take us to that route
@@ -10,29 +11,7 @@ const Home = () => {
 
     return (
       <>
-        <div className="wrapper">
-          <div className="header">
-            <h1>TidyHive</h1>
-            <nav className="marketing-nav">
-              <div className="nav-buttons">
-                <NavLink to="/signup">
-                  <Button primary>Sign Up</Button>
-                </NavLink>
-                <NavLink to="/signin">
-                  <Button primary>Sign In</Button>
-                </NavLink>
-              </div>
-              <div className="nav-links">
-                <NavLink exact to="/" activeClassName="active">
-                  Home
-                </NavLink>
-                <NavLink to="/signin">About</NavLink>
-                <NavLink to="/signin">Features</NavLink>
-                <NavLink to="/signin">Contact</NavLink>
-              </div>
-            </nav>
-          </div>
-        </div>
+        <Navigation />
         <div className="content">
           <div className="banner">
             <img src={devices} />
@@ -42,7 +21,7 @@ const Home = () => {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </h1>
               <Button>
-                Signup for free <Icon name="arrow right" />
+              <Link to="/signup">Signup for free <Icon name="arrow right"/></Link>
               </Button>
             </div>
           </div>
@@ -58,17 +37,29 @@ const Home = () => {
         <div className="features">
           <div className="create">
             <Icon name="list" size="massive" />
-            <h2>Create</h2>
+            <h2>Create Todos</h2>
           </div>
           <div className="assign">
             <Icon name="add user" size="massive" />
-            <h2>Assign</h2>
+            <h2>Assign Members</h2>
           </div>
           <div className="complete">
             <Icon name="tasks" size="massive" />
-            <h2>Complete</h2>
+            <h2>Complete Tasks</h2>
           </div>
         </div>
+        <p className="feature-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <footer>
+          <p>&copy; Copyright TidyHive 2020</p>
+        </footer>
       </>
     );
 };

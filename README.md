@@ -3,19 +3,11 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/test_coverage)
 
 
+# Welcome to TidyHive! 
 
+You can find the deployed project at TidyHive (https://dashboard.heroku.com/apps/stage-homerun-fe).
 
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
-# 1️⃣ Welcome to TidyHive! 
-
-1️⃣ You can find the deployed project at TidyHive (https://dashboard.heroku.com/apps/stage-homerun-fe).
-
-## 4️⃣ Contributors
+##  Contributors
 
 |    [Heather Ridgill ](https://github.com/Heather-Ridgill)      |     [Micah Jank](https://github.com/MicahJank)       |     [Katrina Roaix](https://github.com/kroaix)     |     [Yankho Trumble](https://github.com/Mayankho)     |
 |:---:|:---:|:---:|:---:|
@@ -43,11 +35,11 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/dUO3ZNeC/labspt7-homerun)
+[Trello Board](https://trello.com/b/dUO3ZNeC/labspt7-homerun)
 
-1️⃣ [Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
+[Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
 
-1️⃣ [PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
+[PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
 
 
 Intro
@@ -63,26 +55,40 @@ TidyHive simplifies home management with an easy-to-use interface and a robust f
 -    feature four
 -    feature five
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+Why did you choose this framework?
 
--    point one
--    point two
--    point three
--    point four
+-    It is easy to use
+-    Everyone on our team already knows how to use it.
+-    We are able to use a "virtual browser" that is more friendly than a real browser (Virtual DOM)
+-    Reusable components 
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+### Other front end features and libraries:
 
-#### Front end deployed to `🚫insert service here`
+#### OAuth
+
+Google Sign in
+
+-    For easy access
+-    From user research, most users like to use social media as an easy and fast way to sign in quickly. 
+
+#### OAuth
+
+Google Sign in
+
+-    For easy access
+-    From user research, most users like to use social media as an easy and fast way to sign in quickly. 
+
+#### Front end deployed to `Heroku`
 
 #### [Back end](https://github.com/Lambda-School-Labs/homerun-be) built using:
 
-#### 🚫 back end framework goes here
+#### Node.JS
 
 -    point one
 -    point two
@@ -92,23 +98,19 @@ TidyHive simplifies home management with an easy-to-use interface and a robust f
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication API here
 
-🚫Replace text below with a description of the API
+## Google Calendar API
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+Syncing todos and calendar events to the app. 
 
-## 2️⃣ Payment API here
+## Cash App and/or Venmo
 
-🚫Replace text below with a description of the API
+ Ability to divvy up shared costs running a household. Especially for apartments.
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+## Notifications API
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+Easily create push notifications for users.
 
 ## 3️⃣ Misc API here
 
@@ -152,9 +154,10 @@ In order for the app to function correctly, the user must set up their own envir
 
 🚫Document what you used for testing and why
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+- NPM i
+- NPM Start
 
 ## Other Scripts
 
@@ -203,4 +206,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/homerun-be/blob/master/README.md) for details on the backend of our project.
