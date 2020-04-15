@@ -10,6 +10,8 @@ import actions from "../../../actions/index.js";
 import useAsyncState from '../../../hooks/useAsyncState.js';
 import { Row, Col, Menu, Dropdown } from "antd";
 import dayjs from "dayjs"
+import useWindowSize from '../../../hooks/useWindowSize.js'
+import Confetti from 'react-confetti'
 
 const Todo = (props) => {
   const { id, assigned } = props;
@@ -18,10 +20,13 @@ const Todo = (props) => {
     popup: false,
     due: new Date(),
   });
+  const [confetti, setConfetti] = useState(false)
 
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
+
+  const { height, width } = useWindowSize()
 
   const assign = (props) => {
     const user = props.item.props.member;
@@ -50,6 +55,7 @@ const Todo = (props) => {
     });
   };
 
+
   const handleRemove = () => {
     if (userIsChild) {
       // TODO: replace with permanent functionality
@@ -58,6 +64,10 @@ const Todo = (props) => {
       dispatch(actions.todo.removeTodo(id));
     }
   };
+
+  const handleCompleted = () => {
+    setConfetti(true)
+  }
 
   const userSelect = (
     <Menu onClick={assign}>
@@ -84,7 +94,7 @@ const Todo = (props) => {
       }}
       swipeRight={{
         content: <SwipeRight />,
-        action: () => alert("Task Completed! (TODO)"),
+        action: handleCompleted,
       }}
     >
       <Row
@@ -98,7 +108,7 @@ const Todo = (props) => {
       >
         <Col span={12}>
           <h3>{props.title}</h3>
-          <p>Due {dayjs.unix(props.due).format("MM/DD/YY h:mm a")}</p>
+          <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
         </Col>
         <Col span={12} style={{ textAlign: "right" }}>
           {/* Testing mapping over with selection as an object */}
@@ -159,6 +169,15 @@ const Todo = (props) => {
             )}
         </Col>
       </Row>
+      <Confetti
+        width={width}
+        height={height}
+        run={confetti}
+        recycle={false}
+        numberOfPieces={150}
+        tweenDuration={2000}
+        onConfettiComplete={() => setConfetti(false)}
+      />
     </SwipeableListItem>
   );
 };
