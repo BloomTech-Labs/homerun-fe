@@ -24,12 +24,27 @@ const TodoList = () => {
 
   return (
     <section>
-      <SwipeableList>
-        {store.map((todo, index) => {
-          return <Todo key={index} {...todo} />
-        })}
-      </SwipeableList>
-     { !currentUser.childActive ? <ControlTodo /> : ''}
+      <div style={{ margin: "50px 0px" }}>
+        <h3>Todo</h3>
+        <SwipeableList>
+          {store.map((todo, index) => {
+            return <Todo key={index} {...todo} />
+          })}
+        </SwipeableList>
+      </div>
+
+      {/* Conditionally render the todos based on completion. */}
+      <div>
+        <h3>Todone</h3>
+        <SwipeableList>
+          {store.map((todo, index) => {
+            return <Todo key={index} {...todo} />
+          })}
+        </SwipeableList>
+      </div>
+
+
+      {!currentUser.childActive ? <ControlTodo /> : ''}
     </section>
   )
 }

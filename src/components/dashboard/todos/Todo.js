@@ -130,7 +130,7 @@ const Todo = (props) => {
                   e.preventDefault()
                 }}
               >
-                <Icon name="add user" size="large"></Icon>
+                <Icon name="add user" size="large" style={{ marginRight: "10px" }}></Icon>
               </a>
             </Dropdown>
           ) : (
