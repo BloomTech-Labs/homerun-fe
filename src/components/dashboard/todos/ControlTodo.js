@@ -13,7 +13,8 @@ const ControlTodo = () => {
   const [info, setInfo] = useState({
     title: "",
     desc: "",
-    due: null,
+    due: dayjs().unix(),
+    completed: false,
     created_at: dayjs().unix(),
   })
 

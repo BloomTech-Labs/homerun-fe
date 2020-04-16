@@ -14,14 +14,16 @@ import useWindowSize from '../../../hooks/useWindowSize.js'
 import Confetti from 'react-confetti'
 
 const Todo = (props) => {
-  const { id, assigned } = props;
+  const { id, assigned, completed } = props;
+
   const [assignedUsers, setAssignedUsers] = useState(assigned || []);
   const [reschedule, setReschedule] = useAsyncState({
     popup: false,
     due: new Date(),
   });
-  const [confetti, setConfetti] = useState(false)
+  const [confetti, setConfetti] = useAsyncState(false)
 
+  const store = useSelector(state => state.todos)
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
@@ -49,13 +51,12 @@ const Todo = (props) => {
   const handleDue = (date) => {
     setReschedule({ due: date }).then(() => {
       if (reschedule.due !== undefined) {
-        // console.log(reschedule.due)
-        dispatch(actions.todo.rescheduleTodo(id, { due: dayjs(reschedule.due).unix() }))
+        dispatch(actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() }))
       }
     });
   };
 
-
+  // TODO: This is not the right index from the store.
   const handleRemove = () => {
     if (userIsChild) {
       // TODO: replace with permanent functionality
@@ -66,7 +67,11 @@ const Todo = (props) => {
   };
 
   const handleCompleted = () => {
-    setConfetti(true)
+    setConfetti(true).then(() => {
+      setTimeout(() => {
+        setConfetti(false)
+      }, 2200)
+    })
   }
 
   const userSelect = (
@@ -176,7 +181,7 @@ const Todo = (props) => {
         recycle={false}
         numberOfPieces={150}
         tweenDuration={2000}
-        onConfettiComplete={() => setConfetti(false)}
+        onConfettiComplete={() => dispatch(actions.todo.updateTodo(id, { completed: !completed }))}
       />
     </SwipeableListItem>
   );
