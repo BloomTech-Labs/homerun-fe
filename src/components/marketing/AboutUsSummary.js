@@ -12,9 +12,10 @@ const AboutUsSummary = () => {
     return (
         <>
         <DevCard>
-            <DevImage>
+            <DevImage />
+                <DevInfo>
 
-            </DevImage>
+                </DevInfo>
         </DevCard>
 
     
