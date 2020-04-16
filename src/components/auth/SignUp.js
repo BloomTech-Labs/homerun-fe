@@ -7,37 +7,41 @@ import {
   Form,
   Container,
   Loader,
-  Dimmer
+  Dimmer,
 } from "semantic-ui-react";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import axios from "axios";
+import Navigation from '../marketing/Navigation';
 
-const SignUp = props => {
+const SignUp = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
-      .then(res => {
-        console.log('signup data', res);
+      .then((res) => {
+        console.log("signup data", res);
         // rather than pushing to the dashboard and setting the token here we should have a popup show that tells the user a confirmation email has been sent to them
         // the confirmation route can then handle setting the token and pushing
-        
+
         // localStorage.setItem(`token`, res.data.payload);
         // props.history.push(`/dashboard`);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
+
   const googleAuth = () => {
-    window.location(`${process.env.REACT_APP_BE_URL}/connect/google`);
+    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
 
   return (
+    <>
+    <Navigation />
     <Container text>
       <div align="center">
         <Header as="h2" icon>
@@ -83,8 +87,8 @@ const SignUp = props => {
                   required: "Password is required.",
                   minLength: {
                     value: 8,
-                    message: "Password must be at least 8 characters long."
-                  }
+                    message: "Password must be at least 8 characters long.",
+                  },
                 })}
               />
               {errors.password && <p>{errors.password.message}</p>}
@@ -108,6 +112,7 @@ const SignUp = props => {
         </p>
       </div>
     </Container>
+    </>
   );
 };
 

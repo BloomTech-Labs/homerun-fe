@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import {
   Sidebar as SemSidebar,
   Segment,
@@ -12,6 +13,7 @@ import Settings from "../settings/Settings.js";
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
   const [active, setActive] = useState(null);
+  const history = useHistory();
   return (
     <SemSidebar
       className="settings"
@@ -47,7 +49,8 @@ const Sidebar = (props) => {
         <Button
           onClick={() => {
             localStorage.removeItem("token");
-            props.history.push("/signin");
+            localStorage.removeItem("state");
+            history.push("/signin");
           }}
         >
           Logout

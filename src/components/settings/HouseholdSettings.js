@@ -10,11 +10,8 @@ const HouseholdSettings = () => {
   const members = useSelector(state => state.household.members);
   const currentUser = useSelector(state => state.user.userInfo);
   const dispatch = useDispatch();
-  const [dropDownValue, setDropDownValue] = useState(currentUser.username);
+  const [dropDownValue, setDropDownValue] = useState();
   const [options, setOptions] = useState([]);
-  const [modal, setModal] = useState(false);
-  const [password, setPassword] = useState('');
-  const history = useHistory();
   
   console.log("HouseholdSettings -> currentUser", currentUser)
  useEffect(() => {
@@ -22,45 +19,20 @@ const HouseholdSettings = () => {
      return { key: child.id, text: child.username, value: child.username }
    });
    
-    setOptions([...children, { key: currentUser.id, text: currentUser.username, value: currentUser.username }])
+    setOptions(children)
  }, [])
   
   const handleChange = (event, { value }) => {
     event.persist();
-    if(event.target.type === 'password') {
-      setPassword(event.target.value);
-    } else {
-      setDropDownValue(value);
-      const [user] = members.filter(user => value === user.username);
-      if(!user.child) { // no need to put in a password for a child user
-        setModal(true);
-      } else {
-        dispatch(actions.user.changeUser(user))
-      }
-    }
-  }
-
-  const handleSubmit = event => {
-    const [user] = members.filter(user => dropDownValue === user.username);
-    event.preventDefault();
-    dispatch(actions.user.changeUser({...user, password}))
+    setDropDownValue(value);
+    const [user] = members.filter(user => value === user.username);
+    dispatch(actions.user.setChild(user))
   }
 
   return (
     <div>
       <h3>Welcome {currentUser.username}</h3>
-      <Dropdown selection onChange={handleChange} placeholder={`Welcome, ${currentUser.username}`} value={dropDownValue} fluid options={options} />
-      <Modal
-        open={modal}
-        onClose={() => setModal(false)}
-        header="Please enter that users password to continue"
-        content={(
-          <>
-        <Input loading onChange={handleChange} value={password} type='password' fluid placeholder={'Enter Password...'}/>
-        <Button onClick={handleSubmit} content='Submit' />
-        </>
-        )}
-      ></Modal>
+      <Dropdown selection onChange={handleChange} placeholder={`Please select a child.`} value={dropDownValue} fluid options={options} />
     </div>
     );
 };

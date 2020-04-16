@@ -15,14 +15,14 @@ function initializeAnalytics (){
 
 function App() {
   // initializeAnalytics()
-  const currentUser = useSelector(state => state.user.userInfo);
+  const currentUser = useSelector(state => state.user);
   const history = useHistory();
 
   useEffect(() => {
-    if(currentUser.child) {
+    if(currentUser.childActive === true) {
       history.push('/dashboard');    
     }
-  }, [currentUser])
+  }, [currentUser.childActive])
   return ( 
     <div className="App">
       <Routes />
