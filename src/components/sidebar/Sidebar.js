@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from "react-router-dom";
 import {
   Sidebar as SemSidebar,
   Segment,
@@ -8,11 +8,9 @@ import {
   Menu,
   Button,
 } from "semantic-ui-react";
-import Settings from "../settings/Settings.js";
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
-  const [active, setActive] = useState(null);
   const history = useHistory();
   return (
     <SemSidebar
@@ -26,26 +24,25 @@ const Sidebar = (props) => {
       width="wide"
       onHide={() => setOpened(false)}
     >
-      <SemSidebar.Pushable as={Segment}>
-        <Menu.Item
-          name="Close"
-          onClick={() => {
-            setOpened(false);
-            setActive(null);
-          }}
-        >
-          <Icon name="close" />
-          Close
-        </Menu.Item>
-        <Menu.Item name="Account" onClick={() => setActive("account")}>
+      <SemSidebar.Pushable
+        as={Segment}
+        onClick={() => {
+          setOpened(false);
+        }}
+      >
+        {/* <Icon name="close" /> */}
+        <Menu.Item name="Account" as={NavLink} to="/dashboard">
           <Icon name="user" />
-          Account
+          Dashboard
         </Menu.Item>
-        <Menu.Item name="Household" onClick={() => setActive("household")}>
+        <Menu.Item name="Household" as={NavLink} to="/household">
           <Icon name="home" />
           Household
         </Menu.Item>
-        <Settings active={active} />
+        <Menu.Item name="Account" as={NavLink} to="/account">
+          <Icon name="user" />
+          Account
+        </Menu.Item>
         <Button
           onClick={() => {
             localStorage.removeItem("token");
