@@ -9,6 +9,8 @@ import {
   Button,
 } from "semantic-ui-react";
 
+import "../../SASS/Sidebar.scss";
+
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
   const history = useHistory();
@@ -44,7 +46,8 @@ const Sidebar = (props) => {
         </Menu.Item>
         <Icon
           name="logout"
-          size="large"
+          size="big"
+          className="logoutBtn"
           onClick={() => {
             localStorage.removeItem("token");
             localStorage.removeItem("state");
