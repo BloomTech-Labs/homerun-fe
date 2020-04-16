@@ -30,7 +30,6 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
       >
-        {/* <Icon name="close" /> */}
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
           <Icon name="user" />
           Dashboard
@@ -43,15 +42,15 @@ const Sidebar = (props) => {
           <Icon name="user" />
           Account
         </Menu.Item>
-        <Button
+        <Icon
+          name="logout"
+          size="large"
           onClick={() => {
             localStorage.removeItem("token");
             localStorage.removeItem("state");
             history.push("/signin");
           }}
-        >
-          Logout
-        </Button>
+        />
       </SemSidebar.Pushable>
     </SemSidebar>
   );
