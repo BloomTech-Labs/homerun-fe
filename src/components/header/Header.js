@@ -63,9 +63,13 @@ const Header = (props) => {
   return (
     <>
       <div className="header-container">
-        {location.pathname === "/household" ? <PinNumber /> : <Notifications />}
+        {location.pathname === "/dashboard" && <PinNumber />}
+        {location.pathname === "/household" && <PinNumber />}
+        {location.pathname === "/household" && <PinNumber />}
         <UiHeader as="h3">
-          {location.pathname === "/household" ? "Setup Household" : "Dashboard"}
+          {location.pathname === "/dashboard" && "Dashboard"}
+          {location.pathname === "/household" && "Household"}
+          {location.pathname === "/account" && "Account"}
         </UiHeader>
         <Button onClick={handleClick} className="header-btns">
           <Icon
