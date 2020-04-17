@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
 import Notifications from "./Notifications.js";
 import PinNumber from "./PinNumber.js";
@@ -20,46 +20,45 @@ import {
   Menu,
   Button,
   Modal,
-  Input
+  Input,
 } from "semantic-ui-react";
 
 const Header = (props) => {
-  const [pinInput, setPinInput] = useState('');
+  const [pinInput, setPinInput] = useState("");
   const [pinModal, setPinModal] = useState(false);
   // location is an object that contains the current url path on the 'pathname' property
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const currentUser = useSelector(state => state.user);
+  const currentUser = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(currentUser.childActive === true) {
+    if (currentUser.childActive === true) {
       setSidebarOpened(false);
     }
   }, [currentUser]);
 
-
   // handles what happens when a user clicks on the settings icon or the lock icon when it is a child
   const handleClick = () => {
-    if(currentUser.childActive === true) {
+    if (currentUser.childActive === true) {
       setPinModal(true);
     } else {
-      setSidebarOpened(!sidebarOpened)
+      setSidebarOpened(!sidebarOpened);
     }
-  }
+  };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     e.persist();
     setPinInput(e.target.value);
-  }
+  };
 
   const modalButtonClick = () => {
     // dispatch action for checking pin and changing the child boolean in state to false
     dispatch(actions.user.setChildActive(false));
     console.log(pinInput);
-    setPinInput('');
+    setPinInput("");
     setPinModal(false);
-  }
+  };
 
   return (
     <>
@@ -68,18 +67,28 @@ const Header = (props) => {
         <UiHeader as="h3">
           {location.pathname === "/household" ? "Setup Household" : "Dashboard"}
         </UiHeader>
-        <Button
-          onClick={handleClick}
-          className="header-btns">
-          <Icon className="icons-size" size="big" name={currentUser.childActive === true ? 'lock' : `cog`} />
+        <Button onClick={handleClick} className="header-btns">
+          <Icon
+            className="icons-size"
+            size="big"
+            name={currentUser.childActive === true ? "lock" : `bars`}
+          />
         </Button>
       </div>
       <Modal open={pinModal}>
         <Modal.Header>Admin Access</Modal.Header>
-        <Modal.Description>You must enter the household pin to get access to user settings.</Modal.Description>
+        <Modal.Description>
+          You must enter the household pin to get access to user settings.
+        </Modal.Description>
         <Modal.Content>
-          <Input type='text' placeholder='Enter household pin' name='pin' value={pinInput} onChange={handleChange} />
-          <Button onClick={modalButtonClick} primary content='Submit' />
+          <Input
+            type="text"
+            placeholder="Enter household pin"
+            name="pin"
+            value={pinInput}
+            onChange={handleChange}
+          />
+          <Button onClick={modalButtonClick} primary content="Submit" />
         </Modal.Content>
       </Modal>
       <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
