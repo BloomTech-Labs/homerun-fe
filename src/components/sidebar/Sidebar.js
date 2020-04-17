@@ -33,7 +33,7 @@ const Sidebar = (props) => {
         }}
       >
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
-          <Icon name="user" />
+          <Icon name="check" />
           Dashboard
         </Menu.Item>
         <Menu.Item name="Household" as={NavLink} to="/household">
