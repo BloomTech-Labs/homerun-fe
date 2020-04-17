@@ -13,8 +13,9 @@ const ControlTodo = () => {
   const [info, setInfo] = useState({
     title: "",
     desc: "",
-    due: null,
-    created_at: Date.now(),
+    due: dayjs().unix(),
+    completed: false,
+    created_at: dayjs().unix(),
   })
 
   const store = useSelector(state => state.todos);
@@ -68,9 +69,7 @@ const ControlTodo = () => {
           <Button type="submit">Add</Button>
         </Form>
       </Modal>
-      <button className="ui button blue" onClick={handleModal}>
-        <i className="add icon ui"></i>
-      </button>
+      <button className="ui button blue circular" onClick={handleModal} style={{ position: "absolute", bottom: 20, right: 20 }}>Add Todo</button>
     </div>
   )
 }

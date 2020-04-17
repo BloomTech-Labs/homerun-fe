@@ -58,10 +58,22 @@ const unassignUser = (todoId, userId, type) => (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
+const updateTodo = (todoid, update) => dispatch => {
+  axiosWithAuth()
+    .put(`/todos/${todoid}`, update)
+    // .then(res => console.log("res.data todoActions :64", res.data))
+    .then(res => dispatch({
+      type: "UPDATE_TODO",
+      payload: res.data
+    }))
+    .catch(err => console.log(err))
+}
+
 export default {
   fetchTodos,
   addTodo,
   removeTodo,
   assignUser,
   unassignUser,
+  updateTodo
 };

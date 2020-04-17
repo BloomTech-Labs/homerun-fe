@@ -15,6 +15,16 @@ const todoReducer = (state = [], action) => {
         return newObj;
       });
       return newState;
+    case "UPDATE_TODO":
+      // TODO Reducer is busted. Action is right, but Next State is wrong.
+      const newerState = state.map((obj) => {
+        const newObj = { ...obj };
+        if (obj.id === action.payload.id) {
+          return action.payload
+        }
+        return newObj;
+      });
+      return newerState;
     default:
       return state;
   }
