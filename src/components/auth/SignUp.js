@@ -47,7 +47,7 @@ const SignUp = (props) => {
         <Header as="h2" icon>
           <Icon name="home" />
           Welcome to TidyHive!
-          <Header.Subheader>Sign up to get started.</Header.Subheader>
+          <Header.Subheader>Sign up to get started </Header.Subheader>
         </Header>
       </div>
       <div>
@@ -108,7 +108,7 @@ const SignUp = (props) => {
           &nbsp;&nbsp;&nbsp;Sign in with Google
         </Button>
         <p>
-          Already have an account? <a href="/signin/email">Sign In</a>
+          Already have an account? <a href="/signin">Sign In</a>
         </p>
       </div>
     </Container>

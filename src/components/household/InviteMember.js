@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Button, Icon, Header, Form, Container, Loader, Dimmer } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 import actions from '../../actions';
 import "antd/lib/alert/style/css";
 import '../../SASS/InviteMember.scss';
@@ -20,16 +21,37 @@ const InviteMember = (props) => {
   console.log(stateError)
     return loadingState ? ( <Dimmer active inverted><Loader size="large">Loading</Loader></Dimmer>)
                      : (
+                      <div className="container-contact100">
+                      <div className="wrap-container">
+                      <span className="contact100-form-symbol">
+                           <Icon size="huge" className="address card"/>
+                      </span>
                         <>
+                        
                         <Form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-title">
+                  Invite a user to your household
+              </div>
                           <Form.Field>
                             <label>Email</label>
-                            <input type='email' name='email' placeholder='user@email.com' ref={register} />
+                            <input className= "wrap-input" type='email' name='email' placeholder='user@email.com' ref={register} />
                             {stateError && <p>{stateError}</p>}
                           </Form.Field>
-                          <Button floated='right' primary type='submit'>Invite</Button>
+                          <button
+                            className="container-contact100-form-btn" 
+                            type="submit"
+                            value="Send Message"
+                           />
+
+              <div className="container-contact100-form-btn">
+              <button className="submit"> Invite </button>
+              <button 
+           className="back"><Link to ={"/household"}>Back</Link> </button>
+                      </div>
                         </Form>
                        </>
+                       </div>
+                       </div>
                         )
           
 }

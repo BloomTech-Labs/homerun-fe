@@ -50,7 +50,7 @@ export default class ContactUsForm extends React.Component {
           type="text"
           className="wrap-input" 
           name="email"
-          placeholder="email@domain.tld"
+          placeholder="youremail@domain.tld"
           value={this.state.email}
           onChange={this.handleChange}
         />

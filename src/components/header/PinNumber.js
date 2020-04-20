@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { button, Icon, Header, Input, Modal } from 'semantic-ui-react';
+import { button, Icon, Header, input, Modal } from 'semantic-ui-react';
 
 
 
@@ -11,14 +11,28 @@ const PinNumber  = () => {
           <button className="header-btns">
             <Icon size="big" aria-hidden="true" className="map pin"/>
           </button>
-        }>
-         
-  <Modal.Header>Enter Pin</Modal.Header>
+        }>   
+          <div className="container-contact100">
+                      <div className="wrap-container">
+                      <span className="contact100-form-symbol">
+                           <Icon size="huge" className="map pin"/>
+                      </span>
+  {/* <Modal.Header>Enter Pin</Modal.Header> */}
+  <div className="form-title">
+                  Enter Pin
+              </div>
     <Modal.Content image>
-      <Input placeholder= 'Pin' 
+      <input 
+      className="wrap-input" 
+      placeholder= 'Pin' 
       type='password'/>
-      <button>Submit</button> 
     </Modal.Content>
+    <div className="container-contact100-form-btn">
+        <button className="submit"> Submit </button>
+                  </div>
+  
+  </div>
+  </div>
   </Modal>
   )
 
