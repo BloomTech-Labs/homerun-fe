@@ -29,7 +29,7 @@ const TodoList = () => {
           return <Todo key={index} {...todo} />
         })}
       </SwipeableList>
-     { !currentUser.childActive ? <ControlTodo /> : ''}
+      {!currentUser.childActive ? <ControlTodo /> : ''}
     </section>
   )
 }
