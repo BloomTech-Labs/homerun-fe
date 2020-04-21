@@ -25,18 +25,18 @@ const TodoList = () => {
   }, [])
 
   useEffect(() => {
-    if (user.childActive === true) {
-      console.log("todolist.js :29 'IF'")
-      for (let todo in store) {
-        todo.completed === false
-          ? setTodos(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
-          : setTodones(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
-      }
-    } else {
-      console.log("todolist.js : 'ELSE'")
-      setTodos(store.filter(todo => todo.completed === false))
-      setTodones(store.filter(todo => todo.completed === true))
-    }
+    // if (user.childActive === true) {
+    //   console.log("todolist.js :29 'IF'")
+    //   for (let todo in store) {
+    //     todo.completed === false
+    //       ? setTodos(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
+    //       : setTodones(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
+    //   }
+    // } else {
+    //   console.log("todolist.js : 'ELSE'")
+    setTodos(store.filter(todo => todo.completed === false))
+    setTodones(store.filter(todo => todo.completed === true))
+    // }
   }, [store])
 
   return (
