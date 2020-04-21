@@ -108,7 +108,7 @@ const SignUp = (props) => {
           &nbsp;&nbsp;&nbsp;Sign in with Google
         </Button>
         <p>
-          Already have an account? <a href="/signin/email">Sign In</a>
+          Already have an account? <a href="/signin">Sign In</a>
         </p>
       </div>
     </Container>
