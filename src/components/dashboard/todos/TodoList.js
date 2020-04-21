@@ -11,9 +11,9 @@ import ControlTodo from "./ControlTodo.js"
 import dayjs from 'dayjs';
 
 
-const TodoList = () => {
+const TodoList = (props) => {
 
-  const store = useSelector(state => state.todos);
+  const store = useSelector(state => state.todos.todos);
   const currentUser = useSelector(state => state.user);
   const dispatch = useDispatch();
 
