@@ -5,22 +5,30 @@ import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
 import SwipeLeft from "./SwipeLeft";
 import SwipeRight from "./SwipeRight.js";
 import DatePicker from "react-datepicker";
-import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
+import useAsyncState from '../../../hooks/useAsyncState.js';
 import { Row, Col, Menu, Dropdown } from "antd";
+import dayjs from "dayjs"
+import useWindowSize from '../../../hooks/useWindowSize.js'
+import Confetti from 'react-confetti'
 
 const Todo = (props) => {
-  const { id, assigned } = props;
+  const { id, assigned, completed } = props;
+
   const [assignedUsers, setAssignedUsers] = useState(assigned || []);
-  const [reschedule, setReschedule] = useState({
+  const [reschedule, setReschedule] = useAsyncState({
     popup: false,
     due: new Date(),
   });
-  
+  const [confetti, setConfetti] = useAsyncState(false)
+
+  const store = useSelector(state => state.todos)
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
+
+  const { height, width } = useWindowSize()
 
   const assign = (props) => {
     const user = props.item.props.member;
@@ -41,9 +49,14 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    setReschedule({ due: date });
+    setReschedule({ due: date }).then(() => {
+      if (reschedule.due !== undefined) {
+        dispatch(actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() }))
+      }
+    });
   };
 
+  // TODO: This is not the right index from the store.
   const handleRemove = () => {
     if (userIsChild) {
       // TODO: replace with permanent functionality
@@ -52,6 +65,14 @@ const Todo = (props) => {
       dispatch(actions.todo.removeTodo(id));
     }
   };
+
+  const handleCompleted = () => {
+    setConfetti(true).then(() => {
+      setTimeout(() => {
+        setConfetti(false)
+      }, 2200)
+    })
+  }
 
   const userSelect = (
     <Menu onClick={assign}>
@@ -78,7 +99,7 @@ const Todo = (props) => {
       }}
       swipeRight={{
         content: <SwipeRight />,
-        action: () => alert("Task Completed! (TODO)"),
+        action: handleCompleted,
       }}
     >
       <Row
@@ -92,7 +113,7 @@ const Todo = (props) => {
       >
         <Col span={12}>
           <h3>{props.title}</h3>
-          <p>Due {props.due}</p>
+          <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
         </Col>
         <Col span={12} style={{ textAlign: "right" }}>
           {/* Testing mapping over with selection as an object */}
@@ -111,14 +132,15 @@ const Todo = (props) => {
               <a
                 className="ant-dropdown-link"
                 onClick={(e) => {
-                  e.preventDefault()}}
+                  e.preventDefault()
+                }}
               >
-                <Icon name="add user" size="large"></Icon>
+                <Icon name="add user" size="large" style={{ marginRight: "10px" }}></Icon>
               </a>
             </Dropdown>
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
           {!userIsChild ? (
@@ -136,7 +158,7 @@ const Todo = (props) => {
                   wrapped
                   size="medium"
                   className="date-picker"
-                  selected={reschedule.due}
+                  selected={new Date()}
                   onChange={handleDue}
                   showTimeSelect
                   timeFormat="HH:mm"
@@ -148,10 +170,19 @@ const Todo = (props) => {
               </div>
             </Popup>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </Col>
       </Row>
+      <Confetti
+        width={width}
+        height={height}
+        run={confetti}
+        recycle={false}
+        numberOfPieces={150}
+        tweenDuration={2000}
+        onConfettiComplete={() => dispatch(actions.todo.updateTodo(id, { completed: !completed }))}
+      />
     </SwipeableListItem>
   );
 };

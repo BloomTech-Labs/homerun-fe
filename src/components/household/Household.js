@@ -6,28 +6,26 @@ import '../../SASS/Household.scss';
 
 import { Button, Icon } from 'semantic-ui-react';
 import { NavLink, Redirect } from 'react-router-dom';
+import { Row, Col } from "antd"
 
 const Household = () => {
 
     return (
         <div className='household container'>
-            {/* <Button>Join Household?</Button> */}
             <List />
-            <NavLink className='dashboard-btn' to='/dashboard'>
-                <Button animated>
-                    <Button.Content visible>
-                        Dashboard
-                    </Button.Content>
-                    <Button.Content hidden>
-                        <Icon name='arrow right' />
-                    </Button.Content>
-                </Button>
-            </NavLink>
+            <Row style={{ margin: "50px 0" }}>
+                <Col span={24}>
+                    <NavLink className='dashboard-btn' to='/dashboard'>
+                        <button className="ui button blue circular">Dashboard</button>
+                    </NavLink>
+                </Col>
+            </Row>
+
         </div>
     )
 }
 
- 
+
 
 
 
