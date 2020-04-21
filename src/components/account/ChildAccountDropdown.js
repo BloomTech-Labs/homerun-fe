@@ -28,17 +28,15 @@ const ChildAccountDropdown = () => {
   };
 
   return (
-    <div>
-      <h3>Children:</h3>
-      <Dropdown
-        selection
-        onChange={handleChange}
-        placeholder={`Please select a child.`}
-        value={dropDownValue}
-        fluid
-        options={options}
-      />
-    </div>
+    <Dropdown
+      selection
+      onChange={handleChange}
+      placeholder={`Please select a child.`}
+      default={`Please select a child.`}
+      value={dropDownValue}
+      fluid
+      options={options}
+    />
   );
 };
 
