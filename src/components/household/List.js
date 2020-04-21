@@ -42,14 +42,13 @@ const List = () => {
         trigger={
           <Button onClick={() => setMemberModal(true)}>Invite Member</Button>
         }
-        header="Invite a user to your household"
+        
         content={<InviteMember setModal={setMemberModal} />}
       ></Modal>
       <Modal
         open={childModal}
         onClose={() => setChildModal(false)}
         trigger={<Button onClick={() => setChildModal(true)}>Add Child</Button>}
-        header="Add your child"
         content={<AddChild setModal={setChildModal} />}
       ></Modal>
     </div>

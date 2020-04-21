@@ -99,15 +99,8 @@ Google Sign in
 
 -    PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
-
-
-# APIs
-
-## Authentication API here
-
-## Google Calendar API
-
-Syncing todos and calendar events to the app. 
+## [Knex](https://www.npmjs.com/package/knex)
+-    Knex can be built using a JavaScript build tool such as browserify or webpack. In fact, this documentation uses a webpack build which includes knex. View source on this page to see the browser build in-action (the global knex variable).
 
 
 #  Environment Variables
@@ -139,21 +132,17 @@ In order for the app to function correctly, the user must set up their own envir
 
 # Testing
 
-🚫Document what you used for testing and why
+## [Jest](https://jestjs.io/docs/en/tutorial-react)
+-    Jest allows us to create mock functions with almost zero configuration and provides a really nice set of matchers that makes assertions easier to read.
+
+## [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+-    This library encourages your applications to be more accessible and allows you to get your tests closer to using your components the way a user will, which allows your tests to give you more confidence that your application will work when a real user uses it.
 
 # Installation Instructions
 
 - NPM i
 - NPM Start
 
-## Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
 
 # Documentation
 
