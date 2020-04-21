@@ -1,37 +1,40 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/test_coverage)
-
-
 # Welcome to TidyHive! 
 
-You can find the deployed project at TidyHive (https://dashboard.heroku.com/apps/stage-homerun-fe).
+You can find the deployed project at TidyHive ().
 
 ##  Contributors
 
 |    [Heather Ridgill ](https://github.com/Heather-Ridgill)      |     [Micah Jank](https://github.com/MicahJank)       |     [Katrina Roaix](https://github.com/kroaix)     |     [Yankho Trumble](https://github.com/Mayankho)     |
 |:---:|:---:|:---:|:---:|
-|    [<img src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4" width = "188" />](https://github.com/Heather-Ridgill)     |     [<img src="https://avatars3.githubusercontent.com/u/40408940?s=460&v=4" width = "188" />](https://github.com/MicahJank)       |     [<img src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4" width = "188" />](https://github.com/kroaix)     |     [<img src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4" width = "188" />](https://github.com/Mayankho)     |
+|    [<img src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4" width = "115" />](https://github.com/Heather-Ridgill)     |     [<img src="https://avatars3.githubusercontent.com/u/40408940?s=460&v=4" width = "115" />](https://github.com/MicahJank)       |     [<img src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4" width = "115" />](https://github.com/kroaix)     |     [<img src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4" width = "115" />](https://github.com/Mayankho)     |
 |    [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Heather-Ridgill)     |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MicahJank)      |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kroaix)     |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mayankho)     |
 |    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/heatherridgill/)     |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/micah-jank/)      |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kroaix/)     |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/yankho/)     |
 
 | [Zach Taylor ](https://github.com/zbtaylor) | [Vinni Hoke](https://github.com/vinnihoke) | [Brandon Dresselle - TL](https://github.com/BDesselle) |
 |    :---:     |     :---:      |     :---:     |
-| [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "188" />](https://github.com/zbtaylor)   | [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "188" />](https://github.com/vinnihoke)     | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UCBK6FRD5-c149fef438f7-512" width = "188" />](https://github.com/BDesselle)    |
+| [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "115" />](https://github.com/zbtaylor)   | [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "115" />](https://github.com/vinnihoke)     | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UCBK6FRD5-c149fef438f7-512" width = "115" />](https://github.com/BDesselle)    |
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zbtaylor)     | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vinnihoke)       | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BDesselle)      |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zach-taylor-97b90a196/)     | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/vinnihoke/)       | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/)      |
 
 
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
+# Team/Project Badges
 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/test_coverage)
+
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg) 
+
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+
 ![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
+
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
+
+<!-- 🚫 more info on using badges [here](https://github.com/badges/shields) -->
 
 ## Project Overview
 
@@ -42,57 +45,59 @@ You can find the deployed project at TidyHive (https://dashboard.heroku.com/apps
 [PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
 
 
-Intro
+# Intro
 
 TidyHive simplifies home management with an easy-to-use interface and a robust feature set allowing you organize everything in your home from day-to-day tasks to larger projects. 
 
 
-### 4️⃣ Key Features
+## Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+-    TidyHive gives you the ability to organize and manage your todos in a simple and easy way.
+-    Manage and share household todos from any device.
+-    Assign todos to household members manually, automatically, or randomly.
+-    DownloadTidyHive to your mobile device for use offline.
+-    Time-blocking
+-    When a user completes a task and swips it complete - there is animation (confetti) to emulate the feeling of crossing off a list.
 
-## Tech Stack
+# Tech Stack
 
-### Front end built using:
+## Front-end built using:
 
-#### React
+## [React](https://reactjs.org/)
 
-Why did you choose this framework?
 
--    It is easy to use
--    Everyone on our team already knows how to use it.
 -    We are able to use a "virtual browser" that is more friendly than a real browser (Virtual DOM)
 -    Reusable components 
 
-### Other front end features and libraries:
+## [Redux Toolkit](https://redux-toolkit.js.org/)
+-    Includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and more. Provides good defaults for store setup out of the box, and includes the most commonly used Redux addons built-in.
 
-#### OAuth
+## [Semantic-UI](https://react.semantic-ui.com/)
+-    Includes a varity of objects and elements to incorporate into our app.
+
+## [React-Router](https://reacttraining.com/react-router/)
+-    React Router is a collection of navigational components that compose declaratively with your application.
+
+
+## [OAuth](https://www.okta.com/resources/whitepaper-pre-built-identity-solution/?utm_campaign=search_google_amer_multiple_ao_ciam_exact&utm_medium=cpc&utm_source=google&utm_term=oauth&utm_page={url}&gclid=CjwKCAjw7e_0BRB7EiwAlH-goM5hGQ3CoE8czHcm1fEVW-DV78Lcn-jU4aA2l-_qhJ5utpy7u6LgPhoCrJgQAvD_BwE)
 
 Google Sign in
 
 -    For easy access
 -    From user research, most users like to use social media as an easy and fast way to sign in quickly. 
 
-#### OAuth
 
-Google Sign in
+## Front end deployed to [Heroku](www.heroku.com)
 
--    For easy access
--    From user research, most users like to use social media as an easy and fast way to sign in quickly. 
+# [Back-end](https://github.com/Lambda-School-Labs/homerun-be) built using:
 
-#### Front end deployed to `Heroku`
+## [Node.JS](https://nodejs.org/en/)
 
-#### [Back end](https://github.com/Lambda-School-Labs/homerun-be) built using:
+-    As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 
-#### Node.JS
+## [Postgres](https://www.postgresql.org/)
 
--    point one
--    point two
--    point three
+-    PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
 🚫 List the rest of the back end end features and libraries in the same format as the framework above
 
@@ -104,53 +109,35 @@ Google Sign in
 
 Syncing todos and calendar events to the app. 
 
-## Cash App and/or Venmo
 
- Ability to divvy up shared costs running a household. Especially for apartments.
-
-## Notifications API
-
-Easily create push notifications for users.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
+#  Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
+    *  BASE_URL=http://localhost:3000 
+    *  FE_URL=http://localhost:3001
+    *  OAUTH_URL=localhost:3000
+    *  OAUTH_PROTOCOL=http
+    *  DEV_LOCAL=postgresql://postgres:Test1234@localhost/postgres
+    *  SG_USER=apikey
+    *  SG_PASS=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
+    *  ALGO=aes-256-cbc
+    *  CRYPTO_KEY=True nobility is being superior to your former self.
+    *  SESSION_KEY=this is a session key
+    *  G_CLIENT_ID=1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com
+    *  G_CLIENT_SECRET=G1tKjOJDY5srwnyMPf8bJbvk
+    *  F_CLIENT_ID=200338417844322
+    *  F_CLIENT_SECRET=7a99ae1f44e01f370261b55b9e37d45f
+<!-- 
+#  Content Licenses
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
 
 | Image Filename | Source / Creator | License                                                                      |
 | -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+|   |  |  |
+| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             | -->
 
-# 4️⃣ Testing
+# Testing
 
 🚫Document what you used for testing and why
 
@@ -168,7 +155,12 @@ In order for the app to function correctly, the user must set up their own envir
     * start - starts the production server after a build is created
     * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
 
-# Contributing
+# Documentation
+
+See [Backend Documentation](https://github.com/Lambda-School-Labs/homerun-be/blob/master/README.md) for details on the backend of our project.
+
+
+<!-- # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
@@ -202,8 +194,5 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ### Attribution
 
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). -->
 
-## Documentation
-
-See [Backend Documentation](https://github.com/Lambda-School-Labs/homerun-be/blob/master/README.md) for details on the backend of our project.
