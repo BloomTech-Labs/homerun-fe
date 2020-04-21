@@ -99,7 +99,7 @@ Google Sign in
 
 -    PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+
 
 # APIs
 
