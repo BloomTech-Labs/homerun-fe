@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Notifications from "./Notifications.js";
-import PinNumber from "./PinNumber.js";
-import Settings from "../settings/Settings.js";
+// import DashboardIcon from "./DashboardIcon.js";
 import Sidebar from "../sidebar/Sidebar.js";
 
 import "../../SASS/Header.scss";
@@ -63,9 +62,19 @@ const Header = (props) => {
   return (
     <>
       <div className="header-container">
-        {location.pathname === "/household" ? <PinNumber /> : <Notifications />}
+        {location.pathname === "/dashboard" && (
+          <Icon size="big" aria-hidden="true" className="check header-icon" />
+        )}
+        {location.pathname === "/household" && (
+          <Icon size="big" aria-hidden="true" className="home header-icon" />
+        )}
+        {location.pathname === "/account" && (
+          <Icon size="big" aria-hidden="true" className="user header-icon" />
+        )}
         <UiHeader as="h3">
-          {location.pathname === "/household" ? "Setup Household" : "Dashboard"}
+          {location.pathname === "/dashboard" && "Dashboard"}
+          {location.pathname === "/household" && "Household"}
+          {location.pathname === "/account" && "Account"}
         </UiHeader>
         <Button onClick={handleClick} className="header-btns">
           <Icon

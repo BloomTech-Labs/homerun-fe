@@ -17,6 +17,9 @@ import Home from "../components/marketing/Home.js";
 // Household component
 import Household from "../components/household/Household";
 
+// Account component
+import Account from "../components/account/Account";
+
 // Header
 import Header from "../components/header/Header.js";
 
@@ -50,14 +53,17 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => {
   return (
     <div>
-      <PrivateRoute path={["/dashboard", "/household"]} component={Header} />
+      <PrivateRoute
+        path={["/dashboard", "/household", "/account"]}
+        component={Header}
+      />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/error" component={NotFound}/>
-        <Route path="/contact" component={ContactUsForm}/>
+        <Route path="/error" component={NotFound} />
+        <Route path="/contact" component={ContactUsForm} />
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
@@ -65,6 +71,7 @@ const Routes = () => {
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
+        <PrivateRoute path="/account" component={Account} />
       </Switch>
     </div>
   );
