@@ -17,7 +17,7 @@ const ControlTodo = () => {
     created_at: Date.now(),
   })
 
-  const store = useSelector(state => state.todos)
+  const store = useSelector(state => state.todos);
   const dispatch = useDispatch()
 
   const [due, setDue] = useState(new Date());

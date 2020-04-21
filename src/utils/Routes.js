@@ -23,10 +23,15 @@ import Header from "../components/header/Header.js";
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
 
+//About us page from the marketing side
+import AboutUsDraft from "../components/marketing/AboutUsDraft.js";
+
 import ForgotPW from "../components/auth/Forgot-Password.js";
 import ResetPW from "../components/auth/Reset-Password.js";
 import ConfirmAcct from "../components/auth/Confirm-Account.js";
 import Auth from "../components/auth/Auth.js";
+
+import ContactUsForm from "../components/marketing/ContactUsForm";
 
 import { InviteConfirm } from "../components/household/InviteConfirm.js";
 
@@ -54,11 +59,13 @@ const Routes = () => {
         <Route exact path="/signin" component={SignInLanding} />
         <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/error" component={NotFound} />
+        <Route path="/error" component={NotFound}/>
+        <Route path="/contact" component={ContactUsForm}/>
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
+        <Route path="/aboutus" component={AboutUsDraft}/>
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
