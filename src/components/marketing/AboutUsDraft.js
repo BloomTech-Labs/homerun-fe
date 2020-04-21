@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {faHome} from "@fortawesome/free-solid-svg-icons";
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FaGithub, FaLinkedin, FaTwitter } from '@fortawesome/react-fontawesome';
 import {faGithub} from '@fortawesome/free-solid-svg-icons';
@@ -26,13 +27,14 @@ const AboutUsDraft = () => {
           </DevInfo>
           <SocialButtons>
             <SocialButton
+              src = ""
               type='button'
               onClick={() =>
                 window.open("https://github.com/vinnihoke", '_blank')
               }
             >
               <faGithub />
-              &nbsp;GitHub
+              &nbsp; Github
             </SocialButton>
             <SocialButton
               type='button'
@@ -112,7 +114,7 @@ const AboutUsDraft = () => {
           />
           <DevInfo>
             <DevInfoTitle>Zach Taylor</DevInfoTitle>
-            <DevInfoDesc>Full Stack JavaScript Software Engineer</DevInfoDesc>
+            <DevInfoDesc>Student at Lambdsa School</DevInfoDesc>
           </DevInfo>
           <SocialButtons>
             <SocialButton
@@ -156,7 +158,7 @@ const AboutUsDraft = () => {
           />
           <DevInfo>
             <DevInfoTitle>Katrina Kroaix</DevInfoTitle>
-            <DevInfoDesc>Teacher Assistant And Full Stack Web Student At LambdaSchool</DevInfoDesc>
+            <DevInfoDesc>TA and student at Lambda</DevInfoDesc>
           </DevInfo>
           <SocialButtons>
             <SocialButton
@@ -198,7 +200,7 @@ const AboutUsDraft = () => {
           <DevInfo>
             <DevInfoTitle>Heather Ridgill</DevInfoTitle>
             <DevInfoDesc>
-              Full Stack Developer student at Lambda School
+              Student at Lambda school
             </DevInfoDesc>
           </DevInfo>
           <SocialButtons>
@@ -234,12 +236,68 @@ const AboutUsDraft = () => {
             </SocialButton>
           </SocialButtons>
         </DevCard>
+        <DevCard>
+          <DevImage
+            src= "https://avatars2.githubusercontent.com/u/33339750?s=460&v=4"
+            alt='Profile'
+          />
+          <DevInfo>
+            <DevInfoTitle>Yankho Trumble</DevInfoTitle>
+            <DevInfoDesc>
+              Student at Lambda School
+            </DevInfoDesc>
+          </DevInfo>
+          <SocialButtons>
+            <SocialButton
+              type='button'
+              onClick={() =>
+                window.open("https://github.com/Mayankho", '_blank')
+              }
+            >
+              <faGithub />
+              &nbsp;GitHub
+            </SocialButton>
+            <SocialButton
+              type='button'
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/yankho/",
+                  '_blank',
+                )
+              }
+            >
+              <faLinkedin />
+              &nbsp;LinkedIn
+            </SocialButton>
+            <SocialButton
+              type='button'
+              onClick={() =>
+                window.open({/* Yankhko's Twitter*/}, '_blank')
+              }
+            >
+              <faTwitter />
+              &nbsp;Twitter
+            </SocialButton>
+          </SocialButtons>
+        </DevCard>
       </CardContainer>
     </>
   );
 };
 
 export default AboutUsDraft;
+
+// const CardContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   margin-bottom: 50px;
+//   @media (max-width: 500px) {
+//     flex-direction: column;
+//     align-self: center;
+//   }
+
+
 
 const CardContainer = styled.div`
   display: flex;
@@ -248,6 +306,7 @@ const CardContainer = styled.div`
   width: 90%;
   margin: 0 auto 50px;
 `;
+
 
 const DevCard = styled.div`
   display: flex;
