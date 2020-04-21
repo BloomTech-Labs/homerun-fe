@@ -6,12 +6,7 @@ import { Button } from "semantic-ui-react";
 const SidebarMarketing = () => {
   return (
     <Menu right>
-      <NavLink
-        activeClassName="active-mobile"
-        exact
-        to="/"
-        className="menu-item"
-      >
+      <NavLink exact to="/" activeClassName="active" className="menu-item">
         Home
       </NavLink>
       <NavLink to="/about" className="menu-item">

@@ -5,6 +5,7 @@ import devices from '../../Logos/devices.png';
 import '../../SASS/Marketing.scss';
 import SidebarMarketing from './Sidebar-Marketing';
 import Navigation from '../marketing/Navigation';
+import Footer from '../marketing/Footer';
 import { Row, Col } from "antd";
 
 
@@ -28,7 +29,7 @@ const Home = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </h1>
-                <Button className="btn-marketing-CTA">
+                <Button primary className="btn-marketing-CTA">
                   <Link to="/signup">
                     Signup for free <Icon name="arrow right" />
                   </Link>
@@ -81,13 +82,7 @@ const Home = () => {
           </p>
         </Col>
       </Row>
-      <Row justify="center" align="middle" className="footer">
-        <Col span={24}>
-          <footer>
-            <p>&copy; Copyright TidyHive 2020</p>
-          </footer>
-        </Col>
-      </Row>
+      <Footer />
     </>
   );
 };

@@ -1,9 +1,14 @@
 .wrapper{
   background-color: #DFE6ED;
-  margin-bottom: 80px;
   h1{
     color: #FF9F1C;
   }
+}
+div.ui.text.container{
+  margin: 80px 0;
+}
+div.ui.text.container.sign-in-landing{
+  margin: 200px 0;
 }
 .header{
   display: flex;
@@ -20,6 +25,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 150px;
+  .active{
+  color: #4B5C6B!important;
+  border-bottom: 2px solid #FF9F1C!important;
+}
 }
 
 .nav-buttons{
@@ -28,7 +37,7 @@
   justify-content: space-between;
   button.ui.primary.button{
     width: 195px;
-    margin-right: 20px;
+    margin: 0;
     background-color: #01BAEF;
     a{
       color: #FFF;
@@ -75,21 +84,19 @@
     }
 }
 
-.active{
-  color: #4B5C6B!important;
-  border-bottom: 2px solid #FF9F1C;
-}
-.active-mobile{
-  background: #DFE6ED!important;
-  border-left: 2px solid #FF9F1C;
-}
-
-
-
 .banner{
   margin: 100px 0;
   img{
     max-width: 100%;
+  }
+  button.ui.primary.button{
+    background-color: #01BAEF;
+    a{
+      color: #FFF;
+    }
+    &:hover{
+      transition: 0.7s ease;
+    }
   }
 }
 
@@ -180,11 +187,11 @@ div.bm-cross-button {
 }
 
 .bm-morph-shape {
-  fill: #373a47;
+  fill: #4B5C6B;
 }
 
 .bm-item-list {
-  color: #1F5C70;
+  color: #4B5C6B;
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -205,6 +212,12 @@ div.bm-cross-button {
 div.bm-menu{
   padding-top: 130px;
   padding-left: 0;
+  nav.bm-item-list{
+    .active{
+      background: #DFE6ED!important;
+      border-left: 2px solid #FF9F1C!important;
+  }
+}
   a{
     margin: 0;
     padding: 20px;
@@ -212,6 +225,7 @@ div.bm-menu{
       background: #DFE6ED;
     }
   }
+
 }
 
 .mobile-btn{
@@ -383,10 +397,10 @@ label, input, textarea {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 15px;
     background: transparent;
     position: relative;
     z-index: 1;
+    padding: 80px 15px!important;
   }
   
   .container-contact100::before {

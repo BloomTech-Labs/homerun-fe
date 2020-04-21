@@ -12,6 +12,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
+import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
 
 const SignInEmail = props => {
   const { register, handleSubmit, errors } = useForm();
@@ -34,6 +37,9 @@ const SignInEmail = props => {
   };
 
   return (
+    <>
+    <SidebarMarketing />
+    <Navigation />
     <Container text>
       <div align="center">
         <Header as="h2" icon>
@@ -78,6 +84,8 @@ const SignInEmail = props => {
         Forgot password
       </Button>
     </Container>
+    <Footer />
+  </>
   );
 };
 
