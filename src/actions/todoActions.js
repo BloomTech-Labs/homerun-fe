@@ -69,11 +69,19 @@ const updateTodo = (todoid, update) => dispatch => {
     .catch(err => console.log(err))
 }
 
+const categorizeTodos = (todoCategory) => dispatch => {
+  dispatch({
+    type: "CATEGORIZE_TODOS",
+    payload: todoCategory
+  })
+}
+
 export default {
   fetchTodos,
   addTodo,
   removeTodo,
   assignUser,
   unassignUser,
-  updateTodo
+  updateTodo,
+  categorizeTodos
 };
