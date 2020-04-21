@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "12.16.1"
+    "node": "12.16.1",
+    "npm": "6.14.4"
   },
   "dependencies": {
     "@sandstreamdev/react-swipeable-list": "github:sandstreamdev/react-swipeable-list",
