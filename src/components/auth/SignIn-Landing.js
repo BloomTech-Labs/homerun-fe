@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
+import SidebarMarketing from '../marketing/Sidebar-Marketing.js'
 import Navigation from '../marketing/Navigation';
 
 const SignInLanding = props => {
@@ -8,7 +9,8 @@ const SignInLanding = props => {
   };
   return (
     <div>
-    <Navigation />
+      <SidebarMarketing />
+      <Navigation />
       <Button onClick={googleAuth} icon>
         <Icon name="google" />
         &nbsp;&nbsp;&nbsp;Sign in with Google

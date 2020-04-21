@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { Button, Icon } from "semantic-ui-react";
 import devices from '../../Logos/devices.png';
 import '../../SASS/Marketing.scss';
+import SidebarMarketing from './Sidebar-Marketing';
 import Navigation from '../marketing/Navigation';
 import { Row, Col } from "antd";
 
@@ -13,21 +14,21 @@ const Home = () => {
 
   return (
     <>
+      <SidebarMarketing />
       <Navigation />
       <div className="content">
         <div className="banner">
-          <Row>
-            <Col xs={24} sm={24} md={11} lg={11}>
+          <Row justify="center" align="middle">
+            <Col xs={22} sm={22} md={11} lg={7}>
               <img src={devices} />
             </Col>
-            <Col xs={24} sm={24} md={13} lg={13}>
+            <Col xs={22} sm={22} md={13} lg={7} offset={1}>
               <div className="text">
-                <h1>
+                <h1 className="heading-marketing-CTA">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua.
-                  </h1>
-                <Button>
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </h1>
+                <Button className="btn-marketing-CTA">
                   <Link to="/signup">
                     Signup for free <Icon name="arrow right" />
                   </Link>
@@ -37,40 +38,56 @@ const Home = () => {
           </Row>
         </div>
       </div>
-      <div className="mission-statement">
-        <Icon name="home" size="huge" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.
-            <br />
-            Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <Row justify="center" align="middle">
+        <Col span={24}>
+          <div className="mission-statement">
+            <Icon name="home" size="huge" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.
+              <br />
+              Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        </Col>
+      </Row>
+      <Row justify="center" align="middle" className="features">
+        <Col xs={7} sm={7} md={7} lg={6}>
+          <div className="create">
+            <Icon name="list" size="massive" />
+            <h3>Create Todos</h3>
+          </div>
+        </Col>
+        <Col xs={7} sm={7} md={7} lg={6} offset={1}>
+          <div className="assign">
+            <Icon name="add user" size="massive" />
+            <h3>Assign Members</h3>
+          </div>
+        </Col>
+        <Col xs={7} sm={7} md={7} lg={6} offset={1}>
+          <div className="complete">
+            <Icon name="tasks" size="massive" />
+            <h3>Complete Tasks</h3>
+          </div>
+        </Col>
+        <Col xs={22} sm={20} md={19} lg={16}>
+          <p className="feature-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
-      </div>
-      <div className="features">
-        <div className="create">
-          <Icon name="list" size="massive" />
-          <h2>Create Todos</h2>
-        </div>
-        <div className="assign">
-          <Icon name="add user" size="massive" />
-          <h2>Assign Members</h2>
-        </div>
-        <div className="complete">
-          <Icon name="tasks" size="massive" />
-          <h2>Complete Tasks</h2>
-        </div>
-      </div>
-      <p className="feature-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      <footer>
-        <p>&copy; Copyright TidyHive 2020</p>
-      </footer>
+        </Col>
+      </Row>
+      <Row justify="center" align="middle" className="footer">
+        <Col span={24}>
+          <footer>
+            <p>&copy; Copyright TidyHive 2020</p>
+          </footer>
+        </Col>
+      </Row>
     </>
   );
 };

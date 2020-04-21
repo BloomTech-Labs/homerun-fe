@@ -11,6 +11,7 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import SidebarMarketing from '../marketing/Sidebar-Marketing.js'
 import Navigation from '../marketing/Navigation';
 
 const SignUp = (props) => {
@@ -41,6 +42,7 @@ const SignUp = (props) => {
 
   return (
     <>
+    <SidebarMarketing />
     <Navigation />
     <Container text>
       <div align="center">
