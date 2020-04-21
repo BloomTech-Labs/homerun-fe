@@ -8,14 +8,13 @@ import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import ControlTodo from "./ControlTodo.js"
 
-import dayjs from 'dayjs';
-
-
 const TodoList = () => {
 
   const store = useSelector(state => state.todos);
-  const currentUser = useSelector(state => state.user);
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
+
+
 
   const [todos, setTodos] = useState([])
   const [todones, setTodones] = useState([])
@@ -26,11 +25,18 @@ const TodoList = () => {
   }, [])
 
   useEffect(() => {
-    // Promise.all([
-    setTodos(store.filter(todo => todo.completed === false))
-    setTodones(store.filter(todo => todo.completed === true))
-    console.log("todos and todones todolist.js :29", todos, todones)
-    // ]).then(() => console.log("its working"))
+    if (user.childActive === true) {
+      console.log("todolist.js :29 'IF'")
+      for (let todo in store) {
+        todo.completed === false
+          ? setTodos(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
+          : setTodones(todo.assigned.filter(userobj => userobj.child === true && userobj.id === user.userChild.id))
+      }
+    } else {
+      console.log("todolist.js : 'ELSE'")
+      setTodos(store.filter(todo => todo.completed === false))
+      setTodones(store.filter(todo => todo.completed === true))
+    }
   }, [store])
 
   return (
@@ -53,7 +59,7 @@ const TodoList = () => {
           })}
         </SwipeableList>
       </div>
-      {!currentUser.childActive ? <ControlTodo /> : ''}
+      {!user.childActive ? <ControlTodo /> : ''}
     </section>
   )
 }
