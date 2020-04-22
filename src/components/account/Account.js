@@ -7,6 +7,7 @@ const Account = () => {
     <div className="account container">
       <Row style={{ margin: "50px 0" }}>
         <Col span={24}>
+          <h3>Switch to a Child Account</h3>
           <ChildAccountDropdown />
         </Col>
       </Row>
