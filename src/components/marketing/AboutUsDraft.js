@@ -8,19 +8,25 @@ import {faGithub} from '@fortawesome/free-solid-svg-icons';
 import {faLinkedin} from '@fortawesome/free-solid-svg-icons';
 import {faTwitter} from '@fortawesome/free-solid-svg-icons';
 // library.add(faGithub, faLinkedIn, faTwitter);
+import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
+
 const AboutUsDraft = () => {
   return (
     <>
+      <SidebarMarketing />
+      <Navigation />
       <H2>Our Team</H2>
       <CardContainer>
-        {/* Vinne */}
+        {/* Vinni */}
         <DevCard>
           <DevImage
             src= "https://avatars1.githubusercontent.com/u/34225237?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
-            <DevInfoTitle>Vinnie Hoke</DevInfoTitle>
+            <DevInfoTitle>Vinni Hoke</DevInfoTitle>
             <DevInfoDesc>
               Project Manager &amp; Student at LambdaSchool
             </DevInfoDesc>
@@ -281,6 +287,7 @@ const AboutUsDraft = () => {
           </SocialButtons>
         </DevCard>
       </CardContainer>
+      <Footer />
     </>
   );
 };

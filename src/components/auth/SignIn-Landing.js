@@ -11,7 +11,9 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import SidebarMarketing from '../marketing/Sidebar-Marketing.js'
 import Navigation from '../marketing/Navigation';
+import Footer from '../marketing/Footer';
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
 
@@ -42,8 +44,9 @@ const SignInLanding= props => {
 
   return (
     <>
-    <Navigation />
-    <Container text>
+      <SidebarMarketing />
+      <Navigation />
+      <Container text className="sign-in-landing"> 
       <div align="center">
         <Header as="h2" icon>
           <Icon name="home" />
@@ -92,12 +95,19 @@ const SignInLanding= props => {
           <Icon name="google" />
           &nbsp;&nbsp;&nbsp;Sign in with Google
         </Button>
-        <p>
-          Dont have an account yet? <a href="/signup">Sign up here</a>
-        </p>
       </div>
-      
-    </Container>
+        <br />
+        <br />
+        <Button onClick={() => props.history.push("/signin/email")}>
+          Sign in with Email
+        </Button>
+        <br />
+        <br />
+        <p>
+          Don't have an account? <a href="/signin">Sign Up</a>
+        </p>
+      </Container>
+      <Footer />
     </>
   );
 };

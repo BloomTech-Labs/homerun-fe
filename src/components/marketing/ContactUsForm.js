@@ -1,6 +1,9 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-import {Icon} from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import { Icon } from "semantic-ui-react";
+import SidebarMarketing from "./Sidebar-Marketing";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
 
 export default class ContactUsForm extends React.Component {
   constructor(props) {
@@ -14,6 +17,9 @@ export default class ContactUsForm extends React.Component {
   render() {
     const { status } = this.state;
     return (
+      <>
+      <SidebarMarketing />
+      <Navigation />
       <div className="container-contact100">
       <div className="wrap-container">
       <span className="contact100-form-symbol">
@@ -102,6 +108,8 @@ export default class ContactUsForm extends React.Component {
     </form>
     </div>
     </div>
+    <Footer />
+    </>
     );
   }
 
