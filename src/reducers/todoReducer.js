@@ -7,24 +7,19 @@ const todoReducer = (state = [], action) => {
     case "REMOVE_TODO":
       return action.payload;
     case "UPDATE_ASSIGNEES":
-      const newState = state.map((obj) => {
+      return state.map((obj) => {
         const newObj = { ...obj };
         if (obj.id === action.payload.todoId) {
           newObj.assigned = action.payload.assigned;
         }
         return newObj;
       });
-      return newState;
     case "UPDATE_TODO":
       // TODO Reducer is busted. Action is right, but Next State is wrong.
-      const newerState = state.map((obj) => {
-        const newObj = { ...obj };
-        if (obj.id === action.payload.id) {
-          return action.payload
-        }
-        return newObj;
-      });
-      return newerState;
+      return state.map((obj) => {
+        return obj.id === action.payload.id ? action.payload : obj;
+      })
+      
     default:
       return state;
   }

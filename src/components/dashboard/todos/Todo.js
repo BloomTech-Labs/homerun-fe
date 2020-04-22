@@ -118,12 +118,20 @@ const Todo = (props) => {
         <Col span={12} style={{ textAlign: "right" }}>
           {/* Testing mapping over with selection as an object */}
           {assignedUsers.map((user, index) => {
-            return (
-              <Label circular key={index} onClick={() => unassign(user)}>
-                {user.username}{" "}
-                <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
-              </Label>
-            );
+            if (userIsChild) {
+              return (
+                <Label circular key={index}>
+                  {user.username}
+                </Label>
+              )
+            } else {
+              return (
+                <Label circular key={index} onClick={() => unassign(user)}>
+                  {user.username}
+                  <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
+                </Label>
+              )
+            }
           })}
 
           {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
