@@ -26,7 +26,7 @@ const AboutUsDraft = () => {
             alt='Profile'
           />
           <DevInfo>
-            <DevInfoTitle>Vinnie Hoke</DevInfoTitle>
+            <DevInfoTitle>Vinni Hoke</DevInfoTitle>
             <DevInfoDesc>
               Project Manager &amp; Student at LambdaSchool
             </DevInfoDesc>
