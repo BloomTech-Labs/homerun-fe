@@ -15,8 +15,9 @@ const CategoryTabs = () => {
 
     const handleClick = (e, { name }) => {
         e.preventDefault();
+        // everytime we fetch the todos we filter them and make sure only the todos that are a part of the current category are displaying
+        dispatch(actions.todo.updateCategory(name));
         dispatch(actions.todo.fetchTodos())
-        dispatch(actions.todo.categorizeTodos(name));
         setActive(name);
     }
 

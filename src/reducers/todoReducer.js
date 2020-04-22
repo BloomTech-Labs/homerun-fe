@@ -1,5 +1,4 @@
 const initalState = {
-  allTodos: [],
   todos: [],
   currentCategory: 'all'
 }
@@ -49,12 +48,10 @@ const todoReducer = (state = initalState, action) => {
         todos: newerState
       }
 
-    case "CATEGORIZE_TODOS":
+    case "UPDATE_CATEGORY":
       return {
         ...state,
-        currentCategory: action.payload,
-        todos: action.payload === 'all' ? state.todos : state.todos.filter(todo => todo.categories.includes(action.payload))
-      }
+        currentCategory: action.payload,      }
     default:
       return state;
   }

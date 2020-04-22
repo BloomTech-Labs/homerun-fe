@@ -69,9 +69,9 @@ const updateTodo = (todoid, update) => dispatch => {
     .catch(err => console.log(err))
 }
 
-const categorizeTodos = (todoCategory) => dispatch => {
+const updateCategory = (todoCategory) => dispatch => {
   dispatch({
-    type: "CATEGORIZE_TODOS",
+    type: "UPDATE_CATEGORY",
     payload: todoCategory
   })
 }
@@ -83,5 +83,5 @@ export default {
   assignUser,
   unassignUser,
   updateTodo,
-  categorizeTodos
+  updateCategory
 };
