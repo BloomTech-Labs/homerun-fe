@@ -51,7 +51,14 @@ const todoReducer = (state = initalState, action) => {
     case "UPDATE_CATEGORY":
       return {
         ...state,
-        currentCategory: action.payload,      }
+        currentCategory: action.payload
+      }
+
+    case "ADD_CATEGORY":
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo.id === action.payload.todoId ? { ...todo, categories: action.payload.categories } : todo)
+      }
     default:
       return state;
   }
