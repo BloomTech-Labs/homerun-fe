@@ -10,7 +10,6 @@ import ControlTodo from "./ControlTodo.js"
 
 import dayjs from 'dayjs';
 
-
 const TodoList = (props) => {
 
   const store = useSelector(state => state.todos.todos);
