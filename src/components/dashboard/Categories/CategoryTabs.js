@@ -27,7 +27,7 @@ const CategoryTabs = () => {
             living_room: state.allTodos.filter(todo => todo.categories.includes('living_room')).length,
             bedroom: state.allTodos.filter(todo => todo.categories.includes('bedroom')).length,
             kitchen: state.allTodos.filter(todo => todo.categories.includes('kitchen')).length,
-            bathroom: state.allTodos.filter(todo => todo.categories.includes('bathroom')).length,
+            bathroom: state.allTodos.filter(todo => todo.categories.includes('bathroom')).length, 
         })
     }
 
