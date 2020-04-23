@@ -1,11 +1,24 @@
 .container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 
-    .dashboard-btn {
-        align-self: flex-start !important;
-    }
+  .dashboard-btn {
+    align-self: flex-start !important;
+  }
+}
+
+.initials {
+  display: inline-block;
+  background-color: #2ec4b6;
+  color: #fff;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
 }
