@@ -111,67 +111,90 @@ const Todo = (props) => {
           borderBottom: "1px solid whitesmoke",
         }}
       >
-        <Col span={12}>
-          <h3>{props.title}</h3>
-          <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
-        </Col>
-        <Col span={12} style={{ textAlign: "right" }}>
-          {/* Testing mapping over with selection as an object */}
-          {assignedUsers.map((user, index) => {
-            return (
-              <Label circular key={index} onClick={() => unassign(user)}>
-                {user.username}{" "}
-                <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
-              </Label>
-            );
-          })}
+        <Col span={24}>
 
-          {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
-          {!userIsChild ? (
-            <Dropdown overlay={userSelect} trigger={["click"]}>
-              <a
-                className="ant-dropdown-link"
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
-              >
-                <Icon name="add user" size="large" style={{ marginRight: "10px" }}></Icon>
-              </a>
-            </Dropdown>
-          ) : (
-              ""
-            )}
 
-          {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
-          {!userIsChild ? (
-            <Popup
-              on="click"
-              onClose={() => setReschedule({ popup: false })}
-              onOpen={() => setReschedule({ popup: true })}
-              open={reschedule.popup}
-              position="right center"
-              trigger={<Icon name="clock" size="large" />}
-            >
-              <div style={{ width: "300px" }}>
-                <h3>Reschedule</h3>
-                <DatePicker
-                  wrapped
-                  size="medium"
-                  className="date-picker"
-                  selected={new Date()}
-                  onChange={handleDue}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  minDate={new Date()}
-                  timeCaption="time"
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                />
-              </div>
-            </Popup>
-          ) : (
-              ""
-            )}
+          <Row>
+            <Col span={12}>
+              <h3>{props.title}</h3>
+              <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
+            </Col>
+            <Col span={12} style={{ textAlign: "right" }}>
+              {/* Testing mapping over with selection as an object */}
+              <Row justify="end">
+                <Col>
+                  {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
+                  {!userIsChild ? (
+                    <Dropdown overlay={userSelect} trigger={["click"]}>
+                      <a
+                        className="ant-dropdown-link"
+                        onClick={(e) => {
+                          e.preventDefault()
+                        }}
+                      >
+                        <i className="ui icon add user green large" style={{ marginRight: "10px" }}></i>
+                      </a>
+                    </Dropdown>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
+                  {!userIsChild ? (
+                    <Popup
+                      on="click"
+                      onClose={() => setReschedule({ popup: false })}
+                      onOpen={() => setReschedule({ popup: true })}
+                      open={reschedule.popup}
+                      position="right center"
+                      trigger={<i className="ui icon clock blue large"></i>}
+                    >
+                      <div style={{ width: "300px" }}>
+                        <h3>Reschedule</h3>
+                        <DatePicker
+                          wrapped
+                          size="medium"
+                          className="date-picker"
+                          selected={new Date()}
+                          onChange={handleDue}
+                          showTimeSelect
+                          timeFormat="HH:mm"
+                          timeIntervals={15}
+                          minDate={new Date()}
+                          timeCaption="time"
+                          dateFormat="MMMM d, yyyy h:mm aa"
+                        />
+                      </div>
+                    </Popup>
+                  ) : (
+                      ""
+                    )}
+
+                </Col>
+              </Row>
+
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24} style={{ marginTop: "10px" }}>
+              {assignedUsers.map((user, index) => {
+                if (userIsChild) {
+                  return (
+                    <Label circular color="green" key={index}>
+                      {user.username}
+                    </Label>
+                  )
+                } else {
+                  return (
+                    <Label circular color="green" key={index} onClick={() => unassign(user)}>
+                      {user.username}
+                      <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
+                    </Label>
+                  )
+                }
+              })}
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Confetti

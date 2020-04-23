@@ -8,20 +8,23 @@ import Dashboard from "../components/dashboard/Dashboard.js";
 // Sign in landing page with two buttons email/gmail
 import SignInLanding from "../components/auth/SignIn-Landing";
 
-// Component for email sign in
-import SignInEmail from "../components/auth/SignIn-Email";
-
 // Home component is where the beginning of the app starts
 import Home from "../components/marketing/Home.js";
 
 // Household component
 import Household from "../components/household/Household";
 
+// Account component
+import Account from "../components/account/Account";
+
 // Header
 import Header from "../components/header/Header.js";
 
 //Error 404 Page
 import NotFound from "../components/dashboard/NotFound.js";
+
+//About us page from the marketing side
+import AboutUsDraft from "../components/marketing/AboutUsDraft.js";
 
 import ForgotPW from "../components/auth/Forgot-Password.js";
 import ResetPW from "../components/auth/Reset-Password.js";
@@ -39,8 +42,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       localStorage.getItem("token") ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
-      )
+          <Redirect to="/" />
+        )
     }
   />
 );
@@ -50,21 +53,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => {
   return (
     <div>
-      <PrivateRoute path={["/dashboard", "/household"]} component={Header} />
+      <PrivateRoute
+        path={["/dashboard", "/household", "/account"]}
+        component={Header}
+      />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
-        <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/error" component={NotFound}/>
-        <Route path="/contact" component={ContactUsForm}/>
+        <Route path="/error" component={NotFound} />
+        <Route path="/contact" component={ContactUsForm} />
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
+        <Route path="/about" component={AboutUsDraft} />
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
+        <PrivateRoute path="/account" component={Account} />
       </Switch>
     </div>
   );

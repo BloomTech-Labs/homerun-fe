@@ -12,18 +12,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // UI
-import './SASS/GeneralStyles.scss';
-import "semantic-ui-css/semantic.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
+// Semantic CSS
+import "semantic-ui-css/semantic.min.css";
+
 // Antd Imports
 import 'antd/lib/grid/style/index.css'
+import "antd/es/badge/style/css"
 import "antd/lib/dropdown/style/index.css"
 import 'antd/es/menu/style/css'
 import 'antd/lib/menu/style/index.css'
 import "antd/es/badge/style/css"
 
+// Custom Styles
+import "./scss/index.scss";
 // Do not leave on
 // import 'antd/dist/antd.css';
 

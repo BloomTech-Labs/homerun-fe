@@ -9,7 +9,6 @@ import {
   Button,
 } from "semantic-ui-react";
 
-import "../../SASS/Sidebar.scss";
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
@@ -33,7 +32,7 @@ const Sidebar = (props) => {
         }}
       >
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
-          <Icon name="user" />
+          <Icon name="check" />
           Dashboard
         </Menu.Item>
         <Menu.Item name="Household" as={NavLink} to="/household">
@@ -45,7 +44,7 @@ const Sidebar = (props) => {
           Account
         </Menu.Item>
         <Icon
-          name="logout"
+          name="log out"
           size="big"
           className="logoutBtn"
           onClick={() => {
