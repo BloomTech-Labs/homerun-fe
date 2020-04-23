@@ -16,7 +16,7 @@ const ResetPW = props => {
         hash
       })
       .then(res => {
-        props.history.push("/signin");
+        props.history.push("/signin"); 
         console.log(res);
       })
       .catch(err => {
