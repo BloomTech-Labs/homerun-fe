@@ -45,7 +45,7 @@ const Sidebar = (props) => {
           Account
         </Menu.Item>
         <Icon
-          name="logout"
+          name="log out"
           size="big"
           className="logoutBtn"
           onClick={() => {
