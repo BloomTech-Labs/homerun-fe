@@ -9,7 +9,6 @@ import {
   Button,
 } from "semantic-ui-react";
 
-import "../../SASS/Sidebar.scss";
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
