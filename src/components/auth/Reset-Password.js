@@ -11,7 +11,7 @@ const ResetPW = props => {
 
   const onSubmit = data => {
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/reset", {
+      .post(`${process.env.REACT_APP_BE_URL}/auth/reset`, {
         ...data,
         hash
       })

@@ -9,7 +9,7 @@ const ForgotPW = () => {
 
   const onSubmit = data => {
     axios
-      .post("https://stage-homerun-be.herokuapp.com/auth/forgot", data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/forgot`, data)
       .then(res => {
         console.log(res);
         setMessage(false)
