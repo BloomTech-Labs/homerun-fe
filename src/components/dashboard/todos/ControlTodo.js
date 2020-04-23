@@ -18,7 +18,7 @@ const ControlTodo = () => {
     created_at: dayjs().unix(),
   })
 
-  const store = useSelector(state => state.todos);
+  const category = useSelector(state => state.todos.currentCategory);
   const dispatch = useDispatch()
 
   const [due, setDue] = useState(new Date());
@@ -35,6 +35,9 @@ const ControlTodo = () => {
 
   const handleSubmit = () => {
     dispatch(actions.todo.addTodo(info))
+      .then(res => {
+        dispatch(actions.todo.addCategory({ todo_id: res.id, category_name: category }))
+      })
     handleModal()
   }
 
