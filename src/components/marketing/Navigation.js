@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
+import logo from '../../Logos/tidyhive-logo.png'
 
 const Navigation = () => {
   return (
     <div className="wrapper">
       <div className="header">
-        <h1>TidyHive</h1>
+        <Link to="/">
+          <img src={logo} alt="Tidy Hive Logo" style={{ width: 200, height: "auto" }} />
+        </Link>
         <nav className="marketing-nav">
           <div className="nav-buttons">
             <Link to="/signup">
