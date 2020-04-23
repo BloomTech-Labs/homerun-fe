@@ -83,10 +83,10 @@ const SignInLanding = props => {
                   {errors.email && <p>{errors.email.message}</p>}
                 </Form.Field>
 
-                <Button type="submit">Submit</Button>
-                <Button onClick={() => props.history.push("/forgot-password")}>
+                <button type="submit" className="ui button green">Submit</button>
+                <button className="ui button blue" onClick={() => props.history.push("/forgot-password")}>
                   Forgot Password
-      </Button>
+                </button>
               </Form>
             )}
         </div>
@@ -94,9 +94,9 @@ const SignInLanding = props => {
           Don't have an account? <a href="/signin">Sign Up</a>
         </p>
         <Divider horizontal>OR</Divider>
-        <div align="center">
-          <button className="ui button">
-            <i className="ui icon google"></i>
+        <div style={{ marginTop: "50px" }} align="center">
+          <button className="ui button red">
+            <i className="ui icon google white"></i>
             Sign in with Google
             </button>
         </div>

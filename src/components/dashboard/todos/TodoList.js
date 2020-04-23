@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { List, Dropdown } from "semantic-ui-react";
-import "../../../SASS/TodoList.scss";
 import Todo from "./Todo.js";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
@@ -56,8 +55,8 @@ const TodoList = () => {
 
   return (
     <section>
+      <h3>Todo</h3>
       <div style={{ margin: "50px 0px" }}>
-        <h3>Todo</h3>
         <SwipeableList>
           {todos.map((todo) => {
             return <Todo key={todo.id} {...todo} />;
@@ -66,8 +65,8 @@ const TodoList = () => {
       </div>
 
       {/* Conditionally render the todos based on completion. */}
-      <div>
-        <h3>Todone</h3>
+      <h3>Todone</h3>
+      <div style={{ opacity: "0.4" }}>
         <SwipeableList>
           {todones.map((todo) => {
             return <Todo key={todo.id} {...todo} />;

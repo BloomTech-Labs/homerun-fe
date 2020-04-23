@@ -6,8 +6,6 @@ import Notifications from "./Notifications.js";
 // import DashboardIcon from "./DashboardIcon.js";
 import Sidebar from "../sidebar/Sidebar.js";
 
-import "../../SASS/Header.scss";
-
 import { useLocation } from "react-router-dom";
 import actions from "../../actions/index.js";
 
@@ -21,6 +19,8 @@ import {
   Modal,
   Input,
 } from "semantic-ui-react";
+
+import logo from '../../Logos/tidyhive-standalone.png'
 
 const Header = (props) => {
   const [pinInput, setPinInput] = useState("");
@@ -62,7 +62,7 @@ const Header = (props) => {
   return (
     <>
       <div className="header-container">
-        {location.pathname === "/dashboard" && (
+        {/* {location.pathname === "/dashboard" && (
           <Icon size="big" aria-hidden="true" className="check header-icon" />
         )}
         {location.pathname === "/household" && (
@@ -70,7 +70,8 @@ const Header = (props) => {
         )}
         {location.pathname === "/account" && (
           <Icon size="big" aria-hidden="true" className="user header-icon" />
-        )}
+        )} */}
+        <img src={logo} alt="TidyHive Logo" style={{ width: "60px", height: "auto" }} />
         <UiHeader as="h3">
           {location.pathname === "/dashboard" && "Dashboard"}
           {location.pathname === "/household" && "Household"}
