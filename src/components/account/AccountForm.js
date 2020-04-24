@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Dimmer, Loader, Button, Form, Container } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "../../actions";
+import { useSelector } from "react-redux";
 
 const AccountForm = () => {
   const { register, handleSubmit, errors } = useForm();

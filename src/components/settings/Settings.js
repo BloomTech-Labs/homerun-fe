@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AccountSettings from "./AccountSettings.js";
 import HouseholdSettings from "./HouseholdSettings.js";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, Icon } from "semantic-ui-react";
 import devices from '../../Logos/devices.png';
 import SidebarMarketing from './Sidebar-Marketing';

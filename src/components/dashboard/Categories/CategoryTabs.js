@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 
-import { Menu, Segment } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../../actions/';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { button, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 const Notifications = () => {
 
