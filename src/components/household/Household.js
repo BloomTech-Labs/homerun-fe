@@ -1,6 +1,5 @@
 import React from "react";
 import List from "./List";
-import "../../SASS/Household.scss";
 
 const Household = () => {
   return (

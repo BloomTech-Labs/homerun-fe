@@ -18,7 +18,7 @@ const ControlTodo = () => {
     created_at: dayjs().unix(),
   })
 
-  const store = useSelector(state => state.todos);
+  const category = useSelector(state => state.todos.currentCategory);
   const dispatch = useDispatch()
 
   const [due, setDue] = useState(new Date());
@@ -35,6 +35,9 @@ const ControlTodo = () => {
 
   const handleSubmit = () => {
     dispatch(actions.todo.addTodo(info))
+      .then(res => {
+        dispatch(actions.todo.addCategory({ todo_id: res.id, category_name: category }))
+      })
     handleModal()
   }
 
@@ -69,8 +72,9 @@ const ControlTodo = () => {
           <Button type="submit">Add</Button>
         </Form>
       </Modal>
-      <button className="ui button blue circular" onClick={handleModal} style={{ position: "absolute", bottom: 20, right: 20 }}>Add Todo</button>
+      <button className="ui button blue circular" onClick={handleModal} style={{ position: "fixed", bottom: 20, right: 20 }}>Add Todo</button>
     </div>
+    
   )
 }
 
