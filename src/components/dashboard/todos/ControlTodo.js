@@ -72,12 +72,7 @@ const ControlTodo = () => {
           <Button type="submit">Add</Button>
         </Form>
       </Modal>
-<<<<<<< HEAD
-      <button className="ui button blue circular" onClick={handleModal} style={{ position: "absolute", bottom: 20, right: 200 }}>Add Todo</button>
-      <button className="ui button red circular" style={{ position: "absolute", bottom: 20, right: 20 }}>Delete Account</button>
-=======
       <button className="ui button blue circular" onClick={handleModal} style={{ position: "fixed", bottom: 20, right: 20 }}>Add Todo</button>
->>>>>>> 9d128d02c6b9b2a3029e331d469bf01bb7afb10a
     </div>
     
   )
