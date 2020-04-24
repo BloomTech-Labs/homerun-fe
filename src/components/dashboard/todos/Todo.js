@@ -7,11 +7,11 @@ import SwipeRight from "./SwipeRight.js";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
-import useAsyncState from '../../../hooks/useAsyncState.js';
+import useAsyncState from "../../../hooks/useAsyncState.js";
 import { Row, Col, Menu, Dropdown } from "antd";
-import dayjs from "dayjs"
-import useWindowSize from '../../../hooks/useWindowSize.js'
-import Confetti from 'react-confetti'
+import dayjs from "dayjs";
+import useWindowSize from "../../../hooks/useWindowSize.js";
+import Confetti from "react-confetti";
 
 const Todo = (props) => {
   const { id, assigned, completed } = props;
@@ -21,14 +21,14 @@ const Todo = (props) => {
     popup: false,
     due: new Date(),
   });
-  const [confetti, setConfetti] = useAsyncState(false)
+  const [confetti, setConfetti] = useAsyncState(false);
 
-  const store = useSelector(state => state.todos)
+  const store = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
 
-  const { height, width } = useWindowSize()
+  const { height, width } = useWindowSize();
 
   const assign = (props) => {
     const user = props.item.props.member;
@@ -51,7 +51,9 @@ const Todo = (props) => {
   const handleDue = (date) => {
     setReschedule({ due: date }).then(() => {
       if (reschedule.due !== undefined) {
-        dispatch(actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() }))
+        dispatch(
+          actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() })
+        );
       }
     });
   };
@@ -69,10 +71,10 @@ const Todo = (props) => {
   const handleCompleted = () => {
     setConfetti(true).then(() => {
       setTimeout(() => {
-        setConfetti(false)
-      }, 2200)
-    })
-  }
+        setConfetti(false);
+      }, 2200);
+    });
+  };
 
   const userSelect = (
     <Menu onClick={assign}>
@@ -112,8 +114,6 @@ const Todo = (props) => {
         }}
       >
         <Col span={24}>
-
-
           <Row>
             <Col span={12}>
               <h3>{props.title}</h3>
@@ -129,15 +129,18 @@ const Todo = (props) => {
                       <a
                         className="ant-dropdown-link"
                         onClick={(e) => {
-                          e.preventDefault()
+                          e.preventDefault();
                         }}
                       >
-                        <i className="ui icon add user green large" style={{ marginRight: "10px" }}></i>
+                        <i
+                          className="ui icon add user blue large"
+                          style={{ marginRight: "10px" }}
+                        ></i>
                       </a>
                     </Dropdown>
                   ) : (
-                      ""
-                    )}
+                    ""
+                  )}
 
                   {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
                   {!userIsChild ? (
@@ -167,12 +170,10 @@ const Todo = (props) => {
                       </div>
                     </Popup>
                   ) : (
-                      ""
-                    )}
-
+                    ""
+                  )}
                 </Col>
               </Row>
-
             </Col>
           </Row>
           <Row>
@@ -183,14 +184,22 @@ const Todo = (props) => {
                     <Label circular color="green" key={index}>
                       {user.username}
                     </Label>
-                  )
+                  );
                 } else {
                   return (
-                    <Label circular color="green" key={index} onClick={() => unassign(user)}>
+                    <Label
+                      circular
+                      color="green"
+                      key={index}
+                      onClick={() => unassign(user)}
+                    >
                       {user.username}
-                      <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
+                      <Icon
+                        style={{ paddingLeft: "4px" }}
+                        name="remove circle"
+                      />
                     </Label>
-                  )
+                  );
                 }
               })}
             </Col>
@@ -204,7 +213,9 @@ const Todo = (props) => {
         recycle={false}
         numberOfPieces={150}
         tweenDuration={2000}
-        onConfettiComplete={() => dispatch(actions.todo.updateTodo(id, { completed: !completed }))}
+        onConfettiComplete={() =>
+          dispatch(actions.todo.updateTodo(id, { completed: !completed }))
+        }
       />
     </SwipeableListItem>
   );
