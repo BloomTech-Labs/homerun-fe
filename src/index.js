@@ -24,6 +24,7 @@ import "antd/es/badge/style/css"
 import "antd/lib/dropdown/style/index.css"
 import 'antd/es/menu/style/css'
 import 'antd/lib/menu/style/index.css'
+import "antd/es/badge/style/css"
 
 // Custom Styles
 import "./scss/index.scss";

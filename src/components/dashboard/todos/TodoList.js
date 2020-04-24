@@ -10,7 +10,7 @@ import ControlTodo from "./ControlTodo.js";
 import dayjs from "dayjs";
 
 const TodoList = () => {
-  const store = useSelector((state) => state.todos);
+  const store = useSelector(state => state.todos.todos);
   const currentUser = useSelector((state) => state.user);
   const userIsChild = useSelector((state) => state.user.childActive);
   const dispatch = useDispatch();

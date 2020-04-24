@@ -10,11 +10,29 @@ const fetchTodos = () => (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
-const addTodo = (todo) => (dispatch) => {
+
+const addCategory = (data) => dispatch => {
+  console.log('data!', data)
   axiosWithAuth()
+      .post('/todos/categories', data)
+      .then(res => {
+        dispatch({
+          type: "ADD_CATEGORY",
+          payload: { 
+            todoId: data.todo_id,
+            categories: res.data
+           }
+        })
+      })
+      .catch(err => console.log(err))
+}
+
+const addTodo = (todo) => (dispatch) => {
+  return axiosWithAuth()
     .post(`/todos/add`, todo)
     .then((res) => {
       dispatch({ type: "ADD_TODO", payload: res.data })
+      return res.data
     })
     .catch((err) => console.log(err.message));
 };
@@ -69,11 +87,21 @@ const updateTodo = (todoid, update) => dispatch => {
     .catch(err => console.log(err))
 }
 
+const updateCategory = (todoCategory) => dispatch => {
+  dispatch({
+    type: "UPDATE_CATEGORY",
+    payload: todoCategory
+  })
+}
+
+
 export default {
   fetchTodos,
   addTodo,
   removeTodo,
   assignUser,
   unassignUser,
-  updateTodo
+  updateTodo,
+  updateCategory,
+  addCategory
 };
