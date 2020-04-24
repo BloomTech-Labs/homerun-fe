@@ -1,25 +1,64 @@
-const todoReducer = (state = [], action) => {
+const initalState = {
+  todos: [],
+  currentCategory: 'all'
+}
+const todoReducer = (state = initalState, action) => {
   switch (action.type) {
     case "FETCH_TODOS":
-      return action.payload;
+      return {
+        ...state,
+        todos: state.currentCategory === 'all' ? action.payload : action.payload.filter(todo => todo.categories.includes(state.currentCategory))
+      };
+
     case "ADD_TODO":
-      return [...state, action.payload];
+      return {
+        ...state,
+        todos: [...state.todos, action.payload]
+      }
+
     case "REMOVE_TODO":
-      return action.payload;
+      return {
+        ...state,
+        todos: state.currentCategory === 'all' ? action.payload : action.payload.filter(todo => todo.categories.includes(state.currentCategory))
+      }
+
     case "UPDATE_ASSIGNEES":
-      return state.map((obj) => {
+      const newState = state.todos.map((obj) => {
         const newObj = { ...obj };
         if (obj.id === action.payload.todoId) {
           newObj.assigned = action.payload.assigned;
         }
         return newObj;
       });
+      return {
+        ...state,
+        todos: newState, 
+      };
+
     case "UPDATE_TODO":
-      // TODO Reducer is busted. Action is right, but Next State is wrong.
-      return state.map((obj) => {
-        return obj.id === action.payload.id ? action.payload : obj;
-      })
-      
+      const newerState = state.todos.map((obj) => {
+        const newObj = { ...obj };
+        if (obj.id === action.payload.id) {
+          return action.payload
+        }
+        return newObj;
+      });
+      return {
+        ...state,
+        todos: newerState
+      }
+
+    case "UPDATE_CATEGORY":
+      return {
+        ...state,
+        currentCategory: action.payload
+      }
+
+    case "ADD_CATEGORY":
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo.id === action.payload.todoId ? { ...todo, categories: action.payload.categories } : todo)
+      }
     default:
       return state;
   }

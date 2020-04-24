@@ -1,0 +1,41 @@
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.header-icon {
+  border: none;
+  background: none !important;
+  margin-right: 0 !important;
+}
+
+.header-btns {
+  border: none;
+  background: none !important;
+  margin-right: 0 !important;
+  padding: 0px !important;
+
+  i {
+    color: #0074d9;
+  }
+}
+
+.header-btns1 {
+  background: white;
+}
+
+// .settings {
+//   width: 20% !important; // <-- overrides the default width for semantic ui sidebar
+// }
+
+.settings-header {
+  display: flex;
+  padding: 20px;
+}
+
+.icons-size {
+  font-size: 2.5rem !important; // <-- overrides icons default sizes given by semantic ui - sizes were either too small or too big
+  margin-right: 0 !important;
+}

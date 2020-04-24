@@ -8,9 +8,6 @@ import Dashboard from "../components/dashboard/Dashboard.js";
 // Sign in landing page with two buttons email/gmail
 import SignInLanding from "../components/auth/SignIn-Landing";
 
-// Component for email sign in
-import SignInEmail from "../components/auth/SignIn-Email";
-
 // Home component is where the beginning of the app starts
 import Home from "../components/marketing/Home.js";
 
@@ -45,8 +42,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       localStorage.getItem("token") ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
-      )
+          <Redirect to="/" />
+        )
     }
   />
 );
@@ -63,7 +60,6 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignInLanding} />
-        <Route path="/signin/email" component={SignInEmail} />
         <Route path="/signup" component={SignUp} />
         <Route path="/error" component={NotFound} />
         <Route path="/contact" component={ContactUsForm} />
@@ -71,7 +67,7 @@ const Routes = () => {
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
-        <Route path="/aboutus" component={AboutUsDraft}/>
+        <Route path="/about" component={AboutUsDraft} />
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
