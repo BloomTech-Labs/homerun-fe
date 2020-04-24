@@ -1,18 +1,35 @@
-.logoutBtn {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  cursor: pointer;
+.ui.sidebar.menu {
+  padding-top: 130px;
+  border: none;
+}
+
+.ui.segment {
+  border: none;
+}
+
+.ui.menu .item {
+  color: #4b5c6b;
+  padding: 20px;
+  text-align: left;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
 
   &:hover {
-    color: #ccc;
+    background: #dfe6ed;
   }
 }
 
-.active {
-  border: none;
+.ui.vertical.menu .item:before {
+  height: 0px;
+}
 
-  .icon {
-    color: #1890ff;
-  }
+.ui.vertical.menu .active.item {
+  background: #dfe6ed;
+  border-left: 2px solid #ff9f1c;
+}
+
+.ui.vertical.menu .active.item .ui.primary.button {
+  background-color: #01baef;
 }
