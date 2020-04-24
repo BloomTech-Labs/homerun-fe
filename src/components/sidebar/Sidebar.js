@@ -22,6 +22,26 @@ const Sidebar = (props) => {
       width="wide"
       onHide={() => setOpened(false)}
     >
+      <span style={{ position: "absolute", top: "79px", right: "48px" }}>
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(45deg)",
+          }}
+        ></span>
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(-45deg)",
+          }}
+        ></span>
+      </span>
       <SemSidebar.Pushable
         as={Segment}
         onClick={() => {
@@ -38,6 +58,7 @@ const Sidebar = (props) => {
           Account
         </Menu.Item>
         <Button
+          className="logout-btn"
           primary
           onClick={() => {
             localStorage.removeItem("token");
