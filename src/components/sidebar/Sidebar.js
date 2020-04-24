@@ -22,7 +22,13 @@ const Sidebar = (props) => {
       width="wide"
       onHide={() => setOpened(false)}
     >
-      <span style={{ position: "absolute", top: "79px", right: "48px" }}>
+      <span
+        className="close-sidebar"
+        onClick={() => {
+          setOpened(false);
+        }}
+        style={{ position: "absolute", top: "79px", right: "48px" }}
+      >
         <span
           className="bm-cross"
           style={{
