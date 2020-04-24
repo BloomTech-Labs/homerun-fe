@@ -46,7 +46,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage --watchAll=false"
+    "clear": "react-scripts test --clearCache",
+    "coverage": "react-scripts test --coverage --watchAll=false || true",
+    "clear:run": "CI=true npm-run-all clear coverage || true",
+    "lint:css": "stylelint ./src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
