@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
-import "../../SASS/Household.scss";
 
 const Name = (props) => {
   const numNames = props.name.split(" ").length;
