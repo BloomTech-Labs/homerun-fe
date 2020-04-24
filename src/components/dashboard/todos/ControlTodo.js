@@ -74,6 +74,7 @@ const ControlTodo = () => {
       </Modal>
       <button className="ui button blue circular" onClick={handleModal} style={{ position: "fixed", bottom: 20, right: 20 }}>Add Todo</button>
     </div>
+    
   )
 }
 
