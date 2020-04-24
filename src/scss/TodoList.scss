@@ -56,10 +56,11 @@ i.blue.icon {
 
 .ui.basic.grey.label,
 .ui.basic.grey.labels .label {
-  border-color: $grey !important;
+  border-color: $light-grey !important;
+  color: $light-grey !important;
 
   & > .icon {
-    color: $grey;
+    color: $light-grey;
   }
 
   &:hover {
@@ -91,4 +92,13 @@ i.blue.icon {
 
 .todo-user-pill {
   cursor: pointer;
+}
+
+.todos-list,
+.todones-list {
+  margin: 30px 0;
+}
+
+.todones-list {
+  opacity: 0.4;
 }
