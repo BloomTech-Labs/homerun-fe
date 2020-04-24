@@ -46,10 +46,15 @@
 
 .ui.primary.button.logout-btn {
   width: 90%;
-  margin-left: 5%;
+  margin-left: 6%;
   margin-top: 20px;
 }
 
 .close-sidebar {
   cursor: pointer;
+}
+
+.ui.wide.left.sidebar,
+.ui.wide.right.sidebar {
+  width: 300px;
 }

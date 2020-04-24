@@ -2,6 +2,10 @@
   color: #0074d9;
 }
 
+.category-tabs {
+  margin-bottom: 50px;
+}
+
 .ui primary {
   justify-content: space-around;
   align-items: center;
@@ -9,4 +13,17 @@
 
 .todo-user-pill {
   cursor: pointer;
+}
+
+i.blue.icon {
+  color: $blue !important;
+}
+
+.ui.green.label,
+.ui.green.labels .label {
+  background-color: $green !important;
+}
+
+.ui.label > .icon {
+  margin: 0px;
 }
