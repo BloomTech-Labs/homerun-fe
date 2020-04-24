@@ -17,8 +17,6 @@ const Name = (props) => {
     }
   }, []);
 
-  //   console.log(firstInitial, secondInitial);
-
   return (
     <li style={{ margin: "15px 0" }}>
       <Row align="middle">

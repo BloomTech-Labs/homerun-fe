@@ -16,15 +16,22 @@ const ChildAccountDropdown = () => {
       .map((child) => {
         return { key: child.id, text: child.username, value: child.username };
       });
+    children.unshift({
+      key: 99,
+      text: "Please select a child.",
+      value: "Please select a child.",
+    });
 
     setOptions(children);
   }, []);
 
   const handleChange = (event, { value }) => {
     event.persist();
-    setDropDownValue(value);
-    const [user] = members.filter((user) => value === user.username);
-    dispatch(actions.user.setChild(user));
+    if (value !== "Please select a child.") {
+      setDropDownValue(value);
+      const [user] = members.filter((user) => value === user.username);
+      dispatch(actions.user.setChild(user));
+    }
   };
 
   return (
@@ -32,7 +39,6 @@ const ChildAccountDropdown = () => {
       selection
       onChange={handleChange}
       placeholder={`Please select a child.`}
-      default={`Please select a child.`}
       value={dropDownValue}
       fluid
       options={options}
