@@ -1,47 +1,94 @@
 .swipe-left {
-    background-color: #FF4136;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    color: white;
-
+  background-color: $warning;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
 }
 
 .swipe-right {
-    background-color:green;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
+  background-color: $secondary;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
 }
 
-
-
 .date-picker {
-    width:150px;
-    padding: 15px;
-    width: 150px;
-    border: none;
-    border-bottom: 1px solid black;
-    }
-
-
+  width: 150px;
+  padding: 15px;
+  width: 150px;
+  border: none;
+  border-bottom: 1px solid black;
+}
 
 // button to assign users to task
 .ui.icon.button {
-    padding: 0 !important;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .add.user.icon {
-        position: absolute;
-        z-index: 1;
+  padding: 0 !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .add.user.icon {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.assign-user {
+  color: $secondary;
+}
+
+i.blue.icon {
+  color: $secondary !important;
+}
+
+.ui.blue.button,
+.ui.blue.buttons .button,
+.ui.blue.button:hover,
+.ui.blue.buttons .button:hover {
+  background: $primary;
+}
+
+.ui.basic.grey.label,
+.ui.basic.grey.labels .label {
+  border-color: $grey !important;
+
+  & > .icon {
+    color: $grey;
+  }
+
+  &:hover {
+    border-color: $warning !important;
+    color: $warning !important;
+
+    & > .icon {
+      color: $warning;
     }
+  }
+}
+
+.ui.label > .icon {
+  margin: 0px;
+}
+
+.ui.secondary.pointing.menu .active.item {
+  border-color: $quaternary;
+
+  &:hover,
+  &:active {
+    border-color: $tertiary;
+  }
+}
+
+.ui.secondary.pointing.menu a.item:active {
+  border-color: $tertiary;
+}
+
+.todo-user-pill {
+  cursor: pointer;
 }

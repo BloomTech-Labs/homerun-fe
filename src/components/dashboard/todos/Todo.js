@@ -181,7 +181,7 @@ const Todo = (props) => {
               {assignedUsers.map((user, index) => {
                 if (userIsChild) {
                   return (
-                    <Label circular color="green" key={index}>
+                    <Label circular basic color="grey" key={index}>
                       {user.username}
                     </Label>
                   );
@@ -190,15 +190,13 @@ const Todo = (props) => {
                     <Label
                       className="todo-user-pill"
                       circular
-                      color="green"
+                      basic
+                      color="grey"
                       key={index}
                       onClick={() => unassign(user)}
                     >
                       {user.username}
-                      <Icon
-                        style={{ paddingLeft: "4px" }}
-                        name="remove circle"
-                      />
+                      <Icon style={{ paddingLeft: "4px" }} name="remove" />
                     </Label>
                   );
                 }
