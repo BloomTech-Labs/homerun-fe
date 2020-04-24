@@ -1,0 +1,12 @@
+i.blue.icon {
+  color: $blue !important;
+}
+
+.ui.green.label,
+.ui.green.labels .label {
+  background-color: $green !important;
+}
+
+.ui.label > .icon {
+  margin: 0px;
+}

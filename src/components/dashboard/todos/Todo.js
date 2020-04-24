@@ -188,6 +188,7 @@ const Todo = (props) => {
                 } else {
                   return (
                     <Label
+                      className="todo-user-pill"
                       circular
                       color="green"
                       key={index}

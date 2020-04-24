@@ -1,8 +1,12 @@
 .assign-user {
-    color: #0074D9;
+  color: #0074d9;
 }
 
 .ui primary {
-    justify-content: space-around;
-    align-items: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.todo-user-pill {
+  cursor: pointer;
 }
