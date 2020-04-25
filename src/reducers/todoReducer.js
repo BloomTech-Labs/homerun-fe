@@ -27,31 +27,13 @@ const todoReducer = (state = initalState, action) => {
         ...state,
         todos: state.todos.map(obj => obj.id === action.payload.todoId ? {...obj, assigned: action.payload.assigned } : obj)
       }
-      // const newState = state.todos.map((obj) => {
-      //   const newObj = { ...obj };
-      //   if (obj.id === action.payload.todoId) {
-      //     newObj.assigned = action.payload.assigned;
-      //   }
-      //   return newObj;
-      // });
-      // return {
-      //   ...state,
-      //   todos: newState, 
-      // };
 
     case "UPDATE_TODO":
-      const newerState = state.todos.map((obj) => {
-        const newObj = { ...obj };
-        if (obj.id === action.payload.id) {
-          return action.payload
-        }
-        return newObj;
-      });
       return {
         ...state,
-        todos: newerState
+        todos: state.todos.map(obj => obj.id === action.payload.id ? action.payload : obj)
       }
-
+      
     case "UPDATE_CATEGORY":
       return {
         ...state,
