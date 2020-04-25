@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Name from "./Name";
-import axiosWithAuth from "../../utils/AxiosWithAuth.js";
 
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions/index'
@@ -9,10 +8,7 @@ import actions from '../../actions/index'
 import {
   Button,
   Modal,
-  Image,
   List as UiList,
-  Loader,
-  Confirm
 } from "semantic-ui-react";
 import AddChild from "./AddChild.js";
 import InviteMember from "./InviteMember.js";

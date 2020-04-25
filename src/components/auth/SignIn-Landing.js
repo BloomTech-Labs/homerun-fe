@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Icon,
   Header,
   Divider,
   Form,

@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { List, Dropdown } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
 import Todo from "./Todo.js";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
 import { SwipeableList } from "@sandstreamdev/react-swipeable-list";
 
 import ControlTodo from "./ControlTodo.js";
-
-import dayjs from "dayjs";
 
 const TodoList = () => {
   const store = useSelector(state => state.todos.todos);

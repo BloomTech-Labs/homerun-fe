@@ -5,7 +5,6 @@ import actions from "../../actions";
 
 const ChildAccountDropdown = () => {
   const members = useSelector((state) => state.household.members);
-  const currentUser = useSelector((state) => state.user.userInfo);
   const dispatch = useDispatch();
   const [dropDownValue, setDropDownValue] = useState();
   const [options, setOptions] = useState([]);

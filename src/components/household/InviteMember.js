@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Button, Icon, Header, Form, Container, Loader, Dimmer } from "semantic-ui-react";
+import React from "react";
+import { Button, Form, Loader, Dimmer } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../actions';
 import "antd/lib/alert/style/css";
 
-import { Alert } from 'antd';
 
 const InviteMember = (props) => {
   const { register, handleSubmit } = useForm();

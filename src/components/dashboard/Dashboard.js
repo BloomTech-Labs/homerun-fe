@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import TodoList from "./todos/TodoList.js";
-import { Button } from "semantic-ui-react";
 
 import CategoryTabs from "./Categories/CategoryTabs.js";
 

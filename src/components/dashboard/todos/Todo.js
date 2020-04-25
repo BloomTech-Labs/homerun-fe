@@ -23,7 +23,6 @@ const Todo = (props) => {
   });
   const [confetti, setConfetti] = useAsyncState(false)
 
-  const store = useSelector(state => state.todos)
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
