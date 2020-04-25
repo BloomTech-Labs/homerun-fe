@@ -39,7 +39,7 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Router>
-        <Provider store={store}>
+        <Provider store={store}> 
             <App />
         </Provider>
     </Router>
