@@ -1,17 +1,16 @@
 import React, { useState, useLayoutEffect } from 'react';
 
-import { Menu } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../../actions/';
+import { Menu } from 'semantic-ui-react';
 
-import { Badge } from 'antd';
+import Tab from './Tab.js';
 
 const CategoryTabs = () => {    
     const [active, setActive] = useState('all')
     const [counts, setCounts] = useState({});
     const dispatch = useDispatch();
-    const state = useSelector(state => state.todos);
-    // living room, bedroom, kitchen, bathroom
+    const state = useSelector(state => state.todos.todos);
 
     const handleClick = (e, { name }) => {
         e.preventDefault();
@@ -22,44 +21,23 @@ const CategoryTabs = () => {
     }
 
     useLayoutEffect(() => {
-        if(state.todos.todos) {
+        if(state) {
        setCounts({
-            living_room: state.allTodos.filter(todo => todo.categories.includes('living_room')).length,
-            bedroom: state.allTodos.filter(todo => todo.categories.includes('bedroom')).length,
-            kitchen: state.allTodos.filter(todo => todo.categories.includes('kitchen')).length,
-            bathroom: state.allTodos.filter(todo => todo.categories.includes('bathroom')).length,
-        })
-    }
+            living_room: state.filter(todo => todo.categories.includes('living_room')).length,
+            bedroom: state.filter(todo => todo.categories.includes('bedroom')).length,
+            kitchen: state.filter(todo => todo.categories.includes('kitchen')).length,
+            bathroom: state.filter(todo => todo.categories.includes('bathroom')).length,
+        })}
+    }, [state])
 
-    }, [state.todos.todos])
-    return (
-        <div>
-            <Menu pointing secondary>
-                <Menu.Item name='all' active={active === 'all'} onClick={handleClick} />
-                    <Menu.Item name='living_room' active={active === 'living_room'} onClick={handleClick}>
-                        <Badge offset={[10, 0]} count={counts.living_room}>
-                            Living Room
-                        </Badge>
-                    </Menu.Item>
-                    <Menu.Item name='bedroom' active={active === 'bedroom'} onClick={handleClick}>
-                        <Badge offset={[10, 0]} count={counts.bedroom}>
-                            Bedroom
-                        </Badge>
-                    </Menu.Item>
-  
-                    <Menu.Item name='kitchen' active={active === 'kitchen'} onClick={handleClick}>
-                        <Badge offset={[10, 0]} count={counts.kitchen}>
-                            Kitchen
-                        </Badge>
-                    </Menu.Item>
-                    <Menu.Item name='bathroom' active={active === 'bathroom'} onClick={handleClick}>
-                        <Badge offset={[10, 0]} count={counts.bathroom}>
-                            Bathroom
-                        </Badge>
-                    </Menu.Item>
-            </Menu>
-        </div>
-    )
-}
+    return (<div>
+             <Menu pointing secondary>
+                 <Tab name='all' active={active === 'all'} handleClick={handleClick} counts={0} />
+                 <Tab name='living_room' active={active === 'living_room'} handleClick={handleClick} counts={counts.living_room} />
+                 <Tab name='bedroom' active={active === 'bedroom'} handleClick={handleClick} counts={counts.bedroom} />
+                 <Tab name='kitchen' active={active === 'kitchen'} handleClick={handleClick} counts={counts.kitchen} />
+                 <Tab name='bathroom' active={active === 'bathroom'} handleClick={handleClick} counts={counts.bathroom} />
+             </Menu>
+        </div>)}
 
 export default CategoryTabs;
