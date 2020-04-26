@@ -105,3 +105,8 @@ i.blue.icon {
 .todones-list {
   opacity: 0.4;
 }
+
+.ui.circular.label,
+.ui.circular.labels .label {
+  padding: 0.5833em 0.833em !important;
+}
