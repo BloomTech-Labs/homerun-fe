@@ -4,8 +4,8 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { Button, Modal, Form, Icon } from "semantic-ui-react";
-import { useSelector, useDispatch } from 'react-redux'
-import actions from '../../../actions/index.js';
+import { useSelector, useDispatch } from "react-redux";
+import actions from "../../../actions/index.js";
 
 dayjs.extend(advancedFormat);
 
@@ -16,48 +16,53 @@ const ControlTodo = () => {
     due: dayjs().unix(),
     completed: false,
     created_at: dayjs().unix(),
-  })
+  });
 
-  const category = useSelector(state => state.todos.currentCategory);
-  const dispatch = useDispatch()
+  const category = useSelector((state) => state.todos.currentCategory);
+  const dispatch = useDispatch();
 
   const [due, setDue] = useState(new Date());
-  const [showModal, setShowModal] = useState(false)
-  const futureDate = dayjs(due).unix()
+  const [showModal, setShowModal] = useState(false);
+  const futureDate = dayjs(due).unix();
 
   const handleChange = (e) => {
-    setInfo({ ...info, [e.target.name]: e.target.value })
-  }
+    setInfo({ ...info, [e.target.name]: e.target.value });
+  };
 
   const handleModal = () => {
-    setShowModal(!showModal)
-  }
+    setShowModal(!showModal);
+  };
 
   const handleSubmit = () => {
-    dispatch(actions.todo.addTodo(info))
-      .then(res => {
-        dispatch(actions.todo.addCategory({ todo_id: res.id, category_name: category }))
-      })
-    handleModal()
-  }
+    dispatch(actions.todo.addTodo(info)).then((res) => {
+      dispatch(
+        actions.todo.addCategory({ todo_id: res.id, category_name: category })
+      );
+    });
+    handleModal();
+  };
 
   const handleDue = (date) => {
-    setDue(date)
-    setInfo({ ...info, due: futureDate })
-  }
-
+    setDue(date);
+    setInfo({ ...info, due: futureDate });
+  };
 
   return (
     <div>
       <Modal open={showModal} onClose={handleModal}>
-        <Modal.Header> Add a new task below! </Modal.Header>
+        <Modal.Header> Add a new todo! </Modal.Header>
         <Form onSubmit={handleSubmit} style={{ padding: "30px" }}>
-          <Form.Input name="title" onChange={handleChange} type="text" placeholder="Task" />
-          <Form.Input name="desc" onChange={handleChange} type="text" placeholder="Description" />
+          <Form.Input
+            name="title"
+            onChange={handleChange}
+            type="text"
+            placeholder="Task"
+          />
           <Form.Field>
             <h3>Due</h3>
             <DatePicker
-              wrapped size="medium"
+              wrapped
+              size="medium"
               className="date-picker"
               selected={due}
               onChange={handleDue}
@@ -72,11 +77,15 @@ const ControlTodo = () => {
           <Button type="submit">Add</Button>
         </Form>
       </Modal>
-      <button className="ui button blue circular" onClick={handleModal} style={{ position: "fixed", bottom: 20, right: 20 }}>Add Todo</button>
+      <button
+        className="ui button blue circular"
+        onClick={handleModal}
+        style={{ position: "fixed", bottom: 20, right: 20 }}
+      >
+        Add Todo
+      </button>
     </div>
-    
-  )
-}
+  );
+};
 
 export default ControlTodo;
-
