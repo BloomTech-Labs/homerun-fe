@@ -152,7 +152,8 @@ const Todo = (props) => {
                       position="right center"
                       trigger={<i className="ui icon clock blue large"></i>}
                     >
-                      <div style={{ width: "300px" }}>
+                      {/* <div style={{ width: "300px" }}> */}
+                      <div>
                         <h3>Reschedule</h3>
                         <DatePicker
                           wrapped

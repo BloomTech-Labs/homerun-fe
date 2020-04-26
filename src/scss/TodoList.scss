@@ -20,10 +20,11 @@
 
 .date-picker {
   width: 150px;
-  padding: 15px;
+  padding: 0.67857143em 1em;
+  margin-top: 8px;
+  border-radius: 0.28571429rem;
   width: 150px;
-  border: none;
-  border-bottom: 1px solid black;
+  border: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 // button to assign users to task
