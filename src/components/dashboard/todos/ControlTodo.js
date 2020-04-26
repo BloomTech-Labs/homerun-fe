@@ -66,12 +66,9 @@ const ControlTodo = () => {
               className="date-picker"
               selected={due}
               onChange={handleDue}
-              showTimeSelect
-              timeFormat="HH:mm"
-              timeIntervals={15}
               minDate={new Date()}
               timeCaption="time"
-              dateFormat="MMMM d, yyyy h:mm aa"
+              dateFormat="MMMM d, yyyy"
             />
           </Form.Field>
           <Button type="submit">Add</Button>
