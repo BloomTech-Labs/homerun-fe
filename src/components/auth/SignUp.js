@@ -11,9 +11,10 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import SidebarMarketing from '../marketing/Sidebar-Marketing.js'
-import Navigation from '../marketing/Navigation';
-import Footer from '../marketing/Footer';
+import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
+import logo from "../../Logos/tidyhive-standalone.png";
 
 const SignUp = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -47,10 +48,9 @@ const SignUp = (props) => {
       <Navigation />
       <Container text>
         <div align="center">
-          <Header as="h2" icon>
-            <Icon name="home" />
+          <Header as="div" icon>
             Welcome to TidyHive!
-            <Header.Subheader>Sign up to get started.</Header.Subheader>
+            <Header.Subheader>Sign up for an account.</Header.Subheader>
           </Header>
         </div>
         <div>
@@ -100,19 +100,21 @@ const SignUp = (props) => {
               <label>Repeat Password</label>
               <input type="password" placeholder="Repeat Password" />
             </Form.Field>*/}
-              <Button type="submit">Submit</Button>
+              <button type="submit" className="ui button blue">
+                Submit
+              </button>
             </Form>
           )}
         </div>
+        <p>
+          Already have an account? <a href="/signin">Sign In</a>.
+        </p>
         <Divider horizontal>OR</Divider>
         <div align="center">
-          <Button onClick={googleAuth} icon>
-            <Icon name="google" />
-            &nbsp;&nbsp;&nbsp;Sign in with Google
-          </Button>
-          <p>
-            Already have an account? <a href="/signin/email">Sign In</a>
-          </p>
+          <button onClick={googleAuth} className="ui button blue">
+            <i className="ui icon google white"></i>
+            Sign in with Google
+          </button>
         </div>
       </Container>
       <Footer />

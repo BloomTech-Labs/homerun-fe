@@ -48,10 +48,13 @@ i.blue.icon {
 }
 
 .ui.blue.button,
-.ui.blue.buttons .button,
+.ui.blue.buttons .button {
+  background-color: $primary;
+}
+
 .ui.blue.button:hover,
 .ui.blue.buttons .button:hover {
-  background: $primary;
+  background: darken($primary, 10);
 }
 
 .ui.basic.grey.label,

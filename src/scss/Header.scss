@@ -18,7 +18,7 @@
   padding: 0px !important;
 
   i {
-    color: $primary;
+    color: $grey;
   }
 }
 
@@ -34,4 +34,9 @@
 .icons-size {
   font-size: 2.5rem !important; // <-- overrides icons default sizes given by semantic ui - sizes were either too small or too big
   margin-right: 0 !important;
+}
+
+.ui.circular.label,
+.ui.circular.labels .label {
+  padding: 0.5833em 0.833em;
 }
