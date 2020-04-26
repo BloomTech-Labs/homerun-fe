@@ -160,12 +160,9 @@ const Todo = (props) => {
                           className="date-picker"
                           selected={new Date()}
                           onChange={handleDue}
-                          showTimeSelect
-                          timeFormat="HH:mm"
-                          timeIntervals={15}
                           minDate={new Date()}
                           timeCaption="time"
-                          dateFormat="MMMM d, yyyy h:mm aa"
+                          dateFormat="MMMM d, yyyy"
                         />
                       </div>
                     </Popup>
