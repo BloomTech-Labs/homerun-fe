@@ -133,7 +133,7 @@ const Todo = (props) => {
                         }}
                       >
                         <i
-                          className="ui icon add user blue large"
+                          className="ui icon add user blue large todo-icon"
                           style={{ marginRight: "10px" }}
                         ></i>
                       </a>
@@ -150,7 +150,9 @@ const Todo = (props) => {
                       onOpen={() => setReschedule({ popup: true })}
                       open={reschedule.popup}
                       position="right center"
-                      trigger={<i className="ui icon clock blue large"></i>}
+                      trigger={
+                        <i className="ui icon clock blue large todo-icon"></i>
+                      }
                     >
                       {/* <div style={{ width: "300px" }}> */}
                       <div>

@@ -20,7 +20,7 @@ const ControlTodo = () => {
 
   const category = useSelector((state) => state.todos.currentCategory);
   const categoryTitles = {
-    all: "General",
+    all: "",
     kitchen: "Kitchen",
     living_room: "Living Room",
     bedroom: "Bedroom",
