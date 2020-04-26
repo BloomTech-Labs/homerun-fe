@@ -19,6 +19,13 @@ const ControlTodo = () => {
   });
 
   const category = useSelector((state) => state.todos.currentCategory);
+  const categoryTitles = {
+    all: "General",
+    kitchen: "Kitchen",
+    living_room: "Living Room",
+    bedroom: "Bedroom",
+    bathroom: "Bathroom",
+  };
   const dispatch = useDispatch();
 
   const [due, setDue] = useState(new Date());
@@ -50,7 +57,9 @@ const ControlTodo = () => {
   return (
     <div>
       <Modal open={showModal} onClose={handleModal}>
-        <Modal.Header> Add a new todo! </Modal.Header>
+        <Modal.Header>
+          {`Add a New ${categoryTitles[category]} Todo`}
+        </Modal.Header>
         <Form onSubmit={handleSubmit} style={{ padding: "30px" }}>
           <Form.Input
             name="title"
@@ -79,7 +88,8 @@ const ControlTodo = () => {
         onClick={handleModal}
         style={{ position: "fixed", bottom: 20, right: 20 }}
       >
-        Add Todo
+        <Icon name="plus" />
+        {`${categoryTitles[category]} Todo`}
       </button>
     </div>
   );
