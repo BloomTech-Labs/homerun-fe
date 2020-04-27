@@ -4,11 +4,12 @@ import { Icon, Label, Popup } from "semantic-ui-react";
 import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
 import SwipeLeft from "./SwipeLeft";
 import SwipeRight from "./SwipeRight.js";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
 import useAsyncState from "../../../hooks/useAsyncState.js";
 import { Row, Col, Menu, Dropdown } from "antd";
+import DatePicker from '../../../utils/DatePicker.js';
 import dayjs from "dayjs";
 import useWindowSize from "../../../hooks/useWindowSize.js";
 import Confetti from "react-confetti";
@@ -46,14 +47,16 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    setReschedule({ due: date }).then(() => {
-      if (reschedule.due !== undefined) {
+    setReschedule({ due: dayjs(date).unix() })
+      .then(() => {
         dispatch(
-          actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() })
-        );
+          actions.todo.updateTodo(id, { due: dayjs(date).unix() })
+        )
       }
-    });
-  };
+      )
+    setReschedule({ popup: !reschedule.popup })
+
+  }
 
   // TODO: This is not the right index from the store.
   const handleRemove = () => {
@@ -142,45 +145,27 @@ const Todo = (props) => {
                       </a>
                     </Dropdown>
                   ) : (
-                    ""
-                  )}
+                      ""
+                    )}
 
                   {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
                   {!userIsChild ? (
-                    <Popup
-                      on="click"
-                      onClose={() =>
-                        setReschedule({ ...reschedule, popup: false })
-                      }
-                      onOpen={() =>
-                        setReschedule({ ...reschedule, popup: true })
-                      }
-                      open={reschedule.popup}
-                      position="right center"
-                      trigger={
-                        <i className="ui icon clock blue large todo-icon"></i>
-                      }
-                    >
-                      <div style={{ width: "300px" }}>
-                        <h3>Reschedule</h3>
-                        <DatePicker
-                          wrapped
-                          size="medium"
-                          className="date-picker"
-                          selected={reschedule.due}
-                          onChange={handleDue}
-                          showTimeSelect
-                          timeFormat="HH:mm"
-                          timeIntervals={15}
-                          minDate={new Date()}
-                          timeCaption="time"
-                          dateFormat="MMMM d, yyyy h:mm aa"
-                        />
-                      </div>
-                    </Popup>
+                    <>
+                      <i className="ui icon clock large blue todo-icon" onClick={() => setReschedule({ ...reschedule, popup: !reschedule.popup })}></i>
+                    </>
                   ) : (
-                    ""
-                  )}
+                      ""
+                    )}
+                  {reschedule.popup ? (
+                    <DatePicker
+                      onChange={handleDue}
+                      open={reschedule.popup}
+                    />
+                  ) : (
+                      ""
+                    )
+                  }
+
                 </Col>
               </Row>
             </Col>
