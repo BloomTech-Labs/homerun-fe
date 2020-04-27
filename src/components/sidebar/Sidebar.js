@@ -9,22 +9,45 @@ import {
   Button,
 } from "semantic-ui-react";
 
-
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
   const history = useHistory();
   return (
     <SemSidebar
-      className="settings"
       as={Menu}
       animation="overlay"
-      icon="labeled"
       vertical
       direction="right"
       visible={opened}
       width="wide"
       onHide={() => setOpened(false)}
     >
+      <span
+        className="close-sidebar"
+        onClick={() => {
+          setOpened(false);
+        }}
+        style={{ position: "absolute", top: "79px", right: "48px" }}
+      >
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(45deg)",
+          }}
+        ></span>
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(-45deg)",
+          }}
+        ></span>
+      </span>
       <SemSidebar.Pushable
         as={Segment}
         onClick={() => {
@@ -32,27 +55,25 @@ const Sidebar = (props) => {
         }}
       >
         <Menu.Item name="Account" as={NavLink} to="/dashboard">
-          <Icon name="check" />
           Dashboard
         </Menu.Item>
         <Menu.Item name="Household" as={NavLink} to="/household">
-          <Icon name="home" />
           Household
         </Menu.Item>
         <Menu.Item name="Account" as={NavLink} to="/account">
-          <Icon name="user" />
           Account
         </Menu.Item>
-        <Icon
-          name="log out"
-          size="big"
-          className="logoutBtn"
+        <Button
+          className="logout-btn"
+          primary
           onClick={() => {
             localStorage.removeItem("token");
             localStorage.removeItem("state");
             history.push("/signin");
           }}
-        />
+        >
+          Logout
+        </Button>
       </SemSidebar.Pushable>
     </SemSidebar>
   );

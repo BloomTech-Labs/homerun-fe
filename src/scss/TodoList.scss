@@ -1,47 +1,129 @@
 .swipe-left {
-    background-color: #FF4136;
-    width: 100%;
-    height: 100%;
+  background-color: $warning;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    color: white;
-
+  .icon {
+    margin-right: 20px;
+  }
 }
 
 .swipe-right {
-    background-color:green;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
+  background-color: $secondary;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+
+  .icon {
+    margin-left: 20px;
+  }
 }
 
-
-
 .date-picker {
-    width:150px;
-    padding: 15px;
-    width: 150px;
-    border: none;
-    border-bottom: 1px solid black;
-    }
-
-
+  width: 150px;
+  padding: 0.67857143em 1em;
+  margin-top: 8px;
+  border-radius: 0.28571429rem;
+  width: 150px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
 
 // button to assign users to task
 .ui.icon.button {
-    padding: 0 !important;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .add.user.icon {
-        position: absolute;
-        z-index: 1;
+  padding: 0 !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .add.user.icon {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.assign-user {
+  color: $secondary;
+}
+
+i.blue.icon {
+  color: $secondary !important;
+}
+
+.ui.blue.button,
+.ui.blue.buttons .button {
+  background-color: $primary;
+}
+
+.ui.blue.button:hover,
+.ui.blue.buttons .button:hover {
+  background: darken($primary, 10);
+}
+
+.ui.basic.grey.label,
+.ui.basic.grey.labels .label {
+  border-color: $light-grey !important;
+  color: $light-grey !important;
+
+  & > .icon {
+    color: $light-grey;
+  }
+
+  &:hover {
+    border-color: $warning !important;
+    color: $warning !important;
+
+    & > .icon {
+      color: $warning;
     }
+  }
+}
+
+.ui.label > .icon {
+  margin: 0px;
+}
+
+.ui.secondary.pointing.menu .active.item {
+  border-color: $quaternary;
+
+  &:hover,
+  &:active {
+    border-color: $tertiary;
+  }
+}
+
+.ui.secondary.pointing.menu a.item:active {
+  border-color: $tertiary;
+}
+
+.todo-user-pill {
+  cursor: pointer;
+}
+
+.todos-list,
+.todones-list {
+  margin: 30px 0;
+}
+
+.todones-list {
+  opacity: 0.4;
+}
+
+.ui.circular.label,
+.ui.circular.labels .label {
+  padding: 0.5833em 0.833em !important;
+}
+
+.todo-icon {
+  cursor: pointer;
+}
+
+.overdue {
+  color: $warning;
 }
