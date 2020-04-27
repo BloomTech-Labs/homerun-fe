@@ -7,7 +7,8 @@ import actions from "../../../actions/";
 import { Badge } from "antd";
 
 const CategoryTabs = () => {
-  const [active, setActive] = useState("all");
+  const category = useSelector((state) => state.todos.currentCategory);
+  const [active, setActive] = useState(category);
   const [counts, setCounts] = useState({});
   const dispatch = useDispatch();
   const state = useSelector((state) => state.todos);
