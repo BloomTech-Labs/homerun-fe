@@ -5,34 +5,33 @@ const fetchTodos = () => (dispatch) => {
   axiosWithAuth()
     .get(`/todos/household`)
     .then((res) => {
-      dispatch({ type: "FETCH_TODOS", payload: res.data })
+      dispatch({ type: "FETCH_TODOS", payload: res.data });
     })
     .catch((err) => console.log(err.message));
 };
 
-
-const addCategory = (data) => dispatch => {
-  console.log('data!', data)
+const addCategory = (data) => (dispatch) => {
+  console.log("data!", data);
   axiosWithAuth()
-      .post('/todos/categories', data)
-      .then(res => {
-        dispatch({
-          type: "ADD_CATEGORY",
-          payload: { 
-            todoId: data.todo_id,
-            categories: res.data
-           }
-        })
-      })
-      .catch(err => console.log(err))
-}
+    .post("/todos/categories", data)
+    .then((res) => {
+      dispatch({
+        type: "ADD_CATEGORY",
+        payload: {
+          todoId: data.todo_id,
+          categories: res.data,
+        },
+      });
+    })
+    .catch((err) => console.log(err));
+};
 
 const addTodo = (todo) => (dispatch) => {
   return axiosWithAuth()
     .post(`/todos/add`, todo)
     .then((res) => {
-      dispatch({ type: "ADD_TODO", payload: res.data })
-      return res.data
+      dispatch({ type: "ADD_TODO", payload: res.data });
+      return res.data;
     })
     .catch((err) => console.log(err.message));
 };
@@ -76,24 +75,25 @@ const unassignUser = (todoId, userId, type) => (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
-const updateTodo = (todoid, update) => dispatch => {
+const updateTodo = (todoid, update) => (dispatch) => {
   axiosWithAuth()
     .put(`/todos/${todoid}`, update)
-    // .then(res => console.log("res.data todoActions :64", res.data))
-    .then(res => dispatch({
-      type: "UPDATE_TODO",
-      payload: res.data
-    }))
-    .catch(err => console.log(err))
-}
+    // .then((res) => console.log("res.data todoActions :64", res.data))
+    .then((res) =>
+      dispatch({
+        type: "UPDATE_TODO",
+        payload: res.data,
+      })
+    )
+    .catch((err) => console.log(err));
+};
 
-const updateCategory = (todoCategory) => dispatch => {
+const updateCategory = (todoCategory) => (dispatch) => {
   dispatch({
     type: "UPDATE_CATEGORY",
-    payload: todoCategory
-  })
-}
-
+    payload: todoCategory,
+  });
+};
 
 export default {
   fetchTodos,
@@ -103,5 +103,5 @@ export default {
   unassignUser,
   updateTodo,
   updateCategory,
-  addCategory
+  addCategory,
 };

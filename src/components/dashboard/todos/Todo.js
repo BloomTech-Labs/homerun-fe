@@ -22,12 +22,9 @@ const Todo = (props) => {
     due: new Date(),
   });
   const [confetti, setConfetti] = useAsyncState(false);
-
-  const store = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
-
   const { height, width } = useWindowSize();
 
   const assign = (props) => {
@@ -117,7 +114,13 @@ const Todo = (props) => {
           <Row>
             <Col span={12}>
               <h3>{props.title}</h3>
-              <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
+              <p
+                className={
+                  dayjs().isBefore(dayjs.unix(props.due)) ? "" : "overdue"
+                }
+              >
+                Due {dayjs.unix(props.due).format("MM/DD/YY")}
+              </p>
             </Col>
             <Col span={12} style={{ textAlign: "right" }}>
               {/* Testing mapping over with selection as an object */}
@@ -146,26 +149,32 @@ const Todo = (props) => {
                   {!userIsChild ? (
                     <Popup
                       on="click"
-                      onClose={() => setReschedule({ popup: false })}
-                      onOpen={() => setReschedule({ popup: true })}
+                      onClose={() =>
+                        setReschedule({ ...reschedule, popup: false })
+                      }
+                      onOpen={() =>
+                        setReschedule({ ...reschedule, popup: true })
+                      }
                       open={reschedule.popup}
                       position="right center"
                       trigger={
                         <i className="ui icon clock blue large todo-icon"></i>
                       }
                     >
-                      {/* <div style={{ width: "300px" }}> */}
-                      <div>
+                      <div style={{ width: "300px" }}>
                         <h3>Reschedule</h3>
                         <DatePicker
                           wrapped
                           size="medium"
                           className="date-picker"
-                          selected={new Date()}
+                          selected={reschedule.due}
                           onChange={handleDue}
+                          showTimeSelect
+                          timeFormat="HH:mm"
+                          timeIntervals={15}
                           minDate={new Date()}
                           timeCaption="time"
-                          dateFormat="MMMM d, yyyy"
+                          dateFormat="MMMM d, yyyy h:mm aa"
                         />
                       </div>
                     </Popup>

@@ -73,9 +73,10 @@ const ControlTodo = () => {
               wrapped
               size="medium"
               className="date-picker"
-              selected={due}
+              selected={new Date()}
               onChange={handleDue}
               minDate={new Date()}
+              showTimeSelect
               timeCaption="time"
               dateFormat="MMMM d, yyyy"
             />
