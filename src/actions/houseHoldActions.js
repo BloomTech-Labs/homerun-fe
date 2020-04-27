@@ -29,7 +29,7 @@ const fetchHousehold = () => dispatch => {
       dispatch({ type: LOADING })
     axiosWithAuth().post("/members/household/children", data)
     .then(res => {
-      console.log(res);
+      console.log(res.data[0]);
       dispatch({ 
         type: ADD_CHILD,
         payload: res.data[0]
