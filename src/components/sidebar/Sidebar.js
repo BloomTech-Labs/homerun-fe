@@ -5,6 +5,7 @@ import {
   Segment,
   Icon,
   Menu,
+  Button
 } from "semantic-ui-react";
 
 const Sidebar = (props) => {
