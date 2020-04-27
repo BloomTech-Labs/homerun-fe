@@ -4,14 +4,15 @@ import { Icon, Label, Popup } from "semantic-ui-react";
 import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
 import SwipeLeft from "./SwipeLeft";
 import SwipeRight from "./SwipeRight.js";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
-import useAsyncState from '../../../hooks/useAsyncState.js';
+import useAsyncState from "../../../hooks/useAsyncState.js";
 import { Row, Col, Menu, Dropdown } from "antd";
-import dayjs from "dayjs"
-import useWindowSize from '../../../hooks/useWindowSize.js'
-import Confetti from 'react-confetti'
+import DatePicker from '../../../utils/DatePicker.js';
+import dayjs from "dayjs";
+import useWindowSize from "../../../hooks/useWindowSize.js";
+import Confetti from "react-confetti";
 
 const Todo = (props) => {
   const { id, assigned, completed } = props;
@@ -21,13 +22,11 @@ const Todo = (props) => {
     popup: false,
     due: new Date(),
   });
-  const [confetti, setConfetti] = useAsyncState(false)
-
+  const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
-
-  const { height, width } = useWindowSize()
+  const { height, width } = useWindowSize();
 
   const assign = (props) => {
     const user = props.item.props.member;
@@ -48,12 +47,16 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    setReschedule({ due: date }).then(() => {
-      if (reschedule.due !== undefined) {
-        dispatch(actions.todo.updateTodo(id, { due: dayjs(reschedule.due).unix() }))
+    setReschedule({ due: dayjs(date).unix() })
+      .then(() => {
+        dispatch(
+          actions.todo.updateTodo(id, { due: dayjs(date).unix() })
+        )
       }
-    });
-  };
+      )
+    setReschedule({ popup: !reschedule.popup })
+
+  }
 
   // TODO: This is not the right index from the store.
   const handleRemove = () => {
@@ -68,10 +71,10 @@ const Todo = (props) => {
   const handleCompleted = () => {
     setConfetti(true).then(() => {
       setTimeout(() => {
-        setConfetti(false)
-      }, 2200)
-    })
-  }
+        setConfetti(false);
+      }, 2200);
+    });
+  };
 
   const userSelect = (
     <Menu onClick={assign}>
@@ -111,12 +114,16 @@ const Todo = (props) => {
         }}
       >
         <Col span={24}>
-
-
           <Row>
             <Col span={12}>
               <h3>{props.title}</h3>
-              <p>Due {dayjs.unix(props.due).format("MM/DD/YY")}</p>
+              <p
+                className={
+                  dayjs().isBefore(dayjs.unix(props.due)) ? "" : "overdue"
+                }
+              >
+                Due {dayjs.unix(props.due).format("MM/DD/YY")}
+              </p>
             </Col>
             <Col span={12} style={{ textAlign: "right" }}>
               {/* Testing mapping over with selection as an object */}
@@ -128,10 +135,13 @@ const Todo = (props) => {
                       <a
                         className="ant-dropdown-link"
                         onClick={(e) => {
-                          e.preventDefault()
+                          e.preventDefault();
                         }}
                       >
-                        <i className="ui icon add user green large" style={{ marginRight: "10px" }}></i>
+                        <i
+                          className="ui icon add user blue large todo-icon"
+                          style={{ marginRight: "10px" }}
+                        ></i>
                       </a>
                     </Dropdown>
                   ) : (
@@ -140,38 +150,24 @@ const Todo = (props) => {
 
                   {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
                   {!userIsChild ? (
-                    <Popup
-                      on="click"
-                      onClose={() => setReschedule({ popup: false })}
-                      onOpen={() => setReschedule({ popup: true })}
-                      open={reschedule.popup}
-                      position="right center"
-                      trigger={<i className="ui icon clock blue large"></i>}
-                    >
-                      <div style={{ width: "300px" }}>
-                        <h3>Reschedule</h3>
-                        <DatePicker
-                          wrapped
-                          size="medium"
-                          className="date-picker"
-                          selected={new Date()}
-                          onChange={handleDue}
-                          showTimeSelect
-                          timeFormat="HH:mm"
-                          timeIntervals={15}
-                          minDate={new Date()}
-                          timeCaption="time"
-                          dateFormat="MMMM d, yyyy h:mm aa"
-                        />
-                      </div>
-                    </Popup>
+                    <>
+                      <i className="ui icon clock large blue todo-icon" onClick={() => setReschedule({ ...reschedule, popup: !reschedule.popup })}></i>
+                    </>
                   ) : (
                       ""
                     )}
+                  {reschedule.popup ? (
+                    <DatePicker
+                      onChange={handleDue}
+                      open={reschedule.popup}
+                    />
+                  ) : (
+                      ""
+                    )
+                  }
 
                 </Col>
               </Row>
-
             </Col>
           </Row>
           <Row>
@@ -179,17 +175,24 @@ const Todo = (props) => {
               {assignedUsers.map((user, index) => {
                 if (userIsChild) {
                   return (
-                    <Label circular color="green" key={index}>
+                    <Label circular basic color="grey" key={index}>
                       {user.username}
                     </Label>
-                  )
+                  );
                 } else {
                   return (
-                    <Label circular color="green" key={index} onClick={() => unassign(user)}>
+                    <Label
+                      className="todo-user-pill"
+                      circular
+                      basic
+                      color="grey"
+                      key={index}
+                      onClick={() => unassign(user)}
+                    >
                       {user.username}
-                      <Icon style={{ paddingLeft: "4px" }} name="remove circle" />
+                      <Icon style={{ paddingLeft: "4px" }} name="remove" />
                     </Label>
-                  )
+                  );
                 }
               })}
             </Col>
@@ -203,7 +206,9 @@ const Todo = (props) => {
         recycle={false}
         numberOfPieces={150}
         tweenDuration={2000}
-        onConfettiComplete={() => dispatch(actions.todo.updateTodo(id, { completed: !completed }))}
+        onConfettiComplete={() =>
+          dispatch(actions.todo.updateTodo(id, { completed: !completed }))
+        }
       />
     </SwipeableListItem>
   );

@@ -1,24 +1,33 @@
-import React from "react";
-
-import { Row, Col } from "antd"
-import { Image } from "semantic-ui-react"
+import React, { useState, useEffect } from "react";
+import { Row, Col } from "antd";
 
 const Name = (props) => {
+  const numNames = props.name.split(" ").length;
+  const [initials, setInitials] = useState("");
 
-    return (
-        <li style={{ margin: "15px 0" }}>
-            <Row>
-                <Col span={4}>
-                    <Image avatar src='https://react.semantic-ui.com/images/avatar/small/helen.jpg' />
-                </Col>
-                <Col span={20}>
-                    <h3>{props.name}</h3>
-                </Col>
+  useEffect(() => {
+    if (numNames > 1) {
+      const firstInitial = props.name.split(" ")[0][0];
+      const secondInitial = props.name.split(" ")[1][0];
+      setInitials(`${firstInitial}${secondInitial}`.toUpperCase());
+    } else {
+      const firstInitial = props.name.split(" ")[0][0];
+      setInitials(firstInitial.toUpperCase());
+    }
+  }, []);
 
-            </Row>
-        </li>
-    )
-}
-
+  return (
+    <li style={{ margin: "15px 0" }}>
+      <Row align="middle">
+        <Col span={4}>
+          <span className="initials">{initials}</span>
+        </Col>
+        <Col span={20}>
+          <h3>{props.name}</h3>
+        </Col>
+      </Row>
+    </li>
+  );
+};
 
 export default Name;

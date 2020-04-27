@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from "react";
 
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../../actions/';
@@ -12,13 +12,13 @@ const CategoryTabs = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state.todos.todos);
 
-    const handleClick = (e, { name }) => {
-        e.preventDefault();
-        // everytime we fetch the todos we filter them and make sure only the todos that are a part of the current category are displaying
-        dispatch(actions.todo.updateCategory(name));
-        dispatch(actions.todo.fetchTodos())
-        setActive(name);
-    }
+  const handleClick = (e, { name }) => {
+    e.preventDefault();
+    // everytime we fetch the todos we filter them and make sure only the todos that are a part of the current category are displaying
+    dispatch(actions.todo.updateCategory(name));
+    dispatch(actions.todo.fetchTodos());
+    setActive(name);
+  };
 
     useLayoutEffect(() => {
         if(state) {

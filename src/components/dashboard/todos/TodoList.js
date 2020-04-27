@@ -7,7 +7,7 @@ import { SwipeableList } from "@sandstreamdev/react-swipeable-list";
 import ControlTodo from "./ControlTodo.js";
 
 const TodoList = () => {
-  const store = useSelector(state => state.todos.todos);
+  const store = useSelector((state) => state.todos.todos);
   const currentUser = useSelector((state) => state.user);
   const userIsChild = useSelector((state) => state.user.childActive);
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const TodoList = () => {
   return (
     <section>
       <h3>Todo</h3>
-      <div style={{ margin: "50px 0px" }}>
+      <div className="todos-list">
         <SwipeableList>
           {todos.map((todo) => {
             return <Todo key={todo.id} {...todo} />;
@@ -63,7 +63,7 @@ const TodoList = () => {
 
       {/* Conditionally render the todos based on completion. */}
       <h3>Todone</h3>
-      <div style={{ opacity: "0.4" }}>
+      <div className="todones-list">
         <SwipeableList>
           {todones.map((todo) => {
             return <Todo key={todo.id} {...todo} />;
