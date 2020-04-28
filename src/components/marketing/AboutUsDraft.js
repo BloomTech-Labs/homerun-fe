@@ -1,13 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {faHome} from "@fortawesome/free-solid-svg-icons";
-import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FaGithub, FaLinkedin, FaTwitter } from '@fortawesome/react-fontawesome';
-import {faGithub} from '@fortawesome/free-solid-svg-icons';
-import {faLinkedin} from '@fortawesome/free-solid-svg-icons';
-import {faTwitter} from '@fortawesome/free-solid-svg-icons';
-// library.add(faGithub, faLinkedIn, faTwitter);
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
 import Navigation from "../marketing/Navigation";
 import Footer from "../marketing/Footer";
@@ -22,7 +14,7 @@ const AboutUsDraft = () => {
         {/* Vinni */}
         <DevCard>
           <DevImage
-            src= "https://avatars1.githubusercontent.com/u/34225237?s=460&v=4"
+            src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
@@ -33,7 +25,7 @@ const AboutUsDraft = () => {
           </DevInfo>
           <SocialButtons>
             <SocialButton
-              src = ""
+              src=""
               type='button'
               onClick={() =>
                 window.open("https://github.com/vinnihoke", '_blank')
@@ -57,7 +49,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* */}, '_blank')
+                window.open({/* */ }, '_blank')
               }
             >
               <faTwitter />
@@ -103,7 +95,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Micahs Twitter */}, '_blank')
+                window.open({/* Micahs Twitter */ }, '_blank')
               }
             >
               <faTwitter />
@@ -115,7 +107,7 @@ const AboutUsDraft = () => {
         {/* Zach */}
         <DevCard>
           <DevImage
-            src= "https://avatars0.githubusercontent.com/u/37271885?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
@@ -147,7 +139,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Zachs twitter */}, '_blank')
+                window.open({/* Zachs twitter */ }, '_blank')
               }
             >
               <faTwitter />
@@ -159,7 +151,7 @@ const AboutUsDraft = () => {
         {/* Katrina */}
         <DevCard>
           <DevImage
-            src= "https://avatars3.githubusercontent.com/u/5169760?s=460&v=4"
+            src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
@@ -188,7 +180,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Katrina's Twitter */}, '_blank')
+                window.open({/* Katrina's Twitter */ }, '_blank')
               }
             >
               <faTwitter />
@@ -200,7 +192,7 @@ const AboutUsDraft = () => {
         {/* Heather */}
         <DevCard>
           <DevImage
-            src= "https://avatars3.githubusercontent.com/u/49896861?s=460&v=4"
+            src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
@@ -234,7 +226,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Heathers Twitter */}, '_blank')
+                window.open({/* Heathers Twitter */ }, '_blank')
               }
             >
               <faTwitter />
@@ -244,7 +236,7 @@ const AboutUsDraft = () => {
         </DevCard>
         <DevCard>
           <DevImage
-            src= "https://avatars2.githubusercontent.com/u/33339750?s=460&v=4"
+            src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4"
             alt='Profile'
           />
           <DevInfo>
@@ -278,7 +270,7 @@ const AboutUsDraft = () => {
             <SocialButton
               type='button'
               onClick={() =>
-                window.open({/* Yankhko's Twitter*/}, '_blank')
+                window.open({/* Yankhko's Twitter*/ }, '_blank')
               }
             >
               <faTwitter />
