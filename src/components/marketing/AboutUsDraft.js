@@ -19,8 +19,8 @@ const AboutUsDraft = () => {
     <>
       <SidebarMarketing />
       <Navigation />
-      <h2>Our Team</h2>
       <CardContainer>
+        <h2>Our Team</h2>
         {users.map(user => {
           return (
             <div className="ui card">
