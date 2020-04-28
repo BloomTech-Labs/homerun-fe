@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, Icon } from "semantic-ui-react";
 import devices from '../../Logos/devices.png';
-import '../../SASS/Marketing.scss';
 import SidebarMarketing from './Sidebar-Marketing';
 import Navigation from '../marketing/Navigation';
 import Footer from '../marketing/Footer';

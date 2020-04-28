@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Icon,
   Header,
   Divider,
   Form,
@@ -11,34 +9,31 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import SidebarMarketing from '../marketing/Sidebar-Marketing.js'
-import Navigation from '../marketing/Navigation';
-import Footer from '../marketing/Footer';
+import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
-import logo from '../../Logos/tidyhive-standalone.png';
 
-
-
-const SignInLanding = props => {
+const SignInLanding = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const googleAuth = () => {
       window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
     };
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
-      .then(res => {
+      .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
         dispatch(actions.user.setUser(res.data));
         props.history.push("/dashboard");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -50,9 +45,8 @@ const SignInLanding = props => {
       <Container text className="sign-in-landing">
         <div align="center">
           <Header as="div" icon>
-            <img src={logo} alt="" />
             Welcome to TidyHive!
-          <Header.Subheader>Sign in to access your account</Header.Subheader>
+            <Header.Subheader>Sign in to access your account</Header.Subheader>
           </Header>
         </div>
         <div>
@@ -61,44 +55,49 @@ const SignInLanding = props => {
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-              <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Field>
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    ref={register({ required: "Email is invalid." })}
-                  />
-                  {errors.username && <p>{errors.username.message}</p>}
-                </Form.Field>
-                <Form.Field>
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    ref={register({ required: "Password is required." })}
-                  />
-                  {errors.email && <p>{errors.email.message}</p>}
-                </Form.Field>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form.Field>
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  ref={register({ required: "Email is invalid." })}
+                />
+                {errors.username && <p>{errors.username.message}</p>}
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  ref={register({ required: "Password is required." })}
+                />
+                {errors.email && <p>{errors.email.message}</p>}
+              </Form.Field>
 
-                <Button type="submit">Submit</Button>
-                <Button onClick={() => props.history.push("/forgot-password")}>
-                  Forgot Password
-      </Button>
-              </Form>
-            )}
+              <button type="submit" className="ui button blue">
+                Submit
+              </button>
+              <button
+                className="ui button"
+                onClick={() => props.history.push("/forgot-password")}
+              >
+                Forgot Password
+              </button>
+            </Form>
+          )}
         </div>
         <p>
-          Don't have an account? <a href="/signin">Sign Up</a>
+          Don't have an account? <a href="/signup">Sign Up</a>!
         </p>
         <Divider horizontal>OR</Divider>
-        <div align="center">
-          <button className="ui button">
-            <i className="ui icon google"></i>
+        <div style={{ marginTop: "50px" }} align="center">
+          <button onClick={googleAuth} className="ui button blue">
+            <i className="ui icon google white"></i>
             Sign in with Google
-            </button>
+          </button>
         </div>
       </Container>
       <Footer />
@@ -108,48 +107,9 @@ const SignInLanding = props => {
 
 export default SignInLanding;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react';
 // import { Button, Icon } from 'semantic-ui-react';
 // import Navigation from '../marketing/Navigation';
-
 
 // const SignInLanding = props => {
 const googleAuth = () => {

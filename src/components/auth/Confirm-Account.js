@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Loader, Dimmer } from "semantic-ui-react";
 
-const ConfirmAcct = props => {
+const ConfirmAcct = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   let { hash } = useParams();
   console.log(hash);
@@ -11,11 +11,11 @@ const ConfirmAcct = props => {
   useEffect(() => {
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/confirm`, { hash })
-      .then(res => {
+      .then((res) => {
         alert(res.data.message);
-        props.history.push("/signin/email");
+        props.history.push("/signin");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }, []);

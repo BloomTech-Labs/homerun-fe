@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import Routes from './utils/Routes';
 import "semantic-ui-css/semantic.min.css";
-import ReactGA from "react-ga"; 
-import actions from './actions';
+import ReactGA from "react-ga";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
-function initializeAnalytics (){
+function initializeAnalytics() {
   ReactGA.initialize("UA-150184896-3");
   ReactGA.pageView('/email/signUp');
 }
@@ -19,11 +18,11 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(currentUser.childActive === true) {
-      history.push('/dashboard');    
+    if (currentUser.childActive === true) {
+      history.push('/dashboard');
     }
   }, [currentUser.childActive])
-  return ( 
+  return (
     <div className="App">
       <Routes />
     </div>

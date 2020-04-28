@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { List, Dropdown } from "semantic-ui-react";
-import "../../../SASS/TodoList.scss";
+import React, { useState, useEffect } from "react";
 import Todo from "./Todo.js";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
@@ -8,10 +6,8 @@ import { SwipeableList } from "@sandstreamdev/react-swipeable-list";
 
 import ControlTodo from "./ControlTodo.js";
 
-import dayjs from "dayjs";
-
 const TodoList = () => {
-  const store = useSelector((state) => state.todos);
+  const store = useSelector((state) => state.todos.todos);
   const currentUser = useSelector((state) => state.user);
   const userIsChild = useSelector((state) => state.user.childActive);
   const dispatch = useDispatch();
@@ -56,8 +52,8 @@ const TodoList = () => {
 
   return (
     <section>
-      <div style={{ margin: "50px 0px" }}>
-        <h3>Todo</h3>
+      <h3>Todo</h3>
+      <div className="todos-list">
         <SwipeableList>
           {todos.map((todo) => {
             return <Todo key={todo.id} {...todo} />;
@@ -66,8 +62,8 @@ const TodoList = () => {
       </div>
 
       {/* Conditionally render the todos based on completion. */}
-      <div>
-        <h3>Todone</h3>
+      <h3>Todone</h3>
+      <div className="todones-list">
         <SwipeableList>
           {todones.map((todo) => {
             return <Todo key={todo.id} {...todo} />;

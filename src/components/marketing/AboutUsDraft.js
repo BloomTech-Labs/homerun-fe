@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+<<<<<<< HEAD
 // library.add(faGithub, faLinkedIn, faTwitter);
+=======
+>>>>>>> 95f37b1d0830a8f04ec2aae09f69dd6bd8a197fa
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
 import Navigation from "../marketing/Navigation";
 import Footer from "../marketing/Footer";

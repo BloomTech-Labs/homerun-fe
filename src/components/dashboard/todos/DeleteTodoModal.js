@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'semantic-ui-react';
 
 export const DeleteTodoModal = (props) => {
