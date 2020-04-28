@@ -15,17 +15,16 @@ const InviteMember = (props) => {
   const onSubmit = (data) => {
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
   }
-  console.log(stateError)
   return loadingState ? (<Dimmer active inverted><Loader size="large">Loading</Loader></Dimmer>)
     : (
       <>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Field>
-            <label>Email</label>
+            <label>Please Enter the email address of the user you wish to invite.</label>
             <input type='email' name='email' placeholder='user@email.com' ref={register} />
-            {stateError && <p>{stateError}</p>}
+            {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
-          <Button floated='right' primary type='submit'>Invite</Button>
+          <Button primary type='submit'>Invite</Button>
         </Form>
       </>
     )
