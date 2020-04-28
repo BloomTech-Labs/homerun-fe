@@ -1,12 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {faHome} from "@fortawesome/free-solid-svg-icons";
-import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FaGithub, FaLinkedin, FaTwitter } from '@fortawesome/react-fontawesome';
-import {faGithub} from '@fortawesome/free-solid-svg-icons';
-import {faLinkedin} from '@fortawesome/free-solid-svg-icons';
-import {faTwitter} from '@fortawesome/free-solid-svg-icons';
 // library.add(faGithub, faLinkedIn, faTwitter);
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
 import Navigation from "../marketing/Navigation";
@@ -88,7 +81,6 @@ const AboutUsDraft = () => {
                 window.open("https://github.com/MicahJank", '_blank')
               }
             >
-              <faGithub />
               <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
@@ -111,7 +103,6 @@ const AboutUsDraft = () => {
                 window.open({/* Micahs Twitter */}, '_blank')
               }
             >
-              <faTwitter />
               <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
@@ -135,7 +126,6 @@ const AboutUsDraft = () => {
                 window.open('https://github.com/zbtaylor', '_blank')
               }
             >
-              <faGithub />
               <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
@@ -158,7 +148,6 @@ const AboutUsDraft = () => {
                 window.open({/* Zachs twitter */}, '_blank')
               }
             >
-              <faTwitter />
               <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
@@ -182,7 +171,6 @@ const AboutUsDraft = () => {
                 window.open("https://github.com/kroaix", '_blank')
               }
             >
-              <faGithub />
               <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
@@ -202,7 +190,6 @@ const AboutUsDraft = () => {
                 window.open({/* Katrina's Twitter */}, '_blank')
               }
             >
-              <faTwitter />
               <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
@@ -228,7 +215,6 @@ const AboutUsDraft = () => {
                 window.open("https://github.com/Heather-Ridgill", '_blank')
               }
             >
-              <faGithub />
               <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
@@ -241,7 +227,6 @@ const AboutUsDraft = () => {
                 )
               }
             >
-              <faLinkedin />
               <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
@@ -251,7 +236,6 @@ const AboutUsDraft = () => {
                 window.open({/* Heathers Twitter */}, '_blank')
               }
             >
-              <faTwitter />
               <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
@@ -275,7 +259,6 @@ const AboutUsDraft = () => {
                 window.open("https://github.com/Mayankho", '_blank')
               }
             >
-              <faGithub />
               <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
@@ -288,7 +271,6 @@ const AboutUsDraft = () => {
                 )
               }
             >
-              <faLinkedin />
               <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
@@ -298,7 +280,6 @@ const AboutUsDraft = () => {
                 window.open({/* Yankhko's Twitter*/}, '_blank')
               }
             >
-              <faTwitter />
               <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
