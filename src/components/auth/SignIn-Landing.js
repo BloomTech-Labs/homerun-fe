@@ -15,15 +15,16 @@ import Footer from "../marketing/Footer";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
 
+const googleAuth = () => {
+  window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
+};
+
 const SignInLanding = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    const googleAuth = () => {
-      window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
-    };
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
@@ -107,33 +108,4 @@ const SignInLanding = (props) => {
 
 export default SignInLanding;
 
-// import React from 'react';
-// import { Button, Icon } from 'semantic-ui-react';
-// import Navigation from '../marketing/Navigation';
 
-// const SignInLanding = props => {
-const googleAuth = () => {
-  window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
-};
-//   return (
-//     <div>
-//     <Navigation />
-//       <Button onClick={googleAuth} icon>
-//         <Icon name="google" />
-//         &nbsp;&nbsp;&nbsp;Sign in with Google
-//       </Button>
-//       <br />
-//       <br />
-//       <Button onClick={() => props.history.push("/signin/email")}>
-//         Sign in with Email
-//       </Button>
-//       <br />
-//       <br />
-//       <p>
-//         Don't have an account? <a href="/signin">Sign Up</a>
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default SignInLanding;
