@@ -16,15 +16,15 @@ const AddChild = props => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Field>
-        <label>Name</label>
+        <label>Please enter the name of your child you wish to add.</label>
         <input
           name="username"
           placeholder="Child's Name"
           ref={register({ required: "Please give the child a name." })}
         />
-        {errors.username && <p>{errors.username.message}</p>}
+        {errors.username && <p className={'error'}>{errors.username.message}</p>}
       </Form.Field>
-      <Button floated="right" primary type="submit">
+      <Button primary type="submit">
         Add
       </Button>
     </Form>
