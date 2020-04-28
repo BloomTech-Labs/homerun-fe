@@ -11,7 +11,10 @@ import {
 } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Navigation from '../marketing/Navigation';
+import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
+import Navigation from "../marketing/Navigation";
+import Footer from "../marketing/Footer";
+import logo from "../../Logos/tidyhive-standalone.png";
 
 const SignUp = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -41,77 +44,80 @@ const SignUp = (props) => {
 
   return (
     <>
-    <Navigation />
-    <Container text>
-      <div align="center">
-        <Header as="h2" icon>
-          <Icon name="home" />
-          Welcome to TidyHive!
-          <Header.Subheader>Sign up to get started.</Header.Subheader>
-        </Header>
-      </div>
-      <div>
-        {isLoading ? (
-          <Dimmer active inverted>
-            <Loader size="large">Loading</Loader>
-          </Dimmer>
-        ) : (
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Field>
-              <label>Username</label>
-              <input
-                type="text"
-                placeholder="Username"
-                name="username"
-                ref={register({ required: "Username is required." })}
-              />
-              {errors.username && <p>{errors.username.message}</p>}
-            </Form.Field>
-            <Form.Field>
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                ref={register({ required: "Email is required." })}
-              />
-              {errors.email && <p>{errors.email.message}</p>}
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                ref={register({
-                  required: "Password is required.",
-                  minLength: {
-                    value: 8,
-                    message: "Password must be at least 8 characters long.",
-                  },
-                })}
-              />
-              {errors.password && <p>{errors.password.message}</p>}
-            </Form.Field>
-            {/*<Form.Field>
+      <SidebarMarketing />
+      <Navigation />
+      <Container text>
+        <div align="center">
+          <Header as="div" icon>
+            Welcome to TidyHive!
+            <Header.Subheader>Sign up for an account.</Header.Subheader>
+          </Header>
+        </div>
+        <div>
+          {isLoading ? (
+            <Dimmer active inverted>
+              <Loader size="large">Loading</Loader>
+            </Dimmer>
+          ) : (
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form.Field>
+                <label>Username</label>
+                <input
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  ref={register({ required: "Username is required." })}
+                />
+                {errors.username && <p>{errors.username.message}</p>}
+              </Form.Field>
+              <Form.Field>
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  ref={register({ required: "Email is required." })}
+                />
+                {errors.email && <p>{errors.email.message}</p>}
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  ref={register({
+                    required: "Password is required.",
+                    minLength: {
+                      value: 8,
+                      message: "Password must be at least 8 characters long.",
+                    },
+                  })}
+                />
+                {errors.password && <p>{errors.password.message}</p>}
+              </Form.Field>
+              {/*<Form.Field>
               <label>Repeat Password</label>
               <input type="password" placeholder="Repeat Password" />
             </Form.Field>*/}
-            <Button type="submit">Submit</Button>
-          </Form>
-        )}
-      </div>
-      <Divider horizontal>OR</Divider>
-      <div align="center">
-        <Button onClick={googleAuth} icon>
-          <Icon name="google" />
-          &nbsp;&nbsp;&nbsp;Sign in with Google
-        </Button>
+              <button type="submit" className="ui button blue">
+                Submit
+              </button>
+            </Form>
+          )}
+        </div>
         <p>
-          Already have an account? <a href="/signin/email">Sign In</a>
+          Already have an account? <a href="/signin">Sign In</a>.
         </p>
-      </div>
-    </Container>
+        <Divider horizontal>OR</Divider>
+        <div align="center">
+          <button onClick={googleAuth} className="ui button blue">
+            <i className="ui icon google white"></i>
+            Sign in with Google
+          </button>
+        </div>
+      </Container>
+      <Footer />
     </>
   );
 };

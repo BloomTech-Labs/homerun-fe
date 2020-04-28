@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { Dropdown, Icon, Loader, Dimmer, Modal, Input, Button } from 'semantic-ui-react';
-import { useHistory } from 'react-router-dom';
+import { Dropdown } from 'semantic-ui-react';
 
-import axios from 'axios';
 import actions from "../../actions";
 
 const HouseholdSettings = () => {

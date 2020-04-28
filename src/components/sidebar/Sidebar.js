@@ -1,52 +1,70 @@
-import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory, NavLink } from "react-router-dom";
 import {
   Sidebar as SemSidebar,
   Segment,
   Icon,
-  Divider,
   Menu,
-  Button,
+  Button
 } from "semantic-ui-react";
-import Settings from "../settings/Settings.js";
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
-  const [active, setActive] = useState(null);
   const history = useHistory();
   return (
     <SemSidebar
-      className="settings"
       as={Menu}
       animation="overlay"
-      icon="labeled"
       vertical
       direction="right"
       visible={opened}
       width="wide"
       onHide={() => setOpened(false)}
     >
-      <SemSidebar.Pushable as={Segment}>
-        <Menu.Item
-          name="Close"
-          onClick={() => {
-            setOpened(false);
-            setActive(null);
+      <span
+        className="close-sidebar"
+        onClick={() => {
+          setOpened(false);
+        }}
+        style={{ position: "absolute", top: "79px", right: "48px" }}
+      >
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(45deg)",
           }}
-        >
-          <Icon name="close" />
-          Close
+        ></span>
+        <span
+          className="bm-cross"
+          style={{
+            position: "absolute",
+            width: "3px",
+            height: "14px",
+            transform: "rotate(-45deg)",
+          }}
+        ></span>
+      </span>
+      <SemSidebar.Pushable
+        as={Segment}
+        onClick={() => {
+          setOpened(false);
+        }}
+      >
+        <Menu.Item name="Account" as={NavLink} to="/dashboard">
+          Dashboard
         </Menu.Item>
-        <Menu.Item name="Account" onClick={() => setActive("account")}>
-          <Icon name="user" />
-          Account
-        </Menu.Item>
-        <Menu.Item name="Household" onClick={() => setActive("household")}>
-          <Icon name="home" />
+        <Menu.Item name="Household" as={NavLink} to="/household">
           Household
         </Menu.Item>
-        <Settings active={active} />
+        <Menu.Item name="Account" as={NavLink} to="/account">
+          Account
+        </Menu.Item>
         <Button
+          className="logout-btn"
+          primary
           onClick={() => {
             localStorage.removeItem("token");
             localStorage.removeItem("state");
