@@ -36,7 +36,7 @@ const List = () => {
         open={memberModal}
         onClose={() => setMemberModal(false)}
         trigger={
-          <Button onClick={() => setMemberModal(true)}>Invite Member</Button>
+          <Button primary onClick={() => setMemberModal(true)}>Invite Member</Button>
         }
         
         content={<InviteMember setModal={setMemberModal} />}
@@ -44,7 +44,7 @@ const List = () => {
       <Modal
         open={childModal}
         onClose={() => setChildModal(false)}
-        trigger={<Button onClick={() => setChildModal(true)}>Add Child</Button>}
+        trigger={<Button className={'addChild-btn'} onClick={() => setChildModal(true)}>Add Child</Button>}
         content={<AddChild setModal={setChildModal} />}
       ></Modal>
     </div>
