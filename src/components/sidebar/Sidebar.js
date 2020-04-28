@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import {
   Sidebar as SemSidebar,
   Segment,
   Icon,
-  Divider,
   Menu,
-  Button,
+  Button
 } from "semantic-ui-react";
 
 const Sidebar = (props) => {

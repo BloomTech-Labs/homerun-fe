@@ -17,6 +17,7 @@ import "antd/lib/grid/style/css";
 import "antd/lib/dropdown/style/css";
 import "antd/lib/menu/style/css";
 import "antd/lib/date-picker/style/css"
+import "antd/es/badge/style/css"
 // Custom Styles
 import "./scss/index.scss";
 // Do not leave on

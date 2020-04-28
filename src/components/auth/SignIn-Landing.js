@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Icon,
   Header,
   Divider,
   Form,
@@ -96,7 +94,7 @@ const SignInLanding = (props) => {
         </p>
         <Divider horizontal>OR</Divider>
         <div style={{ marginTop: "50px" }} align="center">
-          <button className="ui button blue">
+          <button onClick={googleAuth} className="ui button blue">
             <i className="ui icon google white"></i>
             Sign in with Google
           </button>
