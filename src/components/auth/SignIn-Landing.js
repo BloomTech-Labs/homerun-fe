@@ -26,10 +26,11 @@ const SignInLanding = (props) => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
+    // clear local storage before signing in to prevent bugs
+    localStorage.clear();
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
         dispatch(actions.user.setUser(res.data));
         props.history.push("/dashboard");
