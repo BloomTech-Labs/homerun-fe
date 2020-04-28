@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Icon,
   Header,
   Divider,
   Form,
@@ -14,7 +12,6 @@ import axios from "axios";
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
 import Navigation from "../marketing/Navigation";
 import Footer from "../marketing/Footer";
-import logo from "../../Logos/tidyhive-standalone.png";
 
 const SignUp = (props) => {
   const { register, handleSubmit, errors } = useForm();

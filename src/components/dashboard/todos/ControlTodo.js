@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { Button, Modal, Form, Icon } from "semantic-ui-react";
 import { useSelector, useDispatch } from "react-redux";
 import actions from "../../../actions/index.js";

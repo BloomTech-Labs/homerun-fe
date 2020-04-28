@@ -3,9 +3,8 @@ import { useHistory, NavLink } from "react-router-dom";
 import {
   Sidebar as SemSidebar,
   Segment,
-  Icon,
   Menu,
-  Button
+  Button,
 } from "semantic-ui-react";
 
 const Sidebar = (props) => {
