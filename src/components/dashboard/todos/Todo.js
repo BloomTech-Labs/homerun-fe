@@ -9,10 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
 import useAsyncState from "../../../hooks/useAsyncState.js";
 import { Row, Col, Menu, Dropdown } from "antd";
-import DatePicker from '../../../utils/DatePicker.js';
+import DatePicker from "../../../utils/DatePicker.js";
 import dayjs from "dayjs";
 import useWindowSize from "../../../hooks/useWindowSize.js";
 import Confetti from "react-confetti";
+import TodoEditModal from "./TodoEditModal";
 
 const Todo = (props) => {
   const { id, assigned, completed } = props;
@@ -27,6 +28,7 @@ const Todo = (props) => {
   const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
   const { height, width } = useWindowSize();
+  const [editing, setEditing] = useState(false);
 
   const assign = (props) => {
     const user = props.item.props.member;
@@ -47,16 +49,11 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    setReschedule({ due: dayjs(date).unix() })
-      .then(() => {
-        dispatch(
-          actions.todo.updateTodo(id, { due: dayjs(date).unix() })
-        )
-      }
-      )
-    setReschedule({ popup: !reschedule.popup })
-
-  }
+    setReschedule({ due: dayjs(date).unix() }).then(() => {
+      dispatch(actions.todo.updateTodo(id, { due: dayjs(date).unix() }));
+    });
+    setReschedule({ popup: !reschedule.popup });
+  };
 
   // TODO: This is not the right index from the store.
   const handleRemove = () => {
@@ -129,7 +126,14 @@ const Todo = (props) => {
               {/* Testing mapping over with selection as an object */}
               <Row justify="end">
                 <Col>
-                  {/* Select user dropdown - should only be visible if the current user does not have an active child account */}
+                  {!userIsChild ? (
+                    <i
+                      className="ui icon edit large blue todo-icon"
+                      onClick={() => setEditing(true)}
+                    ></i>
+                  ) : (
+                    ""
+                  )}
                   {!userIsChild ? (
                     <Dropdown overlay={userSelect} trigger={["click"]}>
                       <a
@@ -145,27 +149,30 @@ const Todo = (props) => {
                       </a>
                     </Dropdown>
                   ) : (
-                      ""
-                    )}
+                    ""
+                  )}
 
                   {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
                   {!userIsChild ? (
                     <>
-                      <i className="ui icon clock large blue todo-icon" onClick={() => setReschedule({ ...reschedule, popup: !reschedule.popup })}></i>
+                      <i
+                        className="ui icon clock large blue todo-icon"
+                        onClick={() =>
+                          setReschedule({
+                            ...reschedule,
+                            popup: !reschedule.popup,
+                          })
+                        }
+                      ></i>
                     </>
                   ) : (
-                      ""
-                    )}
+                    ""
+                  )}
                   {reschedule.popup ? (
-                    <DatePicker
-                      onChange={handleDue}
-                      open={reschedule.popup}
-                    />
+                    <DatePicker onChange={handleDue} open={reschedule.popup} />
                   ) : (
-                      ""
-                    )
-                  }
-
+                    ""
+                  )}
                 </Col>
               </Row>
             </Col>
@@ -210,6 +217,7 @@ const Todo = (props) => {
           dispatch(actions.todo.updateTodo(id, { completed: !completed }))
         }
       />
+      <TodoEditModal open={editing} setOpened={setEditing} todo={props} />
     </SwipeableListItem>
   );
 };
