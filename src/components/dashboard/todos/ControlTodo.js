@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
+import DatePicker from "../../../utils/DatePicker.js";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import axiosWithAuth from "../../../utils/AxiosWithAuth";
 import { Button, Modal, Form, Icon } from "semantic-ui-react";
 import { useSelector, useDispatch } from "react-redux";
 import actions from "../../../actions/index.js";
@@ -69,7 +68,8 @@ const ControlTodo = () => {
           />
           <Form.Field>
             <h3>Due</h3>
-            <DatePicker
+            <DatePicker onChange={handleDue} />
+            {/* <DatePicker
               wrapped
               size="medium"
               className="date-picker"
@@ -79,7 +79,7 @@ const ControlTodo = () => {
               showTimeSelect
               timeCaption="time"
               dateFormat="MMMM d, yyyy"
-            />
+            /> */}
           </Form.Field>
           <Button type="submit">Add</Button>
         </Form>
