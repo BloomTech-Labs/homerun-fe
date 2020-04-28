@@ -40,7 +40,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp; Github
             </SocialButton>
             <SocialButton
@@ -53,7 +52,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -63,7 +61,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
@@ -89,7 +86,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
             <SocialButton
@@ -102,7 +98,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -112,7 +107,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
@@ -136,7 +130,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
             <SocialButton
@@ -149,7 +142,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -159,7 +151,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
@@ -183,7 +174,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
             <SocialButton
@@ -193,7 +183,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -203,7 +192,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
@@ -229,7 +217,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
             <SocialButton
@@ -242,7 +229,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -252,7 +238,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
@@ -276,7 +261,6 @@ const AboutUsDraft = () => {
               }
             >
               <faGithub />
-              <i class="fab fa-github"></i>
               &nbsp;GitHub
             </SocialButton>
             <SocialButton
@@ -289,7 +273,6 @@ const AboutUsDraft = () => {
               }
             >
               <faLinkedin />
-              <i class="fab fa-linkedin-in"></i>
               &nbsp;LinkedIn
             </SocialButton>
             <SocialButton
@@ -299,7 +282,6 @@ const AboutUsDraft = () => {
               }
             >
               <faTwitter />
-              <i class="fab fa-twitter"></i>
               &nbsp;Twitter
             </SocialButton>
           </SocialButtons>
