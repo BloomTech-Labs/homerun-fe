@@ -13,7 +13,7 @@ const store = configRedux()
 
 describe("testing for List component", () => {
 
-    describe("invite member btn", () => {
+    describe("invite member btn and add child btn", () => {
         it("should exist", () => {
             const { getByText } = render(<Provider store={store}><List /></Provider>);
 
@@ -33,14 +33,5 @@ describe("testing for List component", () => {
 
         //     expect(emailLabel).toBeDefined();
         // })
-    })
-
-    describe("add child btn", () => {
-        it("should exist", () => {
-            const { getByText } = render(<Provider store={store}><List /></Provider>);
-
-            const modalBtn = getByText(/add child/i);
-            expect(modalBtn).toBeDefined(); 
-        })
     })
 })
