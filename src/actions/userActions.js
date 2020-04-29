@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import axiosWithAuth from '../utils/AxiosWithAuth';
 // Action Creators
 const setUser = (user) => dispatch => {
 	dispatch({ type: "SET_USER", payload: user })
@@ -24,6 +24,15 @@ const changeUser = (user) => dispatch => {
   }
 }
 
+const deleteUser = (id) => dispatch => {
+  axiosWithAuth()
+    .delete(`${process.env.REACT_APP_BE_URL}/auth/${id}`)
+    .then((res) => {
+      dispatch({ type: "DELETE_USER", payload: res.data });
+    })
+    .catch((err) => console.log(err.message));
+}
+
 // sets the state to have the child details stored in redux
 const setChild = child => dispatch => {
   dispatch({ type: "SET_CHILD", payload: child });
@@ -38,6 +47,7 @@ const setChildActive = isActive => dispatch => {
 export default {
   setUser,
   changeUser,
+  deleteUser,
   setChild,
   setChildActive
 };
