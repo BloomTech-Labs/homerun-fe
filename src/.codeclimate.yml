@@ -1,0 +1,4 @@
+exclude patterns: 
+  --"components/"
+  --"hooks/"
+  
