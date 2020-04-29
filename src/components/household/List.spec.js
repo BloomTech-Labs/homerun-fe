@@ -13,7 +13,7 @@ const store = configRedux()
 
 describe("testing for List component", () => {
 
-    describe("invite member btn and add child btn", () => {
+    describe("invite member btn", () => {
         it("should exist", () => {
             const { getByText } = render(<Provider store={store}><List /></Provider>);
 
