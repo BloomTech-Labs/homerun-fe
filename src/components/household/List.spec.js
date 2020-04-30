@@ -18,7 +18,7 @@ describe("testing for List component", () => {
             const { getByText } = render(<Provider store={store}><List /></Provider>);
 
             const modalBtn = getByText(/Invite Member/i);
-            expect(modalBtn).toBeDefined();
+            expect(modalBtn).toBeDefined(); 
         })
 
         // it("should show a modal when the button is clicked", async () => {

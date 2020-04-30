@@ -11,8 +11,8 @@ export const InviteConfirm = () => {
     useEffect(() => {
         axiosWithAuth().put('/members', { hash, householdId })
             .then(res => {
-                // should be getting back the updated user with the new household assigned to them
-                console.log("InviteConfirm -> res", res)
+                // clear the storage so we can start fresh
+                localStorage.clear();
                 // save the data for the user however we need it
                 localStorage.setItem('token', res.data.token);
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // Action Creators
 const setUser = (user) => dispatch => {
+  console.log(user);
 	dispatch({ type: "SET_USER", payload: user })
 }
 

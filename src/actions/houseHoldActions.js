@@ -29,7 +29,6 @@ const fetchHousehold = () => dispatch => {
       dispatch({ type: LOADING })
     axiosWithAuth().post("/members/household/children", data)
     .then(res => {
-      console.log(res.data[0]);
       dispatch({ 
         type: ADD_CHILD,
         payload: res.data[0]
@@ -48,12 +47,10 @@ const fetchHousehold = () => dispatch => {
     dispatch({ type: LOADING });
     axiosWithAuth().post('/members/household/invite', data)
     .then(res => {
-      console.log("onSubmit -> res", res)
       setModal(false);
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err.response.data.message || err })
-      console.log(err);
     })
   }
   
