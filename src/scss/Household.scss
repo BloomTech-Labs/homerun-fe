@@ -22,3 +22,12 @@
   text-align: center;
   line-height: 20px;
 }
+
+.ui.button.addChild-btn {
+  background-color: $secondary;
+  color: #fff;
+
+  &:hover {
+    background-color: #248b81;
+  }
+}
