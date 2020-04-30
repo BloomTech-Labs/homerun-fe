@@ -1,6 +1,6 @@
 # Welcome to TidyHive! 
 
-You can find the deployed project at TidyHive ().
+You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokuapp.com/).
 
 ##  Contributors
 
@@ -101,11 +101,11 @@ Google Sign in
 
 ## [Knex](https://www.npmjs.com/package/knex)
 -    Knex can be built using a JavaScript build tool such as browserify or webpack. In fact, this documentation uses a webpack build which includes knex. View source on this page to see the browser build in-action (the global knex variable).
+<!-- 
+<!-- PRIVATE -->
+<!-- #  Environment Variables 
 
-<!-- PRIVATE
-#  Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
+<!-- In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
     *  BASE_URL=http://localhost:3000 
     *  FE_URL=http://localhost:3001
@@ -120,7 +120,7 @@ In order for the app to function correctly, the user must set up their own envir
     *  G_CLIENT_ID=1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com
     *  G_CLIENT_SECRET=G1tKjOJDY5srwnyMPf8bJbvk
     *  F_CLIENT_ID=200338417844322
-    *  F_CLIENT_SECRET=7a99ae1f44e01f370261b55b9e37d45f -->
+    *  F_CLIENT_SECRET=7a99ae1f44e01f370261b55b9e37d45f --> 
 <!-- 
 #  Content Licenses
 
