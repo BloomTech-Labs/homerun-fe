@@ -7,15 +7,12 @@ import actions from "../../actions/index.js";
 import {
   Header as UiHeader,
   Icon,
-  Image,
-  Segment,
-  Menu,
   Button,
   Modal,
   Input,
 } from "semantic-ui-react";
 
-import logo from '../../Logos/tidyhive-standalone.png'
+import logo from "../../Logos/tidyhive-standalone.png";
 
 const Header = (props) => {
   const [pinInput, setPinInput] = useState("");
@@ -57,7 +54,11 @@ const Header = (props) => {
   return (
     <>
       <div className="header-container">
-        <img src={logo} alt="TidyHive Logo" style={{ width: "60px", height: "auto" }} />
+        <img
+          src={logo}
+          alt="TidyHive Logo"
+          style={{ width: "60px", height: "auto" }}
+        />
         <UiHeader as="h3">
           {location.pathname === "/dashboard" && "Dashboard"}
           {location.pathname === "/household" && "Household"}

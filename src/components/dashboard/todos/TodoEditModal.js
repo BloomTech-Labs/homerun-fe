@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import { Button, Modal, Form, Icon } from "semantic-ui-react";
+import { Button, Modal, Form } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import actions from "../../../actions/index.js";
 

@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
-import { Icon, Label, Popup } from "semantic-ui-react";
+import { Icon, Label } from "semantic-ui-react";
 import { SwipeableListItem } from "@sandstreamdev/react-swipeable-list";
 import SwipeLeft from "./SwipeLeft";
 import SwipeRight from "./SwipeRight.js";
-// import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions/index.js";
 import useAsyncState from "../../../hooks/useAsyncState.js";
