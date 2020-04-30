@@ -25,8 +25,7 @@ const Home = () => {
             <Col xs={22} sm={22} md={13} lg={7} offset={1}>
               <div className="text">
                 <h1 className="heading-marketing-CTA">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  TidyHive is a home organizational tool where members of a household can create, assign, and complete tasks. Turn your todos into todones with TidyHive today!
                 </h1>
                 <Button primary className="btn-marketing-CTA">
                   <Link to="/signup">
@@ -42,11 +41,7 @@ const Home = () => {
         <Col span={24}>
           <div className="mission-statement">
             <Icon name="home" size="huge" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.
-              <br />
-              Eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <h2>Manage | Organize | Collaborate</h2>
           </div>
         </Col>
       </Row>
@@ -71,13 +66,7 @@ const Home = () => {
         </Col>
         <Col xs={22} sm={20} md={19} lg={16}>
           <p className="feature-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            These are the main features that TidyHive has to offer. Keep your household organized and everyone on the same page by creating tasks and assigning members to those tasks. Often times a majority of the work will fall on a single member of a household - delegating work within a household is so important. This includes keeping children on track with their chores and schoolwork or extra-curricular activities! There are limitations to a child account. Their account can only be accessed as an extension from the main account holder.
           </p>
         </Col>
       </Row>
