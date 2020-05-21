@@ -1,78 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
-import logo_desktop from '../../Logos/tidyhive-logo.png';
-import logo_mobile from '../../Logos/tidyhive-standalone.png';
+import logo from '../../Logos/tidyhive-standalone.png';
 
 const Navigation = () => {
+	const [isOpen, setIsOpen] = useState(false);
+
 	return (
-		<header className='flex items-center justify-between w-screen px-4 py-2 shadow-lg'>
-			<div className='w-2/3 h-full px-2'>
-				<img src={logo_desktop} alt='' style={{ width: 'auto', height: 50 }} />
+		<header className='items-center justify-between w-screen px-4 py-2 shadow-md tablet:flex'>
+			<div className='flex items-center justify-between h-full px-2 tablet:block '>
+				<Link className='flex items-center ' to='/'>
+					<img src={logo} alt='Tidy Hive Logo' style={{ width: 'auto', height: 50 }} />
+					<h1>TidyHive</h1>
+				</Link>
+				<button
+					aria-label='Navigation Menu'
+					aria-expanded={isOpen}
+					className='px-4 tablet:hidden'
+					onClick={() => setIsOpen(!isOpen)}
+				>
+					<svg className='w-10 h-10 fill-current' viewBox='0 0 24 24'>
+						{isOpen ? (
+							<path
+								fillRule='evenodd'
+								d='M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z'
+							/>
+						) : (
+							<path
+								fillRule='evenodd'
+								d='M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z'
+							/>
+						)}
+					</svg>
+				</button>
 			</div>
 
-			<nav className='flex items-center justify-around w-1/3 h-full'>
+			<nav
+				className={`${isOpen ? 'block' : 'hidden'} items-center justify-around h-full tablet:px-4 tablet:flex`}
+				style={{ width: '350px' }}
+			>
 				<NavLink
 					exact
-					activeStyle={{ color: '#FFBF69' }}
-					className='font-semibold text-1xl hover:text-hive'
+					activeStyle={{ color: 'rgb(255, 159, 28)' }}
+					className='block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline'
 					to='/'
 				>
 					Home
 				</NavLink>
 				<NavLink
-					activeStyle={{ color: '#FFBF69' }}
-					className='font-semibold text-1xl hover:text-hive'
+					activeStyle={{ color: 'rgb(255, 159, 28)' }}
+					className='block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline'
 					to='/about'
 				>
 					About
 				</NavLink>
-
 				<NavLink
-					activeStyle={{ color: '#FFBF69' }}
-					className='font-semibold text-1xl hover:text-hive'
+					activeStyle={{ color: 'rgb(255, 159, 28)' }}
+					className='block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline'
 					to='/contact'
 				>
 					Contact Us
 				</NavLink>
-				<button className='w-24 p-2 font-semibold text-white rounded-full text-1xl bg-hive'>Login</button>
+				<NavLink
+					activeStyle={{ color: 'rgb(255, 159, 28)' }}
+					className='block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline'
+					to='/signin'
+				>
+					Signin
+				</NavLink>
 			</nav>
 		</header>
 	);
 };
-
-// const Navigation = () => {
-//   return (
-//     <div className="wrapper">
-//       <div className="marketing-header">
-//         <Link to="/">
-//           <img
-//             src={logo}
-//             alt="Tidy Hive Logo"
-//             style={{ width: 200, height: "auto" }}
-//           />
-//         </Link>
-//         <nav className="marketing-nav">
-//           <div className="nav-buttons">
-//             <Link to="/signup">
-//               <Button primary>Sign Up</Button>
-//             </Link>
-//             <Link to="/signin">
-//               <Button primary>Sign In</Button>
-//             </Link>
-//           </div>
-//           <div className="nav-links">
-//             <NavLink exact to="/" activeClassName="active">
-//               Home
-//             </NavLink>
-//             <NavLink to="/about">About</NavLink>
-//             <NavLink to="/features">Features</NavLink>
-//             <NavLink to="/contact">Contact</NavLink>
-//           </div>
-//         </nav>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default Navigation;
