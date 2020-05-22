@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Navigation />
       <main className="px-20 py-24">
-        <div className="flex justify-center mx-auto">
+        <div className="flex justify-center">
           <img
             className=""
             src={hero}
@@ -35,46 +35,35 @@ const Home = () => {
           </button>
         </div>
       </main>
-      <Row justify="center" align="middle">
-        <Col span={24}>
-          <div className="mission-statement">
-            <Icon name="home" size="huge" />
-            <h2>Manage | Organize | Collaborate</h2>
-          </div>
-        </Col>
-      </Row>
-      <Row justify="center" align="middle" className="features">
-        <Col xs={7} sm={7} md={7} lg={6}>
-          <div className="create">
-            <Icon name="list" size="massive" />
-            <h3>Create Todos</h3>
-          </div>
-        </Col>
-        <Col xs={7} sm={7} md={7} lg={6} offset={1}>
-          <div className="assign">
-            <Icon name="add user" size="massive" />
-            <h3>Assign Members</h3>
-          </div>
-        </Col>
-        <Col xs={7} sm={7} md={7} lg={6} offset={1}>
-          <div className="complete">
-            <Icon name="tasks" size="massive" />
-            <h3>Complete Tasks</h3>
-          </div>
-        </Col>
-        <Col xs={22} sm={20} md={19} lg={16}>
-          <p className="feature-description">
-            These are the main features that TidyHive has to offer. Keep your
-            household organized and everyone on the same page by creating tasks
-            and assigning members to those tasks. Often times a majority of the
-            work will fall on a single member of a household - delegating work
-            within a household is so important. This includes keeping children
-            on track with their chores and schoolwork or extra-curricular
-            activities! There are limitations to a child account. Their account
-            can only be accessed as an extension from the main account holder.
-          </p>
-        </Col>
-      </Row>
+
+      <section className="flex justify-center flex-wrap m-auto px-20">
+		<div className="">
+        <div className="text-center shadow p-10 w-full">
+          <Icon className="" name="list" size="massive" />
+          <h2 className="">Create Todos</h2>
+        </div>
+        <div className="text-center mt-20 shadow p-10 w-full">
+          <Icon name="add user" size="massive" />
+          <h2 className="">Assign Members</h2>
+        </div>
+        <div className="text-center mt-20 shadow p-10 w-full">
+          <Icon name="tasks" size="massive" />
+          <h2 className="">Complete Tasks</h2>
+        </div>
+		</div>
+      </section>
+      <section className="flex justify-center mt-20 mb-24 px-20">
+        <h2 className="text-center max-w-2xl">
+          These are the main features that TidyHive has to offer. Keep your
+          household organized and everyone on the same page by creating tasks
+          and assigning members to those tasks. Often times a majority of the
+          work will fall on a single member of a household - delegating work
+          within a household is so important. This includes keeping children on
+          track with their chores and schoolwork or extra-curricular activities!
+          There are limitations to a child account. Their account can only be
+          accessed as an extension from the main account holder.
+        </h2>
+      </section>
       <Footer />
     </>
   );
