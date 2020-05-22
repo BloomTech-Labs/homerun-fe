@@ -28,8 +28,11 @@ function ContactUsForm() {
 	}
 
 	return (
-		<section className='grid h-screen'>
-			<form className='w-3/4 h-auto m-auto border border-gray-400 rounded-md' onSubmit={handleSubmit}>
+		<section className='grid h-screen p-8'>
+			<form
+				className='w-full h-auto m-auto border border-gray-400 rounded-md tablet:w-1/2 desktop:w-1/3'
+				onSubmit={handleSubmit}
+			>
 				<div>
 					<h1>Contact Us</h1>
 					<p>We would love to hear from you!</p>
@@ -81,7 +84,7 @@ function ContactUsForm() {
 					<p className='block w-full mt-2 text-right text-hive-dark'>Note: This currently does not work</p>
 				)}
 				<div className='flex justify-end w-full'>
-					<button className='w-3/6 h-12 px-4 py-2 mt-3 rounded-md bg-hive '>Submit</button>
+					<button className='w-1/6 h-12 px-4 py-2 mt-3 rounded-md tablet:w-2/6 bg-hive '>Submit</button>
 				</div>
 			</form>
 		</section>
