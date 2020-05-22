@@ -1,134 +1,91 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
-import SidebarMarketing from "./Sidebar-Marketing";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-export default class ContactUsForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.submitForm = this.submitForm.bind(this);
-    this.state = {
-      status: ""
-    };
-  }
+function ContactUsForm() {
+	const emailServiceURL = 'https://formspree.io/xoqnlllw';
+	const [status, setStatus] = useState('');
+	const [form, setForm] = useState({
+		name: '',
+		email: '',
+		message: '',
+	});
 
-  render() {
-    const { status } = this.state;
-    return (
-      <>
-        <SidebarMarketing />
-        <Navigation />
-        <div className="container-contact100">
-          <div className="wrap-container">
-            <span className="contact100-form-symbol">
-              <Icon size="huge" className="mail outline" />
-            </span>
-            <form
-              onSubmit={this.handleSubmit}
-              action="https://formspree.io/xoqnlllw"
-              method="POST"
-            >
+	function handleChange(e) {
+		setForm({
+			...form,
+			[e.target.name]: e.target.value,
+		});
+	}
 
-              <div className="form-title">
-                Drop Us A Message
-                  <p>We would love to hear from you!</p>
-              </div>
+	function handleSubmit(e) {
+		e.preventDefault();
+		axios
+			.post(emailServiceURL, form)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => setStatus('Error'));
+	}
 
-
-              <div>
-                <label> Full Name: </label>
-                <input
-                  className="wrap-input"
-                  name="name"
-                  placeholder="First and Last"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <div style={{ fontSize: 15, color: "red" }}>
-                  {this.state.nameError}
-                </div>
-              </div>
-              <div>
-                <label> Email: </label>
-                <input
-                  type="text"
-                  className="wrap-input"
-                  name="email"
-                  placeholder="email@domain.tld"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-                <div style={{ fontSize: 15, color: "red" }}>
-                  {this.state.emailError}
-                </div>
-              </div>
-              <div>
-                <label> Subject: </label>
-                <input
-                  className="wrap-input"
-                  type="subject"
-                  name="subject"
-                  placeholder="Subject"
-                  value={this.state.subject}
-                  onChange={this.handleChange}
-                />
-                <div style={{ fontSize: 15, color: "red" }}>
-                  {this.state.subjectError}
-                </div>
-              </div>
-              <div>
-                <label> Message: </label>
-                <textarea
-                  className="wrap-input"
-                  type="message"
-                  name="message"
-                  placeholder="Write Us A Message!"
-                  value={this.state.message}
-                  onChange={this.handleChange}
-                />
-                <div style={{ fontSize: 15, color: "red" }}>
-                  {this.state.messageError}
-                </div>
-              </div>
-              <button
-                className="container-contact100-form-btn"
-                type="submit"
-                value="Send Message"
-              />
-
-              <div className="container-contact100-form-btn">
-                {status === "SUCCESS" ? <p>Thanks!</p> : <button className="submit "> Send </button>}
-                <button
-                  className="back"><Link to={"/"}>Nevermind!</Link> </button>
-              </div>
-
-
-            </form>
-          </div>
-        </div>
-        <Footer />
-      </>
-    );
-  }
-
-  submitForm(ev) {
-    ev.preventDefault();
-    const form = ev.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        form.reset();
-        this.setState({ status: "SUCCESS" });
-      } else {
-        this.setState({ status: "ERROR" });
-      }
-    };
-    xhr.send(data);
-  }
+	return (
+		<section className='grid h-screen'>
+			<form className='w-3/4 h-auto m-auto border border-gray-400 rounded-md' onSubmit={handleSubmit}>
+				<div>
+					<h1>Contact Us</h1>
+					<p>We would love to hear from you!</p>
+				</div>
+				<div className='mt-2'>
+					<label htmlFor='name' className='font-bold uppercase '>
+						Full Name:
+					</label>
+					<input
+						className='w-full h-6 px-2 py-4 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md '
+						type='text'
+						name='name'
+						id='name'
+						onChange={handleChange}
+						value={form.name}
+						required
+					/>
+				</div>
+				<div className='mt-2'>
+					<label htmlFor='email' className='font-bold uppercase '>
+						Email:
+					</label>
+					<input
+						className='w-full h-6 px-2 py-4 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md '
+						type='text'
+						name='email'
+						id='email'
+						onChange={handleChange}
+						value={form.email}
+						required
+					/>
+				</div>
+				<div className='mt-2'>
+					<label htmlFor='message' className='font-bold uppercase '>
+						Message:
+					</label>
+					<textarea
+						className='w-full px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md '
+						name='message'
+						id=''
+						cols='20'
+						rows='10'
+						onChange={handleChange}
+						value={form.message}
+						required
+					></textarea>
+				</div>
+				{status === 'Error' && (
+					<p className='block w-full mt-2 text-right text-hive-dark'>Note: This currently does not work</p>
+				)}
+				<div className='flex justify-end w-full'>
+					<button className='w-3/6 h-12 px-4 py-2 mt-3 rounded-md bg-hive '>Submit</button>
+				</div>
+			</form>
+		</section>
+	);
 }
+
+export default ContactUsForm;
