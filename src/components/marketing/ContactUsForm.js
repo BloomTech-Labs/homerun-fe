@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 function ContactUsForm() {
-	const emailServiceURL = 'https://formspree.io/xoqnlllw';
-	const [status, setStatus] = useState('');
-	const [form, setForm] = useState({
-		name: '',
-		email: '',
-		message: '',
-	});
+  const emailServiceURL = "https://formspree.io/xoqnlllw";
+  const [status, setStatus] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-	function handleChange(e) {
-		setForm({
-			...form,
-			[e.target.name]: e.target.value,
-		});
-	}
+  function handleChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  }
 
-	function handleSubmit(e) {
-		e.preventDefault();
-		axios
-			.post(emailServiceURL, form)
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((err) => setStatus('Error'));
-	}
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post(emailServiceURL, form)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => setStatus("Error"));
+  }
 
   return (
     <section className="grid h-screen p-8">

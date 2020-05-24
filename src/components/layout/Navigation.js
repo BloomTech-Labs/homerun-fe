@@ -6,8 +6,8 @@ const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<header className='items-center justify-between w-screen px-4 py-2 shadow-md tablet:flex'>
-			<div className='flex items-center justify-between h-full px-2 tablet:block '>
+		<header className='items-center justify-between w-screen p-2 shadow-md tablet:flex'>
+			<div className='flex items-center justify-between h-full tablet:block '>
 				<Link className='flex items-center ' to='/'>
 					<img src={logo} alt='Tidy Hive Logo' style={{ width: 'auto', height: 50 }} />
 					<h1>TidyHive</h1>
