@@ -54,7 +54,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // the header component needs to render outside the switch
 const Routes = () => {
   return (
-    <main className="flex-grow">
+    <>
       <PrivateRoute
         path={["/dashboard", "/household", "/account"]}
         component={Header}
@@ -75,7 +75,7 @@ const Routes = () => {
         <PrivateRoute path="/household" component={Household} />
         <PrivateRoute path="/account" component={Account} />
       </Switch>
-    </main>
+    </>
   );
 };
 

@@ -14,8 +14,6 @@ const SignUp = (props) => {
 
   return (
     <>
-      <SidebarMarketing />
-      <Navigation />
       <Container text>
         <div align="center">
           <Header as="div" icon>
@@ -43,7 +41,6 @@ const SignUp = (props) => {
           </button>
         </div>
       </Container>
-      <Footer />
     </>
   );
 };

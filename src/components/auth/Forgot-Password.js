@@ -31,7 +31,6 @@ const ForgotPW = () => {
 
   return (
     <>
-      <Navigation />
       <Container text>
         <div align="center">
           <Header as="h2" icon>
