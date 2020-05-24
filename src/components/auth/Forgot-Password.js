@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-import Navigation from "../marketing/Navigation";
+import Navigation from "../layout/Navigation";
 
 const ForgotPW = () => {
   const { register, handleSubmit, errors } = useForm();

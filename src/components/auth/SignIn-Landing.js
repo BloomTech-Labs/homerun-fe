@@ -10,8 +10,8 @@ import {
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
+import Navigation from "../layout/Navigation";
+import Footer from "../layout/Footer";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
 
@@ -108,5 +108,3 @@ const SignInLanding = (props) => {
 };
 
 export default SignInLanding;
-
-

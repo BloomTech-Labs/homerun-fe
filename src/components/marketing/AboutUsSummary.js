@@ -1,30 +1,18 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import AboutUsDraft from "./AboutUsDraft";
 
-
-
-
-
-
 const AboutUsSummary = () => {
-    //Summary page
-    return (
-        <>
-        <DevCard>
-            <DevImage />
-                <DevInfo>
-
-                </DevInfo>
-        </DevCard>
-
-    
-        </>
-    )
-}
-
-
-
+  //Summary page
+  return (
+    <>
+      <DevCard>
+        <DevImage />
+        <DevInfo />
+      </DevCard>
+    </>
+  );
+};
 
 const CardContainer = styled.div`
   display: flex;
@@ -109,8 +97,3 @@ const H2 = styled.h2`
   color: #636578;
   margin: 20px 0;
 `;
-
-
-
-
-

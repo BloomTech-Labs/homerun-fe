@@ -1,9 +1,8 @@
-import React from 'react';
-import { Modal, Button } from 'semantic-ui-react';
+import React from "react";
+import { Modal, Button } from "semantic-ui-react";
 
 export const DeleteTodoModal = (props) => {
-
-  console.log('Props of swipe delete', props)
+  console.log("Props of swipe delete", props);
 
   return (
     <Modal open={props.modalOpen}>
@@ -14,15 +13,15 @@ export const DeleteTodoModal = (props) => {
       <Modal.Actions>
         <Button onClick={() => props.setModalOpen(false)} negative>
           No
-            </Button>
+        </Button>
         <Button
           onClick={() => props.setModalOpen(false)}
           positive
-          labelPosition='right'
-          icon='checkmark'
-          content='Yes'
+          labelPosition="right"
+          icon="checkmark"
+          content="Yes"
         />
       </Modal.Actions>
     </Modal>
-  )
-}
+  );
+};

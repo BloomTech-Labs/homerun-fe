@@ -2,16 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import hero from "../../Logos/hero.png";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
 
 // right now the button takes us to the email sign up but from the Home page the next step would actually be the initial sign in page where the user can choose to sign in with
 // google or email - once those components are built out we can have the navlink take us to that route
 const Home = () => {
   return (
     <>
-      <Navigation />
-      <main className="px-20 py-24 desktop:flex desktop:px-28 desktop:py-48">
+      <section className="px-20 py-24 desktop:flex desktop:px-28 desktop:py-48">
         <div className="flex justify-center desktop:w-1/2 desktop:justify-end desktop:pr-10">
           <img src={hero} alt="icon of desktop, tablet and cellphone" />
         </div>
@@ -32,7 +29,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      </main>
+      </section>
       <section className="px-20 max-w-full desktop:flex desktop:px-64">
         <div className="text-center m-auto shadow-lg p-10 max-w-2xl desktop:px-20">
           <Icon name="list" size="massive" />
@@ -59,7 +56,6 @@ const Home = () => {
           accessed as an extension from the main account holder.
         </h2>
       </section>
-      <Footer />
     </>
   );
 };

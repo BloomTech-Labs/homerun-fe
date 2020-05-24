@@ -14936,6 +14936,14 @@ video {
   visibility: hidden;
 }
 
+.hover\:visible:hover {
+  visibility: visible;
+}
+
+.hover\:invisible:hover {
+  visibility: hidden;
+}
+
 .whitespace-normal {
   white-space: normal;
 }
@@ -33541,6 +33549,14 @@ video {
   }
 
   .phone\:invisible {
+    visibility: hidden;
+  }
+
+  .phone\:hover\:visible:hover {
+    visibility: visible;
+  }
+
+  .phone\:hover\:invisible:hover {
     visibility: hidden;
   }
 
@@ -52153,6 +52169,14 @@ video {
     visibility: hidden;
   }
 
+  .tablet\:hover\:visible:hover {
+    visibility: visible;
+  }
+
+  .tablet\:hover\:invisible:hover {
+    visibility: hidden;
+  }
+
   .tablet\:whitespace-normal {
     white-space: normal;
   }
@@ -70759,6 +70783,14 @@ video {
   }
 
   .desktop\:invisible {
+    visibility: hidden;
+  }
+
+  .desktop\:hover\:visible:hover {
+    visibility: visible;
+  }
+
+  .desktop\:hover\:invisible:hover {
     visibility: hidden;
   }
 
