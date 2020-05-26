@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Error404 from "../../Logos/Error.png";
+import Error404 from "../../assets/images/Error.png";
 
 const NotFound = () => (
   <div>

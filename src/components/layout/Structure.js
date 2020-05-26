@@ -7,7 +7,9 @@ const Structure = () => {
   return (
     <>
       <Navigation />
-      <Routes />
+      <main className="pt-20 pr-8 pb-8 pl-8 z-0">
+        <Routes />
+      </main>
       <Footer />
     </>
   );

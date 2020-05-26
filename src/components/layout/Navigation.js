@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import logo from '../../Logos/tidyhive-standalone.png';
+import logo from '../../assets/images/tidyhive-standalone.png';
 
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<header className='items-center justify-between w-screen p-2 shadow-md tablet:flex'>
+		<header className='items-center justify-between w-100 p-3 shadow-md tablet:flex fixed inset-x-0 bg-white z-40'>
 			<div className='flex items-center justify-between h-full tablet:block '>
 				<Link className='flex items-center ' to='/'>
 					<img src={logo} alt='Tidy Hive Logo' style={{ width: 'auto', height: 50 }} />

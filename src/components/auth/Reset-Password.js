@@ -42,10 +42,6 @@ const ResetPW = (props) => {
             })}
           />
           {errors.password && <p>{errors.password.message}</p>}
-          {/*<Form.Field>
-              <label>Repeat Password</label>
-              <input type="password" placeholder="Repeat Password" />
-            </Form.Field>*/}
           <Button type="submit">Submit</Button>
         </Form.Field>
       </Form>

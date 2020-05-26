@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
-import hero from "../../Logos/hero.png";
+import hero from "../../assets/images/hero.png";
 
 // right now the button takes us to the email sign up but from the Home page the next step would actually be the initial sign in page where the user can choose to sign in with
 // google or email - once those components are built out we can have the navlink take us to that route

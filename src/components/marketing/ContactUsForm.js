@@ -33,7 +33,7 @@ function ContactUsForm() {
         className="w-full h-auto m-auto border border-gray-400 rounded-md tablet:w-1/2 desktop:w-1/3"
         onSubmit={handleSubmit}
       >
-        <div>
+        <div className="mb-4">
           <h1>Contact Us</h1>
           <p>We would love to hear from you!</p>
         </div>
@@ -42,7 +42,7 @@ function ContactUsForm() {
             Full Name:
           </label>
           <input
-            className="w-full h-6 px-2 py-4 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
+            className="w-full h-auto p-2 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
             type="text"
             name="name"
             id="name"
@@ -56,7 +56,7 @@ function ContactUsForm() {
             Email:
           </label>
           <input
-            className="w-full h-6 px-2 py-4 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
+            className="w-full h-auto p-2 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
             type="text"
             name="email"
             id="email"
@@ -70,7 +70,7 @@ function ContactUsForm() {
             Message:
           </label>
           <textarea
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
+            className="w-full p-2 text-gray-700 bg-gray-200 border border-gray-400 border-solid rounded-md "
             name="message"
             id=""
             cols="20"
@@ -86,7 +86,7 @@ function ContactUsForm() {
           </p>
         )}
         <div className="flex justify-end w-full">
-          <button className="w-1/6 h-12 px-4 py-2 mt-3 rounded-md tablet:w-2/6 bg-hive ">
+          <button className="w-6/6 h-auto px-4 py-2 mt-3 rounded-md phone:flex-grow tablet:flex-grow-0 bg-hive text-white">
             Submit
           </button>
         </div>
