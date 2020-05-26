@@ -3,7 +3,7 @@ import TodoList from "./todos/TodoList.js";
 
 import CategoryTabs from "./Categories/CategoryTabs.js";
 
-const Dashboard = props => {
+const Dashboard = (props) => {
   return (
     <section className="ui container">
       <CategoryTabs />

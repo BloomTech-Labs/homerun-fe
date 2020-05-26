@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import Routes from "./utils/Routes";
+import Structure from "./components/layout/Structure";
 import "semantic-ui-css/semantic.min.css";
-
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -13,10 +12,10 @@ function App() {
     if (currentUser.childActive === true) {
       history.push("/dashboard");
     }
-  }, [currentUser.childActive]);
+  }, [currentUser.childActive, history]);
   return (
-    <div className="App">
-      <Routes />
+    <div className="App h-full">
+      <Structure />
     </div>
   );
 }

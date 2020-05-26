@@ -1,0 +1,51 @@
+.hexagon {
+  .hexagon-inner {
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    display: block;
+  }
+}
+
+section {
+  &.hex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    .article {
+      height: 1em;
+      display: block;
+      width: 50px;
+    }
+  }
+
+}
+
+//:root {
+//  --hexa: 4;
+//  --gap: 5;
+//  --size: calc(calc(100vw / var(--hexa)) - var(--gap));
+//}
+//
+//$hex: 4;
+//$gap: 5;
+//$size: calc(calc(50vw / var($hex)) - var($gap));
+//
+//.hex-grid {
+//  //grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+//  margin: calc(var(--size) * .5) auto 0;
+//  width: calc(var(--size) * calc(var(--hexa) - 1));
+//  //grid-template-columns: repeat(var(--hexa), 1fr);
+//  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+//  //grid-gap: var(--gap);
+//  article {
+//    width: var(--size);
+//    height: calc(var(--size) / 1.1111111);
+//    margin-right: calc(var(--size) / 2);
+//    &:nth-child(2n) {
+//      &:before {
+//        content: '';
+//        display: block;
+//        margin-bottom: -50%;
+//      }
+//    }
+//  }
+//}
+

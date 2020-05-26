@@ -12,7 +12,7 @@ import {
   Input,
 } from "semantic-ui-react";
 
-import logo from "../../Logos/tidyhive-standalone.png";
+import logo from "../../assets/images/tidyhive-standalone.png";
 
 const Header = (props) => {
   const [pinInput, setPinInput] = useState("");

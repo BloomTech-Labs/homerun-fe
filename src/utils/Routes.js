@@ -24,7 +24,7 @@ import Header from "../components/header/Header.js";
 import NotFound from "../components/dashboard/NotFound.js";
 
 //About us page from the marketing side
-import AboutUsDraft from "../components/marketing/AboutUsDraft.js";
+import AboutUs from "../components/marketing/AboutUs.js";
 
 import ForgotPW from "../components/auth/Forgot-Password.js";
 import ResetPW from "../components/auth/Reset-Password.js";
@@ -34,6 +34,8 @@ import Auth from "../components/auth/Auth.js";
 import ContactUsForm from "../components/marketing/ContactUsForm";
 
 import { InviteConfirm } from "../components/household/InviteConfirm.js";
+import Navigation from "../components/layout/Navigation";
+import Footer from "../components/layout/Footer";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -42,8 +44,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       localStorage.getItem("token") ? (
         <Component {...props} />
       ) : (
-          <Redirect to="/" />
-        )
+        <Redirect to="/" />
+      )
     }
   />
 );
@@ -52,7 +54,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // the header component needs to render outside the switch
 const Routes = () => {
   return (
-    <div>
+    <>
       <PrivateRoute
         path={["/dashboard", "/household", "/account"]}
         component={Header}
@@ -67,13 +69,13 @@ const Routes = () => {
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
-        <Route path="/about" component={AboutUsDraft} />
+        <Route path="/about" component={AboutUs} />
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
         <PrivateRoute path="/account" component={Account} />
       </Switch>
-    </div>
+    </>
   );
 };
 

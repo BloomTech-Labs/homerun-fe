@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Header, Divider, Container, Loader, Dimmer } from "semantic-ui-react";
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
+import Navigation from "../layout/Navigation";
+import Footer from "../layout/Footer";
 import SignUpForm from "./SignUpForm";
 
 const SignUp = (props) => {
@@ -14,8 +14,6 @@ const SignUp = (props) => {
 
   return (
     <>
-      <SidebarMarketing />
-      <Navigation />
       <Container text>
         <div align="center">
           <Header as="div" icon>
@@ -43,7 +41,6 @@ const SignUp = (props) => {
           </button>
         </div>
       </Container>
-      <Footer />
     </>
   );
 };

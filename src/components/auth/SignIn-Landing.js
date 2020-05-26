@@ -10,8 +10,8 @@ import {
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
+import Navigation from "../layout/Navigation";
+import Footer from "../layout/Footer";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
 
@@ -42,8 +42,6 @@ const SignInLanding = (props) => {
 
   return (
     <>
-      <SidebarMarketing />
-      <Navigation />
       <Container text className="sign-in-landing">
         <div align="center">
           <Header as="div" icon>
@@ -97,16 +95,13 @@ const SignInLanding = (props) => {
         <Divider horizontal>OR</Divider>
         <div style={{ marginTop: "50px" }} align="center">
           <button onClick={googleAuth} className="ui button blue">
-            <i className="ui icon google white"></i>
+            <i className="ui icon google white" />
             Sign in with Google
           </button>
         </div>
       </Container>
-      <Footer />
     </>
   );
 };
 
 export default SignInLanding;
-
-

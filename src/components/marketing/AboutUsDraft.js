@@ -1,355 +1,70 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import SidebarMarketing from "../marketing/Sidebar-Marketing.js";
-import Navigation from "../marketing/Navigation";
-import Footer from "../marketing/Footer";
+import Navigation from "../layout/Navigation";
+import Footer from "../layout/Footer";
 
 const AboutUsDraft = () => {
-
   const users = [
-    { name: "Vinni Hoke", image: "https://avatars1.githubusercontent.com/u/34225237?s=460&v=4", url: "https://github.com/vinnihoke" },
-    { name: "Micah Jank", image: "https://avatars3.githubusercontent.com/u/40408940?s=460&v=4", url: "https://github.com/MicahJank" },
-    { name: "Zach Taylor", image: "https://avatars0.githubusercontent.com/u/37271885?s=460&v=4", url: "https://github.com/zbtaylor" },
-    { name: "Katrina Roaix", image: "https://avatars3.githubusercontent.com/u/5169760?s=460&v=4", url: "https://github.com/kroaix" },
-    { name: "Heather Ridgill", image: "https://avatars3.githubusercontent.com/u/49896861?s=460&v=4", url: "https://github.com/heather-ridgill" },
-    { name: "Yankho Trumble", image: "https://avatars2.githubusercontent.com/u/33339750?s=460&v=4", url: "https://github.com/Mayankho" },
-  ]
+    {
+      name: "Vinni Hoke",
+      image: "https://avatars1.githubusercontent.com/u/34225237?s=460&v=4",
+      url: "https://github.com/vinnihoke",
+    },
+    {
+      name: "Micah Jank",
+      image: "https://avatars3.githubusercontent.com/u/40408940?s=460&v=4",
+      url: "https://github.com/MicahJank",
+    },
+    {
+      name: "Zach Taylor",
+      image: "https://avatars0.githubusercontent.com/u/37271885?s=460&v=4",
+      url: "https://github.com/zbtaylor",
+    },
+    {
+      name: "Katrina Roaix",
+      image: "https://avatars3.githubusercontent.com/u/5169760?s=460&v=4",
+      url: "https://github.com/kroaix",
+    },
+    {
+      name: "Heather Ridgill",
+      image: "https://avatars3.githubusercontent.com/u/49896861?s=460&v=4",
+      url: "https://github.com/heather-ridgill",
+    },
+    {
+      name: "Yankho Trumble",
+      image: "https://avatars2.githubusercontent.com/u/33339750?s=460&v=4",
+      url: "https://github.com/Mayankho",
+    },
+  ];
 
   return (
     <>
-      <SidebarMarketing />
-      <Navigation />
       <CardContainer>
         <h2>Our Team</h2>
-        {users.map(user => {
+        {users.map((user) => {
           return (
             <div className="ui card">
               <img className="ui image" src={user.image} />
               <div className="content">
                 <h2>{user.name}</h2>
-                <button className="ui button black" onClick={() =>
-                  window.open(user.url, '_blank')
-                }>
+                <button
+                  className="ui button black"
+                  onClick={() => window.open(user.url, "_blank")}
+                >
                   <i className="ui icon github large"></i>
-            Github
-          </button>
+                  Github
+                </button>
               </div>
             </div>
-          )
+          );
         })}
-
       </CardContainer>
     </>
-
-
-    //   <SidebarMarketing />
-    //   <Navigation />
-    //   <H2>Our Team</H2>
-    //   <CardContainer>
-    //     {/* Vinni */}
-    //     <DevCard>
-    //       <DevImage
-    //         src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4"
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Vinni Hoke</DevInfoTitle>
-    //         <DevInfoDesc>
-    //           Project Manager &amp; Student at LambdaSchool
-    //         </DevInfoDesc>
-    //       </DevInfo>
-
-    //       <button className="ui button black" onClick={() =>
-    //         window.open("https://github.com/vinnihoke", '_blank')
-    //       }>
-    //         <i className="ui icon github large"></i>
-    //         Github
-    //       </button>
-
-
-    //       <SocialButtons>
-    //         <SocialButton
-    //           src=""
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://github.com/vinnihoke", '_blank')
-    //           }
-    //         >
-    //           <div>
-    //             <i className="ui icon large github">Github</i>
-    //           </div>
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-
-    //           onClick={() =>
-    //             window.open(
-    //               "https://www.linkedin.com/in/vinnihoke/",
-    //               '_blank',
-    //             )
-    //           }
-    //         >
-    //           <div>
-    //             <i className="ui icon large linkedin">LinkedIn</i>
-    //           </div>
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* */ }, '_blank')
-    //           }
-    //         >
-    //           <div>
-    //             <i className="ui icon large twitter"></i>
-    //             <p>Twitter</p>
-    //           </div>
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-
-    //     {/* Micah Jank */}
-    //     <DevCard>
-    //       <DevImage
-    //         src='https://avatars3.githubusercontent.com/u/40408940?s=460&v=4'
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Micah Jank</DevInfoTitle>
-    //         <DevInfoDesc>
-    //           Teacher Assistant &amp; Student at LambdaSchool
-    //         </DevInfoDesc>
-    //       </DevInfo>
-    //       <SocialButtons>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://github.com/MicahJank", '_blank')
-    //           }
-    //         >
-    //           <div>
-    //             <i className="ui icon large github">Github</i>
-    //           </div>
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open(
-    //               "https://www.linkedin.com/in/micah-jank/",
-    //               '_blank',
-    //             )
-    //           }
-    //         >
-    //           <faLinkedin />
-    //           <i class="fab fa-linkedin-in"></i>
-    //           &nbsp;LinkedIn
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* Micahs Twitter */ }, '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-twitter"></i>
-    //           &nbsp;Twitter */}
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-
-    //     {/* Zach */}
-    //     <DevCard>
-    //       <DevImage
-    //         src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4"
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Zach Taylor</DevInfoTitle>
-    //         <DevInfoDesc>Student at Lambdsa School</DevInfoDesc>
-    //       </DevInfo>
-    //       <SocialButtons>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open('https://github.com/zbtaylor', '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-github"></i>
-    //           &nbsp;GitHub */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open(
-    //               "https://www.linkedin.com/in/zach-taylor-97b90a196/",
-    //               '_blank',
-    //             )
-    //           }
-    //         >
-    //           <faLinkedin />
-    //           <i class="fab fa-linkedin-in"></i>
-    //           &nbsp;LinkedIn
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* Zachs twitter */ }, '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-twitter"></i>
-    //           &nbsp;Twitter */}
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-
-    //     {/* Katrina */}
-    //     <DevCard>
-    //       <DevImage
-    //         src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4"
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Katrina Kroaix</DevInfoTitle>
-    //         <DevInfoDesc>TA and student at Lambda</DevInfoDesc>
-    //       </DevInfo>
-    //       <SocialButtons>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://github.com/kroaix", '_blank')
-    //           }
-    //         >
-    //           <i class="fab fa-github"></i>
-    //           &nbsp;GitHub
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://www.linkedin.com/in/kroaix/", '_blank')
-    //           }
-    //         >
-    //           {/* <faLinkedin />
-    //           <i class="fab fa-linkedin-in"></i>
-    //           &nbsp;LinkedIn */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* Katrina's Twitter */ }, '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-twitter"></i>
-    //           &nbsp;Twitter */}
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-
-    //     {/* Heather */}
-    //     <DevCard>
-    //       <DevImage
-    //         src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4"
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Heather Ridgill</DevInfoTitle>
-    //         <DevInfoDesc>
-    //           Student at Lambda school
-    //         </DevInfoDesc>
-    //       </DevInfo>
-    //       <SocialButtons>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://github.com/Heather-Ridgill", '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-github"></i>
-    //           &nbsp;GitHub */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open(
-    //               "https://www.linkedin.com/in/heatherridgill/",
-    //               '_blank',
-    //             )
-    //           }
-    //         >
-    //           {/* <i class="fab fa-linkedin-in"></i>
-    //           &nbsp;LinkedIn */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* Heathers Twitter */ }, '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-twitter"></i>
-    //           &nbsp;Twitter */}
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-    //     <DevCard>
-    //       <DevImage
-    //         src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4"
-    //         alt='Profile'
-    //       />
-    //       <DevInfo>
-    //         <DevInfoTitle>Yankho Trumble</DevInfoTitle>
-    //         <DevInfoDesc>
-    //           Student at Lambda School
-    //         </DevInfoDesc>
-    //       </DevInfo>
-    //       <SocialButtons>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open("https://github.com/Mayankho", '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-github"></i>
-    //           &nbsp;GitHub */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open(
-    //               "https://www.linkedin.com/in/yankho/",
-    //               '_blank',
-    //             )
-    //           }
-    //         >
-    //           {/* <i class="fab fa-linkedin-in"></i>
-    //           &nbsp;LinkedIn */}
-    //         </SocialButton>
-    //         <SocialButton
-    //           type='button'
-    //           onClick={() =>
-    //             window.open({/* Yankhko's Twitter*/ }, '_blank')
-    //           }
-    //         >
-    //           {/* <i class="fab fa-twitter"></i>
-    //           &nbsp;Twitter */}
-    //         </SocialButton>
-    //       </SocialButtons>
-    //     </DevCard>
-    //   </CardContainer>
-    //   <Footer />
-    // </>
   );
 };
 
 export default AboutUsDraft;
-
-// const CardContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-//   margin-bottom: 50px;
-//   @media (max-width: 500px) {
-//     flex-direction: column;
-//     align-self: center;
-//   }
-
-
 
 const CardContainer = styled.div`
   display: flex;
@@ -358,7 +73,6 @@ const CardContainer = styled.div`
   width: 90%;
   margin: 0 auto 50px;
 `;
-
 
 const DevCard = styled.div`
   display: flex;
