@@ -45,8 +45,7 @@
 		"styled-components": "^5.1.0"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"watch": "watch 'npm run build:css' ./src",
+		"start": "npm run build:css && react-scripts start",
 		"build": "npm run build:css && node --max_old_space_size=2560 node_modules/.bin/react-scripts build",
 		"build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
 		"test": "react-scripts test",
