@@ -23,6 +23,7 @@
 		"dayjs": "^1.8.24",
 		"dotenv": "^8.2.0",
 		"node-sass": "^4.13.1",
+		"npm-watch": "^0.6.0",
 		"prop-types": "^15.7.2",
 		"query-string": "^6.11.1",
 		"rc-picker": "^1.4.9",
@@ -44,8 +45,12 @@
 		"semantic-ui-react": "^0.88.2",
 		"styled-components": "^5.1.0"
 	},
+	"watch": {
+		"build:css": "src/components/**/*.js"
+	},
 	"scripts": {
-		"start": "npm run build:css && react-scripts start",
+		"start": "react-scripts start",
+		"watch": "npm-watch",
 		"build": "npm run build:css && node --max_old_space_size=2560 node_modules/.bin/react-scripts build",
 		"build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
 		"test": "react-scripts test",
