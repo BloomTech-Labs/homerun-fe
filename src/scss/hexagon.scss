@@ -1,6 +1,8 @@
 section {
   &.hex-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    //display: flex;
     article {
       &.hexagon {
         .hexagon-inner {
