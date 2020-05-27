@@ -13,7 +13,9 @@ const Card = ({ user }) => {
             onClick={() => window.open(user.url, "_blank")}
             className="rounded p-2"
           >
-            <FontAwesomeIcon icon={faGithub} />
+            <i className="mr-2">
+              <FontAwesomeIcon icon={faGithub} />
+            </i>
             Github
           </button>
         </div>
