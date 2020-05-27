@@ -1,21 +1,22 @@
 import React from "react";
 import Users from "../../utils/Users";
-import Card from "./Card"
+import Card from "./Card";
+
+import "../../scss/hexagon.scss";
 
 const AboutUs = () => {
-
-	return (
-		<>
-			<div className="hex-grid">
-				<h2>Our Team</h2>
-				{Users.map((user) => {
-					return (
-						<Card user={user} key={user.key} />
-					);
-				})}
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className="flex-col ">
+        <h2 className="text-center p-8">Our Team</h2>
+        <section className="hex-grid">
+          {Users.map((user) => {
+            return <Card user={user} key={user.id} />;
+          })}
+        </section>
+      </div>
+    </>
+  );
 };
 
 export default AboutUs;
