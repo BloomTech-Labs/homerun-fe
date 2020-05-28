@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import Navigation from "../components/layout/Navigation";
+import Navigation from "./Navigation";
 import { BrowserRouter as Router } from "react-router-dom";
 
 afterAll(cleanup);
