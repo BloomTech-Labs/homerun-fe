@@ -34,13 +34,13 @@ You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokua
 
 <!-- 🚫 more info on using badges [here](https://github.com/badges/shields) -->
 
-### Project Overview
+## Project Overview
 
-[Trello Board](https://trello.com/b/dUO3ZNeC/labspt7-homerun)
+[Trello Board](https://trello.com/b/0rLfcI3P/labs-pt11-homerun)
 
-[Product Canvas](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
+[Release Canvases](https://www.notion.so/3aace866789645e28bf7201e51caf7ab?v=6f422e13816b4053ba28a617be2fc9d7)
 
-[PVD](https://www.notion.so/Home-Run-12ed145a14c1426492108b0558e6d64b)
+[PVD](https://www.notion.so/Tidy-Hive-12ed145a14c1426492108b0558e6d64b)
 
 ## Intro
 
