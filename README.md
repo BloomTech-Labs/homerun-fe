@@ -11,7 +11,7 @@ You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokua
 | <img alt="Adam Monast" src="https://avatars2.githubusercontent.com/Adammonast" width=100 height=100/> | <img alt="Batuhan Balta" src="https://avatars2.githubusercontent.com/baltabatuhan" width=100 height=100/> | <img alt="Benjamin Hall" src="https://avatars2.githubusercontent.com/BenHall-7" width=100 height=100/> | <img alt="Joshua Rieth" src="https://avatars2.githubusercontent.com/Bobj2018" width=100 height=100/> |
 
 | [Mike Padiernos](https://github.com/mikepadiernos) | [Nick Hansen](https://github.com/Hansen-Nick) | [Tauan Longaretti](https://github.com/tauanlongaretti) |
-| :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: |
 | <img alt="Mike Padiernos" src="https://avatars2.githubusercontent.com/mikepadiernos" width=100 height=100/> | <img alt="Nick Hansen" src="https://avatars2.githubusercontent.com/Hansen-Nick" width=100 height=100/> | <img alt="Tauan Longaretti" src="https://avatars2.githubusercontent.com/tauanlongaretti" width=100 height=100/> |
 
 ### Past
