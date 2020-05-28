@@ -1,25 +1,22 @@
-# Welcome to TidyHive! 
+# Welcome to TidyHive!
 
 You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokuapp.com/).
 
-##  Contributors
+## Contributors
 
-|    [Heather Ridgill ](https://github.com/Heather-Ridgill)      |     [Micah Jank](https://github.com/MicahJank)       |     [Katrina Roaix](https://github.com/kroaix)     |     [Yankho Trumble](https://github.com/Mayankho)     |
-|:---:|:---:|:---:|:---:|
-|    [<img src="https://avatars3.githubusercontent.com/u/49896861?s=460&v=4" width = "115" />](https://github.com/Heather-Ridgill)     |     [<img src="https://avatars3.githubusercontent.com/u/40408940?s=460&v=4" width = "115" />](https://github.com/MicahJank)       |     [<img src="https://avatars3.githubusercontent.com/u/5169760?s=460&v=4" width = "115" />](https://github.com/kroaix)     |     [<img src="https://avatars2.githubusercontent.com/u/33339750?s=460&v=4" width = "115" />](https://github.com/Mayankho)     |
-|    [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Heather-Ridgill)     |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MicahJank)      |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kroaix)     |     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mayankho)     |
-|    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/heatherridgill/)     |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/micah-jank/)      |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kroaix/)     |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/yankho/)     |
+### Current
 
-| [Zach Taylor ](https://github.com/zbtaylor) | [Vinni Hoke](https://github.com/vinnihoke) | [Brandon Dresselle - TL](https://github.com/BDesselle) |
-|    :---:     |     :---:      |     :---:     |
-| [<img src="https://avatars0.githubusercontent.com/u/37271885?s=460&v=4" width = "115" />](https://github.com/zbtaylor)   | [<img src="https://avatars1.githubusercontent.com/u/34225237?s=460&v=4" width = "115" />](https://github.com/vinnihoke)     | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UCBK6FRD5-c149fef438f7-512" width = "115" />](https://github.com/BDesselle)    |
-| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zbtaylor)     | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vinnihoke)       | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BDesselle)      |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zach-taylor-97b90a196/)     | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/vinnihoke/)       | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/)      |
+|    [Adam Monast - TL](https://github.com/Adammonast)    |    [Batuhan Balta](https://github.com/baltabatuhan)    |    [Benjamin Hall](https://github.com/BenHall-7)    |    [Joshua Rieth](https://github.com/Bobj2018)    |
+|    <img alt="Adam Monast" src="https://avatars2.githubusercontent.com/Adammonast" width=100 height=100/>    |    <img alt="Batuhan Balta" src="https://avatars2.githubusercontent.com/baltabatuhan" width=100 height=100/>    |    <img alt="Benjamin Hall" src="https://avatars2.githubusercontent.com/BenHall-7" width=100 height=100/>    |    <img alt="Joshua Rieth" src="https://avatars2.githubusercontent.com/Bobj2018" width=100 height=100/>    |
 
+|    [Mike Padiernos](https://github.com/mikepadiernos)    |    [Nick Hansen](https://github.com/Hansen-Nick)    |    [Tauan Longaretti](https://github.com/tauanlongaretti)    |
+|    <img alt="Mike Padiernos" src="https://avatars2.githubusercontent.com/mikepadiernos" width=100 height=100/>    |    <img alt="Nick Hansen" src="https://avatars2.githubusercontent.com/Hansen-Nick" width=100 height=100/>    |    <img alt="Tauan Longaretti" src="https://avatars2.githubusercontent.com/tauanlongaretti" width=100 height=100/>    |
 
+### Past
+
+[Heather Ridgill](https://github.com/Heather-Ridgill), [Micah Jank](https://github.com/MicahJank), [Katrina Roaix](https://github.com/kroaix), [Yankho Trumble](https://github.com/Mayankho), [Zach Taylor ](https://github.com/zbtaylor) | [Vinni Hoke](https://github.com/vinnihoke) | [Brandon Dresselle - TL](https://github.com/BDesselle) |
 
 # Team/Project Badges
-
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/9d4df6969072940d2a54/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/homerun-fe/maintainability)
 
