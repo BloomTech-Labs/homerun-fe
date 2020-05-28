@@ -28,9 +28,9 @@ function ContactUsForm() {
   }
 
   return (
-    <section className="grid h-screen p-8">
+    <section className="flex flex-col justify-center items-center h-full p-8 phone:p-0">
       <form
-        className="w-full h-auto m-auto border border-gray-400 rounded-md tablet:w-1/2 desktop:w-1/3"
+        className="w-full h-auto m-auto border border-gray-400 phone:border-0 rounded-md tablet:w-1/2 desktop:w-1/3 phone:w-full phone:p-0"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
