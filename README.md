@@ -16,7 +16,7 @@ You can find the deployed project at [TidyHive](https://stage-homerun-fe.herokua
 
 ### Past
 
-[Heather Ridgill](https://github.com/Heather-Ridgill), [Micah Jank](https://github.com/MicahJank), [Katrina Roaix](https://github.com/kroaix), [Yankho Trumble](https://github.com/Mayankho), [Zach Taylor ](https://github.com/zbtaylor) | [Vinni Hoke](https://github.com/vinnihoke) | [Brandon Dresselle - TL](https://github.com/BDesselle) |
+[Heather Ridgill](https://github.com/Heather-Ridgill), [Micah Jank](https://github.com/MicahJank), [Katrina Roaix](https://github.com/kroaix), [Yankho Trumble](https://github.com/Mayankho), [Zach Taylor ](https://github.com/zbtaylor), [Vinni Hoke](https://github.com/vinnihoke), [Brandon Dresselle - TL](https://github.com/BDesselle)
 
 # Team/Project Badges
 
