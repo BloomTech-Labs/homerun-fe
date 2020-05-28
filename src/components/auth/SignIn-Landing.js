@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import {
-  Header,
   Divider,
   Form,
-  Container,
   Loader,
   Dimmer,
 } from "semantic-ui-react";
@@ -44,7 +42,9 @@ const SignInLanding = (props) => {
           <h2 className="text-4xl text-gray-700 text-l bold">
             Welcome to <span className="text-hive">TidyHive!</span>
           </h2>
-          <p className="text-2xl text-gray-600">Sign in to access your account</p>
+          <p className="text-2xl text-gray-600">
+            Sign in to access your account
+          </p>
         </div>
         <div className="w-4/5 max-w-lg">
           {isLoading ? (
@@ -90,12 +90,15 @@ const SignInLanding = (props) => {
                 </button>
               </div>
               <div>
-              <p className="py-4 text-gray-700">
-                Don't have an account? <a href="/signup" className="font-semibold text-hive">Sign Up</a>
-              </p>
-              <Divider horizontal className="py-4">
-                OR
-              </Divider>
+                <p className="py-4 text-gray-700">
+                  Don't have an account?{" "}
+                  <a href="/signup" className="font-semibold text-hive">
+                    Sign Up
+                  </a>
+                </p>
+                <Divider horizontal className="py-4">
+                  OR
+                </Divider>
               </div>
               <div className="flex justify-center py-4">
                 <button
