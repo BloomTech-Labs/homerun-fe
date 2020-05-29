@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
@@ -84,9 +85,9 @@ const SignUp = (props) => {
 							<div>
 								<p className='py-4 text-gray-700'>
 									Already have an account?{' '}
-									<a className='font-semibold text-hive' href='/signin'>
+									<Link className='font-semibold text-hive' to='/signin'>
 										Sign In
-									</a>
+									</Link>
 								</p>
 								<Divider className='py-4' horizontal>
 									OR
