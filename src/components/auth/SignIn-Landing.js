@@ -86,7 +86,7 @@ const SignInLanding = (props) => {
 							<div>
 								<p className='py-4 text-gray-700'>
 									Don't have an account?{' '}
-									<Link to='/signup' className='font-semibold text-hive'>
+									<Link to='/signup' className='font-semibold text-hive hover:text-orange-500'>
 										Sign Up
 									</Link>
 								</p>

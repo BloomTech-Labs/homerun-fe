@@ -85,7 +85,7 @@ const SignUp = (props) => {
 							<div>
 								<p className='py-4 text-gray-700'>
 									Already have an account?{' '}
-									<Link className='font-semibold text-hive' to='/signin'>
+									<Link className='font-semibold text-hive hover:text-orange-500' to='/signin'>
 										Sign In
 									</Link>
 								</p>
