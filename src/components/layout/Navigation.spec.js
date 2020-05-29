@@ -27,3 +27,38 @@ describe("isOpen state testing", () => {
     expect(getByTestId("isOpen").classList.contains("hidden")).toBe(false);
   });
 });
+
+describe("Routes should point to correct route", () => {
+  it("should point to /", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Navigation />
+      </Router>
+    );
+    expect(getByTestId("home-link").getAttribute("href")).toBe("/");
+  });
+  it("should point to /about", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Navigation />
+      </Router>
+    );
+    expect(getByTestId("about-link").getAttribute("href")).toBe("/about");
+  });
+  it("should point to /contact", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Navigation />
+      </Router>
+    );
+    expect(getByTestId("contact-link").getAttribute("href")).toBe("/contact");
+  });
+  it("should point to /signin", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Navigation />
+      </Router>
+    );
+    expect(getByTestId("signin-link").getAttribute("href")).toBe("/signin");
+  });
+});

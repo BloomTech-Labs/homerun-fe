@@ -51,6 +51,7 @@ const Navigation = () => {
           activeStyle={{ color: "rgb(255, 159, 28)" }}
           className="block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline"
           to="/"
+          data-testid="home-link"
         >
           Home
         </NavLink>
@@ -58,6 +59,7 @@ const Navigation = () => {
           activeStyle={{ color: "rgb(255, 159, 28)" }}
           className="block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline"
           to="/about"
+          data-testid="about-link"
         >
           About
         </NavLink>
@@ -65,6 +67,7 @@ const Navigation = () => {
           activeStyle={{ color: "rgb(255, 159, 28)" }}
           className="block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline"
           to="/contact"
+          data-testid="contact-link"
         >
           Contact Us
         </NavLink>
@@ -72,6 +75,7 @@ const Navigation = () => {
           activeStyle={{ color: "rgb(255, 159, 28)" }}
           className="block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline"
           to="/signin"
+          data-testid="signin-link"
         >
           Signin
         </NavLink>
