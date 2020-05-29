@@ -69,24 +69,22 @@ const SignInLanding = (props) => {
 								/>
 								{errors.email && <p>{errors.email.message}</p>}
 							</Form.Field>
-							<div className="flex flex-wrap">
+              <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
 								<button
 									type='submit'
-									className='w-full h-10 px-8 mt-2 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-1/3 bg-hive hover:bg-orange-500'
+									className='w-full h-10 px-8 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-2/5 bg-hive hover:bg-orange-500'
 								>
 									Submit
-								</button>
-                <div className="w-full mt-6 tablet:w-4/6 tablet:mt-2">
+								</button>         
 								<button
-									className='w-full h-10 px-4 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg hover:bg-gray-400 tablet:w-3/5 tablet:ml-2'
+									className='w-full h-10 px-4 mt-8 bg-gray-300 border rounded shadow-lg tablet:mt-4 font-semiboldtext-gray-700 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6'
 									onClick={() => props.history.push('/forgot-password')}
 								>
 									Forgot Password
-								</button>
-                </div>
+								</button>       
 							</div>
-							<div className="mt-4">
-								<p className='py-4 text-sm gray-700 text-l phone:text-base'>
+							<div className="mt-4 text-center">
+								<p className='py-4 text-sm text-gray-700 phone:text-base'>
 									Don't have an account?{' '}
 									<Link to='/signup' className='text-sm font-semibold text-hive hover:text-orange-500 phone:text-base'>
 										Sign Up

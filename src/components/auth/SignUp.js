@@ -27,13 +27,13 @@ const SignUp = (props) => {
 	return (
 		<>
 			<section className='flex flex-col items-center justify-center h-full'>
-				<div className='py-4 text-center'>
-					<h2 className='text-4xl text-gray-700 text-l bold'>
+				<div className='py-4 mt-4 text-center'>
+					<h2 className='text-3xl text-gray-700 text-l bold mobile:text-4xl tablet:text-4xl'>
 						Welcome to <span className='text-hive'>TidyHive!</span>
 					</h2>
-					<p className='text-2xl text-gray-600'>Sign up for an account</p>
+					<p className='text-xl text-gray-600 mobile:text-2xl tablet:text-2xl'>Sign up for an account</p>
 				</div>
-				<div className='w-4/5 max-w-lg'>
+				<div className='max-w-lg phone:w-4/5'>
 					{isLoading ? (
 						<Dimmer active inverted>
 							<Loader size='large'>Loading</Loader>
@@ -76,16 +76,18 @@ const SignUp = (props) => {
 								/>
 								{errors.password && <p>{errors.password.message}</p>}
 							</Form.Field>
+							<div className="flex justify-center">
 							<button
 								type='submit'
-								className='h-10 px-8 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500'
+								className='w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5'
 							>
 								Submit
 							</button>
-							<div>
-								<p className='py-4 text-gray-700'>
+							</div>
+							<div className="mt-4 text-center">
+								<p className='py-4 text-sm text-gray-700 phone:text-base'>
 									Already have an account?{' '}
-									<Link className='font-semibold text-hive hover:text-orange-500' to='/signin'>
+									<Link className='text-sm font-semibold text-hive hover:text-orange-500 phone:text-base' to='/signin'>
 										Sign In
 									</Link>
 								</p>
@@ -96,7 +98,7 @@ const SignUp = (props) => {
 							<div className='flex justify-center py-4'>
 								<button
 									onClick={googleAuth}
-									className='h-10 px-3 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500'
+									className='w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2'
 								>
 									<i className='ui icon google white'></i>
 									Sign in with Google
