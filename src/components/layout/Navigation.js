@@ -21,6 +21,7 @@ const Navigation = () => {
           aria-expanded={isOpen}
           className="px-4 tablet:hidden"
           onClick={() => setIsOpen(!isOpen)}
+          data-testid="nav-button"
         >
           <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
             {isOpen ? (
