@@ -7,13 +7,13 @@ import "../../scss/hexagon.scss";
 const AboutUs = () => {
   return (
     <>
-      <div className="flex flex-col h-full">
-        <div className="">
+      
+        <div>
           <h2 className="pt-10 pb-5 text-center desktop:absolute desktop:inset-x-0 desktop:py-24">
             Our Team
           </h2>
         </div>
-        <section className="flex items-center max-w-3xl m-auto hex-grid desktop:max-w-full desktop:px-20 desktop:py-10">
+        <section className="items-center max-w-md m-auto tablet:max-w-3xl hex-grid desktop:max-w-full desktop:px-20 desktop:py-10 desktop:h-full">
           <section className="hidden desktop:block">
             <div className="desktop:w-11/12 desktop:m-auto desktop:block">
               {Users.map((user) => {
@@ -22,7 +22,7 @@ const AboutUs = () => {
             </div>
           </section>
           <section className="">
-            <div className="desktop:w-11/12 desktop:m-auto">
+            <div className="w-full mt-10 desktop:w-11/12 desktop:m-auto tablet:mt-0">
               {Users.map((user) => {
                 if (user.id == 4) return <Card user={user} key={user.id} />;
               })}
@@ -34,7 +34,7 @@ const AboutUs = () => {
             </div>
           </section>
           <section className="">
-            <div className="mb-10 desktop:hidden">
+            <div className="mt-10 mb-10 desktop:hidden tablet:mt-0">
               {Users.map((user) => {
                 if (user.id == 1) return <Card user={user} key={user.id} />;
               })}
@@ -51,12 +51,12 @@ const AboutUs = () => {
             </div>
           </section>
           <section className="">
-            <div className="desktop:w-11/12 desktop:m-auto">
+            <div className="mt-10 desktop:w-11/12 desktop:m-auto tablet:mt-0">
               {Users.map((user) => {
                 if (user.id == 6) return <Card user={user} key={user.id} />;
               })}
             </div>
-            <div className="mt-10 desktop:mt-20 desktop:w-11/12 desktop:m-auto">
+            <div className="mt-10 mb-10 desktop:mt-20 desktop:w-11/12 desktop:m-auto tablet:mb-0">
               {Users.map((user) => {
                 if (user.id == 7) return <Card user={user} key={user.id} />;
               })}
@@ -70,7 +70,7 @@ const AboutUs = () => {
             </div>
           </section>
         </section>
-      </div>
+    
     </>
   );
 };
