@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = ({ user }) => {
   return (
-    <article className="overflow-hidden relative hexagon">
+    <article className="relative overflow-hidden hexagon">
       <div className="hexagon-inner">
         <img src={user.image} alt={user.name} className="w-full" />
-        <div className="absolute inset-0 z-2 bg-black bg-opacity-75 text-white flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition transition-opacity duration-500 ease-in-out">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white transition transition-opacity duration-500 ease-in-out bg-black bg-opacity-75 opacity-0 z-2 hover:opacity-100">
           <h2 className="text-white">{user.name} </h2>
           <button
             onClick={() => window.open(user.url, "_blank")}
-            className="rounded p-2"
+            className="p-2 rounded"
           >
             <i className="mr-2">
               <FontAwesomeIcon icon={faGithub} />
