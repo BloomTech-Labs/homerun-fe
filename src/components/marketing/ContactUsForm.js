@@ -28,9 +28,9 @@ function ContactUsForm() {
   }
 
   return (
-    <section className="flex flex-col justify-center items-center h-full p-8 phone:p-0">
+    <section className="flex flex-col items-center justify-center h-full p-8 phone:p-0">
       <form
-        className="w-full h-auto m-auto border border-gray-400 phone:border-0 rounded-md tablet:w-1/2 desktop:w-1/3 phone:w-full phone:p-0"
+        className="w-full h-auto m-auto border border-gray-400 rounded-md phone:border-0 tablet:w-1/2 desktop:w-1/3 phone:w-full phone:p-0"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
@@ -86,7 +86,7 @@ function ContactUsForm() {
           </p>
         )}
         <div className="flex justify-end w-full">
-          <button className="w-6/6 h-auto px-4 py-2 mt-3 rounded-md phone:flex-grow tablet:flex-grow-0 bg-hive text-white">
+          <button className="h-auto px-4 py-2 mt-3 font-semibold tracking-wider text-white rounded-md w-6/6 phone:flex-grow tablet:flex-grow-0 bg-hive hover:bg-orange-500">
             Submit
           </button>
         </div>
