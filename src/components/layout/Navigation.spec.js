@@ -29,7 +29,7 @@ describe("isOpen state testing", () => {
 });
 
 describe("Routes should point to correct route", () => {
-  it("clicking on about button sends user to /", async () => {
+  it("clicking on home button sends user to /", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
@@ -57,7 +57,7 @@ describe("Routes should point to correct route", () => {
     const path = global.window.location.pathname;
     expect(path).toEqual(expectedPath);
   });
-  it("clicking on about button sends user to /contact", async () => {
+  it("clicking on contact button sends user to /contact", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
@@ -71,15 +71,7 @@ describe("Routes should point to correct route", () => {
     const path = global.window.location.pathname;
     expect(path).toEqual(expectedPath);
   });
-  it("should point to /signin", () => {
-    const { getByTestId } = render(
-      <Router>
-        <Navigation />
-      </Router>
-    );
-    expect(getByTestId("signin-link").getAttribute("href")).toBe("/signin");
-  });
-  it("clicking on about button sends user to /signin", async () => {
+  it("clicking on signin button sends user to /signin", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
