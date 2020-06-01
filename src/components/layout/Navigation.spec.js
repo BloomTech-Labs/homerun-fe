@@ -29,36 +29,60 @@ describe("isOpen state testing", () => {
 });
 
 describe("Routes should point to correct route", () => {
-  it("should point to /", () => {
+  it("clicking on home button sends user to /", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
       </Router>
     );
-    expect(getByTestId("home-link").getAttribute("href")).toBe("/");
+
+    const clickedElement = getByTestId("home-link");
+    fireEvent.click(clickedElement);
+
+    const expectedPath = "/";
+    const path = global.window.location.pathname;
+    expect(path).toEqual(expectedPath);
   });
-  it("should point to /about", () => {
+  it("clicking on about button sends user to /about", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
       </Router>
     );
-    expect(getByTestId("about-link").getAttribute("href")).toBe("/about");
+
+    const clickedElement = getByTestId("about-link");
+    fireEvent.click(clickedElement);
+
+    const expectedPath = "/about";
+    const path = global.window.location.pathname;
+    expect(path).toEqual(expectedPath);
   });
-  it("should point to /contact", () => {
+  it("clicking on contact button sends user to /contact", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
       </Router>
     );
-    expect(getByTestId("contact-link").getAttribute("href")).toBe("/contact");
+
+    const clickedElement = getByTestId("contact-link");
+    fireEvent.click(clickedElement);
+
+    const expectedPath = "/contact";
+    const path = global.window.location.pathname;
+    expect(path).toEqual(expectedPath);
   });
-  it("should point to /signin", () => {
+  it("clicking on signin button sends user to /signin", async () => {
     const { getByTestId } = render(
       <Router>
         <Navigation />
       </Router>
     );
-    expect(getByTestId("signin-link").getAttribute("href")).toBe("/signin");
+
+    const clickedElement = getByTestId("signin-link");
+    fireEvent.click(clickedElement);
+
+    const expectedPath = "/signin";
+    const path = global.window.location.pathname;
+    expect(path).toEqual(expectedPath);
   });
 });
