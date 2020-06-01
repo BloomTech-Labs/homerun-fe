@@ -1,10 +1,17 @@
 import ContactUsForm from "./ContactUsForm";
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
-it("renders", () => {
-  const { asFragment } = render(<ContactUsForm name="Jack" />);
-  expect(asFragment()).toMatchSnapshot();
+afterAll(cleanup);
+
+describe("Render testing", () => {
+  it("contact form is working", () => {
+    const { getByTestId } = render(
+      <Router>
+        <ContactUsForm />
+      </Router>
+    );
+  });
 });
-sdsd;
