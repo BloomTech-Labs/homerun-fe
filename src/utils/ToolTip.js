@@ -10,7 +10,7 @@ function Trigger({ getTriggerProps, triggerRef }) {
       })}
     >
       <div className="icon">
-        <InfoIcon color="active" />
+        <InfoIcon color="action" />
       </div>
     </div>
   );
@@ -36,7 +36,7 @@ function Tooltip({
           className: "tooltip-arrow",
         })}
       />
-      <p className="px-3 py-2 mt-2 mr-32 font-semibold tracking-wide text-white rounded shadow-lg bg-hive tooltip-body">
+      <p className="px-3 py-2 mt-2 mr-32 font-semibold tracking-wide text-gray-700 bg-gray-200 rounded shadow-lg tooltip-body">
         Click on member's picture for more info
       </p>
     </div>
@@ -44,7 +44,7 @@ function Tooltip({
 }
 function ToolTip() {
   return (
-    <TooltipTrigger placement="bottom" trigger="hover" tooltip={Tooltip}>
+    <TooltipTrigger placement="bottom" trigger={["click", "hover"]} tooltip={Tooltip}>
       {Trigger}
     </TooltipTrigger>
   );
