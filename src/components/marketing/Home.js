@@ -22,7 +22,7 @@ const Home = () => {
             </h1>
           </div>
           <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-10">
-            <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:w-2/5 hover:bg-orange-500">
+            <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:max-w-sm hover:bg-orange-500">
               <Link to="/signup" className="text-2xl text-white hover:text-white">
                 Signup for free <Icon name="arrow right" />
               </Link>
