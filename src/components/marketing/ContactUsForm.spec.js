@@ -35,3 +35,28 @@ describe("Render testing", () => {
     expect(messageInput).toBeVisible();
   });
 });
+
+describe("functionality test", () => {
+  it("changing Full-Name values", () => {
+    const { getByLabelText, getByTestId } = render(
+      <Router>
+        <ContactUsForm />
+      </Router>
+    );
+    const fullNameInput = getByLabelText(/Full Name*/i);
+    fireEvent.change(fullNameInput, { target: { value: "test" } });
+    expect(fullNameInput.value).toBe("test");
+    fireEvent.click(getByTestId(/submit-test/i));
+  });
+  it("changing E-mail values", () => {
+    const { getByLabelText, getByTestId } = render(
+      <Router>
+        <ContactUsForm />
+      </Router>
+    );
+    const fullNameInput = getByLabelText(/Email*/i);
+    fireEvent.change(fullNameInput, { target: { value: "test-1" } });
+    expect(fullNameInput.value).toBe("test-1");
+    fireEvent.click(getByTestId(/submit-test/i));
+  });
+});
