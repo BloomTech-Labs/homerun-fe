@@ -46,7 +46,7 @@ const Users = [
     name: "Tauan Longaretti",
     image:
       "https://avatars3.githubusercontent.com/u/54084340?s=400&u=ea1d7e07aee643d11014857ffe0697813db57b69&v=4",
-    url: "https://github.com/Hansen-Nick",
+    url: "https://github.com/tauanlongaretti",
   },
 ];
 
