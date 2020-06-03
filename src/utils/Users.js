@@ -29,24 +29,24 @@ const Users = [
   },
   {
     id: "5",
-    name: "Michael Padiernos",
-    image:
-      "https://avatars3.githubusercontent.com/u/54547073?s=460&u=87b75c6230794fc8b8cd9ccfa0a0748e992c49b2&v=4",
-    url: "https://github.com/mikepadiernos",
-  },
-  {
-    id: "6",
     name: "Nick Hansen",
     image:
       "https://avatars2.githubusercontent.com/u/43764243?s=400&u=0e8e6f0179f0cb25d32e4a06528c38eb6e166279&v=4",
     url: "https://github.com/Hansen-Nick",
   },
   {
-    id: "7",
+    id: "6",
     name: "Tauan Longaretti",
     image:
       "https://avatars3.githubusercontent.com/u/54084340?s=400&u=ea1d7e07aee643d11014857ffe0697813db57b69&v=4",
     url: "https://github.com/tauanlongaretti",
+  },
+  {
+    id: "7",
+    name: "Michael Padiernos",
+    image:
+      "https://avatars3.githubusercontent.com/u/54547073?s=460&u=87b75c6230794fc8b8cd9ccfa0a0748e992c49b2&v=4",
+    url: "https://github.com/mikepadiernos",
   },
 ];
 

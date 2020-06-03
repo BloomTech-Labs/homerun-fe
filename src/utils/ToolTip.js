@@ -36,7 +36,7 @@ function Tooltip({
           className: "tooltip-arrow",
         })}
       />
-      <p className="px-3 py-2 mt-2 mr-32 font-semibold tracking-wide text-gray-700 bg-gray-200 rounded shadow-lg tooltip-body">
+      <p className="px-3 py-1 mt-1 mr-32 font-semibold tracking-wide text-gray-700 bg-gray-200 rounded shadow-lg tooltip-body">
         Click on member's picture for more info
       </p>
     </div>
