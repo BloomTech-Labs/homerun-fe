@@ -12,25 +12,28 @@ const Card = ({ user }) => {
     setToggled(!isToggled);
     const div = document.getElementById(`card-info${user.id}`);
     const button = document.getElementById(`info-btn${user.id}`);
+    const article = document.getElementById(`card${user.id}`);
     if (isToggled === false) {
       div.classList.remove("collapse");
       button.classList.add("flip");
+      article.classList.add("open")
     } else {
       div.classList.add("collapse");
       button.classList.remove("flip");
+      article.classList.remove("open")
     }
   }
 
   return (
     <article
-      id="card"
+      id={`card${user.id}`}
       className="p-8 pb-4 text-center bg-gray-300 border-4 border-gray-500 rounded shadow-xl"
     >
       <div>
         <img className="max-w-full rounded" src={user.image} alt={user.name} />
       </div>
       <div>
-        <h2 className="pt-6 text-3xl text-gray-700">{user.name} </h2>
+        <h2 className="pt-6 text-3xl text-gray-700 bg-gray-300">{user.name} </h2>
         <div id={`card-info${user.id}`} className="collapse">
           <h3 className="pt-4">{user.title}</h3>
           <button
