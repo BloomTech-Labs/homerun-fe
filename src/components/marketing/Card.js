@@ -32,19 +32,19 @@ const Card = ({ user }) => {
   );
 };
 
-{
-  /* <div className="absolute inset-0 flex flex-col items-center justify-center text-white transition transition-opacity duration-500 ease-in-out bg-black bg-opacity-75 opacity-0 z-2 hover:opacity-100 active:opacity-100">
-<h2 className="text-white">{user.name} </h2>
-<button
-  onClick={() => window.open(user.url, "_blank")}
-  className="p-2 rounded"
->
-  <i className="mr-2">
-    <FontAwesomeIcon icon={faGithub} />
-  </i>
-  Github
-</button>
-</div> */
-}
+// {
+//   /* <div className="absolute inset-0 flex flex-col items-center justify-center text-white transition transition-opacity duration-500 ease-in-out bg-black bg-opacity-75 opacity-0 z-2 hover:opacity-100 active:opacity-100">
+// <h2 className="text-white">{user.name} </h2>
+// <button
+//   onClick={() => window.open(user.url, "_blank")}
+//   className="p-2 rounded"
+// >
+//   <i className="mr-2">
+//     <FontAwesomeIcon icon={faGithub} />
+//   </i>
+//   Github
+// </button>
+// </div> */
+// }
 
 export default Card;
