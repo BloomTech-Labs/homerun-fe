@@ -1,13 +1,67 @@
-.hidden {
+.collapse {
   height: 0px;
   overflow: hidden;
 }
 
-#info-btn {
+#info-btn1 {
   transform: rotate(0deg);
   transition: transform 1000ms;
 }
 
-#info-btn.flip {
+#info-btn1.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn2 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn2.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn3 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn3.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn4 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn4.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn5 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn5.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn6 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn6.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn7 {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn7.flip {
   transform: rotate(180deg)
 }

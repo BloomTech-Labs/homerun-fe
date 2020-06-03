@@ -44,7 +44,11 @@ function Tooltip({
 }
 function ToolTip() {
   return (
-    <TooltipTrigger placement="bottom" trigger={["click", "hover"]} tooltip={Tooltip}>
+    <TooltipTrigger
+      placement="bottom"
+      trigger={["click", "hover"]}
+      tooltip={Tooltip}
+    >
       {Trigger}
     </TooltipTrigger>
   );
