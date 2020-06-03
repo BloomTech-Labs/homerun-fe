@@ -2,3 +2,12 @@
   height: 0px;
   overflow: hidden;
 }
+
+#info-btn {
+  transform: rotate(0deg);
+  transition: transform 1000ms;
+}
+
+#info-btn.flip {
+  transform: rotate(180deg)
+}
