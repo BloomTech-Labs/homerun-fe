@@ -24,11 +24,6 @@ describe("User actions testing", () => {
   });
   describe("Change user actions", () => {
     it("returns proper actions if child exists within user object", () => {
-      moxios.stubRequest(`https://prod-homerun-be.herokuapp.com/auth/login`, {
-        status: 200,
-        response: "data",
-      });
-
       const expectedActions = [
         { type: "SET_USER", payload: { child: "exists" } },
       ];
