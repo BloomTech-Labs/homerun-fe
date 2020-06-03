@@ -27,13 +27,13 @@ const Card = ({ user }) => {
   return (
     <article
       id={`card${user.id}`}
-      className="p-8 pb-4 text-center bg-gray-300 border-4 border-gray-500 rounded shadow-xl"
+      className="max-w-sm p-8 pb-4 text-center bg-gray-300 border-4 border-gray-500 rounded shadow-xl"
     >
       <div>
         <img className="max-w-full rounded" src={user.image} alt={user.name} />
       </div>
       <div>
-        <h2 className="pt-6 text-3xl text-gray-700 bg-gray-300">{user.name} </h2>
+        <h2 className="pt-6 text-3xl text-gray-700">{user.name} </h2>
         <div id={`card-info${user.id}`} className="collapse">
           <h3 className="pt-4">{user.title}</h3>
           <button

@@ -15,12 +15,12 @@ const AboutUs = () => {
         </h2>
       </div>
       <div className="flex items-center justify-center px-8 tablet:px-14 desktop:px-1/12">
-        <section className=" tablet:flex tablet:flex-wrap">
+        <section className="tablet:flex tablet:flex-wrap">
           {Users.map((user) => {
             return (
               <div
                 key={user.id}
-                className="max-w-sm py-6 tablet:px-6 tablet:mx-auto"
+                className="py-6 tablet:px-6 tablet:mx-auto"
               >
                 <Card user={user} />
               </div>
