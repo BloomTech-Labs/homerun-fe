@@ -25,26 +25,26 @@ const ForgotPW = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-full">
-        <div className="text-center">
+        <div className="w-full text-center">
           <img
-            className="w-32 pb-12 m-auto tablet:w-48 desktop:w-64"
+            className="w-32 pb-12 pl-2 m-auto tablet:pl-4 tablet:w-48 tablet:pl-6"
             src={ForgotPassword}
           />
-          <h1 className="text-gray-700 font-semi-bold">
+          <h1 className="mb-2 text-3xl text-gray-700 font-semi-bold tablet:text-4xl">
             Forgot Your Password?
           </h1>
-          <h2>That's okay, it happens!</h2>
-          <h3>
+          <h2 className="text-2xl tablet:text-3xl">That's okay, it happens!</h2>
+          <h3 className="max-w-xs m-auto mt-6 text-xl tablet:text-2xl tablet:max-w-sm">
             Please enter your email below to proceed with reseting your email.
           </h3>
         </div>
-        <div>
+        <div className="w-4/5 max-w-md">
           {/* {isLoading ? (
           <Dimmer active inverted>
             <Loader size="large">Loading</Loader>
           </Dimmer>
         ) : ( */}
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form className="w-full px-0" onSubmit={handleSubmit(onSubmit)}>
             <Form.Field>
               <label>Email</label>
               <input
@@ -55,19 +55,20 @@ const ForgotPW = () => {
               />
               {errors.username && <p>{errors.username.message}</p>}
             </Form.Field>
-
+            <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
             <button
               type="submit"
-              className="w-full h-10 px-8 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-2/5 bg-hive hover:bg-orange-500"
+              className="w-full h-10 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:ml-6 tablet:mr-4"
             >
               Submit
             </button>
             <button
               type="back"
-              className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
+              className="w-full h-10 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:mr-6 tablet:ml-4"
             >
               <Link to={"/signin"} className="hover:text-gray-800">Back</Link>
             </button>
+            </div>
             <Message
               success={message}
               header="Please check your email!"

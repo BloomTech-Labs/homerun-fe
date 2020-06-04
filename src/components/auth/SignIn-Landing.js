@@ -52,7 +52,6 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Email</label>
                 <input
-                  className=""
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -63,7 +62,6 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Password</label>
                 <input
-                  className=""
                   type="password"
                   placeholder="Password"
                   name="password"
