@@ -2,6 +2,7 @@ import React from "react";
 import Users from "../../utils/Users";
 import ToolTip from "../../utils/ToolTip";
 import Card from "./Card";
+import ToolTip from "../../utils/ToolTip";
 
 const AboutUs = () => {
   return (
@@ -29,6 +30,7 @@ const AboutUs = () => {
         </section>
       </div>
     </div>
+
   );
 };
 
