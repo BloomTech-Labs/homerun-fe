@@ -33,7 +33,6 @@ const ForgotPW = (props) => {
           <h1 className="mb-2 text-3xl text-gray-700 font-semi-bold tablet:text-4xl">
             Forgot Your Password?
           </h1>
-          <h2 className="text-2xl tablet:text-3xl">That's okay, it happens!</h2>
           <h3 className="max-w-xs m-auto mt-6 text-xl tablet:text-2xl tablet:max-w-sm">
             Please enter your email below to proceed with reseting your email.
           </h3>
