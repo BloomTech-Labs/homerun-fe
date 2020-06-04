@@ -12,3 +12,8 @@ it("Header render testing", () => {
   const { getByTestId, getByText } = render(<AboutUs />);
   expect(getByTestId("header-test")).toHaveTextContent("Our Team");
 });
+
+it("Information span render testing", () => {
+  const { getByTestId, getByText } = render(<AboutUs />);
+  expect(getByTestId("span-test")).toHaveClass("ml-2");
+});

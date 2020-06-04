@@ -14,7 +14,7 @@ const AboutUs = () => {
           data-testid="header-test"
         >
           Our Team{" "}
-          <span className="ml-2">
+          <span className="ml-2" data-testid="span-test">
             <ToolTip />
           </span>
         </h2>
