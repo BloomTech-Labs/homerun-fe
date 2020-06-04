@@ -2,7 +2,7 @@ import axiosWithAuth from "../utils/AxiosWithAuth.js";
 
 // Action Creators
 const fetchTodos = () => (dispatch) => {
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(`/todos/household`)
     .then((res) => {
       dispatch({ type: "FETCH_TODOS", payload: res.data });
@@ -11,8 +11,7 @@ const fetchTodos = () => (dispatch) => {
 };
 
 const addCategory = (data) => (dispatch) => {
-  console.log("data!", data);
-  axiosWithAuth()
+  return axiosWithAuth()
     .post("/todos/categories", data)
     .then((res) => {
       dispatch({
