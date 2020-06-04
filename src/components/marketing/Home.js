@@ -23,14 +23,20 @@ const Home = () => {
           </div>
           <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-10">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:max-w-xs hover:bg-orange-500">
               <Link to="/signup" className="text-2xl text-white hover:text-white">
 =======
+=======
+>>>>>>> a2692c781bfc8a93ad23e837abeb3cbf41f710af
             <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:w-2/5 hover:bg-orange-500">
               <Link
                 to="/signup"
                 className="text-2xl text-white hover:text-white"
               >
+<<<<<<< HEAD
+>>>>>>> a2692c781bfc8a93ad23e837abeb3cbf41f710af
+=======
 >>>>>>> a2692c781bfc8a93ad23e837abeb3cbf41f710af
                 Signup for free <Icon name="arrow right" />
               </Link>

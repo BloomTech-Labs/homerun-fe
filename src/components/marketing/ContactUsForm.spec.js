@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 afterAll(cleanup);
 
-describe("Render testing", () => {
+describe("Contact Form rendering", () => {
   it("Full Name form test", () => {
     const { getByLabelText } = render(
       <Router>
@@ -36,7 +36,7 @@ describe("Render testing", () => {
   });
 });
 
-describe("functionality test", () => {
+describe("Contact Form functionality", () => {
   it("changing Full-Name values", () => {
     const { getByLabelText, getByTestId } = render(
       <Router>
