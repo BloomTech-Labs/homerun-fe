@@ -9,8 +9,14 @@ const AboutUs = () => {
   return (
     <>
       <div className="absolute inset-x-0">
-        <h2 className="flex justify-center pt-10 pb-8 tablet:pb-5">
-          Our Team <span className="ml-2"><ToolTip/></span>
+        <h2
+          className="flex justify-center pt-10 pb-8 tablet:pb-5"
+          data-testid="header-test"
+        >
+          Our Team{" "}
+          <span className="ml-2">
+            <ToolTip />
+          </span>
         </h2>
       </div>
       <section className="items-center h-full max-w-md py-12 m-auto mt-24 tablet:mt-16 tablet:max-w-3xl hex-grid desktop:max-w-full desktop:px-20 desktop:mt-0">
