@@ -6,7 +6,7 @@ import axios from "axios";
 
 import ForgotPassword from "../../assets/images/ForgotPassword.png";
 
-const ForgotPW = () => {
+const ForgotPW = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const [message, setMessage] = useState(true);
 
@@ -65,8 +65,8 @@ const ForgotPW = () => {
             <button
               type="back"
               className="w-full h-10 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:mr-6 tablet:ml-4"
-            >
-              <Link to={"/signin"} className="hover:text-gray-800">Back</Link>
+              onClick={() => props.history.push("/signin")}
+                >Back
             </button>
             </div>
             <Message
