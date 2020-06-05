@@ -10,7 +10,7 @@ const changeUser = (user) => (dispatch) => {
   const { email, password } = user;
   if (!user.child) {
     dispatch({ type: "LOAD_USER" });
-    axios
+    return axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, { email, password })
       .then((res) => {
         console.log(res);
