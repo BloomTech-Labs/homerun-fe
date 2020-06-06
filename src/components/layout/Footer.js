@@ -1,14 +1,11 @@
-import React from "react";
-import { Row, Col } from "antd";
+import React from 'react';
 
 const Footer = () => {
-  return (
-    <footer className="footer bg-black-400 flex items-center justify-center row-start-3 row-end-4">
-      <span>
-        <p>&copy; Copyright TidyHive 2020</p>
-      </span>
-    </footer>
-  );
+	return (
+		<footer className='flex items-center justify-center row-start-3 row-end-4 p-2 bg-black footer'>
+			<p className='text-xs font-semibold text-white'>Creative Commons - TidyHive - A Lambda Labs Project</p>
+		</footer>
+	);
 };
 
 export default Footer;

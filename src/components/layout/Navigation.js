@@ -6,7 +6,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="items-center justify-between w-100 p-3 shadow-md tablet:flex fixed inset-x-0 bg-white z-40">
+    <header className="fixed inset-x-0 z-40 items-center justify-between p-3 bg-white shadow-md w-100 tablet:flex">
       <div className="flex items-center justify-between h-full tablet:block ">
         <Link className="flex items-center " to="/">
           <img

@@ -1,0 +1,234 @@
+#card1 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card1.open {
+  height: 36.5rem;
+}
+
+#card2 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card2.open {
+  height: 36.5rem;
+}
+
+#card3 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card3.open {
+  height: 36.5rem;
+}
+
+#card4 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card4.open {
+  height: 36.5rem;
+}
+
+#card5 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card5.open {
+  height: 36.5rem;
+}
+
+#card6 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card6.open {
+  height: 36.5rem;
+}
+
+#card7 {
+  height: 30rem;
+  min-width: 24rem;
+  transition: height 1000ms;
+}
+
+#card7.open {
+  height: 36.5rem;
+}
+
+#card-info1 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info1.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info2 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info2.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info3 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info3.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info4 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info4.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info5 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info5.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info6 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info6.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#card-info7 {
+  transform: translateY(0px);
+  transition: transform 1000ms;
+  transition: opacity 1s ease-in;
+}
+
+#card-info7.collapse {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn1 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn1.flip {
+  transform: rotate(180deg);
+}
+
+#info-btn2 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn2.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn3 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn3.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn4 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn4.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn5 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn5.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn6 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn6.flip {
+  transform: rotate(180deg)
+}
+
+#info-btn7 {
+  transform: rotate(0deg);
+  transform: translateY(-100px);
+  transition: transform 1000ms;
+}
+
+#info-btn7.flip {
+  transform: rotate(180deg)
+}
+
+.contain {
+  max-width: 1400px;
+}
