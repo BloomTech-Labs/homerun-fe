@@ -1,21 +1,36 @@
 import React from "react";
 import Users from "../../utils/Users";
+import ToolTip from "../../utils/ToolTip";
 import Card from "./Card";
-
-import "../../scss/hexagon.scss";
+import ToolTip from "../../utils/ToolTip";
 
 const AboutUs = () => {
   return (
-    <>
-      <div className="flex-col" data-testid="about-page">
-        <h2 className="text-center p-8">Our Team</h2>
-        <section className="hex-grid">
+    <div className="flex flex-col m-auto contain">
+      <div className="flex">
+        <h2 className="flex p-8 m-auto text-center">
+          Our Team
+          <span className="ml-2">
+            <ToolTip />
+          </span>
+        </h2>
+      </div>
+      <div className="flex items-center justify-around px-8 tablet:px-14 desktop:px-18">
+        <section className="tablet:flex tablet:flex-wrap">
           {Users.map((user) => {
-            return <Card user={user} key={user.id} />;
+            return (
+              <div
+                key={user.id}
+                className="py-6 tablet:px-6 tablet:mx-auto desktop:px-10"
+              >
+                <Card user={user} />
+              </div>
+            );
           })}
         </section>
       </div>
-    </>
+    </div>
+
   );
 };
 

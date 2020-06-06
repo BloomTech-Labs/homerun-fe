@@ -9,10 +9,9 @@ export const INVITE_MEMBER = "INVITE_MEMBER";
 // Action Creators
 const fetchHousehold = () => (dispatch) => {
   dispatch({ type: LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get("/members/household/assignable")
     .then((res) => {
-      console.log(res.data);
       dispatch({
         type: FETCH_MEMBERS_SUCCESS,
         payload: res.data,
@@ -28,7 +27,7 @@ const fetchHousehold = () => (dispatch) => {
 
 const addChild = (data) => (dispatch) => {
   dispatch({ type: LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post("/members/household/children", data)
     .then((res) => {
       dispatch({
@@ -47,7 +46,7 @@ const addChild = (data) => (dispatch) => {
 // setModal is the function that turns the invite user modal on or off - it takes a boolean value as its argument
 const inviteMember = (data, setModal) => (dispatch) => {
   dispatch({ type: LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post("/members/household/invite", data)
     .then((res) => {
       setModal(false);
