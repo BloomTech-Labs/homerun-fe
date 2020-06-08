@@ -3,7 +3,8 @@ import Card from "./Card";
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+
+import Users from "../../utils/Users";
 
 afterAll(cleanup);
 
@@ -18,20 +19,26 @@ describe("about us page render test", () => {
     expect(getByTestId("span-test")).toHaveClass("ml-2");
   });
 });
-describe("a", () => {
-  it("b", () => {
-    const { getByTestId } = render(
-      <Router>
-        <Card />
-      </Router>
-    );
+describe("about us page button tests", () => {
+  it("when the expand users card class should be collapse ", () => {
+    const user = Users[0];
+    const { getByTestId } = render(<Card user={user} />);
 
     fireEvent.click(getByTestId("button-1"));
 
-    expect(
-      getByTestId("{toggleExpand").classList.contains(
-        "pt-2 m-auto text-3xl text-gray-700"
-      )
-    ).toBe(true);
+    expect(getByTestId("toggleExpand").classList.contains("collapse")).toBe(
+      false
+    );
+  });
+  it("when the close users card class should't be collapse", () => {
+    const user = Users[0];
+    const { getByTestId } = render(<Card user={user} />);
+
+    fireEvent.click(getByTestId("button-1"));
+    fireEvent.click(getByTestId("button-1"));
+
+    expect(getByTestId("toggleExpand").classList.contains("collapse")).toBe(
+      true
+    );
   });
 });

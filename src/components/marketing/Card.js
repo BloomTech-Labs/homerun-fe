@@ -34,7 +34,11 @@ const Card = ({ user }) => {
       </div>
       <div>
         <h2 className="pt-6 text-3xl text-gray-700">{user.name} </h2>
-        <div id={`card-info${user.id}`} className="collapse">
+        <div
+          id={`card-info${user.id}`}
+          className="collapse"
+          data-testid="toggleExpand"
+        >
           <h3 className="pt-4">{user.title}</h3>
           <button
             onClick={() => window.open(user.url, "_blank")}
