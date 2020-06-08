@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Sidebar from "../sidebar/Sidebar.js";
 import { useLocation } from "react-router-dom";
 import actions from "../../actions/index.js";
+import TITLES from "./HeaderTitles";
 
 import {
   Header as UiHeader,
@@ -59,10 +60,10 @@ const Header = (props) => {
           alt="TidyHive Logo"
           style={{ width: "60px", height: "auto" }}
         />
-        <UiHeader as="h3">
-          {location.pathname === "/dashboard" && "Dashboard"}
-          {location.pathname === "/household" && "Household"}
-          {location.pathname === "/account" && "Account"}
+        <UiHeader as="h3" data-testid="title">
+          {location.pathname === "/dashboard" && TITLES.DASHBOARD}
+          {location.pathname === "/household" && TITLES.HOUSEHOLD}
+          {location.pathname === "/account" && TITLES.ACCOUNT}
         </UiHeader>
         <Button onClick={handleClick} className="header-btns">
           <Icon
@@ -72,7 +73,7 @@ const Header = (props) => {
           />
         </Button>
       </div>
-      <Modal open={pinModal}>
+      <Modal open={pinModal} data-testid="sidebar">
         <Modal.Header>Admin Access</Modal.Header>
         <Modal.Description>
           You must enter the household pin to get access to user settings.
@@ -88,7 +89,7 @@ const Header = (props) => {
           <Button onClick={modalButtonClick} primary content="Submit" />
         </Modal.Content>
       </Modal>
-      <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
+      <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} data-testid="sidebar"/>
       {/* TODO -> background needs to be dimmed when settings is activated */}
     </>
   );
