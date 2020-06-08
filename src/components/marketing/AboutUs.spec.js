@@ -18,3 +18,5 @@ describe("about us page render test", () => {
     expect(getByTestId("span-test")).toHaveClass("ml-2");
   });
 });
+
+describe("about us page button and route test", () => {});
