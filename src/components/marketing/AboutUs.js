@@ -2,15 +2,14 @@ import React from "react";
 import Users from "../../utils/Users";
 import ToolTip from "../../utils/ToolTip";
 import Card from "./Card";
-import ToolTip from "../../utils/ToolTip";
 
 const AboutUs = () => {
   return (
     <div className="flex flex-col m-auto contain">
       <div className="flex">
-        <h2 className="flex p-8 m-auto text-center">
+        <h2 className="flex p-8 m-auto text-center" data-testid="header-test">
           Our Team
-          <span className="ml-2">
+          <span className="ml-2" data-testid="span-test">
             <ToolTip />
           </span>
         </h2>
@@ -30,7 +29,6 @@ const AboutUs = () => {
         </section>
       </div>
     </div>
-
   );
 };
 
