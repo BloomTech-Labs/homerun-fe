@@ -5,10 +5,13 @@ import Card from "./Card";
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col m-auto contain">
-      <div className="flex">
-        <h2 className="flex p-8 m-auto text-center" data-testid="header-test">
-          Our Team
+    <div>
+      <div className="absolute inset-x-0">
+        <h2
+          className="flex justify-center pt-10 pb-8 tablet:pb-5"
+          data-testid="header-test"
+        >
+          Our Team{" "}
           <span className="ml-2" data-testid="span-test">
             <ToolTip />
           </span>
