@@ -16,11 +16,11 @@ const Card = ({ user }) => {
     if (isToggled === false) {
       div.classList.remove("collapse");
       button.classList.add("flip");
-      article.classList.add("open")
+      article.classList.add("open");
     } else {
       div.classList.add("collapse");
       button.classList.remove("flip");
-      article.classList.remove("open")
+      article.classList.remove("open");
     }
   }
 
@@ -51,6 +51,7 @@ const Card = ({ user }) => {
         id={`info-btn${user.id}`}
         onClick={toggleExpand}
         className="pt-2 m-auto text-3xl text-gray-700"
+        data-testid="button-1"
       >
         <i>
           <FontAwesomeIcon icon={faChevronDown} />
