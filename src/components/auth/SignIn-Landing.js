@@ -52,7 +52,6 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Email</label>
                 <input
-                  className=""
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -63,7 +62,6 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Password</label>
                 <input
-                  className=""
                   type="password"
                   placeholder="Password"
                   name="password"
@@ -79,7 +77,7 @@ const SignInLanding = (props) => {
                   Submit
                 </button>
                 <button
-                  className="w-full h-10 px-4 mt-8 bg-gray-300 border rounded shadow-lg tablet:mt-4 font-semiboldtext-gray-700 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
+                  className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
                   onClick={() => props.history.push("/forgot-password")}
                 >
                   Forgot Password
