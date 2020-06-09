@@ -8,8 +8,6 @@ import hero from "../../assets/images/hero.png";
 const Home = () => {
   return (
     <>
-<<<<<<< HEAD
-=======
       <section className="px-20 py-24 desktop:flex desktop:px-28 desktop:py-48">
         <div className="flex justify-center desktop:w-1/2 desktop:justify-end desktop:pr-10">
           <img src={hero} alt="icon of desktop, tablet and cellphone" />
@@ -35,7 +33,6 @@ const Home = () => {
           </div>
         </div>
       </section>
->>>>>>> b6c48c2d9713ac8fe71f0596f4f134c266b955ec
       <section className="max-w-full px-20 desktop:flex desktop:px-64">
         <div className="max-w-2xl p-10 m-auto text-center shadow-lg desktop:px-20">
           <Icon name="list" size="massive" />
