@@ -2,12 +2,15 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Structure from "./Structure";
+import { BrowserRouter as Router } from "react-router-dom";
 
 afterAll(cleanup);
 
-it("Footer class test", () => {
-  const { getByTestId } = render(<Structure />);
-  expect(getByTestId("structure-test-1").classList.contains("class")).toBe(
-    false
+it("Structure class test", () => {
+  const { getByTestId } = render(
+    <Router>
+      <Structure />
+    </Router>
   );
+  expect(getByTestId("structure-test")).toHaveClass("z-0 pt-20 pb-8 pl-8 pr-8");
 });
