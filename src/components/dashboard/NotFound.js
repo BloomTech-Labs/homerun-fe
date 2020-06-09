@@ -15,7 +15,9 @@ const NotFound = () => (
       }}
     />
     <center>
-      <Link to="/">Return to Home Page</Link>
+      <Link data-testid="home-link" to="/">
+        Return to Home Page
+      </Link>
     </center>
   </div>
 );

@@ -11,6 +11,7 @@ const Structure = () => {
         <Routes />
       </main>
       <Footer />
+      <div />
     </>
   );
 };
