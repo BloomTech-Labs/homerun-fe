@@ -14,7 +14,10 @@ const Home = () => {
         </div>
         <div className="desktop:w-1/2">
           <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-5">
-            <h1 className="w-full max-w-2xl text-3xl text-center phone: tablet:text-4xl desktop:text-5x desktop:text-left desktop:max-w-xl">
+            <h1
+              className="w-full max-w-2xl text-3xl text-center phone: tablet:text-4xl desktop:text-5x desktop:text-left desktop:max-w-xl"
+              data-testid="header-test"
+            >
               <span className="text-hive">TidyHive</span> is a home
               organizational tool where members of a household can create,
               assign, and complete tasks. Turn your todos into todones with
@@ -22,13 +25,11 @@ const Home = () => {
             </h1>
           </div>
           <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-10">
-            <button
-              className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:max-w-xs hover:bg-orange-500"
-              data-testid="signup-button"
-            >
+            <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:max-w-xs hover:bg-orange-500">
               <Link
                 to="/signup"
                 className="text-2xl text-white hover:text-white"
+                data-testid="signup-button"
               >
                 Signup for free <Icon name="arrow right" />
               </Link>
@@ -39,19 +40,22 @@ const Home = () => {
       <section className="max-w-full px-20 desktop:flex desktop:px-64">
         <div className="max-w-2xl p-10 m-auto text-center shadow-lg desktop:px-20">
           <Icon name="list" size="massive" />
-          <h2>Create Todos</h2>
+          <h2 data-testid="todos-test">Create Todos</h2>
         </div>
         <div className="max-w-2xl p-10 m-auto mt-20 text-center shadow-lg desktop:mt-0 desktop:px-16">
           <Icon name="add user" size="massive" />
-          <h2>Assign Members</h2>
+          <h2 data-testid="members-test">Assign Members</h2>
         </div>
         <div className="max-w-2xl p-10 m-auto mt-20 text-center shadow-lg desktop:mt-0 desktop:px-16">
           <Icon name="tasks" size="massive" />
-          <h2>Complete Tasks</h2>
+          <h2 data-testid="task-test">Complete Tasks</h2>
         </div>
       </section>
       <section className="flex justify-center px-20 mt-20 mb-24 desktop:m-40">
-        <h2 className="max-w-2xl text-2xl text-center tablet:text-3xl desktop:max-w-full desktop:px-16">
+        <h2
+          className="max-w-2xl text-2xl text-center tablet:text-3xl desktop:max-w-full desktop:px-16"
+          data-testid="content-test"
+        >
           These are the main features that TidyHive has to offer. Keep your
           household organized and everyone on the same page by creating tasks
           and assigning members to those tasks. Often times a majority of the
