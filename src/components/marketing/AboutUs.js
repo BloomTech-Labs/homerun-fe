@@ -1,7 +1,7 @@
-import React from "react";
-import Users from "../../utils/Users";
-import ToolTip from "../../utils/ToolTip";
-import Card from "./Card";
+import React from 'react';
+import Users from '../../utils/Users';
+import ToolTip from '../../utils/ToolTip';
+import Card from './Card';
 
 const AboutUs = () => {
   return (
