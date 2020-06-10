@@ -65,7 +65,7 @@ const Header = (props) => {
           {location.pathname === "/household" && TITLES.HOUSEHOLD}
           {location.pathname === "/account" && TITLES.ACCOUNT}
         </UiHeader>
-        <Button onClick={handleClick} className="header-btns">
+        <Button onClick={handleClick} className="header-btns" data-testid="header-button" >
           <Icon
             className="icons-size"
             size="big"
@@ -73,7 +73,7 @@ const Header = (props) => {
           />
         </Button>
       </div>
-      <Modal open={pinModal} data-testid="sidebar">
+      <Modal open={pinModal} data-testid="pin-modal">
         <Modal.Header>Admin Access</Modal.Header>
         <Modal.Description>
           You must enter the household pin to get access to user settings.
@@ -86,10 +86,10 @@ const Header = (props) => {
             value={pinInput}
             onChange={handleChange}
           />
-          <Button onClick={modalButtonClick} primary content="Submit" />
+          <Button onClick={modalButtonClick} primary content="Submit" data-testid="modal-button" />
         </Modal.Content>
       </Modal>
-      <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} data-testid="sidebar"/>
+      <Sidebar setOpened={setSidebarOpened} opened={sidebarOpened} />
       {/* TODO -> background needs to be dimmed when settings is activated */}
     </>
   );
