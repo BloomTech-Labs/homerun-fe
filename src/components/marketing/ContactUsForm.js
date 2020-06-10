@@ -86,7 +86,10 @@ function ContactUsForm() {
           </p>
         )}
         <div className="flex justify-end w-full">
-          <button className="h-auto px-4 py-2 mt-3 font-semibold tracking-wider text-white rounded-md w-6/6 phone:flex-grow tablet:flex-grow-0 bg-hive hover:bg-orange-500">
+          <button
+            className="h-auto px-4 py-2 mt-3 font-semibold tracking-wider text-white rounded-md w-6/6 phone:flex-grow tablet:flex-grow-0 bg-hive hover:bg-orange-500"
+            data-testid="submit-test"
+          >
             Submit
           </button>
         </div>
