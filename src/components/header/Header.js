@@ -5,52 +5,44 @@ import { useLocation } from "react-router-dom";
 import actions from "../../actions/index.js";
 import TITLES from "./HeaderTitles";
 
-import {
-  Header as UiHeader,
-  Icon,
-  Button,
-  Modal,
-  Input,
-} from "semantic-ui-react";
-
-import logo from "../../assets/images/tidyhive-standalone.png";
+import { Header as UiHeader, Icon, Button, Modal, Input } from 'semantic-ui-react';
 
 const Header = (props) => {
-  const [pinInput, setPinInput] = useState("");
-  const [pinModal, setPinModal] = useState(false);
-  // location is an object that contains the current url path on the 'pathname' property
-  const location = useLocation();
-  const [sidebarOpened, setSidebarOpened] = useState(false);
-  const currentUser = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+	const [pinInput, setPinInput] = useState('');
+	const [pinModal, setPinModal] = useState(false);
+	// location is an object that contains the current url path on the 'pathname' property
+	const location = useLocation();
+	const [sidebarOpened, setSidebarOpened] = useState(false);
+	const currentUser = useSelector((state) => state.user);
+	const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (currentUser.childActive === true) {
-      setSidebarOpened(false);
-    }
-  }, [currentUser]);
+	useEffect(() => {
+		if (currentUser.childActive === true) {
+			setSidebarOpened(false);
+		}
+	}, [currentUser]);
 
-  // handles what happens when a user clicks on the settings icon or the lock icon when it is a child
-  const handleClick = () => {
-    if (currentUser.childActive === true) {
-      setPinModal(true);
-    } else {
-      setSidebarOpened(!sidebarOpened);
-    }
-  };
+	// handles what happens when a user clicks on the settings icon or the lock icon when it is a child
+	const handleClick = () => {
+		if (currentUser.childActive === true) {
+			setPinModal(true);
+		} else {
+			setSidebarOpened(!sidebarOpened);
+		}
+	};
 
-  const handleChange = (e) => {
-    e.persist();
-    setPinInput(e.target.value);
-  };
+	const handleChange = (e) => {
+		e.persist();
+		setPinInput(e.target.value);
+	};
 
-  const modalButtonClick = () => {
-    // dispatch action for checking pin and changing the child boolean in state to false
-    dispatch(actions.user.setChildActive(false));
-    console.log(pinInput);
-    setPinInput("");
-    setPinModal(false);
-  };
+	const modalButtonClick = () => {
+		// dispatch action for checking pin and changing the child boolean in state to false
+		dispatch(actions.user.setChildActive(false));
+		console.log(pinInput);
+		setPinInput('');
+		setPinModal(false);
+	};
 
   return (
     <>
