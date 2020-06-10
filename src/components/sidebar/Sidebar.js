@@ -19,6 +19,7 @@ const Sidebar = (props) => {
       visible={opened}
       width="wide"
       onHide={() => setOpened(false)}
+      data-testid="sidebar"
     >
       <span
         className="close-sidebar"
@@ -26,6 +27,7 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
         style={{ position: "absolute", top: "79px", right: "48px" }}
+        data-testid="close-button"
       >
         <span
           className="bm-cross"
@@ -52,13 +54,13 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
       >
-        <Menu.Item name="Account" as={NavLink} to="/dashboard">
+        <Menu.Item name="Account" as={NavLink} to="/dashboard" data-testid="link-dashboard">
           Dashboard
         </Menu.Item>
-        <Menu.Item name="Household" as={NavLink} to="/household">
+        <Menu.Item name="Household" as={NavLink} to="/household" data-testid="link-household">
           Household
         </Menu.Item>
-        <Menu.Item name="Account" as={NavLink} to="/account">
+        <Menu.Item name="Account" as={NavLink} to="/account" data-testid="link-account">
           Account
         </Menu.Item>
         <Button
@@ -69,6 +71,7 @@ const Sidebar = (props) => {
             localStorage.removeItem("state");
             history.push("/signin");
           }}
+          data-testid="logout-btn"
         >
           Logout
         </Button>
