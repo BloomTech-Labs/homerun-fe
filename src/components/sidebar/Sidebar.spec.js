@@ -64,7 +64,10 @@ describe("Sidebar", () => {
             </Router>
         );
         const close = sidebar.getByTestId(/close-button/);
+        mock_setOpened.mockReset();
         fireEvent.click(close);
+        expect(mock_setOpened).toHaveBeenCalledTimes(1);
+        expect(mock_setOpened).toHaveBeenCalledWith(false);
         expect(mock_opened).toBe(false);
     });
 });
