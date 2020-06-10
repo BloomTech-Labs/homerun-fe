@@ -8,6 +8,31 @@ import hero from "../../assets/images/hero.png";
 const Home = () => {
   return (
     <>
+      <section className="px-20 py-24 desktop:flex desktop:px-28 desktop:py-48">
+        <div className="flex justify-center desktop:w-1/2 desktop:justify-end desktop:pr-10">
+          <img src={hero} alt="icon of desktop, tablet and cellphone" />
+        </div>
+        <div className="desktop:w-1/2">
+          <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-5">
+            <h1 className="w-full max-w-2xl text-3xl text-center phone: tablet:text-4xl desktop:text-5x desktop:text-left desktop:max-w-xl">
+              <span className="text-hive">TidyHive</span> is a home
+              organizational tool where members of a household can create,
+              assign, and complete tasks. Turn your todos into todones with
+              TidyHive today!
+            </h1>
+          </div>
+          <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-10">
+            <button className="w-full h-20 max-w-2xl py-4 font-bold border rounded shadow-lg tablet:px-6 bg-hive desktop:max-w-xs hover:bg-orange-500">
+              <Link
+                to="/signup"
+                className="text-2xl text-white hover:text-white"
+              >
+                Signup for free <Icon name="arrow right" />
+              </Link>
+            </button>
+          </div>
+        </div>
+      </section>
       <section className="max-w-full px-20 desktop:flex desktop:px-64">
         <div className="max-w-2xl p-10 m-auto text-center shadow-lg desktop:px-20">
           <Icon name="list" size="massive" />

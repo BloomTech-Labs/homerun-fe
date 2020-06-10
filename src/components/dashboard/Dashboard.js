@@ -5,7 +5,7 @@ import CategoryTabs from "./Categories/CategoryTabs.js";
 
 const Dashboard = (props) => {
   return (
-    <section className="ui container">
+    <section data-testid="container-section" className="ui container">
       <CategoryTabs />
       <TodoList />
     </section>
