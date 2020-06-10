@@ -7,6 +7,8 @@ import TITLES from "./HeaderTitles";
 
 import { Header as UiHeader, Icon, Button, Modal, Input } from 'semantic-ui-react';
 
+import logo from "../../assets/images/tidyhive-standalone.png";
+
 const Header = (props) => {
 	const [pinInput, setPinInput] = useState('');
 	const [pinModal, setPinModal] = useState(false);
