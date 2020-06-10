@@ -19,6 +19,7 @@ const Sidebar = (props) => {
       visible={opened}
       width="wide"
       onHide={() => setOpened(false)}
+      data-testid="sidebar"
     >
       <span
         className="close-sidebar"
