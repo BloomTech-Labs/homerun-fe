@@ -62,7 +62,7 @@ const Sidebar = (props) => {
           Account
         </Menu.Item>
         <Button
-          className="logout-btn"
+          className="logout-btn hive"
           primary
           onClick={() => {
             localStorage.removeItem("token");
