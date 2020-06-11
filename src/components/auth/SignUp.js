@@ -45,6 +45,7 @@ const SignUp = (props) => {
               <Form.Field>
                 <label>Username</label>
                 <input
+                  data-testid="input-1"
                   type="text"
                   placeholder="Username"
                   name="username"
@@ -82,6 +83,7 @@ const SignUp = (props) => {
                 <button
                   type="submit"
                   className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
+                  data-testid="submit-signup"
                 >
                   Submit
                 </button>
