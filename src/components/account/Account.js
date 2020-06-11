@@ -4,7 +4,7 @@ import ChildAccountDropdown from "./ChildAccountDropdown";
 
 const Account = () => {
   return (
-    <div className="account container">
+    <div data-testid="container" className="account container">
       <Row style={{ margin: "50px 0" }}>
         <Col span={24}>
           <h3>Switch to a Child Account</h3>

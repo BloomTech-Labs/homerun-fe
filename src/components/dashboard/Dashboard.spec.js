@@ -1,5 +1,5 @@
 import React from "react";
-import { render, getByText } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Dashboard from "./Dashboard";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
