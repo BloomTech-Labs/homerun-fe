@@ -22,7 +22,7 @@ const List = () => {
   }, []);
 
   return (
-    <div>
+    <div data-testid="list">
       <UiList selection verticalAlign="middle">
         {household.members.map((member) => {
           return <Name key={member.username} name={member.username} />;
