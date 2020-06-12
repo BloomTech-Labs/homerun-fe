@@ -1,21 +1,37 @@
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-
-import Signin from "./SignIn-Landing.js";
-
+import { render, fireEvent, cleanup } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import SignInLanding from "./SignIn-Landing";
 import { Provider } from "react-redux";
-import configRedux from "../../configRedux.js";
+import configRedux from "../../configRedux";
 
+afterAll(cleanup);
 const store = configRedux();
 
-describe("testing for signin landing component", () => {
-  describe("signin btn", () => {
-    it("should exist", () => {
-      // const { getByText } = render(<Router><Provider store={store}><Signin /></Provider></Router>);
-      //             const button = getByText(/Submit/i);
-      //             expect(button).toBeDefined();
-    });
+describe("signin functionality test", () => {
+  it("changing email values", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Provider store={store}>
+          <SignInLanding />
+        </Provider>
+      </Router>
+    );
+    const emailInput = getByTestId("email");
+    fireEvent.change(emailInput, { target: { value: "test-1" } });
+    expect(emailInput.value).toBe("test-1");
+  });
+  it("changing password values", () => {
+    const { getByTestId } = render(
+      <Router>
+        <Provider store={store}>
+          <SignInLanding />
+        </Provider>
+      </Router>
+    );
+    const passwordInput = getByTestId("password");
+    fireEvent.change(passwordInput, { target: { value: "test-2" } });
+    expect(passwordInput.value).toBe("test-2");
   });
 });

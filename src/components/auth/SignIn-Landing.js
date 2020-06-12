@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import actions from "../../actions";
+import "mutationobserver-shim";
 
 const googleAuth = () => {
   window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
@@ -52,6 +53,7 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Email</label>
                 <input
+                  data-testid="email"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -62,6 +64,7 @@ const SignInLanding = (props) => {
               <Form.Field>
                 <label>Password</label>
                 <input
+                  data-testid="password"
                   type="password"
                   placeholder="Password"
                   name="password"
