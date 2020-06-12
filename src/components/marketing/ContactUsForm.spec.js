@@ -1,9 +1,8 @@
-import ContactUsForm from "./ContactUsForm";
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import ContactUsForm from "./ContactUsForm";
 afterAll(cleanup);
 
 describe("Contact Form rendering", () => {
