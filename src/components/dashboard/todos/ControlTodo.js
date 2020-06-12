@@ -85,9 +85,9 @@ const ControlTodo = () => {
         </Form>
       </Modal>
       <button
-        className="ui button blue circular"
+        className="ui button orange circular"
         onClick={handleModal}
-        style={{ position: "fixed", bottom: 20, right: 20 }}
+        style={{ position: "fixed", bottom: 55, right: 20 }}
       >
         <Icon name="plus" />
         {`${categoryTitles[category]} Todo`}

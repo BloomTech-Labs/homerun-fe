@@ -32,7 +32,7 @@ const List = () => {
         open={memberModal}
         onClose={() => setMemberModal(false)}
         trigger={
-          <Button primary onClick={() => setMemberModal(true)}>
+          <Button onClick={() => setMemberModal(true)}>
             Invite Member
           </Button>
         }

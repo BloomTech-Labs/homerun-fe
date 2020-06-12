@@ -48,6 +48,11 @@
   width: 90%;
   margin-left: 6%;
   margin-top: 20px;
+  background-color: $hive;
+}
+
+.ui.primary.button.logout-btn:hover {
+  background: darken($hive, 10);
 }
 
 .close-sidebar {
