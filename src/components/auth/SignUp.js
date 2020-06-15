@@ -4,6 +4,7 @@ import { Divider, Loader, Dimmer } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import "mutationobserver-shim";
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,10 +29,16 @@ const SignUp = (props) => {
     <>
       <section className="flex flex-col items-center justify-center h-full">
         <div className="py-4 mt-4 text-center">
-          <h2 className="text-3xl text-gray-700 text-l bold mobile:text-4xl tablet:text-4xl">
+          <h2
+            className="text-3xl text-gray-700 text-l bold mobile:text-4xl tablet:text-4xl"
+            data-testid="header-test"
+          >
             Welcome to <span className="text-hive">TidyHive!</span>
           </h2>
-          <p className="text-xl text-gray-600 mobile:text-2xl tablet:text-2xl">
+          <p
+            className="text-xl text-gray-600 mobile:text-2xl tablet:text-2xl"
+            data-testid="sfa-test"
+          >
             Sign up for an account
           </p>
         </div>
@@ -45,6 +52,7 @@ const SignUp = (props) => {
               <Form.Field>
                 <label>Username</label>
                 <input
+                  data-testid="username"
                   type="text"
                   placeholder="Username"
                   name="username"
@@ -55,6 +63,7 @@ const SignUp = (props) => {
               <Form.Field>
                 <label>Email</label>
                 <input
+                  data-testid="email"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -65,6 +74,7 @@ const SignUp = (props) => {
               <Form.Field>
                 <label>Password</label>
                 <input
+                  data-testid="password"
                   type="password"
                   placeholder="Password"
                   name="password"
@@ -82,12 +92,16 @@ const SignUp = (props) => {
                 <button
                   type="submit"
                   className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
+                  data-testid="submit-signup"
                 >
                   Submit
                 </button>
               </div>
               <div className="mt-4 text-center">
-                <p className="py-4 text-sm text-gray-700 phone:text-base">
+                <p
+                  className="py-4 text-sm text-gray-700 phone:text-base"
+                  data-testid="aha-test"
+                >
                   Already have an account?{" "}
                   <Link
                     className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
