@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import AboutUsDraft from "./AboutUsDraft";
+import React from 'react';
+import styled from 'styled-components';
+import AboutUsDraft from './AboutUsDraft';
 
 const AboutUsSummary = () => {
   //Summary page

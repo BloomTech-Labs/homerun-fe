@@ -1,13 +1,13 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../actions/";
-import { Menu } from "semantic-ui-react";
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../../../actions/';
+import { Menu } from 'semantic-ui-react';
 
-import Tab from "./Tab.js";
+import Tab from './Tab.js';
 
 const CategoryTabs = () => {
-  const [active, setActive] = useState("all");
+  const [active, setActive] = useState('all');
   const [counts, setCounts] = useState({});
   const dispatch = useDispatch();
   const state = useSelector((state) => state.todos.todos);
@@ -24,13 +24,13 @@ const CategoryTabs = () => {
     if (state) {
       setCounts({
         living_room: state.filter((todo) =>
-          todo.categories.includes("living_room")
+          todo.categories.includes('living_room')
         ).length,
-        bedroom: state.filter((todo) => todo.categories.includes("bedroom"))
+        bedroom: state.filter((todo) => todo.categories.includes('bedroom'))
           .length,
-        kitchen: state.filter((todo) => todo.categories.includes("kitchen"))
+        kitchen: state.filter((todo) => todo.categories.includes('kitchen'))
           .length,
-        bathroom: state.filter((todo) => todo.categories.includes("bathroom"))
+        bathroom: state.filter((todo) => todo.categories.includes('bathroom'))
           .length,
       });
     }
@@ -41,31 +41,31 @@ const CategoryTabs = () => {
       <Menu pointing secondary>
         <Tab
           name="all"
-          active={active === "all"}
+          active={active === 'all'}
           handleClick={handleClick}
           counts={0}
         />
         <Tab
           name="living_room"
-          active={active === "living_room"}
+          active={active === 'living_room'}
           handleClick={handleClick}
           counts={counts.living_room}
         />
         <Tab
           name="bedroom"
-          active={active === "bedroom"}
+          active={active === 'bedroom'}
           handleClick={handleClick}
           counts={counts.bedroom}
         />
         <Tab
           name="kitchen"
-          active={active === "kitchen"}
+          active={active === 'kitchen'}
           handleClick={handleClick}
           counts={counts.kitchen}
         />
         <Tab
           name="bathroom"
-          active={active === "bathroom"}
+          active={active === 'bathroom'}
           handleClick={handleClick}
           counts={counts.bathroom}
         />

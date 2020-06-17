@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Error404 from "../../assets/images/Error.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Error404 from '../../assets/images/Error.png';
 
 const NotFound = () => (
   <div>
@@ -9,9 +9,9 @@ const NotFound = () => (
       style={{
         width: 400,
         height: 400,
-        display: "block",
-        margin: "auto",
-        position: "relative",
+        display: 'block',
+        margin: 'auto',
+        position: 'relative',
       }}
     />
     <center>

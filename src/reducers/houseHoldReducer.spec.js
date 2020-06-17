@@ -1,27 +1,27 @@
 import {
   ADD_CHILD,
   FETCH_MEMBERS_SUCCESS,
-} from "../actions/houseHoldActions.js";
-import householdReducer from "./houseHoldReducer.js";
+} from '../actions/houseHoldActions.js';
+import householdReducer from './houseHoldReducer.js';
 
 const initialState = {
   members: [],
-  error: "",
+  error: '',
   loading: false,
 };
 
-describe("household reducer", () => {
-  it("should return the inital state", () => {
+describe('household reducer', () => {
+  it('should return the inital state', () => {
     expect(householdReducer(undefined, {})).toEqual(initialState);
   });
 
-  it("should handle ADD_CHILD action", () => {
+  it('should handle ADD_CHILD action', () => {
     const actionPayload = {
       id: 5,
-      username: "new child",
+      username: 'new child',
       points: null,
       child: true,
-      household_id: "4cfd47",
+      household_id: '4cfd47',
     };
     expect(
       householdReducer(initialState, {
@@ -33,26 +33,26 @@ describe("household reducer", () => {
       members: [
         {
           id: 5,
-          username: "new child",
+          username: 'new child',
           points: null,
           child: true,
-          household_id: "4cfd47",
+          household_id: '4cfd47',
         },
       ],
     });
   });
 
-  it("should handle the FETCH_MEMBERS_SUCCESS action", () => {
+  it('should handle the FETCH_MEMBERS_SUCCESS action', () => {
     const actionPayload = [
       {
         id: 3,
-        username: "Micah",
-        email: "micah@testing.com",
+        username: 'Micah',
+        email: 'micah@testing.com',
         points: null,
       },
       {
         id: 5,
-        username: "new child",
+        username: 'new child',
         points: null,
         child: true,
       },
@@ -66,18 +66,18 @@ describe("household reducer", () => {
       members: [
         {
           id: 3,
-          username: "Micah",
-          email: "micah@testing.com",
+          username: 'Micah',
+          email: 'micah@testing.com',
           points: null,
         },
         {
           id: 5,
-          username: "new child",
+          username: 'new child',
           points: null,
           child: true,
         },
       ],
-      error: "",
+      error: '',
       loading: false,
     });
   });

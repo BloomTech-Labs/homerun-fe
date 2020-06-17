@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Name from "./Name";
+import React, { useState, useEffect } from 'react';
+import Name from './Name';
 
-import { useSelector, useDispatch } from "react-redux";
-import actions from "../../actions/index";
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../../actions/index';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
-import { Button, Modal, List as UiList } from "semantic-ui-react";
-import AddChild from "./AddChild.js";
-import InviteMember from "./InviteMember.js";
+import { Button, Modal, List as UiList } from 'semantic-ui-react';
+import AddChild from './AddChild.js';
+import InviteMember from './InviteMember.js';
 
 const List = () => {
   const [childModal, setChildModal] = useState(false);
@@ -32,9 +32,7 @@ const List = () => {
         open={memberModal}
         onClose={() => setMemberModal(false)}
         trigger={
-          <Button onClick={() => setMemberModal(true)}>
-            Invite Member
-          </Button>
+          <Button onClick={() => setMemberModal(true)}>Invite Member</Button>
         }
         content={<InviteMember setModal={setMemberModal} />}
       ></Modal>
@@ -43,7 +41,7 @@ const List = () => {
         onClose={() => setChildModal(false)}
         trigger={
           <Button
-            className={"addChild-btn"}
+            className={'addChild-btn'}
             onClick={() => setChildModal(true)}
           >
             Add Child

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { List, Icon } from "semantic-ui-react";
+import { List, Icon } from 'semantic-ui-react';
 
 const SwipeLeft = () => {
   return (

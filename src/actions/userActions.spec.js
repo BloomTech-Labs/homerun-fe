@@ -1,7 +1,7 @@
-import configureMockStore from "redux-mock-store";
-import userActions from "./userActions";
-import thunk from "redux-thunk";
-import moxios from "moxios";
+import configureMockStore from 'redux-mock-store';
+import userActions from './userActions';
+import thunk from 'redux-thunk';
+import moxios from 'moxios';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,22 +13,22 @@ beforeEach(() => {
 });
 afterEach(() => moxios.uninstall());
 
-describe("User actions testing", () => {
-  describe("Set user actions", () => {
-    it("returns proper actions on success", () => {
-      const expectedActions = [{ type: "SET_USER", payload: "user" }];
+describe('User actions testing', () => {
+  describe('Set user actions', () => {
+    it('returns proper actions on success', () => {
+      const expectedActions = [{ type: 'SET_USER', payload: 'user' }];
 
-      store.dispatch(userActions.setUser("user"));
+      store.dispatch(userActions.setUser('user'));
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  describe("Change user actions", () => {
-    it("returns proper actions if child exists within user object", () => {
+  describe('Change user actions', () => {
+    it('returns proper actions if child exists within user object', () => {
       const expectedActions = [
-        { type: "SET_USER", payload: { child: "exists" } },
+        { type: 'SET_USER', payload: { child: 'exists' } },
       ];
 
-      store.dispatch(userActions.changeUser({ child: "exists" }));
+      store.dispatch(userActions.changeUser({ child: 'exists' }));
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

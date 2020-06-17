@@ -22,7 +22,7 @@ jobs:
       # A GitHub action to setup Node.js
       - uses: actions/setup-node@master
         with:
-          node-version: "12"
+          node-version: '12'
 
       # Run the NPM install command before proceeding
       - run: npm install

@@ -1,8 +1,8 @@
-import React from "react";
-import { Button, Form, Loader, Dimmer } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "../../actions";
+import React from 'react';
+import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../../actions';
 
 const InviteMember = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -31,7 +31,7 @@ const InviteMember = (props) => {
             placeholder="user@email.com"
             ref={register}
           />
-          {stateError && <p className={"error"}>{stateError}</p>}
+          {stateError && <p className={'error'}>{stateError}</p>}
         </Form.Field>
         <Button primary type="submit">
           Invite

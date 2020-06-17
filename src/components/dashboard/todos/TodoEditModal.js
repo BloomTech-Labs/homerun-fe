@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import { Button, Modal, Form } from "semantic-ui-react";
-import { useDispatch } from "react-redux";
-import actions from "../../../actions/index.js";
+import React, { useState } from 'react';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import { Button, Modal, Form } from 'semantic-ui-react';
+import { useDispatch } from 'react-redux';
+import actions from '../../../actions/index.js';
 
 dayjs.extend(advancedFormat);
 
@@ -30,7 +30,7 @@ const TodoEditModal = ({ todo, open, setOpened }) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <Modal.Header>{`Edit Todo`}</Modal.Header>
-      <Form onSubmit={handleSubmit} style={{ padding: "30px" }}>
+      <Form onSubmit={handleSubmit} style={{ padding: '30px' }}>
         <Form.Input
           name="title"
           onChange={handleChange}

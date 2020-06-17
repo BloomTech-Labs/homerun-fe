@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Dropdown } from "semantic-ui-react";
-import actions from "../../actions";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Dropdown } from 'semantic-ui-react';
+import actions from '../../actions';
 
 const ChildAccountDropdown = () => {
   const members = useSelector((state) => state.household.members);
@@ -17,8 +17,8 @@ const ChildAccountDropdown = () => {
       });
     children.unshift({
       key: 99,
-      text: "Please select a child.",
-      value: "Please select a child.",
+      text: 'Please select a child.',
+      value: 'Please select a child.',
     });
 
     setOptions(children);
@@ -26,7 +26,7 @@ const ChildAccountDropdown = () => {
 
   const handleChange = (event, { value }) => {
     event.persist();
-    if (value !== "Please select a child.") {
+    if (value !== 'Please select a child.') {
       setDropDownValue(value);
       const [user] = members.filter((user) => value === user.username);
       dispatch(actions.user.setChild(user));

@@ -1,11 +1,11 @@
-import React from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import React from 'react';
+import { useHistory, NavLink } from 'react-router-dom';
 import {
   Sidebar as SemSidebar,
   Segment,
   Menu,
   Button,
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 const Sidebar = (props) => {
   const { opened, setOpened } = props;
@@ -26,25 +26,25 @@ const Sidebar = (props) => {
         onClick={() => {
           setOpened(false);
         }}
-        style={{ position: "absolute", top: "79px", right: "48px" }}
+        style={{ position: 'absolute', top: '79px', right: '48px' }}
         data-testid="close-button"
       >
         <span
           className="bm-cross"
           style={{
-            position: "absolute",
-            width: "3px",
-            height: "14px",
-            transform: "rotate(45deg)",
+            position: 'absolute',
+            width: '3px',
+            height: '14px',
+            transform: 'rotate(45deg)',
           }}
         ></span>
         <span
           className="bm-cross"
           style={{
-            position: "absolute",
-            width: "3px",
-            height: "14px",
-            transform: "rotate(-45deg)",
+            position: 'absolute',
+            width: '3px',
+            height: '14px',
+            transform: 'rotate(-45deg)',
           }}
         ></span>
       </span>
@@ -54,22 +54,37 @@ const Sidebar = (props) => {
           setOpened(false);
         }}
       >
-        <Menu.Item name="Account" as={NavLink} to="/dashboard" data-testid="link-dashboard">
+        <Menu.Item
+          name="Account"
+          as={NavLink}
+          to="/dashboard"
+          data-testid="link-dashboard"
+        >
           Dashboard
         </Menu.Item>
-        <Menu.Item name="Household" as={NavLink} to="/household" data-testid="link-household">
+        <Menu.Item
+          name="Household"
+          as={NavLink}
+          to="/household"
+          data-testid="link-household"
+        >
           Household
         </Menu.Item>
-        <Menu.Item name="Account" as={NavLink} to="/account" data-testid="link-account">
+        <Menu.Item
+          name="Account"
+          as={NavLink}
+          to="/account"
+          data-testid="link-account"
+        >
           Account
         </Menu.Item>
         <Button
           className="logout-btn hive"
           primary
           onClick={() => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("state");
-            history.push("/signin");
+            localStorage.removeItem('token');
+            localStorage.removeItem('state');
+            history.push('/signin');
           }}
           data-testid="logout-btn"
         >

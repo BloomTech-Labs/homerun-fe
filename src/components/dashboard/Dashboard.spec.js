@@ -1,14 +1,14 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import Dashboard from "./Dashboard";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import configRedux from "../../configRedux";
+import React from 'react';
+import { render } from '@testing-library/react';
+import Dashboard from './Dashboard';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configRedux from '../../configRedux';
 
 const store = configRedux();
 
-describe("Dashboard tests", () => {
-  it("renders successfully", () => {
+describe('Dashboard tests', () => {
+  it('renders successfully', () => {
     render(
       <Router>
         <Provider store={store}>
@@ -17,7 +17,7 @@ describe("Dashboard tests", () => {
       </Router>
     );
   });
-  it("contains correct classes in container section", () => {
+  it('contains correct classes in container section', () => {
     const { getByTestId } = render(
       <Router>
         <Provider store={store}>
@@ -26,6 +26,6 @@ describe("Dashboard tests", () => {
       </Router>
     );
 
-    expect(getByTestId("container-section").className).toBe("ui container");
+    expect(getByTestId('container-section').className).toBe('ui container');
   });
 });

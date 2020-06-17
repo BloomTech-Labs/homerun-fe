@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Dropdown } from "semantic-ui-react";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Dropdown } from 'semantic-ui-react';
 
-import actions from "../../actions";
+import actions from '../../actions';
 
 const HouseholdSettings = () => {
   const members = useSelector((state) => state.household.members);
@@ -11,7 +11,7 @@ const HouseholdSettings = () => {
   const [dropDownValue, setDropDownValue] = useState();
   const [options, setOptions] = useState([]);
 
-  console.log("HouseholdSettings -> currentUser", currentUser);
+  console.log('HouseholdSettings -> currentUser', currentUser);
   useEffect(() => {
     const children = members
       .filter((member) => member.child)

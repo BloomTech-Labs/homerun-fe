@@ -1,12 +1,12 @@
-import React from "react";
-import TooltipTrigger from "react-popper-tooltip";
-import InfoIcon from "@material-ui/icons/Info";
+import React from 'react';
+import TooltipTrigger from 'react-popper-tooltip';
+import InfoIcon from '@material-ui/icons/Info';
 function Trigger({ getTriggerProps, triggerRef }) {
   return (
     <div
       {...getTriggerProps({
         ref: triggerRef,
-        className: "trigger",
+        className: 'trigger',
       })}
     >
       <div className="icon">
@@ -26,14 +26,14 @@ function Tooltip({
     <div
       {...getTooltipProps({
         ref: tooltipRef,
-        className: "tooltip-container",
+        className: 'tooltip-container',
       })}
     >
       <div
         {...getArrowProps({
           ref: arrowRef,
-          "data-placement": placement,
-          className: "tooltip-arrow",
+          'data-placement': placement,
+          className: 'tooltip-arrow',
         })}
       />
       <p className="px-3 py-1 mt-1 mr-32 font-semibold tracking-wide text-gray-700 bg-gray-200 rounded shadow-lg tooltip-body">
@@ -46,7 +46,7 @@ function ToolTip() {
   return (
     <TooltipTrigger
       placement="bottom"
-      trigger={["click", "hover"]}
+      trigger={['click', 'hover']}
       tooltip={Tooltip}
     >
       {Trigger}

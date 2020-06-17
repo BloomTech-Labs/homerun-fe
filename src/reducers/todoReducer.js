@@ -1,38 +1,38 @@
 const initalState = {
   todos: [],
-  currentCategory: "all",
+  currentCategory: 'all',
 };
 const todoReducer = (state = initalState, action) => {
   switch (action.type) {
-    case "FETCH_TODOS":
+    case 'FETCH_TODOS':
       return {
         ...state,
         todos:
-          state.currentCategory === "all"
+          state.currentCategory === 'all'
             ? action.payload
             : action.payload.filter((todo) =>
                 todo.categories.includes(state.currentCategory)
               ),
       };
 
-    case "ADD_TODO":
+    case 'ADD_TODO':
       return {
         ...state,
         todos: [...state.todos, action.payload],
       };
 
-    case "REMOVE_TODO":
+    case 'REMOVE_TODO':
       return {
         ...state,
         todos:
-          state.currentCategory === "all"
+          state.currentCategory === 'all'
             ? action.payload
             : action.payload.filter((todo) =>
                 todo.categories.includes(state.currentCategory)
               ),
       };
 
-    case "UPDATE_ASSIGNEES":
+    case 'UPDATE_ASSIGNEES':
       return {
         ...state,
         todos: state.todos.map((obj) =>
@@ -42,7 +42,7 @@ const todoReducer = (state = initalState, action) => {
         ),
       };
 
-    case "UPDATE_TODO":
+    case 'UPDATE_TODO':
       return {
         ...state,
         todos: state.todos.map((obj) =>
@@ -50,13 +50,13 @@ const todoReducer = (state = initalState, action) => {
         ),
       };
 
-    case "UPDATE_CATEGORY":
+    case 'UPDATE_CATEGORY':
       return {
         ...state,
         currentCategory: action.payload,
       };
 
-    case "ADD_CATEGORY":
+    case 'ADD_CATEGORY':
       return {
         ...state,
         todos: state.todos.map((todo) =>

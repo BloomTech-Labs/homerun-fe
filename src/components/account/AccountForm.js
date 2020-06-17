@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Button, Form } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { Button, Form } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 
 const AccountForm = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -19,7 +19,7 @@ const AccountForm = () => {
           placeholder="Email"
           name="email"
           value={currentUser.username}
-          ref={register({ required: "Email is invalid." })}
+          ref={register({ required: 'Email is invalid.' })}
         />
         {errors.email && <p>{errors.email.message}</p>}
       </Form.Field>
@@ -29,7 +29,7 @@ const AccountForm = () => {
           type="password"
           placeholder="Password"
           name="password"
-          ref={register({ required: "Password is invalid." })}
+          ref={register({ required: 'Password is invalid.' })}
         />
         {errors.password && <p>{errors.password.message}</p>}
       </Form.Field>
