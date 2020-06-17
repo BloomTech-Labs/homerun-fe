@@ -7,13 +7,13 @@ const intialState = {
 
 const userReducer = (state = intialState, action) => {
   switch (action.type) {
-    case "SET_USER":
+    case 'SET_USER':
       return { ...state, userInfo: action.payload, loading: false };
 
-    case "SET_CHILD":
+    case 'SET_CHILD':
       return { ...state, userChild: action.payload, loading: false };
 
-    case "CHILD_ACTIVE":
+    case 'CHILD_ACTIVE':
       return { ...state, loading: false, childActive: action.payload };
 
     default:

@@ -1,8 +1,8 @@
-import React from "react";
-import { Button, Form } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import actions from "../../actions";
+import React from 'react';
+import { Button, Form } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
 
 const AddChild = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -20,10 +20,10 @@ const AddChild = (props) => {
         <input
           name="username"
           placeholder="Child's Name"
-          ref={register({ required: "Please give the child a name." })}
+          ref={register({ required: 'Please give the child a name.' })}
         />
         {errors.username && (
-          <p className={"error"}>{errors.username.message}</p>
+          <p className={'error'}>{errors.username.message}</p>
         )}
       </Form.Field>
       <Button primary type="submit">

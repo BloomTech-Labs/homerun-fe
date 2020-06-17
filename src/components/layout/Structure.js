@@ -1,8 +1,8 @@
-import React from "react";
-import Navigation from "./Navigation";
-import Footer from "./Footer";
-import Routes from "../../utils/Routes";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import Navigation from './Navigation';
+import Footer from './Footer';
+import Routes from '../../utils/Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const Structure = () => {
   return (

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import DatePicker from "../../../utils/DatePicker.js";
-import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import { Button, Modal, Form, Icon } from "semantic-ui-react";
-import { useSelector, useDispatch } from "react-redux";
-import actions from "../../../actions/index.js";
+import React, { useState } from 'react';
+import DatePicker from '../../../utils/DatePicker.js';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import { Button, Modal, Form, Icon } from 'semantic-ui-react';
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../../../actions/index.js';
 
 dayjs.extend(advancedFormat);
 
 const ControlTodo = () => {
   const [info, setInfo] = useState({
-    title: "",
-    desc: "",
+    title: '',
+    desc: '',
     due: dayjs().unix(),
     completed: false,
     created_at: dayjs().unix(),
@@ -19,11 +19,11 @@ const ControlTodo = () => {
 
   const category = useSelector((state) => state.todos.currentCategory);
   const categoryTitles = {
-    all: "",
-    kitchen: "Kitchen",
-    living_room: "Living Room",
-    bedroom: "Bedroom",
-    bathroom: "Bathroom",
+    all: '',
+    kitchen: 'Kitchen',
+    living_room: 'Living Room',
+    bedroom: 'Bedroom',
+    bathroom: 'Bathroom',
   };
   const dispatch = useDispatch();
 
@@ -59,7 +59,7 @@ const ControlTodo = () => {
         <Modal.Header>
           {`Add a New ${categoryTitles[category]} Todo`}
         </Modal.Header>
-        <Form onSubmit={handleSubmit} style={{ padding: "30px" }}>
+        <Form onSubmit={handleSubmit} style={{ padding: '30px' }}>
           <Form.Input
             name="title"
             onChange={handleChange}
@@ -87,7 +87,7 @@ const ControlTodo = () => {
       <button
         className="ui button orange circular"
         onClick={handleModal}
-        style={{ position: "fixed", bottom: 55, right: 20 }}
+        style={{ position: 'fixed', bottom: 55, right: 20 }}
       >
         <Icon name="plus" />
         {`${categoryTitles[category]} Todo`}

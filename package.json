@@ -1,6 +1,12 @@
 {
   "name": "cra",
   "version": "0.1.0",
+  "eslintIgnore": [
+    "*.spec.ts",
+    "*.spec.js",
+    "*.test.ts",
+    "*.test.js"
+  ],
   "private": true,
   "engines": {
     "node": "12.16.1",
@@ -24,9 +30,14 @@
     "cssnano": "^4.1.10",
     "dayjs": "^1.8.24",
     "dotenv": "^8.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
     "mutationobserver-shim": "^0.3.7",
     "node-sass": "^4.13.1",
     "npm-watch": "^0.6.0",
+    "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
     "query-string": "^6.11.1",
     "rc-picker": "^1.4.9",
@@ -54,6 +65,9 @@
     "build:css": "src/components/**/*.js"
   },
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "start": "react-scripts start",
     "watch": "npm-watch",
     "build": "npm run build:css && node --max_old_space_size=2560 node_modules/.bin/react-scripts build",

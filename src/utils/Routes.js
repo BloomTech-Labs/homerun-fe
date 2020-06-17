@@ -1,47 +1,47 @@
-import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Sign up component with form for email and gmail button
-import SignUp from "../components/auth/SignUp";
-import Dashboard from "../components/dashboard/Dashboard.js";
+import SignUp from '../components/auth/SignUp';
+import Dashboard from '../components/dashboard/Dashboard.js';
 
 // Sign in landing page with two buttons email/gmail
-import SignInLanding from "../components/auth/SignIn-Landing";
+import SignInLanding from '../components/auth/SignIn-Landing';
 
 // Home component is where the beginning of the app starts
-import Home from "../components/marketing/Home.js";
+import Home from '../components/marketing/Home.js';
 
 // Household component
-import Household from "../components/household/Household";
+import Household from '../components/household/Household';
 
 // Account component
-import Account from "../components/account/Account";
+import Account from '../components/account/Account';
 
 // Header
-import Header from "../components/header/Header.js";
+import Header from '../components/header/Header.js';
 
 //Error 404 Page
-import NotFound from "../components/dashboard/NotFound.js";
+import NotFound from '../components/dashboard/NotFound.js';
 
 //About us page from the marketing side
-import AboutUs from "../components/marketing/AboutUs.js";
+import AboutUs from '../components/marketing/AboutUs.js';
 
-import ForgotPW from "../components/auth/Forgot-Password.js";
-import ResetPW from "../components/auth/Reset-Password.js";
-import ConfirmAcct from "../components/auth/Confirm-Account.js";
-import Auth from "../components/auth/Auth.js";
+import ForgotPW from '../components/auth/Forgot-Password.js';
+import ResetPW from '../components/auth/Reset-Password.js';
+import ConfirmAcct from '../components/auth/Confirm-Account.js';
+import Auth from '../components/auth/Auth.js';
 
-import ContactUsForm from "../components/marketing/ContactUsForm";
+import ContactUsForm from '../components/marketing/ContactUsForm';
 
-import { InviteConfirm } from "../components/household/InviteConfirm.js";
-import Navigation from "../components/layout/Navigation";
-import Footer from "../components/layout/Footer";
+import { InviteConfirm } from '../components/household/InviteConfirm.js';
+import Navigation from '../components/layout/Navigation';
+import Footer from '../components/layout/Footer';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      localStorage.getItem("token") ? (
+      localStorage.getItem('token') ? (
         <Component {...props} />
       ) : (
         <Redirect to="/" />
@@ -56,7 +56,7 @@ const Routes = () => {
   return (
     <>
       <PrivateRoute
-        path={["/dashboard", "/household", "/account"]}
+        path={['/dashboard', '/household', '/account']}
         component={Header}
       />
       <Switch>

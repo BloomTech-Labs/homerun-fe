@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axiosWithAuth from "../../utils/AxiosWithAuth.js";
-import { useParams, useHistory } from "react-router-dom";
-import { Loader, Dimmer } from "semantic-ui-react";
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import { useParams, useHistory } from 'react-router-dom';
+import { Loader, Dimmer } from 'semantic-ui-react';
 
 export const InviteConfirm = () => {
   const [loading, setLoading] = useState(true);
@@ -10,15 +10,15 @@ export const InviteConfirm = () => {
 
   useEffect(() => {
     axiosWithAuth()
-      .put("/members", { hash, householdId })
+      .put('/members', { hash, householdId })
       .then((res) => {
         // clear the storage so we can start fresh
         localStorage.clear();
         // save the data for the user however we need it
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem('token', res.data.token);
 
         // user should be directed to the household if they successfully accepted invite
-        history.push("/household");
+        history.push('/household');
       })
       .catch((err) => {
         console.log(err);

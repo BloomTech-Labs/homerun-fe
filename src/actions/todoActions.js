@@ -1,21 +1,21 @@
-import axiosWithAuth from "../utils/AxiosWithAuth.js";
+import axiosWithAuth from '../utils/AxiosWithAuth.js';
 
 // Action Creators
 const fetchTodos = () => (dispatch) => {
   return axiosWithAuth()
     .get(`/todos/household`)
     .then((res) => {
-      dispatch({ type: "FETCH_TODOS", payload: res.data });
+      dispatch({ type: 'FETCH_TODOS', payload: res.data });
     })
     .catch((err) => console.log(err.message));
 };
 
 const addCategory = (data) => (dispatch) => {
   return axiosWithAuth()
-    .post("/todos/categories", data)
+    .post('/todos/categories', data)
     .then((res) => {
       dispatch({
-        type: "ADD_CATEGORY",
+        type: 'ADD_CATEGORY',
         payload: {
           todoId: data.todo_id,
           categories: res.data,
@@ -29,7 +29,7 @@ const addTodo = (todo) => (dispatch) => {
   return axiosWithAuth()
     .post(`/todos/add`, todo)
     .then((res) => {
-      dispatch({ type: "ADD_TODO", payload: res.data });
+      dispatch({ type: 'ADD_TODO', payload: res.data });
       return res.data;
     })
     .catch((err) => console.log(err.message));
@@ -39,7 +39,7 @@ const removeTodo = (todoId) => (dispatch) => {
   axiosWithAuth()
     .delete(`/todos/${todoId}`)
     .then((res) => {
-      dispatch({ type: "REMOVE_TODO", payload: res.data });
+      dispatch({ type: 'REMOVE_TODO', payload: res.data });
     })
     .catch((err) => console.log(err.message));
 };
@@ -52,7 +52,7 @@ const assignUser = (todoId, userId, type) => (dispatch) => {
     })
     .then((res) => {
       dispatch({
-        type: "UPDATE_ASSIGNEES",
+        type: 'UPDATE_ASSIGNEES',
         payload: { todoId: todoId, assigned: res.data },
       });
     })
@@ -67,7 +67,7 @@ const unassignUser = (todoId, userId, type) => (dispatch) => {
     })
     .then((res) => {
       dispatch({
-        type: "UPDATE_ASSIGNEES",
+        type: 'UPDATE_ASSIGNEES',
         payload: { todoId: todoId, assigned: res.data },
       });
     })
@@ -80,7 +80,7 @@ const updateTodo = (todoid, update) => (dispatch) => {
     // .then((res) => console.log("res.data todoActions :64", res.data))
     .then((res) =>
       dispatch({
-        type: "UPDATE_TODO",
+        type: 'UPDATE_TODO',
         payload: res.data,
       })
     )
@@ -89,7 +89,7 @@ const updateTodo = (todoid, update) => (dispatch) => {
 
 const updateCategory = (todoCategory) => (dispatch) => {
   dispatch({
-    type: "UPDATE_CATEGORY",
+    type: 'UPDATE_CATEGORY',
     payload: todoCategory,
   });
 };

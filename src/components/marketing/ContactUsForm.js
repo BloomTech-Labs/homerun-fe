@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function ContactUsForm() {
-  const emailServiceURL = "https://formspree.io/xoqnlllw";
-  const [status, setStatus] = useState("");
+  const emailServiceURL = 'https://formspree.io/xoqnlllw';
+  const [status, setStatus] = useState('');
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
   function handleChange(e) {
@@ -24,7 +24,7 @@ function ContactUsForm() {
       .then((res) => {
         console.log(res);
       })
-      .catch((err) => setStatus("Error"));
+      .catch((err) => setStatus('Error'));
   }
 
   return (
@@ -80,7 +80,7 @@ function ContactUsForm() {
             required
           />
         </div>
-        {status === "Error" && (
+        {status === 'Error' && (
           <p className="block w-full mt-2 text-right text-hive-dark">
             Note: This currently does not work
           </p>

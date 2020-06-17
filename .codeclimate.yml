@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 checks:
   # Disable checks for similar code.
   # Because this creates too many false positives.
@@ -10,8 +10,8 @@ checks:
     config:
       threshold: 50
 exclude_patterns:
-# Limited the number of patterns compared to backend
-# One notable pattern the backend excludes is "__tests__", meaning codeclimate isn't judging backend tests
-# Should we include that restriction for our tests?
+  # Limited the number of patterns compared to backend
+  # One notable pattern the backend excludes is "__tests__", meaning codeclimate isn't judging backend tests
+  # Should we include that restriction for our tests?
   - 'public/'
   - '**/node_modules/'

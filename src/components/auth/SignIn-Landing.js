@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Divider, Form, Loader, Dimmer } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import actions from "../../actions";
-import "mutationobserver-shim";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Divider, Form, Loader, Dimmer } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
+import 'mutationobserver-shim';
 
 const googleAuth = () => {
   window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
@@ -23,9 +23,9 @@ const SignInLanding = (props) => {
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/login`, data)
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem('token', res.data.token);
         dispatch(actions.user.setUser(res.data));
-        props.history.push("/dashboard");
+        props.history.push('/dashboard');
       })
       .catch((err) => {
         console.log(err);
@@ -57,7 +57,7 @@ const SignInLanding = (props) => {
                   type="email"
                   placeholder="Email"
                   name="email"
-                  ref={register({ required: "Email is invalid." })}
+                  ref={register({ required: 'Email is invalid.' })}
                 />
                 {errors.username && <p>{errors.username.message}</p>}
               </Form.Field>
@@ -68,7 +68,7 @@ const SignInLanding = (props) => {
                   type="password"
                   placeholder="Password"
                   name="password"
-                  ref={register({ required: "Password is required." })}
+                  ref={register({ required: 'Password is required.' })}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
               </Form.Field>
@@ -81,14 +81,14 @@ const SignInLanding = (props) => {
                 </button>
                 <button
                   className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
-                  onClick={() => props.history.push("/forgot-password")}
+                  onClick={() => props.history.push('/forgot-password')}
                 >
                   Forgot Password
                 </button>
               </div>
               <div className="mt-4 text-center">
                 <p className="py-4 text-sm text-gray-700 phone:text-base">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{' '}
                   <Link
                     to="/signup"
                     className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"

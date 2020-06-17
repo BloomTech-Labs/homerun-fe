@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Divider, Loader, Dimmer } from "semantic-ui-react";
-import { Form } from "semantic-ui-react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import "mutationobserver-shim";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Divider, Loader, Dimmer } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import 'mutationobserver-shim';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +56,7 @@ const SignUp = (props) => {
                   type="text"
                   placeholder="Username"
                   name="username"
-                  ref={register({ required: "Username is required." })}
+                  ref={register({ required: 'Username is required.' })}
                 />
                 {errors.username && <p>{errors.username.message}</p>}
               </Form.Field>
@@ -67,7 +67,7 @@ const SignUp = (props) => {
                   type="email"
                   placeholder="Email"
                   name="email"
-                  ref={register({ required: "Email is required." })}
+                  ref={register({ required: 'Email is required.' })}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
               </Form.Field>
@@ -79,10 +79,10 @@ const SignUp = (props) => {
                   placeholder="Password"
                   name="password"
                   ref={register({
-                    required: "Password is required.",
+                    required: 'Password is required.',
                     minLength: {
                       value: 8,
-                      message: "Password must be at least 8 characters long.",
+                      message: 'Password must be at least 8 characters long.',
                     },
                   })}
                 />
@@ -102,7 +102,7 @@ const SignUp = (props) => {
                   className="py-4 text-sm text-gray-700 phone:text-base"
                   data-testid="aha-test"
                 >
-                  Already have an account?{" "}
+                  Already have an account?{' '}
                   <Link
                     className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
                     to="/signin"

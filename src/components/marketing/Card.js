@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from 'react';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import "../../scss/CardInfo.scss";
+import '../../scss/CardInfo.scss';
 
 const Card = ({ user }) => {
   const [isToggled, setToggled] = useState(false);
@@ -14,13 +14,13 @@ const Card = ({ user }) => {
     const button = document.getElementById(`info-btn${user.id}`);
     const article = document.getElementById(`card${user.id}`);
     if (isToggled === false) {
-      div.classList.remove("collapse");
-      button.classList.add("flip");
-      article.classList.add("open");
+      div.classList.remove('collapse');
+      button.classList.add('flip');
+      article.classList.add('open');
     } else {
-      div.classList.add("collapse");
-      button.classList.remove("flip");
-      article.classList.remove("open");
+      div.classList.add('collapse');
+      button.classList.remove('flip');
+      article.classList.remove('open');
     }
   }
 
@@ -41,7 +41,7 @@ const Card = ({ user }) => {
         >
           <h3 className="pt-4">{user.title}</h3>
           <button
-            onClick={() => window.open(user.url, "_blank")}
+            onClick={() => window.open(user.url, '_blank')}
             className="px-2 mt-4 mb-4 text-xl text-white bg-gray-600 rounded shadow-xl"
           >
             <i className="mr-2 text-2xl text-white">

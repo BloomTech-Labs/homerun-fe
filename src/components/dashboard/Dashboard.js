@@ -1,7 +1,7 @@
-import React from "react";
-import TodoList from "./todos/TodoList.js";
+import React from 'react';
+import TodoList from './todos/TodoList.js';
 
-import CategoryTabs from "./Categories/CategoryTabs.js";
+import CategoryTabs from './Categories/CategoryTabs.js';
 
 const Dashboard = (props) => {
   return (

@@ -1,7 +1,7 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
-import { Button } from "semantic-ui-react";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
+import { Button } from 'semantic-ui-react';
 
 const SidebarMarketing = () => {
   return (
@@ -18,10 +18,10 @@ const SidebarMarketing = () => {
       <NavLink to="/contact" className="menu-item">
         Contact
       </NavLink>
-      <Link to="/signup" className="menu-item" className="mobile-btn">
+      <Link to="/signup" className="menu-item mobile-btn">
         <Button type="submit">Sign&nbsp;Up</Button>
       </Link>
-      <Link to="/signin" className="menu-item" className="mobile-btn">
+      <Link to="/signin" className="menu-item mobile-btn">
         <Button type="submit">Sign&nbsp;In</Button>
       </Link>
     </Menu>

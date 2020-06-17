@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Todo from "./Todo.js";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../actions/index.js";
-import { SwipeableList } from "@sandstreamdev/react-swipeable-list";
+import React, { useState, useEffect } from 'react';
+import Todo from './Todo.js';
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../../../actions/index.js';
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
-import ControlTodo from "./ControlTodo.js";
+import ControlTodo from './ControlTodo.js';
 
 const TodoList = () => {
   const store = useSelector((state) => state.todos.todos);
@@ -70,7 +70,7 @@ const TodoList = () => {
           })}
         </SwipeableList>
       </div>
-      {!currentUser.childActive ? <ControlTodo /> : ""}
+      {!currentUser.childActive ? <ControlTodo /> : ''}
     </section>
   );
 };
