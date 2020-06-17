@@ -20,10 +20,10 @@ const Name = (props) => {
     <li style={{ margin: "15px 0" }}>
       <Row align="middle">
         <Col span={4}>
-          <span className="initials">{initials}</span>
+          <span className="initials" data-testid="initials">{initials}</span>
         </Col>
         <Col span={20}>
-          <h3>{props.name}</h3>
+          <h3 data-testid="full-name">{props.name}</h3>
         </Col>
       </Row>
     </li>
