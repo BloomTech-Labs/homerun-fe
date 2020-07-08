@@ -4,17 +4,18 @@ import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { emailHandling } from '../../actions/userActions.js';
+import { handleEmail } from '../../actions/userActions.js';
 import 'mutationobserver-shim';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => {
-    preventDefault();
+  const onSubmit = (e, data) => {
+    e.preventDefault();
     setIsLoading(true);
-    props.emailHandling(data);
+    props.handleEmail(data);
+    setIsLoading(false);
   }
   
   const googleAuth = () => {
@@ -129,10 +130,10 @@ const SignUp = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    emailHandling: state.emailHandling,
+    handleEmail: state.handleEmail,
   };
 };
 
 export default connect(mapStateToProps, {
-  emailHandling,
+  handleEmail,
 })(SignUp);
