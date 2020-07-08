@@ -9,6 +9,19 @@
       name="description"
       content="TidyHive | Create and delegate tasks to stay organized"
     />
+    <meta
+      name="google-signin-client_id"
+      content="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+    </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

@@ -5,6 +5,7 @@ import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import 'mutationobserver-shim';
+import { GoogleLogin } from 'react-google-login';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +22,9 @@ const SignUp = (props) => {
         console.log(err);
       });
   };
-  const googleAuth = () => {
-    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
+
+  const response = (res) => {
+    console.log(res);
   };
 
   return (
@@ -113,15 +115,22 @@ const SignUp = (props) => {
                 <Divider className="py-4" horizontal>
                   OR
                 </Divider>
-              </div>
-              <div className="flex justify-center py-4">
-                <button
-                  onClick={googleAuth}
-                  className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-                >
-                  <i className="ui icon google white"></i>
-                  Sign in with Google
-                </button>
+                <GoogleLogin
+                  clientId="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={response}
+                  onFailure={response}
+                  render={(renderProps) => (
+                    <button
+                      className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      <i className="ui icon google white"></i>
+                      Sign up with Google
+                    </button>
+                  )}
+                ></GoogleLogin>
               </div>
             </Form>
           )}

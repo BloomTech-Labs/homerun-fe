@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import logo from '../../assets/images/tidyhive-standalone.png';
 import { useLocation } from 'react-router-dom';
+import { GoogleLogout } from 'react-google-login';
 
 const Navigation = () => {
   function useOutside(ref) {
@@ -24,6 +25,13 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
+
+  const logout = () => {
+    setIsOpen(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('state');
+    history.push('/signin');
+  };
 
   return (
     <header className="fixed inset-x-0 z-40 items-center justify-between p-3 bg-white shadow-md w-100 tablet:flex">
@@ -143,18 +151,22 @@ const Navigation = () => {
             >
               Account
             </NavLink>
-            <button
-              className="h-auto px-4 py-2 mr-2 font-semibold text-white rounded-md tablet:mr-0 tablet:ml-2 bg-hive hover:bg-orange-500"
-              data-testid="logout-test"
-              onClick={() => {
-                setIsOpen(false);
-                localStorage.removeItem('token');
-                localStorage.removeItem('state');
-                history.push('/signin');
-              }}
-            >
-              Logout
-            </button>
+            <GoogleLogout
+              clientId="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
+              buttonText="Logout"
+              onLogoutSuccess={logout}
+              className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+              render={(renderProps) => (
+                <button
+                  className="h-auto px-4 py-2 mr-2 font-semibold text-white rounded-md tablet:mr-0 tablet:ml-2 bg-hive hover:bg-orange-500"
+                  data-testid="logout-test"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  This is my custom Google button
+                </button>
+              )}
+            ></GoogleLogout>
           </>
         )}
       </nav>

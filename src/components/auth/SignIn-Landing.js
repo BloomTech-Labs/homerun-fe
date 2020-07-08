@@ -6,10 +6,13 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import actions from '../../actions';
 import 'mutationobserver-shim';
+import { GoogleLogin } from 'react-google-login';
 
-const googleAuth = () => {
-  window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
-};
+// const googleAuth = () => {
+//   window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
+// };
+
+// needed: username, email, password
 
 const SignInLanding = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -30,6 +33,10 @@ const SignInLanding = (props) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const response = (res) => {
+    console.log(res);
   };
 
   return (
@@ -99,15 +106,22 @@ const SignInLanding = (props) => {
                 <Divider horizontal className="py-4">
                   OR
                 </Divider>
-              </div>
-              <div className="flex justify-center py-4">
-                <button
-                  onClick={googleAuth}
-                  className="w-full h-10 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-1/2 bg-hive hover:bg-orange-500"
-                >
-                  <i className="ui icon google white" />
-                  Sign in with Google
-                </button>
+                <GoogleLogin
+                  clientId="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={response}
+                  onFailure={response}
+                  render={(renderProps) => (
+                    <button
+                      className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      <i className="ui icon google white"></i>
+                      Sign in with Google
+                    </button>
+                  )}
+                ></GoogleLogin>
               </div>
             </Form>
           )}
