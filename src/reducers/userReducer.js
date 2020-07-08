@@ -1,5 +1,4 @@
 const intialState = {
-  emailPosted: '',
   userInfo: {},
   userChild: {},
   loading: false,
@@ -8,9 +7,6 @@ const intialState = {
 
 const userReducer = (state = intialState, action) => {
   switch (action.type) {
-    case 'HANDLE_EMAIL':
-      return { ...state, emailPosted: action.payload };
-
     case 'SET_USER':
       return { ...state, userInfo: action.payload, loading: false };
 

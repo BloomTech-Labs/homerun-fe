@@ -1,20 +1,6 @@
 import axios from 'axios';
-export const HANDLE_EMAIL = "HANDLE_EMAIL";
 
 // Action Creators
-export const handleEmail = (data) => (dispatch) => {
-  dispatch({ type: 'HANDLE_EMAIL' })
-  axios
-      .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
-      .then((res) => {
-        dispatch({ type: 'HANDLE_EMAIL', payload: "success" })
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch({ type: 'HANDLE_EMAIL', payload: "failure" })
-      });
-};
-
 const setUser = (user) => (dispatch) => {
   console.log(user);
   dispatch({ type: 'SET_USER', payload: user });
@@ -55,5 +41,4 @@ export default {
   changeUser,
   setChild,
   setChildActive,
-  handleEmail,
 };

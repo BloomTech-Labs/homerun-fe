@@ -3,21 +3,33 @@ import { Link } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
-import { connect } from 'react-redux';
-import { handleEmail } from '../../actions/userActions.js';
+import axios from 'axios';
 import 'mutationobserver-shim';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
+  const [emailSent, setEmailSent] = useState('');
+  const [emailName, setEmailName] = useState('');
 
-  const onSubmit = (e, data) => {
+  const onSubmit = (data, e) => {
+    console.log(data);
     e.preventDefault();
     setIsLoading(true);
-    props.handleEmail(data);
-    setIsLoading(false);
-  }
-  
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
+      .then((res) => {
+        setEmailName(data.email);
+        setEmailSent('success');
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setEmailName(data.email);
+        setEmailSent('failure');
+        setIsLoading(false);
+      });
+  };
+
   const googleAuth = () => {
     window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
@@ -46,6 +58,27 @@ const SignUp = (props) => {
             </Dimmer>
           ) : (
             <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                {emailSent === 'success' ? (
+                  <div className="mb-5 text-center">
+                    <h3>A verification link has been sent to {emailName}.</h3>
+                    <p>
+                      Please follow the link that has been sent to your email
+                      for verification and continue the registration process.
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+              <div>
+                {emailSent === 'failure' ? (
+                  <div className="mb-5 text-center">
+                    <h3>There was an error sending a verification email to {emailName}.</h3>
+                    <p>
+                      Please ensure the email address is correct.
+                    </p>
+                  </div>
+                ) : null}
+              </div>
               <Form.Field>
                 <label>Username</label>
                 <input
@@ -128,12 +161,4 @@ const SignUp = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    handleEmail: state.handleEmail,
-  };
-};
-
-export default connect(mapStateToProps, {
-  handleEmail,
-})(SignUp);
+export default SignUp;
