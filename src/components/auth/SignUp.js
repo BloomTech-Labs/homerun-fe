@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { emailHandling } from '../../actions/userActions.js';
 import 'mutationobserver-shim';
 
 const SignUp = (props) => {
@@ -11,16 +12,11 @@ const SignUp = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
+    preventDefault();
     setIsLoading(true);
-    axios
-      .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
-      .then((res) => {
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    props.emailHandling(data);
+  }
+  
   const googleAuth = () => {
     window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
@@ -131,4 +127,12 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    emailHandling: state.emailHandling,
+  };
+};
+
+export default connect(mapStateToProps, {
+  emailHandling,
+})(SignUp);
