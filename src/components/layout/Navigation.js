@@ -163,7 +163,7 @@ const Navigation = () => {
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
                 >
-                  This is my custom Google button
+                  Logout
                 </button>
               )}
             ></GoogleLogout>
