@@ -60,21 +60,20 @@ const SignUp = (props) => {
             <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 {emailSent === 'success' ? (
-                  <div className="mb-5 text-center">
-                    <h3>A verification link has been sent to {emailName}.</h3>
-                    <p>
-                      Please follow the link that has been sent to your email
-                      for verification and continue the registration process.
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-2 text-base text-green-700 tablet:text-xl">A verification link has been sent to {emailName}</h3>
+                    <p className="w-5/6 m-auto text-base text-green-600 tablet:text-base">
+                      Please check your email and follow the link for verification to continue the registration process. 
                     </p>
                   </div>
                 ) : null}
               </div>
               <div>
                 {emailSent === 'failure' ? (
-                  <div className="mb-5 text-center">
-                    <h3>There was an error sending a verification email to {emailName}.</h3>
-                    <p>
-                      Please ensure the email address is correct.
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">There was an error sending a verification email to {emailName}</h3>
+                    <p className="m-auto text-base text-red-600 tablet:w-4/5">
+                      Please ensure the email address you have provided is unique and legitimate.
                     </p>
                   </div>
                 ) : null}
