@@ -10,7 +10,7 @@ export const INVITE_MEMBER = 'INVITE_MEMBER';
 const fetchHousehold = () => (dispatch) => {
   dispatch({ type: LOADING });
   return axiosWithAuth()
-    .get('/members/household')
+    .get('/members/household/assignable')
     .then((res) => {
       dispatch({
         type: FETCH_MEMBERS_SUCCESS,
