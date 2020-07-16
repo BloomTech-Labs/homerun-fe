@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Sign up component with form for email and gmail button
 import SignUp from '../components/auth/SignUp';
+import SignUpPartTwo from '../components/auth/SignUpPartTwo';
 import Dashboard from '../components/dashboard/Dashboard.js';
 
 // Sign in landing page with two buttons email/gmail
@@ -28,14 +29,11 @@ import AboutUs from '../components/marketing/AboutUs.js';
 
 import ForgotPW from '../components/auth/Forgot-Password.js';
 import ResetPW from '../components/auth/Reset-Password.js';
-import ConfirmAcct from '../components/auth/Confirm-Account.js';
 import Auth from '../components/auth/Auth.js';
 
 import ContactUsForm from '../components/marketing/ContactUsForm';
 
 import { InviteConfirm } from '../components/household/InviteConfirm.js';
-import Navigation from '../components/layout/Navigation';
-import Footer from '../components/layout/Footer';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -67,10 +65,10 @@ const Routes = () => {
         <Route path="/contact" component={ContactUsForm} />
         <Route path="/forgot-password" component={ForgotPW} />
         <Route path="/reset-password/:hash" component={ResetPW} />
-        <Route path="/confirm-account/:hash" component={ConfirmAcct} />
         <Route path="/auth" component={Auth} />
         <Route path="/about" component={AboutUs} />
         <Route path="/invite/:hash/:householdId" component={InviteConfirm} />
+        <Route path="/confirm/:hash" component={SignUpPartTwo} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
         <PrivateRoute path="/account" component={Account} />
