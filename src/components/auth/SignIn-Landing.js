@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Form, Loader, Dimmer } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
@@ -15,12 +15,29 @@ import { GoogleLogin } from 'react-google-login';
 // needed: username, email, password
 
 const SignInLanding = (props) => {
-  const { register, handleSubmit, errors } = useForm();
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
+  const [formValidation, setFormValidation] = useState({
+    email: '',
+    password: '',
+  }); // For Input Form Validation
+  const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const onSubmit = (data) => {
     setIsLoading(true);
+    setError('');
     // clear local storage before signing in to prevent bugs
     localStorage.clear();
     axios
@@ -32,6 +49,8 @@ const SignInLanding = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
+        setError('Incorrect email or password. Please try again!');
       });
   };
 
@@ -50,34 +69,44 @@ const SignInLanding = (props) => {
             Sign in to access your account
           </p>
         </div>
+        {error ? <span role="alert">{error}</span> : null}
         <div className="max-w-lg phone:w-4/5">
           {isLoading ? (
             <Dimmer active inverted>
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-            <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <Form
+              className="w-full"
+              onSubmit={() => {
+                onSubmit(form);
+              }}
+            >
               <Form.Field>
-                <label>Email</label>
+                <label htmlFor="name">Email</label>
                 <input
+                  value={form.email}
+                  onChange={handleChange}
                   data-testid="email"
                   type="email"
                   placeholder="Email"
+                  required
+                  aria-required
                   name="email"
-                  ref={register({ required: 'Email is invalid.' })}
                 />
-                {errors.username && <p>{errors.username.message}</p>}
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
                 <input
+                  value={form.password}
+                  onChange={handleChange}
                   data-testid="password"
                   type="password"
+                  required
+                  aria-required
                   placeholder="Password"
                   name="password"
-                  ref={register({ required: 'Password is required.' })}
                 />
-                {errors.email && <p>{errors.email.message}</p>}
               </Form.Field>
               <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
                 <button

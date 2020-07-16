@@ -10,21 +10,32 @@ import { GoogleLogin } from 'react-google-login';
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
+  const [emailSent, setEmailSent] = useState('');
+  const [emailName, setEmailName] = useState('');
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    console.log(data);
+    e.preventDefault();
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
       .then((res) => {
+        setEmailName(data.email);
+        setEmailSent('success');
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        setEmailName(data.email);
+        setEmailSent('failure');
+        setIsLoading(false);
       });
   };
 
   const response = (res) => {
     console.log(res);
+  };
+  const googleAuth = () => {
+    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
 
   return (
@@ -51,6 +62,33 @@ const SignUp = (props) => {
             </Dimmer>
           ) : (
             <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                {emailSent === 'success' ? (
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-2 text-base text-green-700 tablet:text-xl">
+                      A verification link has been sent to {emailName}
+                    </h3>
+                    <p className="w-5/6 m-auto text-base text-green-600 tablet:text-base">
+                      Please check your email and follow the link for
+                      verification to continue the registration process.
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+              <div>
+                {emailSent === 'failure' ? (
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                      There was an error sending a verification email to{' '}
+                      {emailName}
+                    </h3>
+                    <p className="m-auto text-base text-red-600 tablet:w-4/5">
+                      Please ensure the email address you have provided is
+                      unique and legitimate.
+                    </p>
+                  </div>
+                ) : null}
+              </div>
               <Form.Field>
                 <label>Username</label>
                 <input
