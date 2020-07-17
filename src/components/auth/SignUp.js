@@ -61,9 +61,12 @@ const SignUp = (props) => {
               <div>
                 {emailSent === 'success' ? (
                   <div className="mb-12 text-center">
-                    <h3 className="mb-2 text-base text-green-700 tablet:text-xl">A verification link has been sent to {emailName}</h3>
+                    <h3 className="mb-2 text-base text-green-700 tablet:text-xl">
+                      A verification pin has been sent to {emailName}
+                    </h3>
                     <p className="w-5/6 m-auto text-base text-green-600 tablet:text-base">
-                      Please check your email and follow the link for verification to continue the registration process. 
+                      Please provide the pin sent to your email to continue the
+                      registration process.
                     </p>
                   </div>
                 ) : null}
@@ -71,87 +74,129 @@ const SignUp = (props) => {
               <div>
                 {emailSent === 'failure' ? (
                   <div className="mb-12 text-center">
-                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">There was an error sending a verification email to {emailName}</h3>
+                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                      There was an error sending a verification email to{' '}
+                      {emailName}
+                    </h3>
                     <p className="m-auto text-base text-red-600 tablet:w-4/5">
-                      Please ensure the email address you have provided is unique and legitimate.
+                      Please ensure the email address you have provided is
+                      unique and legitimate.
                     </p>
                   </div>
                 ) : null}
               </div>
-              <Form.Field>
-                <label>Username</label>
-                <input
-                  data-testid="username"
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  ref={register({ required: 'Username is required.' })}
-                />
-                {errors.username && <p>{errors.username.message}</p>}
-              </Form.Field>
-              <Form.Field>
-                <label>Email</label>
-                <input
-                  data-testid="email"
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  ref={register({ required: 'Email is required.' })}
-                />
-                {errors.email && <p>{errors.email.message}</p>}
-              </Form.Field>
-              <Form.Field>
-                <label>Password</label>
-                <input
-                  data-testid="password"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  ref={register({
-                    required: 'Password is required.',
-                    minLength: {
-                      value: 8,
-                      message: 'Password must be at least 8 characters long.',
-                    },
-                  })}
-                />
-                {errors.password && <p>{errors.password.message}</p>}
-              </Form.Field>
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
-                  data-testid="submit-signup"
-                >
-                  Submit
-                </button>
-              </div>
-              <div className="mt-4 text-center">
-                <p
-                  className="py-4 text-sm text-gray-700 phone:text-base"
-                  data-testid="aha-test"
-                >
-                  Already have an account?{' '}
-                  <Link
-                    className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
-                    to="/signin"
-                  >
-                    Sign In
-                  </Link>
-                </p>
-                <Divider className="py-4" horizontal>
-                  OR
-                </Divider>
-              </div>
-              <div className="flex justify-center py-4">
-                <button
-                  onClick={googleAuth}
-                  className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-                >
-                  <i className="ui icon google white"></i>
-                  Sign in with Google
-                </button>
-              </div>
+
+              {emailSent === 'success' ? (
+                <div>
+                  <Form.Field>
+                    <label>Verification PIN</label>
+                    <input
+                      data-testid="verification-pin"
+                      type="text"
+                      placeholder="Verification PIN"
+                      name="verification-pin"
+                      ref={register({ required: 'Username is required.' })}
+                    />
+                  </Form.Field>
+                  <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
+                    <button
+                      type="submit"
+                      className="w-full h-10 px-8 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-2/5 bg-hive hover:bg-orange-500"
+                    >
+                      Submit
+                    </button>
+                    <button
+                      className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
+                      onClick={() => setEmailSent('')}
+                    >
+                      Back
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <Form.Field>
+                    <label>Username</label>
+                    <input
+                      data-testid="username"
+                      type="text"
+                      placeholder="Username"
+                      name="username"
+                      ref={register({ required: 'Username is required.' })}
+                    />
+                    {errors.username && <p>{errors.username.message}</p>}
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Email</label>
+                    <input
+                      data-testid="email"
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      ref={register({ required: 'Email is required.' })}
+                    />
+                    {errors.email && <p>{errors.email.message}</p>}
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Password</label>
+                    <input
+                      data-testid="password"
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      ref={register({
+                        required: 'Password is required.',
+                        minLength: {
+                          value: 8,
+                          message:
+                            'Password must be at least 8 characters long.',
+                        },
+                      })}
+                    />
+                    {errors.password && <p>{errors.password.message}</p>}
+                  </Form.Field>
+                </div>
+              )}
+
+              {emailSent === 'success' ? null : (
+                <div>
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
+                      data-testid="submit-signup"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p
+                      className="py-4 text-sm text-gray-700 phone:text-base"
+                      data-testid="aha-test"
+                    >
+                      Already have an account?{' '}
+                      <Link
+                        className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
+                        to="/signin"
+                      >
+                        Sign In
+                      </Link>
+                    </p>
+                    <Divider className="py-4" horizontal>
+                      OR
+                    </Divider>
+                  </div>
+                  <div className="flex justify-center py-4">
+                    <button
+                      onClick={googleAuth}
+                      className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                    >
+                      <i className="ui icon google white"></i>
+                      Sign in with Google
+                    </button>
+                  </div>
+                </div>
+              )}
             </Form>
           )}
         </div>
