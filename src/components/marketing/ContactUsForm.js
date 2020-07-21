@@ -3,6 +3,7 @@ import axios from 'axios';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 function ContactUsForm() {
+  console.log({ env: process.env });
   const [status, setStatus] = useState('');
   const [form, setForm] = useState({
     name: '',
@@ -20,8 +21,8 @@ function ContactUsForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    axiosWithAuth
-      .post('/contact', form)
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/contact`, form)
       .then((res) => {
         console.log(res);
       })
