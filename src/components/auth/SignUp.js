@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
-import { useForm } from 'react-hook-form';
+import useForm from "./useForm.js";
+import validate from "./validate.js";
 import axios from 'axios';
 import 'mutationobserver-shim';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, errors } = useForm();
+  const { handleChange, handleSubmit, data, errors } = useForm(onSubmit, validate);
   const [emailSent, setEmailSent] = useState('');
   const [emailName, setEmailName] = useState('');
 
-  const onSubmit = (data, e) => {
+  function onSubmit() {
     console.log(data);
-    e.preventDefault();
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
@@ -57,7 +57,7 @@ const SignUp = (props) => {
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-            <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <Form className="w-full" onSubmit={handleSubmit}>
               <div>
                 {emailSent === 'success' ? (
                   <div className="mb-12 text-center">
@@ -91,11 +91,12 @@ const SignUp = (props) => {
                   <Form.Field>
                     <label>Verification PIN</label>
                     <input
-                      data-testid="verification-pin"
+                      data-testid="pin"
                       type="text"
-                      placeholder="Verification PIN"
-                      name="verification-pin"
-                      ref={register({ required: 'Username is required.' })}
+                      placeholder="PIN"
+                      name="pin"
+                      value={data.pin}
+                      onChange={handleChange}
                     />
                   </Form.Field>
                   <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
@@ -122,7 +123,8 @@ const SignUp = (props) => {
                       type="text"
                       placeholder="Username"
                       name="username"
-                      ref={register({ required: 'Username is required.' })}
+                      value={data.username}
+                      onChange={handleChange}
                     />
                     {errors.username && <p>{errors.username.message}</p>}
                   </Form.Field>
@@ -133,7 +135,8 @@ const SignUp = (props) => {
                       type="email"
                       placeholder="Email"
                       name="email"
-                      ref={register({ required: 'Email is required.' })}
+                      value={data.email}
+                      onChange={handleChange}
                     />
                     {errors.email && <p>{errors.email.message}</p>}
                   </Form.Field>
@@ -144,14 +147,8 @@ const SignUp = (props) => {
                       type="password"
                       placeholder="Password"
                       name="password"
-                      ref={register({
-                        required: 'Password is required.',
-                        minLength: {
-                          value: 8,
-                          message:
-                            'Password must be at least 8 characters long.',
-                        },
-                      })}
+                      value={data.password}
+                      onChange={handleChange}
                     />
                     {errors.password && <p>{errors.password.message}</p>}
                   </Form.Field>
