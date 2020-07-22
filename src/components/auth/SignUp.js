@@ -57,7 +57,7 @@ const SignUp = (props) => {
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-            <Form className="w-full" onSubmit={handleSubmit}>
+            <Form className="w-full" onSubmit={handleSubmit} noValidate>
               <div>
                 {emailSent === 'success' ? (
                   <div className="mb-12 text-center">
@@ -138,7 +138,7 @@ const SignUp = (props) => {
                       value={data.email}
                       onChange={handleChange}
                     />
-                    {errors.email && <p>{errors.email.message}</p>}
+                    {errors.email && <p className="text-red-700">{errors.email}</p>}
                   </Form.Field>
                   <Form.Field>
                     <label>Password</label>
