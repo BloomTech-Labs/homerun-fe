@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 function ContactUsForm() {
-  const emailServiceURL = 'https://formspree.io/xoqnlllw';
+  console.log({ env: process.env });
   const [status, setStatus] = useState('');
   const [form, setForm] = useState({
     name: '',
@@ -19,8 +20,9 @@ function ContactUsForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     axios
-      .post(emailServiceURL, form)
+      .post(`${process.env.REACT_APP_BE_URL}/contact`, form)
       .then((res) => {
         console.log(res);
       })
