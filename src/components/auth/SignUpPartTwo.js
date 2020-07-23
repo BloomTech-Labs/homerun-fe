@@ -25,10 +25,6 @@ const SignUp = (props) => {
       });
   };
 
-  const googleAuth = () => {
-    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
-  };
-
   return (
     <>
       <section className="flex flex-col items-center justify-center h-full">
