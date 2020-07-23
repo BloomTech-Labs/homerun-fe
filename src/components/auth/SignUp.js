@@ -13,7 +13,6 @@ const SignUp = (props) => {
   const [emailName, setEmailName] = useState('');
   const [emailSent, setEmailSent] = useState('');
   const [pinSent, setPinSent] = useState('');
-  const history = useHistory();
 
   function onSubmit() {
     console.log(data);
