@@ -1,36 +1,59 @@
 import { useState, useEffect } from 'react';
 
-const useForm = (callback, validate) => {
+const useForm = (onSubmit, onVerify, validate) => {
   const [data, setData] = useState({
-    username: '',
     email: '',
-    password: '',
+    pin: '',
   });
 
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [emailSubmission, setEmailSubmission] = useState(true);
+  const [pinSubmission, setPinSubmission] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  const handleSubmission = () => {
+    setEmailSubmission(true);
+    setPinSubmission(false);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validate(data));
-    setIsSubmitting(true);
+    if (emailSubmission && !pinSubmission) {
+      setErrors(validate(data));
+      setIsSubmitting(true);
+      setEmailSubmission(false);
+      setPinSubmission(true);
+    }
+    if (pinSubmission) {
+      setErrors(validate(data));
+      setIsVerifying(true);
+    }
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
+      onSubmit();
+      setIsSubmitting(false);
+    }
+  }, [errors]);
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isVerifying) {
+      onVerify();
     }
   }, [errors]);
 
   return {
     handleChange,
     handleSubmit,
+    handleSubmission,
     data,
     errors,
   };

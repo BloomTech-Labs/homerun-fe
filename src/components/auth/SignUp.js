@@ -9,9 +9,10 @@ import 'mutationobserver-shim';
 
 const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { handleChange, handleSubmit, data, errors } = useForm(onSubmit, validate);
-  const [emailSent, setEmailSent] = useState('');
+  const { handleChange, handleSubmit, handleSubmission, data, errors } = useForm(onSubmit, onVerify, validate);
   const [emailName, setEmailName] = useState('');
+  const [emailSent, setEmailSent] = useState('');
+  const [pinSent, setPinSent] = useState('');
 
   function onSubmit() {
     console.log(data);
@@ -29,6 +30,28 @@ const SignUp = (props) => {
         setIsLoading(false);
       });
   };
+  
+  function onVerify() {
+    console.log(data);
+    setIsLoading(true);
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/auth/verify-pin
+      `, data)
+      .then((res) => {
+        console.log(res)
+        setPinSent('success');
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setPinSent('failure');
+        setIsLoading(false);
+      });
+  };
+  
+  const handleEmailSent = () => {
+    setEmailSent('');
+    handleSubmission();
+  }
 
   const googleAuth = () => {
     window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
@@ -88,6 +111,13 @@ const SignUp = (props) => {
 
               {emailSent === 'success' ? (
                 <div>
+                  {pinSent === 'failure' ? (
+                  <div className="mb-12 text-center">
+                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                      The pin you've provided is incorrect
+                    </h3>
+                  </div>
+                ) : null}
                   <Form.Field>
                     <label>Verification PIN</label>
                     <input
@@ -108,7 +138,7 @@ const SignUp = (props) => {
                     </button>
                     <button
                       className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
-                      onClick={() => setEmailSent('')}
+                      onClick={() => handleEmailSent()}
                     >
                       Back
                     </button>
@@ -116,18 +146,6 @@ const SignUp = (props) => {
                 </div>
               ) : (
                 <div>
-                  <Form.Field>
-                    <label>Username</label>
-                    <input
-                      data-testid="username"
-                      type="text"
-                      placeholder="Username"
-                      name="username"
-                      value={data.username}
-                      onChange={handleChange}
-                    />
-                    {errors.username && <p>{errors.username.message}</p>}
-                  </Form.Field>
                   <Form.Field>
                     <label>Email</label>
                     <input
@@ -139,18 +157,6 @@ const SignUp = (props) => {
                       onChange={handleChange}
                     />
                     {errors.email && <p className="text-red-700">{errors.email}</p>}
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Password</label>
-                    <input
-                      data-testid="password"
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={data.password}
-                      onChange={handleChange}
-                    />
-                    {errors.password && <p>{errors.password.message}</p>}
                   </Form.Field>
                 </div>
               )}
