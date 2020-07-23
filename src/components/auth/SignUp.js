@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
 import useForm from "./useForm.js";
@@ -13,6 +13,7 @@ const SignUp = (props) => {
   const [emailName, setEmailName] = useState('');
   const [emailSent, setEmailSent] = useState('');
   const [pinSent, setPinSent] = useState('');
+  const history = useHistory();
 
   function onSubmit() {
     console.log(data);
@@ -41,6 +42,7 @@ const SignUp = (props) => {
         console.log(res)
         setPinSent('success');
         setIsLoading(false);
+        props.history.push(`/confirm/${res.data.id}`);
       })
       .catch((err) => {
         setPinSent('failure');
