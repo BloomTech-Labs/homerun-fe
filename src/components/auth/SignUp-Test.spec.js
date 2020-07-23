@@ -40,16 +40,6 @@ describe('signup render test', () => {
 });
 
 describe('signup functionality test', () => {
-  it('changing username values', () => {
-    const { getByTestId } = render(
-      <Router>
-        <SignUp />
-      </Router>
-    );
-    const usernameInput = getByTestId('username');
-    fireEvent.change(usernameInput, { target: { value: 'test-2' } });
-    expect(usernameInput.value).toBe('test-2');
-  });
   it('changing email values', () => {
     const { getByTestId } = render(
       <Router>
@@ -59,15 +49,5 @@ describe('signup functionality test', () => {
     const emailInput = getByTestId('email');
     fireEvent.change(emailInput, { target: { value: 'test-2' } });
     expect(emailInput.value).toBe('test-2');
-  });
-  it('changing password values', () => {
-    const { getByTestId } = render(
-      <Router>
-        <SignUp />
-      </Router>
-    );
-    const passwordInput = getByTestId('password');
-    fireEvent.change(passwordInput, { target: { value: 'test-3' } });
-    expect(passwordInput.value).toBe('test-3');
   });
 });
