@@ -28,8 +28,7 @@ const Navigation = () => {
 
   const logout = () => {
     setIsOpen(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('state');
+    localStorage.clear();
     history.push('/signin');
   };
 
@@ -151,22 +150,30 @@ const Navigation = () => {
             >
               Account
             </NavLink>
-            <GoogleLogout
-              clientId="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
-              buttonText="Logout"
-              onLogoutSuccess={logout}
-              className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-              render={(renderProps) => (
-                <button
-                  className="h-auto px-4 py-2 mr-2 font-semibold text-white rounded-md tablet:mr-0 tablet:ml-2 bg-hive hover:bg-orange-500"
-                  data-testid="logout-test"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  Logout
-                </button>
-              )}
-            ></GoogleLogout>
+            {localStorage.getItem('google') ? (
+              <GoogleLogout
+                clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
+                buttonText="Logout"
+                onLogoutSuccess={logout}
+                render={(renderProps) => (
+                  <button
+                    className="h-auto px-4 py-2 mr-2 font-semibold text-white rounded-md tablet:mr-0 tablet:ml-2 bg-hive hover:bg-orange-500"
+                    data-testid="logout-test"
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                  >
+                    Logout
+                  </button>
+                )}
+              ></GoogleLogout>
+            ) : (
+              <button
+                onClick={logout}
+                className="h-auto px-4 py-2 mr-2 font-semibold text-white rounded-md tablet:mr-0 tablet:ml-2 bg-hive hover:bg-orange-500"
+              >
+                Logout
+              </button>
+            )}
           </>
         )}
       </nav>

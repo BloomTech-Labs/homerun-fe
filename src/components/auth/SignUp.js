@@ -6,8 +6,11 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import 'mutationobserver-shim';
 import { GoogleLogin } from 'react-google-login';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
 
 const SignUp = (props) => {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   const [emailSent, setEmailSent] = useState('');
@@ -32,10 +35,26 @@ const SignUp = (props) => {
   };
 
   const response = (res) => {
+    setIsLoading(true);
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/auth/google`, {
+        token: res.tokenObj.id_token,
+        email: res.profileObj.email,
+      })
+      .then((res) => {
+        if (res.data.token) {
+          console.log('inside the supposed login');
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('google', true);
+          dispatch(actions.user.setUser(res.data));
+          props.history.push('/dashboard');
+        } else {
+          console.log(res.data);
+          props.history.push(`/confirm/${res.data.response.id}`);
+        }
+      })
+      .catch((err) => console.log('err', err));
     console.log(res);
-  };
-  const googleAuth = () => {
-    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
   };
 
   return (
@@ -154,7 +173,7 @@ const SignUp = (props) => {
                   OR
                 </Divider>
                 <GoogleLogin
-                  clientId="1050964061778-o501f0usfcgqtapvsmhvs89eebtndv9m.apps.googleusercontent.com"
+                  clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
                   buttonText="Login"
                   onSuccess={response}
                   onFailure={response}
