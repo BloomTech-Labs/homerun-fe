@@ -38,6 +38,7 @@ const SignUp = (props) => {
         setEmailName(data.email);
         setEmailSent('failure');
         setIsLoading(false);
+        handleSubmission();
       });
   }
 
@@ -147,7 +148,7 @@ const SignUp = (props) => {
                   {pinSent === 'failure' ? (
                     <div className="mb-12 text-center">
                       <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
-                        The pin you've provided is incorrect
+                        The pin you&apos;ve provided is incorrect
                       </h3>
                     </div>
                   ) : null}
@@ -223,23 +224,23 @@ const SignUp = (props) => {
                     <Divider className="py-4" horizontal>
                       OR
                     </Divider>
+                    <GoogleLogin
+                      clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
+                      buttonText="Login"
+                      onSuccess={response}
+                      onFailure={response}
+                      render={(renderProps) => (
+                        <button
+                          className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                          onClick={renderProps.onClick}
+                          disabled={renderProps.disabled}
+                        >
+                          <i className="ui icon google white"></i>
+                          Sign up with Google
+                        </button>
+                      )}
+                    ></GoogleLogin>
                   </div>
-                  <GoogleLogin
-                    clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
-                    buttonText="Login"
-                    onSuccess={response}
-                    onFailure={response}
-                    render={(renderProps) => (
-                      <button
-                        className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                      >
-                        <i className="ui icon google white"></i>
-                        Sign up with Google
-                      </button>
-                    )}
-                  ></GoogleLogin>
                 </div>
               )}
             </Form>
