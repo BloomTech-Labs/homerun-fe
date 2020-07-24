@@ -3,6 +3,10 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SignUp from './SignUp';
+import { Provider } from 'react-redux';
+import configRedux from '../../configRedux';
+
+const store = configRedux();
 
 afterAll(cleanup);
 
@@ -10,7 +14,9 @@ describe('signup render test', () => {
   it('header class test', () => {
     const { getByTestId } = render(
       <Router>
-        <SignUp />
+        <Provider store={store}>
+          <SignUp />
+        </Provider>
       </Router>
     );
     expect(getByTestId('header-test')).toHaveClass(
@@ -20,7 +26,9 @@ describe('signup render test', () => {
   it('signup for account class test', () => {
     const { getByTestId } = render(
       <Router>
-        <SignUp />
+        <Provider store={store}>
+          <SignUp />
+        </Provider>
       </Router>
     );
     expect(getByTestId('sfa-test')).toHaveClass(
@@ -30,7 +38,9 @@ describe('signup render test', () => {
   it('already have account class test', () => {
     const { getByTestId } = render(
       <Router>
-        <SignUp />
+        <Provider store={store}>
+          <SignUp />
+        </Provider>
       </Router>
     );
     expect(getByTestId('aha-test')).toHaveClass(
@@ -43,7 +53,9 @@ describe('signup functionality test', () => {
   it('changing email values', () => {
     const { getByTestId } = render(
       <Router>
-        <SignUp />
+        <Provider store={store}>
+          <SignUp />
+        </Provider>
       </Router>
     );
     const emailInput = getByTestId('email');
