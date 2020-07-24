@@ -1,25 +1,39 @@
 import React, { useState } from 'react';
 import { Loader, Dimmer } from 'semantic-ui-react';
+import { useParams } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import 'mutationobserver-shim';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
+import { configConsumerProps } from 'antd/lib/config-provider';
 
 const SignUp = (props) => {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   const [credentialsSent, setCredentialsSent] = useState('');
+  const { hash } = useParams();
 
   const onSubmit = (data, e) => {
-    console.log(data);
+    const newData = {
+      username: data.username,
+      confirmation_id: hash,
+      password: data.password,
+    };
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post(`${process.env.REACT_APP_BE_URL}/auth/confirm`, data)
+      .post(`${process.env.REACT_APP_BE_URL}/auth/confirm`, newData)
       .then((res) => {
         setIsLoading(false);
+        localStorage.setItem('token', res.data.token);
+        dispatch(actions.user.setUser(res.data));
+        props.history.push('/dashboard');
       })
       .catch((err) => {
+        console.log('error', err);
         setCredentialsSent('failure');
         setIsLoading(false);
       });
@@ -52,7 +66,9 @@ const SignUp = (props) => {
               <div>
                 {credentialsSent === 'failure' ? (
                   <div className="mb-12 text-center">
-                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">There was an error creating your account</h3>
+                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                      There was an error creating your account
+                    </h3>
                     <p className="m-auto text-base text-red-600 tablet:w-4/5">
                       Please ensure the data you have provided is correct.
                     </p>
@@ -60,25 +76,27 @@ const SignUp = (props) => {
                 ) : null}
               </div>
               <Form.Field>
-                <label htmlFor='username'>Username</label>
+                <label htmlFor="username">Username</label>
                 <input
-                  id='username'
+                  id="username"
                   data-testid="username"
                   type="text"
                   placeholder="Username"
                   name="username"
-                  ref={register({ required: 'Username is required.',
-                  minLength: {
-                    value: 3,
-                    message: 'Username must be at least 3 characters long.',
-                  }, })}
+                  ref={register({
+                    required: 'Username is required.',
+                    minLength: {
+                      value: 3,
+                      message: 'Username must be at least 3 characters long.',
+                    },
+                  })}
                 />
                 {errors.username && <p>{errors.username.message}</p>}
               </Form.Field>
               <Form.Field>
-                <label htmlFor='password'>Password</label>
+                <label htmlFor="password">Password</label>
                 <input
-                  id='password'
+                  id="password"
                   data-testid="password"
                   type="password"
                   placeholder="Password"
@@ -94,9 +112,9 @@ const SignUp = (props) => {
                 {errors.password && <p>{errors.password.message}</p>}
               </Form.Field>
               <Form.Field>
-                <label htmlFor='confirm-password'>Confirm Password</label>
+                <label htmlFor="confirm-password">Confirm Password</label>
                 <input
-                  id='confirm-password'
+                  id="confirm-password"
                   data-testid="confirm-password"
                   type="password"
                   placeholder="Password"

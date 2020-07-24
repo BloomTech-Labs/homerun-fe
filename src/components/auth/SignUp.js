@@ -2,14 +2,24 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
-import useForm from "./useForm.js";
-import validate from "./validate.js";
+import useForm from './useForm.js';
+import validate from './validate.js';
 import axios from 'axios';
 import 'mutationobserver-shim';
+import { GoogleLogin } from 'react-google-login';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
 
 const SignUp = (props) => {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const { handleChange, handleSubmit, handleSubmission, data, errors } = useForm(onSubmit, onVerify, validate);
+  const {
+    handleChange,
+    handleSubmit,
+    handleSubmission,
+    data,
+    errors,
+  } = useForm(onSubmit, onVerify, validate);
   const [emailName, setEmailName] = useState('');
   const [emailSent, setEmailSent] = useState('');
   const [pinSent, setPinSent] = useState('');
@@ -28,17 +38,21 @@ const SignUp = (props) => {
         setEmailName(data.email);
         setEmailSent('failure');
         setIsLoading(false);
+        handleSubmission();
       });
-  };
-  
+  }
+
   function onVerify() {
     console.log(data);
     setIsLoading(true);
     axios
-      .post(`${process.env.REACT_APP_BE_URL}/auth/verify-pin
-      `, data)
+      .post(
+        `${process.env.REACT_APP_BE_URL}/auth/verify-pin
+      `,
+        data
+      )
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setPinSent('success');
         setIsLoading(false);
         props.history.push(`/confirm/${res.data.id}`);
@@ -47,15 +61,34 @@ const SignUp = (props) => {
         setPinSent('failure');
         setIsLoading(false);
       });
-  };
-  
+  }
+
   const handleEmailSent = () => {
     setEmailSent('');
     handleSubmission();
-  }
+  };
 
-  const googleAuth = () => {
-    window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
+  const response = (res) => {
+    setIsLoading(true);
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/auth/google`, {
+        token: res.tokenObj.id_token,
+        email: res.profileObj.email,
+      })
+      .then((res) => {
+        if (res.data.token) {
+          console.log('inside the supposed login');
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('google', true);
+          dispatch(actions.user.setUser(res.data));
+          props.history.push('/dashboard');
+        } else {
+          console.log(res.data);
+          props.history.push(`/confirm/${res.data.response.id}`);
+        }
+      })
+      .catch((err) => console.log('err', err));
+    console.log(res);
   };
 
   return (
@@ -113,12 +146,12 @@ const SignUp = (props) => {
               {emailSent === 'success' ? (
                 <div>
                   {pinSent === 'failure' ? (
-                  <div className="mb-12 text-center">
-                    <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
-                      The pin you've provided is incorrect
-                    </h3>
-                  </div>
-                ) : null}
+                    <div className="mb-12 text-center">
+                      <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                        The pin you&apos;ve provided is incorrect
+                      </h3>
+                    </div>
+                  ) : null}
                   <Form.Field>
                     <label>Verification PIN</label>
                     <input
@@ -157,7 +190,9 @@ const SignUp = (props) => {
                       value={data.email}
                       onChange={handleChange}
                     />
-                    {errors.email && <p className="text-red-700">{errors.email}</p>}
+                    {errors.email && (
+                      <p className="text-red-700">{errors.email}</p>
+                    )}
                   </Form.Field>
                 </div>
               )}
@@ -189,15 +224,22 @@ const SignUp = (props) => {
                     <Divider className="py-4" horizontal>
                       OR
                     </Divider>
-                  </div>
-                  <div className="flex justify-center py-4">
-                    <button
-                      onClick={googleAuth}
-                      className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-                    >
-                      <i className="ui icon google white"></i>
-                      Sign in with Google
-                    </button>
+                    <GoogleLogin
+                      clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
+                      buttonText="Login"
+                      onSuccess={response}
+                      onFailure={response}
+                      render={(renderProps) => (
+                        <button
+                          className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                          onClick={renderProps.onClick}
+                          disabled={renderProps.disabled}
+                        >
+                          <i className="ui icon google white"></i>
+                          Sign up with Google
+                        </button>
+                      )}
+                    ></GoogleLogin>
                   </div>
                 </div>
               )}
