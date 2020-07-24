@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Divider, Loader, Dimmer } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react';
-import { useForm } from 'react-hook-form';
+import useForm from './useForm.js';
+import validate from './validate.js';
 import axios from 'axios';
 import 'mutationobserver-shim';
 import { GoogleLogin } from 'react-google-login';
@@ -12,13 +13,19 @@ import actions from '../../actions';
 const SignUp = (props) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, errors } = useForm();
-  const [emailSent, setEmailSent] = useState('');
+  const {
+    handleChange,
+    handleSubmit,
+    handleSubmission,
+    data,
+    errors,
+  } = useForm(onSubmit, onVerify, validate);
   const [emailName, setEmailName] = useState('');
+  const [emailSent, setEmailSent] = useState('');
+  const [pinSent, setPinSent] = useState('');
 
-  const onSubmit = (data, e) => {
+  function onSubmit() {
     console.log(data);
-    e.preventDefault();
     setIsLoading(true);
     axios
       .post(`${process.env.REACT_APP_BE_URL}/auth/signup`, data)
@@ -32,6 +39,32 @@ const SignUp = (props) => {
         setEmailSent('failure');
         setIsLoading(false);
       });
+  }
+
+  function onVerify() {
+    console.log(data);
+    setIsLoading(true);
+    axios
+      .post(
+        `${process.env.REACT_APP_BE_URL}/auth/verify-pin
+      `,
+        data
+      )
+      .then((res) => {
+        console.log(res);
+        setPinSent('success');
+        setIsLoading(false);
+        props.history.push(`/confirm/${res.data.id}`);
+      })
+      .catch((err) => {
+        setPinSent('failure');
+        setIsLoading(false);
+      });
+  }
+
+  const handleEmailSent = () => {
+    setEmailSent('');
+    handleSubmission();
   };
 
   const response = (res) => {
@@ -80,16 +113,16 @@ const SignUp = (props) => {
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-            <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <Form className="w-full" onSubmit={handleSubmit} noValidate>
               <div>
                 {emailSent === 'success' ? (
                   <div className="mb-12 text-center">
                     <h3 className="mb-2 text-base text-green-700 tablet:text-xl">
-                      A verification link has been sent to {emailName}
+                      A verification pin has been sent to {emailName}
                     </h3>
                     <p className="w-5/6 m-auto text-base text-green-600 tablet:text-base">
-                      Please check your email and follow the link for
-                      verification to continue the registration process.
+                      Please provide the pin sent to your email to continue the
+                      registration process.
                     </p>
                   </div>
                 ) : null}
@@ -108,87 +141,107 @@ const SignUp = (props) => {
                   </div>
                 ) : null}
               </div>
-              <Form.Field>
-                <label>Username</label>
-                <input
-                  data-testid="username"
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  ref={register({ required: 'Username is required.' })}
-                />
-                {errors.username && <p>{errors.username.message}</p>}
-              </Form.Field>
-              <Form.Field>
-                <label>Email</label>
-                <input
-                  data-testid="email"
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  ref={register({ required: 'Email is required.' })}
-                />
-                {errors.email && <p>{errors.email.message}</p>}
-              </Form.Field>
-              <Form.Field>
-                <label>Password</label>
-                <input
-                  data-testid="password"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  ref={register({
-                    required: 'Password is required.',
-                    minLength: {
-                      value: 8,
-                      message: 'Password must be at least 8 characters long.',
-                    },
-                  })}
-                />
-                {errors.password && <p>{errors.password.message}</p>}
-              </Form.Field>
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
-                  data-testid="submit-signup"
-                >
-                  Submit
-                </button>
-              </div>
-              <div className="mt-4 text-center">
-                <p
-                  className="py-4 text-sm text-gray-700 phone:text-base"
-                  data-testid="aha-test"
-                >
-                  Already have an account?{' '}
-                  <Link
-                    className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
-                    to="/signin"
-                  >
-                    Sign In
-                  </Link>
-                </p>
-                <Divider className="py-4" horizontal>
-                  OR
-                </Divider>
-                <GoogleLogin
-                  clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
-                  buttonText="Login"
-                  onSuccess={response}
-                  onFailure={response}
-                  render={(renderProps) => (
+
+              {emailSent === 'success' ? (
+                <div>
+                  {pinSent === 'failure' ? (
+                    <div className="mb-12 text-center">
+                      <h3 className="mb-2 text-lg text-red-700 mobile:text-2xl">
+                        The pin you've provided is incorrect
+                      </h3>
+                    </div>
+                  ) : null}
+                  <Form.Field>
+                    <label>Verification PIN</label>
+                    <input
+                      data-testid="pin"
+                      type="text"
+                      placeholder="PIN"
+                      name="pin"
+                      value={data.pin}
+                      onChange={handleChange}
+                    />
+                  </Form.Field>
+                  <div className="flex flex-wrap tablet:justify-center tablet:flex-no-wrap">
                     <button
-                      className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
+                      type="submit"
+                      className="w-full h-10 px-8 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg tablet:w-2/5 bg-hive hover:bg-orange-500"
                     >
-                      <i className="ui icon google white"></i>
-                      Sign up with Google
+                      Submit
                     </button>
-                  )}
-                ></GoogleLogin>
-              </div>
+                    <button
+                      className="w-full h-10 px-4 mt-8 font-semibold text-gray-700 bg-gray-300 border rounded shadow-lg tablet:mt-4 hover:bg-gray-400 tablet:w-2/5 tablet:ml-6"
+                      onClick={() => handleEmailSent()}
+                    >
+                      Back
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <Form.Field>
+                    <label>Email</label>
+                    <input
+                      data-testid="email"
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      value={data.email}
+                      onChange={handleChange}
+                    />
+                    {errors.email && (
+                      <p className="text-red-700">{errors.email}</p>
+                    )}
+                  </Form.Field>
+                </div>
+              )}
+
+              {emailSent === 'success' ? null : (
+                <div>
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      className="w-full h-10 px-4 mt-4 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
+                      data-testid="submit-signup"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p
+                      className="py-4 text-sm text-gray-700 phone:text-base"
+                      data-testid="aha-test"
+                    >
+                      Already have an account?{' '}
+                      <Link
+                        className="text-sm font-semibold text-hive hover:text-orange-500 phone:text-base"
+                        to="/signin"
+                      >
+                        Sign In
+                      </Link>
+                    </p>
+                    <Divider className="py-4" horizontal>
+                      OR
+                    </Divider>
+                  </div>
+                  <GoogleLogin
+                    clientId={`${process.env.REACT_APP_G_CLIENT_ID}`}
+                    buttonText="Login"
+                    onSuccess={response}
+                    onFailure={response}
+                    render={(renderProps) => (
+                      <button
+                        className="w-full h-10 px-2 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-1/2"
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                      >
+                        <i className="ui icon google white"></i>
+                        Sign up with Google
+                      </button>
+                    )}
+                  ></GoogleLogin>
+                </div>
+              )}
             </Form>
           )}
         </div>
