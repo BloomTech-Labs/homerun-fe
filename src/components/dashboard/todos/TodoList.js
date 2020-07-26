@@ -11,7 +11,7 @@ const TodoList = () => {
   const currentUser = useSelector((state) => state.user);
   const userIsChild = useSelector((state) => state.user.childActive);
   const dispatch = useDispatch();
-
+  console.log(store);
   const [todos, setTodos] = useState([]);
   const [todones, setTodones] = useState([]);
 
@@ -55,8 +55,8 @@ const TodoList = () => {
       <h3>Todo</h3>
       <div className="todos-list">
         <SwipeableList>
-          {todos.map((todo) => {
-            return <Todo key={todo.id} {...todo} />;
+          {store.map((todo) => {
+            return <Todo key={todo.id} {...todo} {...todo.todo} />;
           })}
         </SwipeableList>
       </div>
