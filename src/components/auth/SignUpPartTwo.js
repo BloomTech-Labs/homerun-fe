@@ -90,7 +90,7 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.username && <p className="text-red-700">{errors.username.message}</p>}
+                {errors.username && <p className="text-red-700" role="alert">{errors.username.message}</p>}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="password">Password</label>
@@ -108,7 +108,7 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.password && <p                     className="text-red-700">{errors.password.message}</p>}
+                {errors.password && <p                     className="text-red-700" role="alert">{errors.password.message}</p>}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="confirm-password">Confirm Password</label>
@@ -126,7 +126,7 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.confirm && <p className="text-red-700">{errors.confirm.message}</p>}
+                {errors.confirm && <p className="text-red-700" role="alert">{errors.confirm.message}</p>}
               </Form.Field>
               <div className="flex justify-center mt-5">
                 <button
