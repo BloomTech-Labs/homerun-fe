@@ -35,6 +35,7 @@ const SignUp = (props) => {
         setIsLoading(false);
       })
       .catch((err) => {
+        console.log(errors);
         setEmailName(data.email);
         setEmailSent('failure');
         setIsLoading(false);

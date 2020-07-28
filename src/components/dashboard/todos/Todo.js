@@ -140,7 +140,7 @@ const Todo = (props) => {
                   )}
                   {!userIsChild ? (
                     <Dropdown overlay={userSelect} trigger={['click']}>
-                      <a
+                      <button
                         className="ant-dropdown-link"
                         onClick={(e) => {
                           e.preventDefault();
@@ -150,7 +150,7 @@ const Todo = (props) => {
                           className="ui icon add user blue large todo-icon"
                           style={{ marginRight: '10px' }}
                         ></i>
-                      </a>
+                      </button>
                     </Dropdown>
                   ) : (
                     ''

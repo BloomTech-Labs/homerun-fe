@@ -1,31 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Form, Loader, Dimmer } from 'semantic-ui-react';
-import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import actions from '../../actions';
 import 'mutationobserver-shim';
 import { GoogleLogin } from 'react-google-login';
 
-// const googleAuth = () => {
-//   window.location = `${process.env.REACT_APP_BE_URL}/connect/google`;
-// };
-
-// needed: username, email, password
-
 const SignInLanding = (props) => {
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
-  const [formValidation, setFormValidation] = useState({
-    email: '',
-    password: '',
-  }); // For Input Form Validation
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
