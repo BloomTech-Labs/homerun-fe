@@ -7,7 +7,6 @@ import axios from 'axios';
 import 'mutationobserver-shim';
 import { useDispatch } from 'react-redux';
 import actions from '../../actions';
-import { configConsumerProps } from 'antd/lib/config-provider';
 
 const SignUp = (props) => {
   const dispatch = useDispatch();
@@ -84,14 +83,14 @@ const SignUp = (props) => {
                   placeholder="Username"
                   name="username"
                   ref={register({
-                    required: 'Username is required.',
+                    required: 'Username is required',
                     minLength: {
                       value: 3,
                       message: 'Username must be at least 3 characters long.',
                     },
                   })}
                 />
-                {errors.username && <p>{errors.username.message}</p>}
+                {errors.username && <p className="text-red-700" role="alert">{errors.username.message}</p>}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="password">Password</label>
@@ -102,14 +101,14 @@ const SignUp = (props) => {
                   placeholder="Password"
                   name="password"
                   ref={register({
-                    required: 'Password is required.',
+                    required: 'Password is required',
                     minLength: {
                       value: 7,
                       message: 'Password must be at least 7 characters long.',
                     },
                   })}
                 />
-                {errors.password && <p>{errors.password.message}</p>}
+                {errors.password && <p                     className="text-red-700" role="alert">{errors.password.message}</p>}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="confirm-password">Confirm Password</label>
@@ -118,16 +117,16 @@ const SignUp = (props) => {
                   data-testid="confirm-password"
                   type="password"
                   placeholder="Password"
-                  name="confirm-password"
+                  name="confirm"
                   ref={register({
-                    required: 'Password is required.',
+                    required: 'Password is required',
                     minLength: {
                       value: 7,
                       message: 'Password must be at least 7 characters long.',
                     },
                   })}
                 />
-                {errors.password && <p>{errors.password.message}</p>}
+                {errors.confirm && <p className="text-red-700" role="alert">{errors.confirm.message}</p>}
               </Form.Field>
               <div className="flex justify-center mt-5">
                 <button

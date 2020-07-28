@@ -19,9 +19,9 @@ const useForm = (onSubmit, onVerify, validate) => {
   };
 
   const handleSubmission = () => {
-    setEmailSubmission(!emailSubmission);
-    setPinSubmission(!pinSubmission);
-  };
+    setEmailSubmission(true);
+    setPinSubmission(false);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
