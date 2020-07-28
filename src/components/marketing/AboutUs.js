@@ -5,7 +5,7 @@ import Card from './Card';
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col m-auto contain">
+    <div className="p-2 flex flex-col m-auto contain">
       <div className="flex">
         <h2 className="flex p-8 m-auto text-center" data-testid="header-test">
           Our Team
