@@ -7,7 +7,6 @@ import axios from 'axios';
 import 'mutationobserver-shim';
 import { useDispatch } from 'react-redux';
 import actions from '../../actions';
-import { configConsumerProps } from 'antd/lib/config-provider';
 
 const SignUp = (props) => {
   const dispatch = useDispatch();
@@ -118,7 +117,7 @@ const SignUp = (props) => {
                   data-testid="confirm-password"
                   type="password"
                   placeholder="Password"
-                  name="confirm-password"
+                  name="confirm"
                   ref={register({
                     required: 'Password is required',
                     minLength: {
@@ -127,7 +126,7 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.password && <p className="text-red-700">{errors.password.message}</p>}
+                {errors.confirm && <p className="text-red-700">{errors.confirm.message}</p>}
               </Form.Field>
               <div className="flex justify-center mt-5">
                 <button
