@@ -87,7 +87,7 @@ const SignUp = (props) => {
                   placeholder="Username"
                   name="username"
                   ref={register({
-                    required: 'Username is required.',
+                    required: 'Username is required',
                     minLength: {
                       value: 3,
                       message: 'Username must be at least 3 characters long.',
@@ -109,7 +109,7 @@ const SignUp = (props) => {
                   placeholder="Password"
                   name="password"
                   ref={register({
-                    required: 'Password is required.',
+                    required: 'Password is required',
                     minLength: {
                       value: 7,
                       message: 'Password must be at least 7 characters long.',
@@ -129,9 +129,9 @@ const SignUp = (props) => {
                   data-testid="confirm-password"
                   type="password"
                   placeholder="Password"
-                  name="confirm-password"
+                  name="confirm"
                   ref={register({
-                    required: 'Password is required.',
+                    required: 'Password is required',
                     minLength: {
                       value: 7,
                       message: 'Password must be at least 7 characters long.',
