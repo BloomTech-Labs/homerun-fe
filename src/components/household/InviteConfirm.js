@@ -10,7 +10,7 @@ export const InviteConfirm = () => {
 
   useEffect(() => {
     axiosWithAuth()
-      .put('/members/household/accept-invite', { hash })
+      .post('/members/household/accept-invite', { hash })
       .then((res) => {
         // clear the storage so we can start fresh
         localStorage.clear();
