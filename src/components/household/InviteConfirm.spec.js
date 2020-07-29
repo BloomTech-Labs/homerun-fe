@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 let mock_axiosWillPass = true;
-let mock_put = jest.fn(() => {
+let mock_post = jest.fn(() => {
   if (mock_axiosWillPass) {
     return Promise.resolve({
       data: { token: 'TEST_TOKEN' },
@@ -27,7 +27,7 @@ let mock_put = jest.fn(() => {
 });
 
 jest.mock('../../utils/AxiosWithAuth.js', () => () => ({
-  put: mock_put,
+  post: mock_post,
 }));
 
 afterAll(cleanup);
@@ -41,8 +41,8 @@ describe('InviteConfirm component', () => {
   it('Calls the backend using hash', () => {
     jest.clearAllMocks();
     render(<InviteConfirm />);
-    expect(mock_put).toHaveBeenCalledTimes(1);
-    expect(mock_put).toHaveBeenCalledWith('/members/household/accept-invite', {
+    expect(mock_post).toHaveBeenCalledTimes(1);
+    expect(mock_post).toHaveBeenCalledWith('/members/household/accept-invite', {
       hash: mock_hash,
     });
   });
