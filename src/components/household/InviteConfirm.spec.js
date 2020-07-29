@@ -3,7 +3,6 @@ import { render, cleanup } from '@testing-library/react';
 import { InviteConfirm } from './InviteConfirm';
 
 let mock_path = '';
-let mock_householdId = 'TEST_HOUSEHOLD';
 let mock_hash = 'TEST_HASH';
 jest.mock('react-router-dom', () => ({
   useHistory: jest.fn(() => ({
@@ -12,7 +11,6 @@ jest.mock('react-router-dom', () => ({
     }),
   })),
   useParams: jest.fn(() => ({
-    householdId: mock_householdId,
     hash: mock_hash,
   })),
 }));
@@ -40,12 +38,11 @@ describe('InviteConfirm component', () => {
     expect(dimmer).toBeVisible();
   });
 
-  it('Calls the backend using hash and householdId', () => {
+  it('Calls the backend using hash', () => {
     jest.clearAllMocks();
     render(<InviteConfirm />);
     expect(mock_put).toHaveBeenCalledTimes(1);
-    expect(mock_put).toHaveBeenCalledWith('/members', {
-      householdId: mock_householdId,
+    expect(mock_put).toHaveBeenCalledWith('/members/household/accept-invite', {
       hash: mock_hash,
     });
   });
