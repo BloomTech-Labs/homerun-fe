@@ -59,7 +59,9 @@ describe('signup functionality test', () => {
       </Router>
     );
     const emailInput = getByTestId('email');
-    fireEvent.change(emailInput, { target: { value: 'test-2' } });
-    expect(emailInput.value).toBe('test-2');
+    fireEvent.change(emailInput, {
+      target: { value: 'tidyhivelife@gmail.com' },
+    });
+    expect(emailInput.value).toBe('tidyhivelife@gmail.com');
   });
 });

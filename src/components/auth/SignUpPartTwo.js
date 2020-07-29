@@ -61,7 +61,11 @@ const SignUp = (props) => {
               <Loader size="large">Loading</Loader>
             </Dimmer>
           ) : (
-            <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <Form
+              className="w-full"
+              onSubmit={handleSubmit(onSubmit)}
+              data-testid="form"
+            >
               <div>
                 {credentialsSent === 'failure' ? (
                   <div className="mb-12 text-center">
@@ -90,7 +94,11 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.username && <p className="text-red-700" role="alert">{errors.username.message}</p>}
+                {errors.username && (
+                  <span role="alert" data-testid="username-error">
+                    {errors.username.message}
+                  </span>
+                )}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="password">Password</label>
@@ -108,7 +116,11 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.password && <p                     className="text-red-700" role="alert">{errors.password.message}</p>}
+                {errors.password && (
+                  <span role="alert" data-testid="password-error">
+                    {errors.password.message}
+                  </span>
+                )}
               </Form.Field>
               <Form.Field>
                 <label htmlFor="confirm-password">Confirm Password</label>
@@ -126,13 +138,15 @@ const SignUp = (props) => {
                     },
                   })}
                 />
-                {errors.confirm && <p className="text-red-700" role="alert">{errors.confirm.message}</p>}
+                {errors.password && (
+                  <span role="alert">{errors['confirm-password'].message}</span>
+                )}
               </Form.Field>
               <div className="flex justify-center mt-5">
                 <button
                   type="submit"
                   className="w-full h-10 px-4 mt-5 font-semibold tracking-wider text-white border rounded shadow-lg bg-hive hover:bg-orange-500 tablet:w-2/5"
-                  data-testid="submit-signup"
+                  data-testid="submit"
                 >
                   Submit
                 </button>
