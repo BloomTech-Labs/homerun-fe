@@ -5,12 +5,12 @@ import { Loader, Dimmer } from 'semantic-ui-react';
 
 export const InviteConfirm = () => {
   const [loading, setLoading] = useState(true);
-  const { hash, householdId } = useParams();
+  const { hash } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     axiosWithAuth()
-      .put('/members', { hash, householdId })
+      .post('/members/household/accept-invite', { hash })
       .then((res) => {
         // clear the storage so we can start fresh
         localStorage.clear();

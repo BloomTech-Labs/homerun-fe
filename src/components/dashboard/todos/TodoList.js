@@ -55,8 +55,8 @@ const TodoList = () => {
       <h3>Todo</h3>
       <div className="todos-list">
         <SwipeableList>
-          {store.map((todo) => {
-            return <Todo key={todo.id} {...todo} {...todo.todo} />;
+          {todos.map((todo) => {
+            return <Todo key={todo.id} {...todo} />;
           })}
         </SwipeableList>
       </div>
