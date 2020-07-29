@@ -16,7 +16,7 @@ afterEach(() => moxios.uninstall());
 describe('Household Action testing', () => {
   describe('Fetch household actions', () => {
     it('returns proper actions on success', () => {
-      moxios.stubRequest('/members/household/assignable', {
+      moxios.stubRequest('/members/household', {
         status: 200,
         response: 'stuff',
       });
@@ -31,7 +31,7 @@ describe('Household Action testing', () => {
         .then(() => expect(store.getActions()).toEqual(expectedActions));
     });
     it('returns proper actions on failure', () => {
-      moxios.stubRequest('/members/household/assignable', {
+      moxios.stubRequest('/members/household', {
         status: 500,
         response: { message: 'stuff' },
       });
