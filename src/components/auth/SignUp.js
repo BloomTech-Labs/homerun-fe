@@ -15,7 +15,6 @@ const SignUp = (props) => {
   const [pinSent, setPinSent] = useState('');
 
   function onSubmit() {
-    debugger;
     console.log(data);
     setIsLoading(true);
     axios
@@ -26,7 +25,6 @@ const SignUp = (props) => {
         setIsLoading(false);
       })
       .catch((err) => {
-        debugger;
         console.log(errors);
         setEmailName(data.email);
         setEmailSent('failure');
