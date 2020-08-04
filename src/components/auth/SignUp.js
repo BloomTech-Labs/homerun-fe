@@ -29,6 +29,7 @@ const SignUp = (props) => {
         setEmailName(data.email);
         setEmailSent('failure');
         setIsLoading(false);
+        handleSubmission();
       });
   };
   
