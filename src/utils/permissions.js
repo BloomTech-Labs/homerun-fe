@@ -1,5 +1,5 @@
 export default {
-  // read todos, complete their own todos
+  // read todos, complete todos assigned to them
   LOW: 1,
   // create todos, and assign themselves to todos
   REGULAR: 2,
