@@ -55,27 +55,11 @@ const Header = (props) => {
   return (
     <>
       <div className="header-container">
-        <img
-          src={logo}
-          alt="TidyHive Logo"
-          style={{ width: '60px', height: 'auto' }}
-        />
         <UiHeader as="h3" data-testid="title">
           {location.pathname === '/dashboard' && TITLES.DASHBOARD}
           {location.pathname === '/household' && TITLES.HOUSEHOLD}
           {location.pathname === '/account' && TITLES.ACCOUNT}
         </UiHeader>
-        <Button
-          onClick={handleClick}
-          className="header-btns"
-          data-testid="header-button"
-        >
-          <Icon
-            className="icons-size"
-            size="big"
-            name={currentUser.childActive === true ? 'lock' : `bars`}
-          />
-        </Button>
       </div>
       <Modal open={pinModal} data-testid="pin-modal">
         <Modal.Header>Admin Access</Modal.Header>
