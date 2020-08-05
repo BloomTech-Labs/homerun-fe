@@ -5,7 +5,7 @@ import configRedux from '../../configRedux';
 import { saveState } from '../../utils/localStorage';
 import Header from './Header';
 import TITLES from './HeaderTitles';
-import userActions from '../../actions/userActions';
+// import userActions from '../../actions/userActions';
 
 let mock_path;
 jest.mock('react-router-dom', () => ({
@@ -70,58 +70,5 @@ describe('Header rendering', () => {
     ).getByTestId(/sidebar/);
 
     expect(sidebar.classList).not.toContain('visible');
-  });
-
-  it("Shows a 'bars' icon when the user *is not* a child account", () => {
-    userActions.setChildActive(false);
-    const button = render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    ).getByTestId(/header-button/);
-    expect(button.firstElementChild.classList).toContain('bars');
-  });
-
-  it('Opens the sidebar when you press the sandwich button, if the user *is not* a child account', () => {
-    userActions.setChildActive(false);
-    const page = render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    );
-    const button = page.getByTestId(/header-button/);
-
-    act(() => {
-      fireEvent.click(button);
-    });
-
-    const sidebar = page.getByTestId(/sidebar/);
-    expect(sidebar.classList).toContain('visible');
-  });
-
-  it("Shows a 'lock' icon when the user *is* a child account", () => {
-    userActions.setChildActive(true)(store.dispatch);
-    const button = render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    ).getByTestId(/header-button/);
-    expect(button.firstElementChild.classList).toContain('lock');
-  });
-
-  it('Opens a Modal when you press the sandwich button, if the user *is* a child account', () => {
-    userActions.setChildActive(true)(store.dispatch);
-    const page = render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    );
-    const button = page.getByTestId(/header-button/);
-    act(() => {
-      fireEvent.click(button);
-    });
-
-    const modal = page.getByTestId(/pin-modal/);
-    expect(modal).toBeVisible();
   });
 });
