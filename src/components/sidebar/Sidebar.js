@@ -55,7 +55,7 @@ const Sidebar = (props) => {
         }}
       >
         <Menu.Item
-          name="Account"
+          name="Dashboard"
           as={NavLink}
           to="/dashboard"
           data-testid="link-dashboard"
@@ -69,14 +69,6 @@ const Sidebar = (props) => {
           data-testid="link-household"
         >
           Household
-        </Menu.Item>
-        <Menu.Item
-          name="Account"
-          as={NavLink}
-          to="/account"
-          data-testid="link-account"
-        >
-          Account
         </Menu.Item>
         <Button
           className="logout-btn hive"

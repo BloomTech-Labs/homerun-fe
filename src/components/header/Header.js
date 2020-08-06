@@ -58,7 +58,6 @@ const Header = (props) => {
         <UiHeader as="h3" data-testid="title">
           {location.pathname === '/dashboard' && TITLES.DASHBOARD}
           {location.pathname === '/household' && TITLES.HOUSEHOLD}
-          {location.pathname === '/account' && TITLES.ACCOUNT}
         </UiHeader>
       </div>
       <Modal open={pinModal} data-testid="pin-modal">
