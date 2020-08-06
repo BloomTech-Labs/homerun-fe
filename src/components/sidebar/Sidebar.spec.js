@@ -11,7 +11,7 @@ let mock_setOpened = jest.fn((isOpened) => {
 afterAll(cleanup);
 
 describe('Sidebar', () => {
-  it('Has links to each of the 3 main paths (dashboard, household, account)', () => {
+  it('Has links to each of the 2 main paths (dashboard, household)', () => {
     const sidebar = render(
       <Router>
         <Sidebar opened={mock_opened} setOpened={mock_setOpened} />
@@ -19,13 +19,11 @@ describe('Sidebar', () => {
     );
     let link1 = sidebar.getByTestId(/link-dashboard/);
     let link2 = sidebar.getByTestId(/link-household/);
-    let link3 = sidebar.getByTestId(/link-account/);
     expect(link1).toBeVisible();
     expect(link2).toBeVisible();
-    expect(link3).toBeVisible();
   });
 
-  it('Changes the paths correctly for all 3 links', () => {
+  it('Changes the paths correctly for all 2 links', () => {
     const sidebar = render(
       <Router>
         <Sidebar opened={mock_opened} setOpened={mock_setOpened} />
@@ -33,13 +31,10 @@ describe('Sidebar', () => {
     );
     let link1 = sidebar.getByTestId(/link-dashboard/);
     let link2 = sidebar.getByTestId(/link-household/);
-    let link3 = sidebar.getByTestId(/link-account/);
     fireEvent.click(link1);
     expect(window.location.pathname).toBe('/dashboard');
     fireEvent.click(link2);
     expect(window.location.pathname).toBe('/household');
-    fireEvent.click(link3);
-    expect(window.location.pathname).toBe('/account');
   });
 
   describe('Logout button', () => {
