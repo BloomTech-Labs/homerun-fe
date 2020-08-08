@@ -59,6 +59,8 @@ const InviteConfirm = (props) => {
           })
           .catch((err) => {
             console.log(err);
+            history.push(`/invite/${hash}`);
+            setError('The invitation link is not associated to this account');
           });
       })
       .catch((err) => {
@@ -109,11 +111,6 @@ const InviteConfirm = (props) => {
         </div>
         {error ? <span role="alert">{error}</span> : null}
         <div className="max-w-lg phone:w-4/5">
-          {isLoading ? (
-            <Dimmer active inverted>
-              <Loader size="large">Loading</Loader>
-            </Dimmer>
-          ) : (
             <Form
               className="w-full"
               onSubmit={() => {
@@ -191,7 +188,6 @@ const InviteConfirm = (props) => {
                 ></GoogleLogin>
               </div>
             </Form>
-          )}
         </div>
       </section>
     </>
