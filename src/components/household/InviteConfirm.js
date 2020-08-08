@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../utils/AxiosWithAuth.js';
 import { useParams, useHistory } from 'react-router-dom';
 import { Loader, Dimmer } from 'semantic-ui-react';
+import SignInConfirmation from '../auth/SignIn-Confirmation.js';
 
 export const InviteConfirm = () => {
   const [loading, setLoading] = useState(true);
@@ -26,8 +27,6 @@ export const InviteConfirm = () => {
   }, []);
 
   return loading ? (
-    <Dimmer active inverted data-testid="dimmer">
-      <Loader size="large">Loading</Loader>
-    </Dimmer>
+    <SignInConfirmation/>
   ) : null;
 };
