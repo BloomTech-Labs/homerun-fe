@@ -109,7 +109,7 @@ const InviteConfirm = (props) => {
             Sign in to join your new team
           </p>
         </div>
-        {error ? <span role="alert">{error}</span> : null}
+        {error ? <span className="text-red-700" role="alert">{error}</span> : null}
         <div className="max-w-lg phone:w-4/5">
             <Form
               className="w-full"
