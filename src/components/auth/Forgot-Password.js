@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Message, Container } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Form, Message } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
@@ -27,8 +26,9 @@ const ForgotPW = (props) => {
       <div className="flex flex-col items-center justify-center h-full">
         <div className="w-full text-center">
           <img
-            className="w-32 pb-12 pl-2 m-auto tablet:pl-4 tablet:w-48 tablet:pl-6"
+            className="w-32 pb-12 pl-2 m-auto tablet:pl-4 tablet:w-48"
             src={ForgotPassword}
+            alt="lock and key"
           />
           <h1 className="mb-2 text-3xl text-gray-700 font-semi-bold tablet:text-4xl">
             Forgot Your Password?
