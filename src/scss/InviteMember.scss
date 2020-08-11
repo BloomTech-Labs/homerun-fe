@@ -24,3 +24,33 @@ form {
     background-color: rgb(230, 144, 25);
   }
 }
+
+.perm-title-row {
+  display: flex;
+  border: 0.5px solid rgb(165, 165, 165);
+  text-align: center;
+}
+
+.perm-table-title {
+  width: 25%;
+  text-align: center;
+}
+
+.perm-title-cell {
+  width: 25%;
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+}
+
+.perm-feature-row {
+  display: flex;
+  border: 0.5px solid rgb(165, 165, 165);
+  border-width: 0px 0.5px 0.5px 0.5px;
+  text-align: center;
+}
+
+.perm-feature-cell {
+  width: 25%;
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+}

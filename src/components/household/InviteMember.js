@@ -21,20 +21,58 @@ const InviteMember = (props) => {
     </Dimmer>
   ) : (
     <>
-    <section className="perm-info">
-          <h2 className="perm-title">Invite a new member</h2>
-          <p>Level 1 : May complete todos they are assigned to.</p>
-          <p>
-            Level 2 : May create todos and assign themselves + edit todos they
-            have created.
-          </p>
-          <p>
-            Level 3 : No restrictions on todos and may invite level 1 and 2 to
-            the group.
-          </p>
-        </section>
+      <section className="perm-info">
+        <h2 className="perm-title">Invite a new member</h2>
+        <div className="perm-title-row">
+          <p className="perm-table-title">Permission Level</p>
+          <p className="perm-title-cell">Level 1</p>
+          <p className="perm-title-cell">Level 2</p>
+          <p className="perm-title-cell">Level 3</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Complete todos</p>
+          <p className="perm-feature-cell">yes</p>
+          <p className="perm-feature-cell">yes</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Create todos</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">yes</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Edit todos</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">with restrictions</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Delete todos</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">with restrictions</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Assign self</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">with restrictions</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Assign others</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">yes</p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="perm-table-title">Invite members</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">no</p>
+          <p className="perm-feature-cell">level 1-2</p>
+        </div>
+      </section>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        
         <Form.Field>
           <label>
             Please enter the email address of the user you wish to invite.
