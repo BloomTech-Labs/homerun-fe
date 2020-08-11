@@ -12,6 +12,7 @@ const InviteMember = (props) => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+    console.log(data);
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
   };
   return loadingState ? (
@@ -52,7 +53,7 @@ const InviteMember = (props) => {
           </label>
           <input
             type="number"
-            name="level"
+            name="permission_level"
             placeholder="1-3"
             min="1"
             max="3"
@@ -60,8 +61,8 @@ const InviteMember = (props) => {
           />
           {stateError && <p className={'error'}>{stateError}</p>}
         </Form.Field>
-        <Button primary type="submit">
-          Invite
+        <Button type="submit" className="invite-button">
+          Invite Member
         </Button>
       </Form>
     </>
