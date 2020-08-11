@@ -9,7 +9,6 @@ import ControlTodo from './ControlTodo.js';
 const TodoList = () => {
   const store = useSelector((state) => state.todos.todos);
   const currentUser = useSelector((state) => state.user);
-  const userIsChild = useSelector((state) => state.user.childActive);
   const dispatch = useDispatch();
   console.log(store);
   const [todos, setTodos] = useState([]);
@@ -23,32 +22,9 @@ const TodoList = () => {
   useEffect(() => {
     const incomplete = store.filter((todo) => todo.completed === false);
     const complete = store.filter((todo) => todo.completed === true);
-    if (userIsChild) {
-      const childIncomplete = incomplete.filter((t) => {
-        let isAssigned = false;
-        t.assigned.forEach((a) => {
-          if (a.username === currentUser.userChild.username) {
-            isAssigned = true;
-          }
-        });
-        return isAssigned;
-      });
-      const childComplete = complete.filter((t) => {
-        let isAssigned = false;
-        t.assigned.forEach((a) => {
-          if (a.username === currentUser.userChild.username) {
-            isAssigned = true;
-          }
-        });
-        return isAssigned;
-      });
-      setTodos(childIncomplete);
-      setTodones(childComplete);
-    } else {
-      setTodos(incomplete);
-      setTodones(complete);
-    }
-  }, [store, userIsChild]);
+    setTodos(incomplete);
+    setTodones(complete);
+  }, [store]);
 
   return (
     <section>
@@ -70,7 +46,7 @@ const TodoList = () => {
           })}
         </SwipeableList>
       </div>
-      {!currentUser.childActive ? <ControlTodo /> : ''}
+      <ControlTodo />
     </section>
   );
 };

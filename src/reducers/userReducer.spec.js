@@ -2,9 +2,7 @@ import userReducer from './userReducer.js';
 
 const initialState = {
   userInfo: {},
-  userChild: {},
   loading: false,
-  childActive: false,
 };
 
 describe('user reducer', () => {
@@ -31,37 +29,4 @@ describe('user reducer', () => {
       },
     });
   });
-
-  // it('should handle the FETCH_MEMBERS_SUCCESS action', () => {
-  //     const actionPayload = [
-  //         {
-  //             id: 3,
-  //             username: "Micah",
-  //             email: 'micah@testing.com',
-  //             points: null
-  //         },
-  //         {
-  //             id: 5,
-  //             username: "new child",
-  //             points: null,
-  //             child: true,
-  //         }
-  //     ]
-  //     expect(householdReducer(initialState, { type: FETCH_MEMBERS_SUCCESS, payload: actionPayload }))
-  //             .toEqual({
-  //                 members: [{
-  //                     id: 3,
-  //                     username: "Micah",
-  //                     email: 'micah@testing.com',
-  //                     points: null
-  //                 },
-  //                 {
-  //                     id: 5,
-  //                     username: "new child",
-  //                     points: null,
-  //                     child: true,
-  //                 }],
-  //                 error: '',
-  //                 loading: false})
-  // })
 });

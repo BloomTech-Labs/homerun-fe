@@ -52,6 +52,7 @@ const Home = () => {
         </div>
       </section>
       <section className="flex justify-center px-20 mt-20 mb-24 desktop:m-40">
+        {/* TODO: rephrase more generally */}
         <h2
           className="max-w-2xl text-2xl text-center tablet:text-3xl desktop:max-w-full desktop:px-16"
           data-testid="content-test"
@@ -62,8 +63,6 @@ const Home = () => {
           work will fall on a single member of a household - delegating work
           within a household is so important. This includes keeping children on
           track with their chores and schoolwork or extra-curricular activities!
-          There are limitations to a child account. Their account can only be
-          accessed as an extension from the main account holder.
         </h2>
       </section>
     </>

@@ -23,7 +23,6 @@ const Todo = (props) => {
   });
   const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
-  const userIsChild = useSelector((state) => state.user.childActive);
   const householdUsers = useSelector((state) => state.household.members);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
@@ -36,13 +35,13 @@ const Todo = (props) => {
     });
 
     if (!alreadyAssigned) {
-      const type = user.child ? 'child' : 'member';
+      const type = 'member';
       dispatch(actions.todo.assignUser(id, user.id, type));
     }
   };
 
   const unassign = (user) => {
-    const type = user.child ? 'child' : 'member';
+    const type = 'member';
     dispatch(actions.todo.unassignUser(id, user.id, type));
   };
 
@@ -55,12 +54,7 @@ const Todo = (props) => {
 
   // TODO: This is not the right index from the store.
   const handleRemove = () => {
-    if (userIsChild) {
-      // TODO: replace with permanent functionality
-      alert('Children cannot delete todos');
-    } else {
-      dispatch(actions.todo.removeTodo(id));
-    }
+    dispatch(actions.todo.removeTodo(id));
   };
 
   const handleCompleted = () => {
@@ -130,48 +124,35 @@ const Todo = (props) => {
               {/* Testing mapping over with selection as an object */}
               <Row justify="end">
                 <Col>
-                  {!userIsChild ? (
-                    <i
-                      className="ui icon edit large blue todo-icon"
-                      onClick={() => setEditing(true)}
-                    ></i>
-                  ) : (
-                    ''
-                  )}
-                  {!userIsChild ? (
-                    <Dropdown overlay={userSelect} trigger={['click']}>
-                      <button
-                        className="ant-dropdown-link"
-                        onClick={(e) => {
-                          e.preventDefault();
-                        }}
-                      >
-                        <i
-                          className="ui icon add user blue large todo-icon"
-                          style={{ marginRight: '10px' }}
-                        ></i>
-                      </button>
-                    </Dropdown>
-                  ) : (
-                    ''
-                  )}
-
-                  {/* Reschedule popup - should only be visible if the current user does not have an active child account */}
-                  {!userIsChild ? (
-                    <>
+                  <i
+                    className="ui icon edit large blue todo-icon"
+                    onClick={() => setEditing(true)}
+                  ></i>
+                  <Dropdown overlay={userSelect} trigger={['click']}>
+                    <button
+                      className="ant-dropdown-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                      }}
+                    >
                       <i
-                        className="ui icon clock large blue todo-icon"
-                        onClick={() =>
-                          setReschedule({
-                            ...reschedule,
-                            popup: !reschedule.popup,
-                          })
-                        }
+                        className="ui icon add user blue large todo-icon"
+                        style={{ marginRight: '10px' }}
                       ></i>
-                    </>
-                  ) : (
-                    ''
-                  )}
+                    </button>
+                  </Dropdown>
+
+                  <>
+                    <i
+                      className="ui icon clock large blue todo-icon"
+                      onClick={() =>
+                        setReschedule({
+                          ...reschedule,
+                          popup: !reschedule.popup,
+                        })
+                      }
+                    ></i>
+                  </>
                   {reschedule.popup ? (
                     <DatePicker onChange={handleDue} open={reschedule.popup} />
                   ) : (
@@ -184,27 +165,19 @@ const Todo = (props) => {
           <Row>
             <Col span={24} style={{ marginTop: '10px' }}>
               {assignedUsers.map((user, index) => {
-                if (userIsChild) {
-                  return (
-                    <Label circular basic color="grey" key={index}>
-                      {user.username}
-                    </Label>
-                  );
-                } else {
-                  return (
-                    <Label
-                      className="todo-user-pill"
-                      circular
-                      basic
-                      color="grey"
-                      key={index}
-                      onClick={() => unassign(user)}
-                    >
-                      {user.username}
-                      <Icon style={{ paddingLeft: '4px' }} name="remove" />
-                    </Label>
-                  );
-                }
+                return (
+                  <Label
+                    className="todo-user-pill"
+                    circular
+                    basic
+                    color="grey"
+                    key={index}
+                    onClick={() => unassign(user)}
+                  >
+                    {user.username}
+                    <Icon style={{ paddingLeft: '4px' }} name="remove" />
+                  </Label>
+                );
               })}
             </Col>
           </Row>

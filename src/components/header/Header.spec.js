@@ -50,18 +50,6 @@ describe('Header rendering', () => {
     expect(title.textContent).toBe(TITLES.HOUSEHOLD);
   });
 
-  it('Displays the right account title when the path is /account', () => {
-    mock_path = '/account';
-
-    const title = render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    ).getByTestId(/title/);
-
-    expect(title.textContent).toBe(TITLES.ACCOUNT);
-  });
-
   it("Doesn't show the sidebar by default", () => {
     const sidebar = render(
       <Provider store={store}>

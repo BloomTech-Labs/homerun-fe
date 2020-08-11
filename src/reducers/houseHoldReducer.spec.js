@@ -1,7 +1,4 @@
-import {
-  ADD_CHILD,
-  FETCH_MEMBERS_SUCCESS,
-} from '../actions/houseHoldActions.js';
+import { FETCH_MEMBERS_SUCCESS } from '../actions/houseHoldActions.js';
 import householdReducer from './houseHoldReducer.js';
 
 const initialState = {
@@ -15,33 +12,6 @@ describe('household reducer', () => {
     expect(householdReducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle ADD_CHILD action', () => {
-    const actionPayload = {
-      id: 5,
-      username: 'new child',
-      points: null,
-      child: true,
-      household_id: '4cfd47',
-    };
-    expect(
-      householdReducer(initialState, {
-        type: ADD_CHILD,
-        payload: actionPayload,
-      })
-    ).toEqual({
-      ...initialState,
-      members: [
-        {
-          id: 5,
-          username: 'new child',
-          points: null,
-          child: true,
-          household_id: '4cfd47',
-        },
-      ],
-    });
-  });
-
   it('should handle the FETCH_MEMBERS_SUCCESS action', () => {
     const actionPayload = [
       {
@@ -49,12 +19,6 @@ describe('household reducer', () => {
         username: 'Micah',
         email: 'micah@testing.com',
         points: null,
-      },
-      {
-        id: 5,
-        username: 'new child',
-        points: null,
-        child: true,
       },
     ];
     expect(
@@ -69,12 +33,6 @@ describe('household reducer', () => {
           username: 'Micah',
           email: 'micah@testing.com',
           points: null,
-        },
-        {
-          id: 5,
-          username: 'new child',
-          points: null,
-          child: true,
         },
       ],
       error: '',

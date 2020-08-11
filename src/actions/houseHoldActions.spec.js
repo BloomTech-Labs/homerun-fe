@@ -47,46 +47,6 @@ describe('Household Action testing', () => {
     });
   });
 
-  describe('AddChild actions', () => {
-    it('returns proper actions on success', () => {
-      moxios.stubRequest('/members/household/children', {
-        status: 201,
-        response: [{ data: 'response' }],
-      });
-
-      const expectedActions = [
-        { type: 'LOADING' },
-        { type: 'ADD_CHILD', payload: { data: 'response' } },
-      ];
-
-      store
-        .dispatch(householdActions.addChild({ username: 'Child' }))
-        .then(() => {
-          console.log('passed!');
-          expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
-    it('returns proper actions on failure', () => {
-      moxios.stubRequest('/members/household/children', {
-        status: 400,
-        response: { message: 'response' },
-      });
-
-      const expectedActions = [
-        { type: 'LOADING' },
-        {
-          type: 'ERROR',
-          payload: 'response',
-        },
-      ];
-
-      store
-        .dispatch(householdActions.addChild({ username: 'Child' }))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
-  });
   describe('Invite member actions', () => {
     it('returns loading action on call', () => {
       moxios.stubRequest('/members/household/invite', {

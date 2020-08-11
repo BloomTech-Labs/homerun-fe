@@ -3,7 +3,6 @@ import axiosWithAuth from '../utils/AxiosWithAuth';
 export const LOADING = 'LOADING';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 export const ERROR = 'ERROR';
-export const ADD_CHILD = 'ADD_CHILD';
 export const INVITE_MEMBER = 'INVITE_MEMBER';
 
 // Action Creators
@@ -15,24 +14,6 @@ const fetchHousehold = () => (dispatch) => {
       dispatch({
         type: FETCH_MEMBERS_SUCCESS,
         payload: res.data,
-      });
-    })
-    .catch((err) => {
-      dispatch({
-        type: ERROR,
-        payload: err.response.data.message || err,
-      });
-    });
-};
-
-const addChild = (data) => (dispatch) => {
-  dispatch({ type: LOADING });
-  return axiosWithAuth()
-    .post('/members/household/children', data)
-    .then((res) => {
-      dispatch({
-        type: ADD_CHILD,
-        payload: res.data[0],
       });
     })
     .catch((err) => {
@@ -58,6 +39,5 @@ const inviteMember = (data, setModal) => (dispatch) => {
 
 export default {
   fetchHousehold,
-  addChild,
   inviteMember,
 };
