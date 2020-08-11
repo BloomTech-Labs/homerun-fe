@@ -19,12 +19,12 @@ const Name = (props) => {
   return (
     <li style={{ margin: '15px 0' }}>
       <Row align="middle">
-        <Col span={4}>
+        <Col>
           <span className="initials" data-testid="initials">
             {initials}
           </span>
         </Col>
-        <Col span={20}>
+        <Col>
           <h3 data-testid="full-name">{props.name}</h3>
         </Col>
       </Row>
