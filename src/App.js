@@ -8,11 +8,6 @@ function App() {
   const currentUser = useSelector((state) => state.user);
   const history = useHistory();
 
-  useEffect(() => {
-    if (currentUser.childActive === true) {
-      history.push('/dashboard');
-    }
-  }, [currentUser.childActive, history]);
   return (
     <div className="App h-full">
       <Structure />
