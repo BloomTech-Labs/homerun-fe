@@ -3,6 +3,9 @@ import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../actions';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const InviteMember = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -25,51 +28,119 @@ const InviteMember = (props) => {
         <h2 className="perm-title">Invite a new member</h2>
         <div className="perm-title-row">
           <p className="perm-table-title">Permission Level</p>
-          <p className="perm-title-cell">Level 1</p>
-          <p className="perm-title-cell">Level 2</p>
-          <p className="perm-title-cell">Level 3</p>
+          <p className="perm-level-one">Level 1</p>
+          <p className="perm-level-two">Level 2</p>
+          <p className="perm-level-three">Level 3</p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Complete todos</p>
-          <p className="perm-feature-cell">yes</p>
-          <p className="perm-feature-cell">yes</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
+          <p className="perm-level-two">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Create todos</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">yes</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Edit todos</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">with restrictions</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">with restrictions</p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Delete todos</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">with restrictions</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">with restrictions</p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Assign self</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">with restrictions</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">with restrictions</p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Assign others</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">yes</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-three">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
         </div>
         <div className="perm-feature-row">
           <p className="perm-table-title">Invite members</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">no</p>
-          <p className="perm-feature-cell">level 1-2</p>
+          <p className="perm-level-one">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-two">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="perm-level-three">level 1-2</p>
         </div>
       </section>
       <Form onSubmit={handleSubmit(onSubmit)}>

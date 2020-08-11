@@ -29,17 +29,14 @@ form {
   display: flex;
   border: 0.5px solid rgb(165, 165, 165);
   text-align: center;
+  font-weight: 600;
 }
 
 .perm-table-title {
   width: 25%;
   text-align: center;
-}
-
-.perm-title-cell {
-  width: 25%;
-  text-align: center;
-  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
 }
 
 .perm-feature-row {
@@ -49,8 +46,23 @@ form {
   text-align: center;
 }
 
-.perm-feature-cell {
-  width: 25%;
-  text-align: center;
-  border-left: 0.5px solid rgb(165, 165, 165);
+.perm-level-one {
+    width: 25%;
+    text-align: center;
+    border-left: 0.5px solid rgb(165, 165, 165);
+    background-color: #ffe0b4;
+}
+
+.perm-level-two {
+    width: 25%;
+    text-align: center;
+    border-left: 0.5px solid rgb(165, 165, 165);
+    background-color: rgb(240, 240, 240);
+}
+
+.perm-level-three {
+    width: 25%;
+    text-align: center;
+    border-left: 0.5px solid rgb(165, 165, 165);
+    background-color: #ffe0b4;
 }
