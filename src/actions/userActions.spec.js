@@ -22,14 +22,4 @@ describe('User actions testing', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  describe('Change user actions', () => {
-    it('returns proper actions if child exists within user object', () => {
-      const expectedActions = [
-        { type: 'SET_USER', payload: { child: 'exists' } },
-      ];
-
-      store.dispatch(userActions.changeUser({ child: 'exists' }));
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
 });
