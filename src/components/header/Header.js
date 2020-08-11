@@ -7,13 +7,10 @@ import TITLES from './HeaderTitles';
 
 import {
   Header as UiHeader,
-  Icon,
   Button,
   Modal,
   Input,
 } from 'semantic-ui-react';
-
-import logo from '../../assets/images/tidyhive-standalone.png';
 
 const Header = (props) => {
   const [pinInput, setPinInput] = useState('');
@@ -29,15 +26,6 @@ const Header = (props) => {
       setSidebarOpened(false);
     }
   }, [currentUser]);
-
-  // handles what happens when a user clicks on the settings icon or the lock icon when it is a child
-  const handleClick = () => {
-    if (currentUser.childActive === true) {
-      setPinModal(true);
-    } else {
-      setSidebarOpened(!sidebarOpened);
-    }
-  };
 
   const handleChange = (e) => {
     e.persist();

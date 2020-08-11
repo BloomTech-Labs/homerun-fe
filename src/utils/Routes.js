@@ -30,7 +30,7 @@ import Auth from '../components/auth/Auth.js';
 
 import ContactUsForm from '../components/marketing/ContactUsForm';
 
-import { InviteConfirm } from '../components/household/InviteConfirm.js';
+import InviteConfirm from '../components/household/InviteConfirm.js';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
