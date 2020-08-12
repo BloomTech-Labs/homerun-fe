@@ -2,7 +2,6 @@ import {
   ERROR,
   FETCH_MEMBERS_SUCCESS,
   LOADING,
-  ADD_CHILD,
 } from '../actions/houseHoldActions.js';
 
 const initialState = {
@@ -25,12 +24,6 @@ const houseHoldReducer = (state = initialState, action) => {
         error: '',
         loading: false,
         members: action.payload,
-      };
-    case ADD_CHILD:
-      return {
-        ...state,
-        error: '',
-        members: [...state.members, action.payload],
       };
     case ERROR:
       return {

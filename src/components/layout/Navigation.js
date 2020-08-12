@@ -120,8 +120,7 @@ const Navigation = () => {
           </>
         )}
         {(location.pathname === '/dashboard' ||
-          location.pathname === '/household' ||
-          location.pathname === '/account') && (
+          location.pathname === '/household') && (
           <>
             <NavLink
               activeStyle={{ color: 'rgb(255, 159, 28)' }}
@@ -140,15 +139,6 @@ const Navigation = () => {
               data-testid="household-link"
             >
               Household
-            </NavLink>
-            <NavLink
-              activeStyle={{ color: 'rgb(255, 159, 28)' }}
-              className="block px-4 py-2 font-semibold tablet:inline text-1xl hover:text-hive hover:underline"
-              to="/account"
-              onClick={() => setIsOpen(false)}
-              data-testid="account-link"
-            >
-              Account
             </NavLink>
             {localStorage.getItem('google') ? (
               <GoogleLogout

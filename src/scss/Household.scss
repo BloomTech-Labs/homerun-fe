@@ -15,19 +15,11 @@
   background-color: $tertiary;
   color: #fff;
   padding: 6px;
+  margin-right: 8px;
   width: 32px;
   height: 32px;
-  border-radius: 32px;
+  border-radius: 50%;
   font-weight: bold;
   text-align: center;
   line-height: 20px;
-}
-
-.ui.button.addChild-btn {
-  background-color: #FF9F1C;
-  color: #fff;
-
-  &:hover {
-    background-color: rgb(230, 144, 25);
-  }
 }

@@ -15,9 +15,6 @@ import Home from '../components/marketing/Home.js';
 // Household component
 import Household from '../components/household/Household';
 
-// Account component
-import Account from '../components/account/Account';
-
 // Header
 import Header from '../components/header/Header.js';
 
@@ -54,7 +51,7 @@ const Routes = () => {
   return (
     <>
       <PrivateRoute
-        path={['/dashboard', '/household', '/account']}
+        path={['/dashboard', '/household']}
         component={Header}
       />
       <Switch>
@@ -71,7 +68,6 @@ const Routes = () => {
         <Route path="/confirm/:hash" component={SignUpPartTwo} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
-        <PrivateRoute path="/account" component={Account} />
       </Switch>
     </>
   );
