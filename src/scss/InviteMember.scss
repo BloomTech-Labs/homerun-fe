@@ -13,7 +13,8 @@ form {
 }
 
 .perm-title {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .ui.button.invite-button {
@@ -33,7 +34,12 @@ form {
 }
 
 .perm-table-title {
-  width: 25%;
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+}
+
+.perm-feature-title {
   text-align: center;
   background-color: rgb(240, 240, 240);
   font-weight: 600;
@@ -47,22 +53,51 @@ form {
 }
 
 .perm-level-one {
-    width: 25%;
-    text-align: center;
-    border-left: 0.5px solid rgb(165, 165, 165);
-    background-color: #ffe0b4;
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
 }
 
 .perm-level-two {
-    width: 25%;
-    text-align: center;
-    border-left: 0.5px solid rgb(165, 165, 165);
-    background-color: rgb(240, 240, 240);
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: rgb(240, 240, 240);
 }
 
 .perm-level-three {
-    width: 25%;
-    text-align: center;
-    border-left: 0.5px solid rgb(165, 165, 165);
-    background-color: #ffe0b4;
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+}
+
+.perm-table-title {
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-one {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-two {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: rgb(240, 240, 240);
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-three {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+  padding: 5px 0 5px 0;
+}
+
+.ui.form .field > label.invite-label {
+  text-align: center;
 }

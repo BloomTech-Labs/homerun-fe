@@ -24,129 +24,129 @@ const InviteMember = (props) => {
     </Dimmer>
   ) : (
     <>
-      <section className="perm-info">
+      <section className="items-center justify-center h-full perm-info">
         <h2 className="perm-title">Invite a new member</h2>
         <div className="perm-title-row">
-          <p className="perm-table-title">Permission Level</p>
-          <p className="perm-level-one">Level 1</p>
-          <p className="perm-level-two">Level 2</p>
-          <p className="perm-level-three">Level 3</p>
+          <p className="w-2/5 text-xs perm-table-title phone:text-sm tablet:text-base tablet:w-1/4">Permission Level</p>
+          <p className="w-1/4 text-xs perm-title-one phone:text-sm tablet:text-base">Level 1</p>
+          <p className="w-1/4 text-xs perm-title-two phone:text-sm tablet:text-base">Level 2</p>
+          <p className="w-1/4 text-xs perm-title-three phone:text-sm tablet:text-base ">Level 3</p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Complete todos</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Complete todos</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
-          <p className="perm-level-two">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
-          <p className="perm-level-three">
-            <i className="">
-              <FontAwesomeIcon icon={faCheck} />
-            </i>
-          </p>
-        </div>
-        <div className="perm-feature-row">
-          <p className="perm-table-title">Create todos</p>
-          <p className="perm-level-one">
-            <i className="">
-              <FontAwesomeIcon icon={faTimes} />
-            </i>
-          </p>
-          <p className="perm-level-two">
-            <i className="">
-              <FontAwesomeIcon icon={faCheck} />
-            </i>
-          </p>
-          <p className="perm-level-three">
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Edit todos</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Create todos</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-two">with restrictions</p>
-          <p className="perm-level-three">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Delete todos</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Edit todos</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-two">with restrictions</p>
-          <p className="perm-level-three">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Assign self</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Delete todos</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-two">with restrictions</p>
-          <p className="perm-level-three">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Assign others</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Assign self</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-two">
-            <i className="">
-              <FontAwesomeIcon icon={faTimes} />
-            </i>
-          </p>
-          <p className="perm-level-three">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="perm-table-title">Invite members</p>
-          <p className="perm-level-one">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Assign others</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-two">
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="perm-level-three">level 1-2</p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+            <i className="">
+              <FontAwesomeIcon icon={faCheck} />
+            </i>
+          </p>
+        </div>
+        <div className="perm-feature-row">
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Invite members</p>
+          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+            <i className="">
+              <FontAwesomeIcon icon={faTimes} />
+            </i>
+          </p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">level 1-2</p>
         </div>
       </section>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field>
-          <label>
-            Please enter the email address of the user you wish to invite.
+          <label className="invite-label">
+            Please enter the email address of the user you wish to invite
           </label>
           <input
             type="email"
@@ -157,8 +157,8 @@ const InviteMember = (props) => {
           {stateError && <p className={'error'}>{stateError}</p>}
         </Form.Field>
         <Form.Field>
-          <label>
-            Please choose the permission level of the user you wish to invite.
+          <label className="invite-label">
+            Please choose the permission level of the user you wish to invite
           </label>
           <input
             type="number"
