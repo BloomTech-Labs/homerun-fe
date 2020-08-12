@@ -1,23 +1,26 @@
 import React from 'react';
 import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
-import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../actions';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useForm from './inviteUseForm.js';
+import inviteValidation from './inviteValidation.js';
 
 const InviteMember = (props) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { handleChange, handleSubmit, data, errors } = useForm(
+    onSubmit,
+    inviteValidation
+  );
   const dispatch = useDispatch();
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
+  function onSubmit() {
     console.log(data);
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
-  };
+  }
   return loadingState ? (
     <Dimmer active inverted>
       <Loader size="large">Loading</Loader>
@@ -174,8 +177,9 @@ const InviteMember = (props) => {
         <h2 className="invite-header">Invite a new member</h2>
       </section>
       <Form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit}
         className="flex justify-center m-auto"
+        noValidate
       >
         <div className="tablet:mb-8">
           <Form.Field className="">
@@ -186,8 +190,9 @@ const InviteMember = (props) => {
               type="email"
               name="email"
               placeholder="user@email.com"
-              ref={register}
+              onChange={handleChange}
             />
+            {errors.email && <p className="pt-1 pl-3 text-red-700">{errors.email}</p>}
             {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
           <Form.Field className="">
@@ -200,8 +205,11 @@ const InviteMember = (props) => {
               placeholder="1-3"
               min="1"
               max="3"
-              ref={register}
+              onChange={handleChange}
             />
+            {errors.permission_level && (
+              <p className="pt-1 pl-3 text-red-700">{errors.permission_level}</p>
+            )}
             {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
           <Button type="submit" className="w-full invite-button">
