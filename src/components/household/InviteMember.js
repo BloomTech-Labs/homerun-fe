@@ -24,16 +24,25 @@ const InviteMember = (props) => {
     </Dimmer>
   ) : (
     <>
-      <section className="items-center justify-center h-full perm-info">
-        <h2 className="perm-title">Invite a new member</h2>
+      <section className="items-center justify-center h-full mx-8 mt-8 tablet:mx-auto tablet:w-5/6 tablet:mt-16">
         <div className="perm-title-row">
-          <p className="w-2/5 text-xs perm-table-title phone:text-sm tablet:text-base tablet:w-1/4">Permission Level</p>
-          <p className="w-1/4 text-xs perm-title-one phone:text-sm tablet:text-base">Level 1</p>
-          <p className="w-1/4 text-xs perm-title-two phone:text-sm tablet:text-base">Level 2</p>
-          <p className="w-1/4 text-xs perm-title-three phone:text-sm tablet:text-base ">Level 3</p>
+          <p className="w-2/5 text-xs perm-table-title phone:text-sm tablet:text-base tablet:w-1/4">
+            Permission Level
+          </p>
+          <p className="w-1/4 text-xs perm-title-one phone:text-sm tablet:text-base">
+            Level 1
+          </p>
+          <p className="w-1/4 text-xs perm-title-two phone:text-sm tablet:text-base">
+            Level 2
+          </p>
+          <p className="w-1/4 text-xs perm-title-three phone:text-sm tablet:text-base ">
+            Level 3
+          </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Complete todos</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Complete todos
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
@@ -51,7 +60,9 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Create todos</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Create todos
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
@@ -69,13 +80,17 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Edit todos</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Edit todos
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+            partial
+          </p>
           <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
@@ -83,13 +98,17 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Delete todos</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Delete todos
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+            partial
+          </p>
           <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
@@ -97,13 +116,17 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Assign self</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Assign self
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">partial</p>
+          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+            partial
+          </p>
           <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
@@ -111,7 +134,9 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Assign others</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Assign others
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
@@ -129,7 +154,9 @@ const InviteMember = (props) => {
           </p>
         </div>
         <div className="perm-feature-row">
-          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">Invite members</p>
+          <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
+            Invite members
+          </p>
           <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
@@ -140,39 +167,47 @@ const InviteMember = (props) => {
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">level 1-2</p>
+          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+            level 1-2
+          </p>
         </div>
+        <h2 className="invite-header">Invite a new member</h2>
       </section>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Field>
-          <label className="invite-label">
-            Please enter the email address of the user you wish to invite
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="user@email.com"
-            ref={register}
-          />
-          {stateError && <p className={'error'}>{stateError}</p>}
-        </Form.Field>
-        <Form.Field>
-          <label className="invite-label">
-            Please choose the permission level of the user you wish to invite
-          </label>
-          <input
-            type="number"
-            name="permission_level"
-            placeholder="1-3"
-            min="1"
-            max="3"
-            ref={register}
-          />
-          {stateError && <p className={'error'}>{stateError}</p>}
-        </Form.Field>
-        <Button type="submit" className="invite-button">
-          Invite Member
-        </Button>
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex justify-center m-auto"
+      >
+        <div className="tablet:mb-8">
+          <Form.Field className="">
+            <label className="invite-label">
+              Please enter the email address of the user you wish to invite
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="user@email.com"
+              ref={register}
+            />
+            {stateError && <p className={'error'}>{stateError}</p>}
+          </Form.Field>
+          <Form.Field className="">
+            <label className="invite-label">
+              Please choose the permission level of the user you wish to invite
+            </label>
+            <input
+              type="number"
+              name="permission_level"
+              placeholder="1-3"
+              min="1"
+              max="3"
+              ref={register}
+            />
+            {stateError && <p className={'error'}>{stateError}</p>}
+          </Form.Field>
+          <Button type="submit" className="w-full invite-button">
+            Invite Member
+          </Button>
+        </div>
       </Form>
     </>
   );
