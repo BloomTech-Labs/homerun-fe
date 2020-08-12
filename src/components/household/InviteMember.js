@@ -43,17 +43,17 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Complete todos
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -63,17 +63,17 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Create todos
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -83,7 +83,7 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Edit todos
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
@@ -91,7 +91,7 @@ const InviteMember = (props) => {
           <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
             partial
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -101,7 +101,7 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Delete todos
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
@@ -109,7 +109,7 @@ const InviteMember = (props) => {
           <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
             partial
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -119,7 +119,7 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Assign self
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
@@ -127,7 +127,7 @@ const InviteMember = (props) => {
           <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
             partial
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -137,17 +137,17 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Assign others
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-three phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-green-600 perm-level-three phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faCheck} />
             </i>
@@ -157,12 +157,12 @@ const InviteMember = (props) => {
           <p className="w-2/5 text-xs tablet:text-base perm-feature-title phone:text-sm tablet:w-1/4">
             Invite members
           </p>
-          <p className="w-1/4 text-xs perm-level-one phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-one phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
           </p>
-          <p className="w-1/4 text-xs perm-level-two phone:text-sm tablet:text-base">
+          <p className="w-1/4 text-xs text-hive-dark perm-level-two phone:text-sm tablet:text-base">
             <i className="">
               <FontAwesomeIcon icon={faTimes} />
             </i>
