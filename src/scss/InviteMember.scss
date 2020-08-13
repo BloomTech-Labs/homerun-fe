@@ -1,10 +1,104 @@
 .error-alert {
-    position: absolute;
-    top: -120px;
-    left: 5px;
+  position: absolute;
+  top: -120px;
+  left: 5px;
 }
 
 form {
-    padding: 30px; 
+  padding: 30px;
 }
 
+.invite-header {
+    margin: 30px 0 30px;
+    text-align: center;
+    color: #df8910;
+  }
+
+.ui.button.invite-button {
+  background-color: #ff9f1c;
+  color: #fff;
+  margin: 15px 0px 0px;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: rgb(230, 144, 25);
+  }
+}
+
+.perm-title-row {
+  display: flex;
+  border: 0.5px solid rgb(165, 165, 165);
+  text-align: center;
+  font-weight: 600;
+}
+
+.perm-table-title {
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+}
+
+.perm-feature-title {
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+}
+
+.perm-feature-row {
+  display: flex;
+  border: 0.5px solid rgb(165, 165, 165);
+  border-width: 0px 0.5px 0.5px 0.5px;
+  text-align: center;
+}
+
+.perm-level-one {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+}
+
+.perm-level-two {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: rgb(240, 240, 240);
+}
+
+.perm-level-three {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+}
+
+.perm-table-title {
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-one {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-two {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: rgb(240, 240, 240);
+  padding: 5px 0 5px 0;
+}
+
+.perm-title-three {
+  text-align: center;
+  border-left: 0.5px solid rgb(165, 165, 165);
+  background-color: #ffe0b4;
+  padding: 5px 0 5px 0;
+}
+
+.ui.form .field > label.invite-label {
+  text-align: center;
+  line-height: 1.3;
+  color: gray;
+}
