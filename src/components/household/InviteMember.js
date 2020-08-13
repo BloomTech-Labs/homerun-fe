@@ -201,14 +201,14 @@ const InviteMember = (props) => {
             </label>
             <input
               type="number"
-              name="permission_level"
+              name="permissionLevel"
               placeholder="1-3"
               min="1"
               max="3"
               onChange={handleChange}
             />
-            {errors.permission_level && (
-              <p className="pt-1 pl-3 text-red-700">{errors.permission_level}</p>
+            {errors.permissionLevel && (
+              <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
             )}
             {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
