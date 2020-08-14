@@ -17,8 +17,6 @@ const InviteConfirm = (props) => {
         localStorage.clear();
         localStorage.setItem('token', res.data.token);
         history.push('/household');
-        console.log(hash, "HASH");
-        console.log(permissionLevel, "PERMISSION LEVEL");
       })
       .catch((err) => {
       });
@@ -57,23 +55,17 @@ const InviteConfirm = (props) => {
             localStorage.clear();
             localStorage.setItem('token', res.data.token);
             history.push('/household');
-            console.log(hash, "HASH");
-        console.log(permissionLevel, "PERMISSION LEVEL");
           })
           .catch((err) => {
             console.log(err);
             history.push(`/invite/${hash}/${permissionLevel}`);
             setError('The invitation link is not associated to this account');
-            console.log(hash, "HASH");
-        console.log(permissionLevel, "PERMISSION LEVEL");
           });
       })
       .catch((err) => {
         console.log(err);
         setIsLoading(false);
         setError('Incorrect email or password. Please try again!');
-        console.log(hash, "HASH");
-        console.log(permissionLevel, "PERMISSION LEVEL");
       });
   };
 
@@ -87,7 +79,6 @@ const InviteConfirm = (props) => {
         })
         .then((res) => {
           if (res.data.token) {
-            console.log('inside the supposed login');
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('google', true);
             dispatch(actions.user.setUser(res.data));

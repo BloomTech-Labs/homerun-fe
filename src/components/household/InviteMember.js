@@ -18,7 +18,6 @@ const InviteMember = (props) => {
   const loadingState = useSelector((state) => state.household.loading);
 
   function onSubmit() {
-    console.log(data);
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
   }
   return loadingState ? (
