@@ -64,7 +64,7 @@ const Routes = () => {
         <Route path="/reset-password/:hash" component={ResetPW} />
         <Route path="/auth" component={Auth} />
         <Route path="/about" component={AboutUs} />
-        <Route path="/invite/:hash" component={InviteConfirm} />
+        <Route path="/invite/:hash/:permissionLevel" component={InviteConfirm} />
         <Route path="/confirm/:hash" component={SignUpPartTwo} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/household" component={Household} />
