@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Button,
   Form,
@@ -25,6 +25,10 @@ const EditPermissions = (props) => {
   const loadingState = useSelector((state) => state.household.loading);
 
   const household = useSelector((state) => state.household);
+
+  useEffect(() => {
+    dispatch(actions.houseHold.fetchHousehold());
+  }, []);
 
   function onSubmit() {
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
