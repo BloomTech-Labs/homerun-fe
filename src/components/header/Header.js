@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Sidebar from '../sidebar/Sidebar.js';
 import { useLocation } from 'react-router-dom';
 import TITLES from './HeaderTitles';
@@ -10,7 +9,6 @@ const Header = (props) => {
   // location is an object that contains the current url path on the 'pathname' property
   const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const dispatch = useDispatch();
 
   return (
     <>

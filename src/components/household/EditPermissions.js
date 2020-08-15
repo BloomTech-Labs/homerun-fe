@@ -28,7 +28,7 @@ const EditPermissions = (props) => {
 
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());
-  }, []);
+  }, [dispatch]);
 
   function onSubmit() {
     dispatch(actions.houseHold.inviteMember(data, props.setModal));

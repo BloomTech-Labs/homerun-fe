@@ -19,7 +19,7 @@ const List = () => {
 
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div data-testid="list">
