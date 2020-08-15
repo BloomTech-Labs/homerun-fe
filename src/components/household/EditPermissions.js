@@ -1,5 +1,11 @@
 import React from 'react';
-import { Button, Form, Loader, Dimmer, List as UiList } from 'semantic-ui-react';
+import {
+  Button,
+  Form,
+  Loader,
+  Dimmer,
+  List as UiList,
+} from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../actions';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +23,7 @@ const EditPermissions = (props) => {
   const dispatch = useDispatch();
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
-  
+
   const household = useSelector((state) => state.household);
 
   function onSubmit() {
@@ -176,17 +182,41 @@ const EditPermissions = (props) => {
             level 1-2
           </p>
         </div>
-        <h2 className="invite-header">Edit Permissions</h2>
+        <h2 className="edit-level-header">Edit Permissions</h2>
       </section>
       <Form
         onSubmit={handleSubmit}
-        className="flex justify-center m-auto"
+        className="pt-2 tablet:pb-16"
         noValidate
       >
-        <div className="tablet:mb-8">
+        <div className="w-full m-auto phone:max-w-md">
           <UiList selection verticalAlign="middle">
             {household.members.map((member) => {
-              return <Name key={member.username} name={member.username} />;
+              return (
+                <div className="flex justify-between edit-name-list">
+                  <Name key={member.username} name={member.username}/>
+                  <Form.Field className="flex edit-level-field">
+                    <label className="edit-level-label">
+                      Level
+                    </label>
+                    <input
+                      type="number"
+                      name="permissionLevel"
+                      placeholder="1-3"
+                      min="1"
+                      max="3"
+                      onChange={handleChange}
+                      className="edit-level-input"
+                    />
+                    {errors.permissionLevel && (
+                      <p className="pt-1 pl-3 text-red-700">
+                        {errors.permissionLevel}
+                      </p>
+                    )}
+                    {stateError && <p className={'error'}>{stateError}</p>}
+                  </Form.Field>
+                </div>
+              );
             })}
           </UiList>
           <Button type="submit" className="w-full invite-button">

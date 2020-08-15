@@ -8,3 +8,32 @@
       background-color: rgb(230, 144, 25);
     }
   }
+
+  .ui.form .field > label.edit-level-label {
+    text-align: center;
+    line-height: 1;
+    color: gray;
+    margin: auto 0;
+  }
+
+  .ui.form input.edit-level-input {
+      height: 50%;
+      width: 50px;
+      margin: auto 0 auto 5px;
+      padding: 0 2px 0 8px;
+  }
+
+//   .ui.form .field.edit-level-field {
+//     margin: 0;
+//     padding: 10px;
+//   }
+
+  .edit-name-list {
+    margin: auto;
+  }
+
+  .edit-level-header {
+    margin: 30px 0;
+    text-align: center;
+    color: #df8910;
+  }
