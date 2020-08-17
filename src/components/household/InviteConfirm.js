@@ -12,7 +12,7 @@ import { GoogleLogin } from 'react-google-login';
 const InviteConfirm = (props) => {
   useEffect(() => {
     axiosWithAuth()
-      .post('/members/household/accept-invite', { hash, permissionLevel })
+      .post('/members/household/accept-invite', { hash })
       .then((res) => {
         localStorage.clear();
         localStorage.setItem('token', res.data.token);
@@ -30,7 +30,7 @@ const InviteConfirm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
-  const { hash, permissionLevel } = useParams();
+  const { hash } = useParams();
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -50,7 +50,7 @@ const InviteConfirm = (props) => {
         localStorage.setItem('token', res.data.token);
         dispatch(actions.user.setUser(res.data));
         axiosWithAuth()
-          .post('/members/household/accept-invite', { hash, permissionLevel })
+          .post('/members/household/accept-invite', { hash })
           .then((res) => {
             localStorage.clear();
             localStorage.setItem('token', res.data.token);
@@ -58,7 +58,7 @@ const InviteConfirm = (props) => {
           })
           .catch((err) => {
             console.log(err);
-            history.push(`/invite/${hash}/${permissionLevel}`);
+            history.push(`/invite/${hash}`);
             setError('The invitation link is not associated to this account');
           });
       })
