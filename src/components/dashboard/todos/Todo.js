@@ -25,10 +25,9 @@ const Todo = (props) => {
   const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
   const householdUsers = useSelector((state) => state.household.members);
-  // TODO: remove '|| 4' when the backend updates for permission
   const [user_id, permission] = useSelector((state) => [
-    state.user.userInfo.member_id,
-    state.user.permission | 1,
+    state.user.id,
+    state.user.permission_level,
   ]);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
@@ -47,7 +46,6 @@ const Todo = (props) => {
   };
 
   const canEdit = () => {
-    console.log('User: ', user_id);
     if (permission >= perms.ADMIN) {
       return true;
     }
