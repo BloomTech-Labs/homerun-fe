@@ -19,7 +19,6 @@ const InviteConfirm = (props) => {
         history.push('/household');
       })
       .catch((err) => {
-        console.log(err);
       });
   }, []);
 
@@ -80,7 +79,6 @@ const InviteConfirm = (props) => {
         })
         .then((res) => {
           if (res.data.token) {
-            console.log('inside the supposed login');
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('google', true);
             dispatch(actions.user.setUser(res.data));
