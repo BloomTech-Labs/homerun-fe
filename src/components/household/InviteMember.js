@@ -19,6 +19,7 @@ const InviteMember = (props) => {
 
   function onSubmit() {
     dispatch(actions.houseHold.inviteMember(data, props.setModal));
+    console.log(data);
   }
   return loadingState ? (
     <Dimmer active inverted>
