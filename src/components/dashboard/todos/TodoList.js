@@ -9,7 +9,6 @@ import ControlTodo from './ControlTodo.js';
 const TodoList = () => {
   const store = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
-  console.log(store);
   const [todos, setTodos] = useState([]);
   const [todones, setTodones] = useState([]);
 

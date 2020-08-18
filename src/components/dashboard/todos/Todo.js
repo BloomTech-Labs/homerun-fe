@@ -25,15 +25,23 @@ const Todo = (props) => {
   const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
   const householdUsers = useSelector((state) => state.household.members);
-  const [user_id, permission] = useSelector((state) => [
+  const [user_id, username, permission] = useSelector((state) => [
     state.user.id,
-    state.user.permission_level,
+    state.user.username,
+    2,
   ]);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
 
   const canAssign = () => {
     return permission >= perms.REGULAR;
+  };
+
+  const canUnassignMember = (member) => {
+    return (
+      permission >= perms.ADMIN ||
+      (permission == perms.REGULAR && member.id == user_id)
+    );
   };
 
   const canComplete = () => {
@@ -68,9 +76,9 @@ const Todo = (props) => {
     }
   };
 
-  const unassign = (user) => {
+  const unassign = (user_id) => {
     const type = 'member';
-    dispatch(actions.todo.unassignUser(id, user, type));
+    dispatch(actions.todo.unassignUser(id, user_id, type));
   };
 
   const handleDue = (date) => {
@@ -113,10 +121,38 @@ const Todo = (props) => {
     } else {
       return (
         <Menu onClick={assign}>
-          <Menu.Item member={user_id} />
+          <Menu.Item member_id={user_id}>{username}</Menu.Item>
         </Menu>
       );
     }
+  };
+
+  const AssignedUsersComponent = () => {
+    return (
+      <>
+        {assignedUsers.filter(canUnassignMember).map((user, index) => (
+          <Label
+            className="todo-user-pill"
+            circular
+            basic
+            color="grey"
+            key={index}
+            onClick={() => unassign(user.id)}
+          >
+            {user.username}
+            <Icon style={{ paddingLeft: '4px' }} name="remove" />
+          </Label>
+        ))}
+        {/* TODO: make hovering *not* highlight these as red */}
+        {assignedUsers
+          .filter((user) => !canUnassignMember(user))
+          .map((user, index) => (
+            <Label circular basic color="grey" key={index}>
+              {user.username}
+            </Label>
+          ))}
+      </>
+    );
   };
 
   useEffect(() => {
@@ -216,21 +252,7 @@ const Todo = (props) => {
           </Row>
           <Row>
             <Col span={24} style={{ marginTop: '10px' }}>
-              {assignedUsers.map((user, index) => {
-                return (
-                  <Label
-                    className="todo-user-pill"
-                    circular
-                    basic
-                    color="grey"
-                    key={index}
-                    onClick={() => unassign(user)}
-                  >
-                    {user.username}
-                    <Icon style={{ paddingLeft: '4px' }} name="remove" />
-                  </Label>
-                );
-              })}
+              <AssignedUsersComponent />
             </Col>
           </Row>
         </Col>
