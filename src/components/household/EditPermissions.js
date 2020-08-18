@@ -203,19 +203,30 @@ const EditPermissions = (props) => {
             level 1-2
           </p>
         </div>
+
         <h2 className="edit-level-header">
           Edit {props.memberToEdit.username + "'s"} Permission
         </h2>
+        <div className="flex justify-between w-64 m-auto">
+          <Name name={props.memberToEdit.username} />
+          <div key={props.memberToEdit.username} className="flex">
+            <label className="edit-level-label">Level</label>
+            <span className="original-level">
+              {props.memberToEdit.permission_level}
+            </span>
+          </div>
+        </div>
       </section>
       <Form
         onSubmit={ChangePermission}
-        className="flex justify-center m-auto"
+        className="flex justify-center m-auto edit-permission-form"
         noValidate
       >
         <div className="tablet:mb-8">
           <Form.Field className="">
             <label className="invite-label">
-              Please choose {props.memberToEdit.username + "'s"} new level of permission
+              Please choose {props.memberToEdit.username + "'s"} new level of
+              permission
             </label>
             <input
               type="number"
