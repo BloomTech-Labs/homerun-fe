@@ -54,7 +54,7 @@ const List = () => {
         open={memberModal}
         onClose={() => setMemberModal(false)}
         trigger={
-          <Button onClick={() => setMemberModal(true)}>Invite Member</Button>
+          <Button onClick={() => setMemberModal(true)} className="w-full invite-button">Invite Member</Button>
         }
         content={<InviteMember setModal={setMemberModal} />}
       ></Modal>
