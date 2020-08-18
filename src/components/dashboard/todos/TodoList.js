@@ -5,12 +5,16 @@ import actions from '../../../actions/index.js';
 import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import ControlTodo from './ControlTodo.js';
+import permissions from '../../../utils/permissions.js';
 
 const TodoList = () => {
   const store = useSelector((state) => state.todos.todos);
+  const permission = useSelector((state) => state.user.permission_level);
   const dispatch = useDispatch();
   const [todos, setTodos] = useState([]);
   const [todones, setTodones] = useState([]);
+
+  const canCreateTodo = () => permission >= permissions.REGULAR;
 
   useEffect(() => {
     dispatch(actions.todo.fetchTodos());
@@ -44,7 +48,7 @@ const TodoList = () => {
           })}
         </SwipeableList>
       </div>
-      <ControlTodo />
+      {canCreateTodo() && <ControlTodo />}
     </section>
   );
 };
