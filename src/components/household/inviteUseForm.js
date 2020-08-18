@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const useForm = (onSubmit, inviteValidation) => {
   const [data, setData] = useState({
     email: '',
-    permission_level: '',
+    permissionLevel: '',
   });
 
   const [errors, setErrors] = useState({});
