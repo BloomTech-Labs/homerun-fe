@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions/index';
 
 // Since this component itself is named List i had to import Semantic Ui's List component as UiList
-import { Button, Modal, List as UiList } from 'semantic-ui-react';
+import { Button, Form, Modal, List as UiList } from 'semantic-ui-react';
 import InviteMember from './InviteMember.js';
 import EditPermissions from './EditPermissions.js';
 
 const List = () => {
   const [memberModal, setMemberModal] = useState(false);
   const [permissionsModal, setPermissionsModal] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   const household = useSelector((state) => state.household);
   const dispatch = useDispatch();
@@ -25,7 +26,28 @@ const List = () => {
     <div data-testid="list">
       <UiList selection verticalAlign="middle">
         {household.members.map((member) => {
-          return <Name key={member.username} name={member.username} />;
+          return (
+            <div className="flex justify-between">
+              <Name key={member.username} name={member.username} />
+              <div className="flex">
+                <label className="edit-level-label">Level</label>
+                <span className="original-level">
+                  {member.permission_level}
+                </span>
+                <Modal
+                  open={permissionsModal}
+                  onClose={() => setPermissionsModal(false)}
+                  trigger={
+                    <i
+                      className="ui icon edit large blue todo-icon edit-permissions"
+                      onClick={() => setPermissionsModal(true)}
+                    ></i>
+                  }
+                  content={<EditPermissions setModal={setPermissionsModal} />}
+                ></Modal>{' '}
+              </div>
+            </div>
+          );
         })}
       </UiList>
       <Modal
@@ -35,14 +57,6 @@ const List = () => {
           <Button onClick={() => setMemberModal(true)}>Invite Member</Button>
         }
         content={<InviteMember setModal={setMemberModal} />}
-      ></Modal>
-      <Modal
-        open={permissionsModal}
-        onClose={() => setPermissionsModal(false)}
-        trigger={
-          <Button onClick={() => setPermissionsModal(true)} className="edit-permissions">Edit Permissions</Button>
-        }
-        content={<EditPermissions setModal={setPermissionsModal} />}
       ></Modal>
     </div>
   );

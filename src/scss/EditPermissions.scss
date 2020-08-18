@@ -1,39 +1,36 @@
-.ui.button.edit-permissions {
-    background-color: #ff9f1c;
-    color: #fff;
-    margin: 15px 0px 0px;
-    letter-spacing: 0.7px;
-  
-    &:hover {
-      background-color: rgb(230, 144, 25);
-    }
-  }
+i.icon.edit-permissions {
+  margin: auto;
+}
 
-  .ui.form .field > label.edit-level-label {
-    text-align: center;
-    line-height: 1;
-    color: gray;
-    margin: auto 0;
-  }
+.edit-level-label {
+  text-align: center;
+  line-height: 1;
+  color: gray;
+  margin: auto 0px auto 30px;
+  padding-top: 2px;
+}
 
-  .ui.form input.edit-level-input {
-      height: 50%;
-      width: 50px;
-      margin: auto 0 auto 5px;
-      padding: 0 2px 0 8px;
-  }
+.ui.form input.edit-level-input {
+  height: 50%;
+  width: 50px;
+  margin: auto 5px auto 5px;
+  padding: 0 2px 0 8px;
+}
 
-//   .ui.form .field.edit-level-field {
-//     margin: 0;
-//     padding: 10px;
-//   }
+.original-level {
+  margin: auto;
+  padding: 12px 10px 10px;
+  text-align: center;
+  line-height: 1;
+  color: gray;
+}
 
-  .edit-name-list {
-    margin: auto;
-  }
+.edit-name-list {
+  margin: auto;
+}
 
-  .edit-level-header {
-    margin: 30px 0;
-    text-align: center;
-    color: #df8910;
-  }
+.edit-level-header {
+  margin: 30px 0;
+  text-align: center;
+  color: #df8910;
+}

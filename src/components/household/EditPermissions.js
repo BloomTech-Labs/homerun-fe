@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Form,
@@ -11,28 +11,45 @@ import actions from '../../actions';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useForm from './inviteUseForm.js';
-import inviteValidation from './inviteValidation.js';
 import Name from './Name';
+import axios from 'axios';
 
 const EditPermissions = (props) => {
-  const { handleChange, handleSubmit, data, errors } = useForm(
-    onSubmit,
-    inviteValidation
-  );
   const dispatch = useDispatch();
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
 
-  const household = useSelector((state) => state.household);
-
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());
+    console.log(household.members);
+    console.log(form);
   }, [dispatch]);
 
-  function onSubmit() {
-    dispatch(actions.houseHold.inviteMember(data, props.setModal));
-  }
+  const household = useSelector((state) => state.household);
+
+  const [form, setForm] = useState({
+    email: household.members.email,
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const ChangePermission = (data) => {
+    axios
+      .post(`${process.env.REACT_APP_BE_URL}/household/edit-permission`, data)
+      .then((res) => {
+        console.log(res);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(data);
+      });
+  };
   return loadingState ? (
     <Dimmer active inverted>
       <Loader size="large">Loading</Loader>
@@ -189,43 +206,24 @@ const EditPermissions = (props) => {
         <h2 className="edit-level-header">Edit Permissions</h2>
       </section>
       <Form
-        onSubmit={handleSubmit}
+        onSubmit={ChangePermission}
         className="pt-2 tablet:pb-16"
         noValidate
       >
         <div className="w-full m-auto phone:max-w-md">
-          <UiList selection verticalAlign="middle">
-            {household.members.map((member) => {
-              return (
-                <div className="flex justify-between edit-name-list">
-                  <Name key={member.username} name={member.username}/>
-                  <Form.Field className="flex edit-level-field">
-                    <label className="edit-level-label">
-                      Level
-                    </label>
-                    <input
-                      type="number"
-                      name="permissionLevel"
-                      placeholder="1-3"
-                      min="1"
-                      max="3"
-                      onChange={handleChange}
-                      className="edit-level-input"
-                    />
-                    {errors.permissionLevel && (
-                      <p className="pt-1 pl-3 text-red-700">
-                        {errors.permissionLevel}
-                      </p>
-                    )}
-                    {stateError && <p className={'error'}>{stateError}</p>}
-                  </Form.Field>
-                </div>
-              );
-            })}
-          </UiList>
-          <Button type="submit" className="w-full invite-button">
-            Edit Permissions
-          </Button>
+          <div className="flex">
+            <label className="edit-level-label">Level</label>
+            <input
+              type="number"
+              name="permissionLevel"
+              placeholder="1-3"
+              min="1"
+              max="3"
+              value=''
+              onChange={handleChange}
+              className="edit-level-input"
+            />
+          </div>
         </div>
       </Form>
     </>
