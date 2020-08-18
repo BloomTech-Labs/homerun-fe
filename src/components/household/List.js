@@ -13,6 +13,14 @@ const List = () => {
   const [memberModal, setMemberModal] = useState(false);
   const [permissionsModal, setPermissionsModal] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [memberToEdit, setMemberToEdit] = useState('');
+  
+  const handleEdit = (e, member) => {
+    setPermissionsModal(true);
+    e.preventDefault();
+    setEditing(true);
+    setMemberToEdit(member);
+  }
 
   const household = useSelector((state) => state.household);
   const dispatch = useDispatch();
@@ -27,9 +35,9 @@ const List = () => {
       <UiList selection verticalAlign="middle">
         {household.members.map((member) => {
           return (
-            <div className="flex justify-between">
-              <Name key={member.username} name={member.username} />
-              <div className="flex">
+            <div key={member.username} className="flex justify-between">
+              <Name name={member.username} />
+              <div key={member.username} className="flex">
                 <label className="edit-level-label">Level</label>
                 <span className="original-level">
                   {member.permission_level}
@@ -40,10 +48,17 @@ const List = () => {
                   trigger={
                     <i
                       className="ui icon edit large blue todo-icon edit-permissions"
-                      onClick={() => setPermissionsModal(true)}
+                      onClick={e => handleEdit(e, member)}                  
                     ></i>
                   }
-                  content={<EditPermissions setModal={setPermissionsModal} />}
+                  content={
+                    <EditPermissions
+                      setModal={setPermissionsModal}
+                      key={member.username}
+                      member={member}
+                      memberToEdit={memberToEdit}
+                    />
+                  }
                 ></Modal>{' '}
               </div>
             </div>
@@ -54,7 +69,12 @@ const List = () => {
         open={memberModal}
         onClose={() => setMemberModal(false)}
         trigger={
-          <Button onClick={() => setMemberModal(true)} className="w-full invite-button">Invite Member</Button>
+          <Button
+            onClick={() => setMemberModal(true)}
+            className="w-full invite-button"
+          >
+            Invite Member
+          </Button>
         }
         content={<InviteMember setModal={setMemberModal} />}
       ></Modal>

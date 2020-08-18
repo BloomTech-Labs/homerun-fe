@@ -203,27 +203,32 @@ const EditPermissions = (props) => {
             level 1-2
           </p>
         </div>
-        <h2 className="edit-level-header">Edit Permissions</h2>
+        <h2 className="edit-level-header">
+          Edit {props.memberToEdit.username + "'s"} Permission
+        </h2>
       </section>
       <Form
         onSubmit={ChangePermission}
-        className="pt-2 tablet:pb-16"
+        className="flex justify-center m-auto"
         noValidate
       >
-        <div className="w-full m-auto phone:max-w-md">
-          <div className="flex">
-            <label className="edit-level-label">Level</label>
+        <div className="tablet:mb-8">
+          <Form.Field className="">
+            <label className="invite-label">
+              Please choose {props.memberToEdit.username + "'s"} new level of permission
+            </label>
             <input
               type="number"
               name="permissionLevel"
               placeholder="1-3"
               min="1"
               max="3"
-              value=''
               onChange={handleChange}
-              className="edit-level-input"
             />
-          </div>
+          </Form.Field>
+          <Button type="submit" className="w-full invite-button">
+            Edit Permission
+          </Button>
         </div>
       </Form>
     </>
