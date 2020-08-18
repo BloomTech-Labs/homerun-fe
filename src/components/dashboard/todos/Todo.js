@@ -28,7 +28,7 @@ const Todo = (props) => {
   const [user_id, username, permission] = useSelector((state) => [
     state.user.id,
     state.user.username,
-    1,
+    state.user.permission_level,
   ]);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
