@@ -1,55 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Button,
-  Form,
-  Loader,
-  Dimmer,
-  List as UiList,
-} from 'semantic-ui-react';
-import { useDispatch, useSelector } from 'react-redux';
-import actions from '../../actions';
+import React, { useState } from 'react';
+import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useForm from './editUseForm.js';
+import permissionValidation from './permissionValidation.js';
 import Name from './Name';
-import axios from 'axios';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
 
 const EditPermissions = (props) => {
-  const dispatch = useDispatch();
+  const { handleChange, handleSubmit, data, errors } = useForm(
+    onSubmit,
+    permissionValidation
+  );
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
 
-  useEffect(() => {
-    dispatch(actions.houseHold.fetchHousehold());
-    console.log(household.members);
-    console.log(form);
-  }, [dispatch]);
-
-  const household = useSelector((state) => state.household);
-
-  const [form, setForm] = useState({
-    email: household.members.email,
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const ChangePermission = (data) => {
-    axios
-      .post(`${process.env.REACT_APP_BE_URL}/household/edit-permission`, data)
+  function onSubmit() {
+    axiosWithAuth()
+      .post(`${process.env.REACT_APP_BE_URL}/household/edit-permission`, (props.memberToEdit.email, data))
       .then((res) => {
         console.log(res);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
-        console.log(data);
       });
-  };
+  }
   return loadingState ? (
     <Dimmer active inverted>
       <Loader size="large">Loading</Loader>
@@ -218,13 +195,13 @@ const EditPermissions = (props) => {
         </div>
       </section>
       <Form
-        onSubmit={ChangePermission}
+        onSubmit={handleSubmit}
         className="flex justify-center m-auto edit-permission-form"
         noValidate
       >
         <div className="tablet:mb-8">
           <Form.Field className="">
-            <label className="invite-label">
+            <label className="edit-permission-label">
               Please choose {props.memberToEdit.username + "'s"} new level of
               permission
             </label>
@@ -236,8 +213,11 @@ const EditPermissions = (props) => {
               max="3"
               onChange={handleChange}
             />
+            {errors.permissionLevel && (
+              <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
+            )}
           </Form.Field>
-          <Button type="submit" className="w-full invite-button">
+          <Button type="submit" className="w-full edit-permission-button">
             Edit Permission
           </Button>
         </div>

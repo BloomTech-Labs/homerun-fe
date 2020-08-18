@@ -24,7 +24,6 @@ const List = () => {
 
   const household = useSelector((state) => state.household);
   const dispatch = useDispatch();
-  console.log(household);
 
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());

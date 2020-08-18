@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 
-const useForm = (onSubmit, inviteValidation) => {
-  const [data, setData] = useState([{
-    email: 'member.email',
+const useForm = (onSubmit, permissionValidation) => {
+  const [data, setData] = useState({
     permissionLevel: '',
-  }]);
+  });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -16,7 +15,7 @@ const useForm = (onSubmit, inviteValidation) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(inviteValidation(data));
+    setErrors(permissionValidation(data));
     setIsSubmitting(true);
   };
 
