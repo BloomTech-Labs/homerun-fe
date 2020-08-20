@@ -12,15 +12,13 @@ import EditPermissions from './EditPermissions.js';
 const List = () => {
   const [memberModal, setMemberModal] = useState(false);
   const [permissionsModal, setPermissionsModal] = useState(false);
-  const [editing, setEditing] = useState(false);
   const [memberToEdit, setMemberToEdit] = useState('');
-  
+
   const handleEdit = (e, member) => {
     setPermissionsModal(true);
     e.preventDefault();
-    setEditing(true);
     setMemberToEdit(member);
-  }
+  };
 
   const household = useSelector((state) => state.household);
   const dispatch = useDispatch();
@@ -47,7 +45,7 @@ const List = () => {
                   trigger={
                     <i
                       className="ui icon edit large blue todo-icon edit-permissions"
-                      onClick={e => handleEdit(e, member)}                  
+                      onClick={(e) => handleEdit(e, member)}
                     ></i>
                   }
                   content={

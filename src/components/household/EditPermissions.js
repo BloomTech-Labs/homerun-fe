@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,7 @@ import useForm from './editUseForm.js';
 import permissionValidation from './permissionValidation.js';
 import Name from './Name';
 import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import actions from '../../actions/index';
 
 const EditPermissions = (props) => {
   const { handleChange, handleSubmit, data, errors } = useForm(
@@ -16,6 +17,7 @@ const EditPermissions = (props) => {
   );
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
+  const dispatch = useDispatch();
 
   function onSubmit() {
     axiosWithAuth()
@@ -24,7 +26,8 @@ const EditPermissions = (props) => {
         permission_level: data.permissionLevel,
       })
       .then((res) => {
-        console.log(res);
+        dispatch(actions.houseHold.fetchHousehold());
+        props.setModal(false);
       })
       .catch((err) => {
         console.log(err);
