@@ -1,7 +1,35 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import InviteMember from './InviteMember';
+import { Provider } from 'react-redux';
+import configRedux from '../../configRedux';
 
-describe('invite member testing', () => {
-  it('should have an invite member button', () => {});
+afterAll(cleanup);
+const store = configRedux();
+
+describe('InviteMember rendering', () => {
+  it('email form test', () => {
+    const { getByTestId } = render(
+      <Router>
+        <Provider store={store}>
+          <InviteMember />
+        </Provider>
+      </Router>
+    );
+    const emailInput = getByTestId('email-test');
+    expect(emailInput).toBeVisible();
+  });
+  it('permission level form test', () => {
+    const { getByTestId } = render(
+      <Router>
+        <Provider store={store}>
+          <InviteMember />
+        </Provider>
+      </Router>
+    );
+    const emailInput = getByTestId('permission-test');
+    expect(emailInput).toBeVisible();
+  });
 });
