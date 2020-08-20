@@ -16,7 +16,7 @@ const EditPermissions = (props) => {
 
   const { handleChange, handleSubmit, data, errors } = useForm(
     onSubmit,
-    (data) => permissionValidation(data, userPerm - 1)
+    (data) => permissionValidation(data, maxAssignablePermission)
   );
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);

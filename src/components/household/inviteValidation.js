@@ -1,4 +1,4 @@
-export default function inviteValidation(data) {
+export default function inviteValidation(data, maxPermission) {
   let errors = {};
   if (!data.email) {
     errors.email = 'Email address is required';
@@ -8,8 +8,10 @@ export default function inviteValidation(data) {
   }
   if (!data.permissionLevel) {
     errors.permissionLevel = 'Permission level is required';
-  } else if (data.permissionLevel < 1 || data.permissionLevel > 3) {
-    errors.permissionLevel = 'Level of permission must be between 1 and 3';
-  } 
+  } else if (!Number.isInteger(Number(data.permissionLevel))) {
+    errors.permissionLevel = 'Permission level must be an integer';
+  } else if (data.permissionLevel < 1 || data.permissionLevel > maxPermission) {
+    errors.permissionLevel = `Level of permission must be between 1 and ${maxPermission}`;
+  }
   return errors;
 }
