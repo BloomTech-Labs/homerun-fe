@@ -1,12 +1,20 @@
 const intialState = {
-  userInfo: {},
+  id: null,
+  username: null,
+  permission_level: 1,
   loading: false,
 };
 
 const userReducer = (state = intialState, action) => {
   switch (action.type) {
     case 'SET_USER':
-      return { ...state, userInfo: action.payload, loading: false };
+      return {
+        ...state,
+        id: action.payload.id,
+        username: action.payload.username,
+        permission_level: action.payload.permission_level,
+        loading: false,
+      };
     default:
       return state;
   }

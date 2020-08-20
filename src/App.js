@@ -3,9 +3,8 @@ import Structure from './components/layout/Structure';
 import 'semantic-ui-css/semantic.min.css';
 
 function App() {
-
   return (
-    <div className="h-full App">
+    <div className="App h-full">
       <Structure />
     </div>
   );
