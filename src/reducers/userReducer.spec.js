@@ -1,7 +1,9 @@
 import userReducer from './userReducer.js';
 
 const initialState = {
-  userInfo: {},
+  id: null,
+  username: null,
+  permission_level: 1,
   loading: false,
 };
 
@@ -12,21 +14,17 @@ describe('user reducer', () => {
 
   it('should handle SET_USER action', () => {
     const actionPayload = {
-      member_id: 3,
-      points: null,
-      token: 'Ah74kdlsfhjdkslkjdfshjksdasdfasdfas',
+      id: 3,
       username: 'Micah',
+      permission_level: 4,
     };
     expect(
       userReducer(initialState, { type: 'SET_USER', payload: actionPayload })
     ).toEqual({
       ...initialState,
-      userInfo: {
-        member_id: 3,
-        points: null,
-        token: 'Ah74kdlsfhjdkslkjdfshjksdasdfasdfas',
-        username: 'Micah',
-      },
+      id: 3,
+      username: 'Micah',
+      permission_level: 4,
     });
   });
 });
