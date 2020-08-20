@@ -34,6 +34,7 @@ const SignInLanding = (props) => {
       .then((res) => {
         localStorage.setItem('token', res.data.token);
         dispatch(actions.user.setUser(res.data));
+        dispatch(actions.todo.updateCategory('all'));
         props.history.push('/dashboard');
       })
       .catch((err) => {
@@ -65,7 +66,7 @@ const SignInLanding = (props) => {
         })
         .catch((err) => console.log('err', err));
       console.log(res);
-    } catch {
+    } catch (err) {
       setIsLoading(false);
     }
   };

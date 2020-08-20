@@ -16,10 +16,7 @@ const addCategory = (data) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: 'ADD_CATEGORY',
-        payload: {
-          todoId: data.todo_id,
-          categories: res.data,
-        },
+        payload: res,
       });
     })
     .catch((err) => console.log(err));

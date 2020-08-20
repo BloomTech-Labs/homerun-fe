@@ -1,5 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
-
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../../actions/';
 import { Menu } from 'semantic-ui-react';
@@ -11,6 +10,8 @@ const CategoryTabs = () => {
   const [counts, setCounts] = useState({});
   const dispatch = useDispatch();
   const state = useSelector((state) => state.todos.todos);
+  const categoryState = useSelector((state) => state.categories.categories);
+  console.log('This is the cat state', categoryState);
 
   const handleClick = (e, { name }) => {
     e.preventDefault();
@@ -20,55 +21,47 @@ const CategoryTabs = () => {
     setActive(name);
   };
 
-  useLayoutEffect(() => {
-    if (state) {
-      setCounts({
-        living_room: state.filter((todo) =>
-          todo.categories.includes('living_room')
-        ).length,
-        bedroom: state.filter((todo) => todo.categories.includes('bedroom'))
-          .length,
-        kitchen: state.filter((todo) => todo.categories.includes('kitchen'))
-          .length,
-        bathroom: state.filter((todo) => todo.categories.includes('bathroom'))
-          .length,
-      });
-    }
-  }, [state]);
+  useEffect(() => {
+    dispatch(actions.categories.fetchCategories());
+  }, []);
+
+  // useLayoutEffect(() => {
+  //   if (state) {
+  //     console.log(categoryState);
+  //     // let layoutObj = {};
+  //     // categoryState.forEach((cat, idx) => {
+  //     //   layoutObj.cat[idx].category_name = state.filter((todo) => {
+  //     //     todo.categories.includes(cat[idx].category_name);
+  //     //   });
+  //     // });
+  //     setCounts({
+  //       [categoryState[0].category_name]: state.filter((todo) =>
+  //         todo.categories.includes('living_room')
+  //       ).length,
+  //       bedroom: state.filter((todo) => todo.categories.includes('bedroom'))
+  //         .length,
+  //       kitchen: state.filter((todo) => todo.categories.includes('kitchen'))
+  //         .length,
+  //       bathroom: state.filter((todo) => todo.categories.includes('bathroom'))
+  //         .length,
+  //     });
+  //   }
+  // }, [state]);
 
   return (
     <div className="category-tabs">
       <Menu pointing secondary>
-        <Tab
-          name="all"
-          active={active === 'all'}
-          handleClick={handleClick}
-          counts={0}
-        />
-        <Tab
-          name="living_room"
-          active={active === 'living_room'}
-          handleClick={handleClick}
-          counts={counts.living_room}
-        />
-        <Tab
-          name="bedroom"
-          active={active === 'bedroom'}
-          handleClick={handleClick}
-          counts={counts.bedroom}
-        />
-        <Tab
-          name="kitchen"
-          active={active === 'kitchen'}
-          handleClick={handleClick}
-          counts={counts.kitchen}
-        />
-        <Tab
-          name="bathroom"
-          active={active === 'bathroom'}
-          handleClick={handleClick}
-          counts={counts.bathroom}
-        />
+        <Tab name="all" active={active === 'all'} handleClick={handleClick} />
+        {categoryState.map((cat) => {
+          return (
+            <Tab
+              key={cat.id}
+              name={cat.category_name}
+              active={active === cat.category_name}
+              handleClick={handleClick}
+            />
+          );
+        })}
       </Menu>
     </div>
   );

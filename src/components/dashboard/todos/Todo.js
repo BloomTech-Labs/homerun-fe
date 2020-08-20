@@ -69,8 +69,6 @@ const Todo = (props) => {
     }
   };
 
-  console.log('props', props);
-
   const userSelect = (
     <Menu onClick={assign}>
       {householdUsers.map((member) => {
