@@ -13,6 +13,11 @@ const List = () => {
   const [memberModal, setMemberModal] = useState(false);
   const [permissionsModal, setPermissionsModal] = useState(false);
   const [memberToEdit, setMemberToEdit] = useState('');
+  const [household, user] = useSelector((state) => [
+    state.household,
+    state.user,
+  ]);
+  const dispatch = useDispatch();
 
   const handleEdit = (e, member) => {
     setPermissionsModal(true);
@@ -20,8 +25,12 @@ const List = () => {
     setMemberToEdit(member);
   };
 
-  const household = useSelector((state) => state.household);
-  const dispatch = useDispatch();
+  const canInvite = () => user.permission_level >= 3;
+
+  const canEditPermissionLevel = (member) => {
+    const user_perm = user.permission_level;
+    return user_perm >= 3 && user_perm > member.permission_level;
+  };
 
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());
@@ -34,47 +43,50 @@ const List = () => {
           return (
             <div key={member.username} className="flex justify-between">
               <Name name={member.username} />
-              <div key={member.username} className="flex">
-                <label className="edit-level-label">Level</label>
-                <span className="original-level">
-                  {member.permission_level}
-                </span>
-                <Modal
-                  open={permissionsModal}
-                  onClose={() => setPermissionsModal(false)}
-                  trigger={
-                    <i
-                      className="ui icon edit large blue todo-icon edit-permissions"
-                      onClick={(e) => handleEdit(e, member)}
-                    ></i>
-                  }
-                  content={
-                    <EditPermissions
-                      setModal={setPermissionsModal}
-                      key={member.username}
-                      member={member}
-                      memberToEdit={memberToEdit}
-                    />
-                  }
-                ></Modal>{' '}
+              <div key={member.username} className="flex edit-level-container">
+                {canEditPermissionLevel(member) && (
+                  <Modal
+                    open={permissionsModal}
+                    onClose={() => setPermissionsModal(false)}
+                    trigger={
+                      <i
+                        className="ui icon edit large blue todo-icon edit-permissions"
+                        onClick={(e) => handleEdit(e, member)}
+                      ></i>
+                    }
+                    content={
+                      <EditPermissions
+                        setModal={setPermissionsModal}
+                        key={member.username}
+                        member={member}
+                        memberToEdit={memberToEdit}
+                      />
+                    }
+                  ></Modal>
+                )}
+                <label className="edit-level-label">
+                  Level {member.permission_level}
+                </label>
               </div>
             </div>
           );
         })}
       </UiList>
-      <Modal
-        open={memberModal}
-        onClose={() => setMemberModal(false)}
-        trigger={
-          <Button
-            onClick={() => setMemberModal(true)}
-            className="w-full invite-button"
-          >
-            Invite Member
-          </Button>
-        }
-        content={<InviteMember setModal={setMemberModal} />}
-      ></Modal>
+      {canInvite() && (
+        <Modal
+          open={memberModal}
+          onClose={() => setMemberModal(false)}
+          trigger={
+            <Button
+              onClick={() => setMemberModal(true)}
+              className="w-full invite-button"
+            >
+              Invite Member
+            </Button>
+          }
+          content={<InviteMember setModal={setMemberModal} />}
+        ></Modal>
+      )}
     </div>
   );
 };

@@ -2,12 +2,16 @@ i.icon.edit-permissions {
   margin: auto;
 }
 
+.edit-level-container {
+  margin-left: 40px;
+}
+
 .edit-level-label {
   text-align: center;
   line-height: 1;
   color: gray;
-  margin: auto 0px auto 40px;
-  padding-top: 2px;
+  margin: auto 0px auto 0px;
+  padding: 2px 0 0 4px;
 }
 
 .ui.form input.edit-level-input {
@@ -15,14 +19,6 @@ i.icon.edit-permissions {
   width: 50px;
   margin: auto 5px auto 5px;
   padding: 0 2px 0 8px;
-}
-
-.original-level {
-  margin: auto;
-  padding: 12px 10px 10px;
-  text-align: center;
-  line-height: 1;
-  color: gray;
 }
 
 .edit-name-list {

@@ -11,9 +11,12 @@ import axiosWithAuth from '../../utils/AxiosWithAuth.js';
 import actions from '../../actions/index';
 
 const EditPermissions = (props) => {
+  const userPerm = useSelector((state) => state.user.permission_level);
+  const maxAssignablePermission = userPerm - 1;
+
   const { handleChange, handleSubmit, data, errors } = useForm(
     onSubmit,
-    permissionValidation
+    (data) => permissionValidation(data, userPerm - 1)
   );
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
@@ -193,10 +196,9 @@ const EditPermissions = (props) => {
         <div className="flex justify-between w-64 m-auto">
           <Name name={props.memberToEdit.username} />
           <div key={props.memberToEdit.username} className="flex">
-            <label className="edit-level-label">Level</label>
-            <span className="original-level">
-              {props.memberToEdit.permission_level}
-            </span>
+            <label className="edit-level-label">
+              Level {props.memberToEdit.permission_level}
+            </label>
           </div>
         </div>
       </section>
@@ -214,9 +216,9 @@ const EditPermissions = (props) => {
             <input
               type="number"
               name="permissionLevel"
-              placeholder="1-3"
+              placeholder={`1-${maxAssignablePermission}`}
               min="1"
-              max="3"
+              max={maxAssignablePermission}
               onChange={handleChange}
             />
             {errors.permissionLevel && (
