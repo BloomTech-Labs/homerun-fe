@@ -19,7 +19,10 @@ const EditPermissions = (props) => {
 
   function onSubmit() {
     axiosWithAuth()
-      .post(`${process.env.REACT_APP_BE_URL}/household/edit-permission`, (props.memberToEdit.email, data))
+      .post(`${process.env.REACT_APP_BE_URL}/members/edit-permission`, {
+        id: props.memberToEdit.id,
+        permission_level: data.permissionLevel,
+      })
       .then((res) => {
         console.log(res);
       })
