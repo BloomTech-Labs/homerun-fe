@@ -46,16 +46,18 @@ const TodoList = () => {
               })}
             </SwipeableList>
           </div>
-      {/* Conditionally render the todos based on completion. */}
-      <h3>Todone</h3>
-      <div className="todones-list">
-        <SwipeableList>
-          {todones.map((todo) => {
-            return <Todo key={todo.id} {...todo} />;
-          })}
-        </SwipeableList>
-      </div>
-      {canCreateTodo() && <ControlTodo />}
+          {/* Conditionally render the todos based on completion. */}
+          <h3>Todone</h3>
+          <div className="todones-list">
+            <SwipeableList>
+              {todones.map((todo) => {
+                return <Todo key={todo.id} {...todo} />;
+              })}
+            </SwipeableList>
+          </div>
+          {canCreateTodo() && <ControlTodo />}
+        </div>
+      )}
     </section>
   );
 };
