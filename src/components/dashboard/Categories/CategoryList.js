@@ -8,7 +8,8 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 const CategoryList = (props) => {
   const [category, setCategory] = useState({});
   const loading = useSelector((state) => state.categories.loading);
-  console.log('Loading:', loading);
+  const permission = useSelector((state) => state.user.permission_level);
+
   const handleDelete = (id) => {
     props.dispatch(actions.categories.deleteCategory(id));
     console.log(loading);
@@ -56,16 +57,20 @@ const CategoryList = (props) => {
               Add Category
             </button>
           </div>
-          <CategoryEditModal
-            category={category}
-            open={props.editEditing}
-            setOpened={props.setEditEditing}
-          />
-          <CategoryAddModal
-            category={category}
-            open={props.addEditing}
-            setOpened={props.setAddEditing}
-          />
+          {permission >= 3 && (
+            <>
+              <CategoryEditModal
+                category={category}
+                open={props.editEditing}
+                setOpened={props.setEditEditing}
+              />
+              <CategoryAddModal
+                category={category}
+                open={props.addEditing}
+                setOpened={props.setAddEditing}
+              />
+            </>
+          )}
         </div>
       )}
     </div>

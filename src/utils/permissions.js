@@ -5,6 +5,6 @@ export default {
   REGULAR: 2,
   // (un)assign anyone with lower level to todos, edit any todos
   ADMIN: 3,
-  // can do anything. Only 1 user should have this permission at a time?
+  // can do anything. Only 1 user should have this permission at a time
   OWNER: 4,
 };
