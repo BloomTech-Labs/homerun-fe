@@ -57,9 +57,4 @@ const updateCategory = (categoryID, category_name) => (dispatch) => {
     });
 };
 
-export default {
-  fetchCategories,
-  addCategory,
-  deleteCategory,
-  updateCategory,
-};
+export default { fetchCategories, addCategory, deleteCategory, updateCategory };
