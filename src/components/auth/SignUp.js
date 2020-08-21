@@ -89,7 +89,7 @@ const SignUp = (props) => {
           }
         })
         .catch((err) => console.log('err', err));
-    } catch {
+    } catch (err) {
       setIsLoading(false);
     }
 
