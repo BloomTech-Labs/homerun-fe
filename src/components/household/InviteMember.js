@@ -191,8 +191,11 @@ const InviteMember = (props) => {
               name="email"
               placeholder="user@email.com"
               onChange={handleChange}
+              data-testid="email-test"
             />
-            {errors.email && <p className="pt-1 pl-3 text-red-700">{errors.email}</p>}
+            {errors.email && (
+              <p className="pt-1 pl-3 text-red-700">{errors.email}</p>
+            )}
             {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
           <Form.Field className="">
@@ -206,6 +209,7 @@ const InviteMember = (props) => {
               min="1"
               max="3"
               onChange={handleChange}
+              data-testid="permission-test"
             />
             {errors.permissionLevel && (
               <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
