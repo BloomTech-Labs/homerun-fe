@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Loader, Dimmer } from 'semantic-ui-react';
-import { useDispatch, useSelector } from 'react-redux';
-import actions from '../../actions';
+import { useSelector, useDispatch } from 'react-redux';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useForm from './inviteUseForm.js';
-import inviteValidation from './inviteValidation.js';
+import useForm from './editUseForm.js';
+import permissionValidation from './permissionValidation.js';
+import Name from './Name';
+import axiosWithAuth from '../../utils/AxiosWithAuth.js';
+import actions from '../../actions/index';
 
-const InviteMember = (props) => {
+const EditPermissions = (props) => {
+  const userPerm = useSelector((state) => state.user.permission_level);
+  const maxAssignablePermission = userPerm - 1;
+
   const { handleChange, handleSubmit, data, errors } = useForm(
     onSubmit,
-    inviteValidation
+    (data) => permissionValidation(data, userPerm - 1)
   );
-  const dispatch = useDispatch();
   const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
+  const dispatch = useDispatch();
 
   function onSubmit() {
-    dispatch(actions.houseHold.inviteMember(data, props.setModal));
-    console.log(data);
+    axiosWithAuth()
+      .post(`${process.env.REACT_APP_BE_URL}/members/edit-permission`, {
+        id: props.memberToEdit.id,
+        permission_level: data.permissionLevel,
+      })
+      .then((res) => {
+        dispatch(actions.houseHold.fetchHousehold());
+        props.setModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   return loadingState ? (
     <Dimmer active inverted>
@@ -174,46 +189,44 @@ const InviteMember = (props) => {
             level 1-2
           </p>
         </div>
-        <h2 className="invite-header">Invite a new member</h2>
+
+        <h2 className="edit-level-header">
+          Edit {props.memberToEdit.username + "'s"} Permission
+        </h2>
+        <div className="flex justify-between w-64 m-auto">
+          <Name name={props.memberToEdit.username} />
+          <div key={props.memberToEdit.username} className="flex">
+            <label className="edit-level-label">
+              Level {props.memberToEdit.permission_level}
+            </label>
+          </div>
+        </div>
       </section>
       <Form
         onSubmit={handleSubmit}
-        className="flex justify-center m-auto"
+        className="flex justify-center m-auto edit-permission-form"
         noValidate
       >
         <div className="tablet:mb-8">
           <Form.Field className="">
-            <label className="invite-label">
-              Please enter the email address of the user you wish to invite
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="user@email.com"
-              onChange={handleChange}
-            />
-            {errors.email && <p className="pt-1 pl-3 text-red-700">{errors.email}</p>}
-            {stateError && <p className={'error'}>{stateError}</p>}
-          </Form.Field>
-          <Form.Field className="">
-            <label className="invite-label">
-              Please choose the permission level of the user you wish to invite
+            <label className="edit-permission-label">
+              Please choose {props.memberToEdit.username + "'s"} new level of
+              permission
             </label>
             <input
               type="number"
               name="permissionLevel"
-              placeholder="1-3"
+              placeholder={`1-${maxAssignablePermission}`}
               min="1"
-              max="3"
+              max={maxAssignablePermission}
               onChange={handleChange}
             />
             {errors.permissionLevel && (
               <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
             )}
-            {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
-          <Button type="submit" className="w-full invite-button">
-            Invite Member
+          <Button type="submit" className="w-full edit-permission-button">
+            Edit Permission
           </Button>
         </div>
       </Form>
@@ -221,4 +234,4 @@ const InviteMember = (props) => {
   );
 };
 
-export default InviteMember;
+export default EditPermissions;

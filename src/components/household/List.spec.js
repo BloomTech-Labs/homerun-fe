@@ -1,6 +1,6 @@
 // Testing for the Home Component here
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor, findByText } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import List from './List.js';
@@ -11,7 +11,13 @@ const store = configRedux();
 
 describe('testing for List component', () => {
   describe('invite member btn', () => {
-    it('should exist', () => {
+    it('should be visible when permission is high enough', () => {
+      store.dispatch({type: "SET_USER", payload: {
+        id: 0,
+        username: "test_user",
+        permission_level: 3,
+      }});
+
       const { getByText } = render(
         <Provider store={store}>
           <List />
@@ -19,19 +25,23 @@ describe('testing for List component', () => {
       );
 
       const modalBtn = getByText(/Invite Member/i);
-      expect(modalBtn).toBeDefined();
+      expect(modalBtn).toBeVisible();
     });
 
-    // it("should show a modal when the button is clicked", async () => {
-    //     const { getByText } = render(<Provider store={store}><List /></Provider>)
+    it('should NOT be present when permission is low enough', () => {
+      store.dispatch({type: "SET_USER", payload: {
+        id: 0,
+        username: "test_user",
+        permission_level: 2,
+      }});
 
-    //     const modalBtn = getByText(/Invite Member/i);
+      const { queryByText } = render(
+        <Provider store={store}>
+          <List />
+        </Provider>
+      );
 
-    //     fireEvent.click(modalBtn)
-
-    //     const emailLabel = getByText(/email/i);
-
-    //     expect(emailLabel).toBeDefined();
-    // })
+      expect(queryByText(/Invite Member/i)).toBeFalsy();
+    });
   });
 });
