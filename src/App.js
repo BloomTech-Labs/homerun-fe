@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Structure from './components/layout/Structure';
 import 'semantic-ui-css/semantic.min.css';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 function App() {
   return (

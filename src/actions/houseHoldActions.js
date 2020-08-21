@@ -19,7 +19,7 @@ const fetchHousehold = () => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: ERROR,
-        payload: err.response.data.message || err,
+        payload: err,
       });
     });
 };
