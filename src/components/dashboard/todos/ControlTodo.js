@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from '../../../utils/DatePicker.js';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -15,24 +15,45 @@ const ControlTodo = () => {
     due: dayjs().unix(),
     completed: false,
     created_at: dayjs().unix(),
+    category_id: '',
   });
+  console.log('info id', info);
 
   const category = useSelector((state) => state.todos.currentCategory);
-  const categoryTitles = {
-    all: '',
-    kitchen: 'Kitchen',
-    living_room: 'Living Room',
-    bedroom: 'Bedroom',
-    bathroom: 'Bathroom',
-  };
+  const categories = useSelector((state) => state.categories.categories);
+  console.log(category);
+  const currentCat = categories.filter((cat) => {
+    return cat.category_name === category;
+  });
+  let currentCatID = '';
+
+  useEffect(() => {
+    if (currentCat.length === 1) {
+      currentCatID = currentCat[0].id;
+    }
+    setInfo({ ...info, category_id: currentCatID });
+  }, [category]);
+
   const dispatch = useDispatch();
 
   const [due, setDue] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
   const futureDate = dayjs(due).unix();
 
+  const categoryOptions = categories.map((cat) => {
+    return {
+      key: cat.id,
+      value: cat.id,
+      text: cat.category_name,
+    };
+  });
+
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
+  };
+
+  const handleSelectChange = (e, { value }) => {
+    setInfo({ ...info, category_id: value });
   };
 
   const handleModal = () => {
@@ -40,11 +61,7 @@ const ControlTodo = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(actions.todo.addTodo(info)).then((res) => {
-      dispatch(
-        actions.todo.addCategory({ todo_id: res.id, category_name: category })
-      );
-    });
+    dispatch(actions.todo.addTodo(info));
     handleModal();
   };
 
@@ -56,15 +73,21 @@ const ControlTodo = () => {
   return (
     <div>
       <Modal open={showModal} onClose={handleModal}>
-        <Modal.Header>
-          {`Add a New ${categoryTitles[category]} Todo`}
-        </Modal.Header>
+        <Modal.Header>{`Add a New  Todo`}</Modal.Header>
         <Form onSubmit={handleSubmit} style={{ padding: '30px' }}>
           <Form.Input
             name="title"
             onChange={handleChange}
             type="text"
             placeholder="Task"
+            label="Task"
+          />
+          <Form.Select
+            onChange={handleSelectChange}
+            name="category_id"
+            options={categoryOptions}
+            defaultValue={info.category_id}
+            label="Category"
           />
           <Form.Field>
             <h3>Due</h3>
@@ -90,7 +113,7 @@ const ControlTodo = () => {
         style={{ position: 'fixed', bottom: 55, right: 20 }}
       >
         <Icon name="plus" />
-        {`${categoryTitles[category]} Todo`}
+        {`Todo`}
       </button>
     </div>
   );

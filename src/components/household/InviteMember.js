@@ -194,6 +194,7 @@ const InviteMember = (props) => {
               name="email"
               placeholder="user@email.com"
               onChange={handleChange}
+              data-testid="email-test"
             />
             {errors.email && (
               <p className="pt-1 pl-3 text-red-700">{errors.email}</p>
@@ -211,6 +212,7 @@ const InviteMember = (props) => {
               min="1"
               max={maxAssignablePermission}
               onChange={handleChange}
+              data-testid="permission-test"
             />
             {errors.permissionLevel && (
               <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>

@@ -1,8 +1,9 @@
-const initalState = {
+const initialState = {
+  loading: false,
   todos: [],
   currentCategory: 'all',
 };
-const todoReducer = (state = initalState, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_TODOS':
       return {
@@ -19,6 +20,7 @@ const todoReducer = (state = initalState, action) => {
       return {
         ...state,
         todos: [...state.todos, action.payload],
+        loading: false,
       };
 
     case 'REMOVE_TODO':
@@ -65,6 +67,13 @@ const todoReducer = (state = initalState, action) => {
             : todo
         ),
       };
+    case 'TODO_LOADING':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'RESET_CURRENT_CATEGORY':
+      return initialState;
     default:
       return state;
   }
