@@ -34,6 +34,7 @@ const CategoryEditModal = ({ category, open, setOpened }) => {
           onChange={handleChange}
           value={newCategory.title}
           type="text"
+          defaultValue={category.category_name}
         />
         <Button type="submit">Edit</Button>
       </Form>

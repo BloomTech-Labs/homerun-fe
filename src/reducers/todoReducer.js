@@ -1,4 +1,5 @@
 const initialState = {
+  loading: false,
   todos: [],
   currentCategory: 'all',
 };
@@ -19,6 +20,7 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [...state.todos, action.payload],
+        loading: false,
       };
 
     case 'REMOVE_TODO':
@@ -64,6 +66,11 @@ const todoReducer = (state = initialState, action) => {
             ? { ...todo, categories: action.payload.categories }
             : todo
         ),
+      };
+    case 'TODO_LOADING':
+      return {
+        ...state,
+        loading: true,
       };
     case 'RESET_CURRENT_CATEGORY':
       return initialState;

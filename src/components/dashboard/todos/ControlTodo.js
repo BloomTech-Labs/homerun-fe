@@ -61,14 +61,7 @@ const ControlTodo = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(actions.todo.addTodo(info)).then((res) => {
-      // dispatch(
-      //   actions.todo.addCategory({
-      //     todo_id: res.id,
-      //     category_id: info.category_id,
-      //   })
-      // );
-    });
+    dispatch(actions.todo.addTodo(info));
     handleModal();
   };
 
