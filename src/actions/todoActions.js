@@ -23,6 +23,7 @@ const addCategory = (data) => (dispatch) => {
 };
 
 const addTodo = (todo) => (dispatch) => {
+  dispatch({ type: 'TODO_LOADING' });
   return axiosWithAuth()
     .post(`/todos/add`, todo)
     .then((res) => {
@@ -91,6 +92,10 @@ const updateCategory = (todoCategory) => (dispatch) => {
   });
 };
 
+const resetCurrentCategory = () => (dispatch) => {
+  dispatch({ type: 'RESET_CURRENT_CATEGORY' });
+};
+
 export default {
   fetchTodos,
   addTodo,
@@ -100,4 +105,5 @@ export default {
   updateTodo,
   updateCategory,
   addCategory,
+  resetCurrentCategory,
 };

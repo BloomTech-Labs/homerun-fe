@@ -3,8 +3,11 @@ import { NavLink, Link, useHistory } from 'react-router-dom';
 import logo from '../../assets/images/tidyhive-standalone.png';
 import { useLocation } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
+import { useDispatch } from 'react-redux';
+import actions from '../../actions';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   function useOutside(ref) {
     useEffect(() => {
       function handleClick(e) {
@@ -29,6 +32,7 @@ const Navigation = () => {
   const logout = () => {
     setIsOpen(false);
     localStorage.clear();
+    dispatch(actions.todo.resetCurrentCategory());
     history.push('/signin');
   };
 

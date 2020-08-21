@@ -2,14 +2,20 @@ import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import Navigation from './Navigation';
 import { BrowserRouter as Router } from 'react-router-dom';
+import configRedux from '../../configRedux';
+import { Provider } from 'react-redux';
 
 afterAll(cleanup);
+
+const store = configRedux();
 
 describe('isOpen state testing', () => {
   it('should contain class hidden by default', () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
@@ -18,7 +24,9 @@ describe('isOpen state testing', () => {
   it('should contain class block after button press', () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
@@ -32,7 +40,9 @@ describe('Routes should point to correct route', () => {
   it('clicking on home button sends user to /', async () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
@@ -46,7 +56,9 @@ describe('Routes should point to correct route', () => {
   it('clicking on about button sends user to /about', async () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
@@ -60,7 +72,9 @@ describe('Routes should point to correct route', () => {
   it('clicking on contact button sends user to /contact', async () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
@@ -74,7 +88,9 @@ describe('Routes should point to correct route', () => {
   it('clicking on signin button sends user to /signin', async () => {
     const { getByTestId } = render(
       <Router>
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </Router>
     );
 
