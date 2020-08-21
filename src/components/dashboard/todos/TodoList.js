@@ -11,6 +11,7 @@ import permissions from '../../../utils/permissions.js';
 const TodoList = () => {
   const loading = useSelector((state) => state.todos.loading);
   const store = useSelector((state) => state.todos.todos);
+  const user_id = useSelector((state) => state.user.id);
   const permission = useSelector((state) => state.user.permission_level);
   const dispatch = useDispatch();
   const [todos, setTodos] = useState([]);
@@ -30,6 +31,21 @@ const TodoList = () => {
     setTodones(complete);
   }, [store]);
 
+  const todoOrdering = (a, b) => {
+    let a_assigned = a.assigned.find((member) => member.id === user_id);
+    let b_assigned = b.assigned.find((member) => member.id === user_id);
+    if ((a_assigned && b_assigned) || (!a_assigned && !b_assigned)) {
+      // if they are both assigned or both not assigned they have no preferential ordering
+      return 0;
+    } else if (a_assigned && !b_assigned) {
+      // if todo A is assigned to the user but not todo B, A should appear before B
+      return -1;
+    } else {
+      // vise versa from above
+      return 1;
+    }
+  };
+
   return (
     <section>
       {loading ? (
@@ -41,7 +57,7 @@ const TodoList = () => {
           <h3>Todo</h3>
           <div className="todos-list">
             <SwipeableList>
-              {todos.map((todo) => {
+              {todos.sort(todoOrdering).map((todo) => {
                 return <Todo key={todo.id} {...todo} />;
               })}
             </SwipeableList>
