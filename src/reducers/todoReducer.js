@@ -1,8 +1,8 @@
-const initalState = {
+const initialState = {
   todos: [],
   currentCategory: 'all',
 };
-const todoReducer = (state = initalState, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_TODOS':
       return {
@@ -65,6 +65,8 @@ const todoReducer = (state = initalState, action) => {
             : todo
         ),
       };
+    case 'RESET_CURRENT_CATEGORY':
+      return initialState;
     default:
       return state;
   }

@@ -5,6 +5,7 @@ import {
   DELETE_CATEGORY,
   UPDATE_CATEGORY_LIST,
   CATEGORY_LOADING,
+  RESET_CATEGORIES,
 } from '../actions/categoriesActions';
 
 const initialState = {
