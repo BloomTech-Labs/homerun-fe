@@ -6,20 +6,22 @@ import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 import { Dimmer, Loader } from 'semantic-ui-react';
 
 import ControlTodo from './ControlTodo.js';
+import permissions from '../../../utils/permissions.js';
 
 const TodoList = () => {
   const loading = useSelector((state) => state.todos.loading);
   const store = useSelector((state) => state.todos.todos);
-  const currentUser = useSelector((state) => state.user);
+  const permission = useSelector((state) => state.user.permission_level);
   const dispatch = useDispatch();
-  console.log(store);
   const [todos, setTodos] = useState([]);
   const [todones, setTodones] = useState([]);
+
+  const canCreateTodo = () => permission >= permissions.REGULAR;
 
   useEffect(() => {
     dispatch(actions.todo.fetchTodos());
     dispatch(actions.houseHold.fetchHousehold());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const incomplete = store.filter((todo) => todo.completed === false);
@@ -44,19 +46,16 @@ const TodoList = () => {
               })}
             </SwipeableList>
           </div>
-
-          {/* Conditionally render the todos based on completion. */}
-          <h3>Todone</h3>
-          <div className="todones-list">
-            <SwipeableList>
-              {todones.map((todo) => {
-                return <Todo key={todo.id} {...todo} />;
-              })}
-            </SwipeableList>
-          </div>
-          <ControlTodo />
-        </div>
-      )}
+      {/* Conditionally render the todos based on completion. */}
+      <h3>Todone</h3>
+      <div className="todones-list">
+        <SwipeableList>
+          {todones.map((todo) => {
+            return <Todo key={todo.id} {...todo} />;
+          })}
+        </SwipeableList>
+      </div>
+      {canCreateTodo() && <ControlTodo />}
     </section>
   );
 };

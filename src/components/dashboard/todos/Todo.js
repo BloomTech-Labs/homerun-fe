@@ -12,9 +12,10 @@ import dayjs from 'dayjs';
 import useWindowSize from '../../../hooks/useWindowSize.js';
 import Confetti from 'react-confetti';
 import TodoEditModal from './TodoEditModal';
+import perms from '../../../utils/permissions';
 
 const Todo = (props) => {
-  const { id, assigned, completed } = props;
+  const { id, assigned, completed, created_by } = props;
 
   const [assignedUsers, setAssignedUsers] = useState(assigned || []);
   const [reschedule, setReschedule] = useAsyncState({
@@ -24,25 +25,60 @@ const Todo = (props) => {
   const [confetti, setConfetti] = useAsyncState(false);
   const dispatch = useDispatch();
   const householdUsers = useSelector((state) => state.household.members);
+  const [user_id, username, permission] = useSelector((state) => [
+    state.user.id,
+    state.user.username,
+    state.user.permission_level,
+  ]);
   const { height, width } = useWindowSize();
   const [editing, setEditing] = useState(false);
 
-  const assign = (props) => {
-    const user = props.item.props.member;
+  const canAssign = () => {
+    return permission >= perms.REGULAR;
+  };
 
+  const canUnassignMember = (member) => {
+    return (
+      permission >= perms.ADMIN ||
+      (permission == perms.REGULAR && member.id == user_id)
+    );
+  };
+
+  const canComplete = () => {
+    if (permission >= perms.ADMIN) {
+      return true;
+    } else if (assignedUsers.find((who) => who.id == user_id)) {
+      return true;
+    }
+    return false;
+  };
+
+  const canEdit = () => {
+    if (permission >= perms.ADMIN) {
+      return true;
+    }
+    // TODO: adjust as necessary to when created_by is supported
+    else if (permission === perms.REGULAR && created_by === user_id) {
+      return true;
+    }
+    return false;
+  };
+
+  const assign = (event) => {
+    const member_id = event.item.props.member_id;
     const alreadyAssigned = assignedUsers.find((obj) => {
-      return obj.username === user.username;
+      return obj.id === member_id;
     });
 
     if (!alreadyAssigned) {
       const type = 'member';
-      dispatch(actions.todo.assignUser(id, user.id, type));
+      dispatch(actions.todo.assignUser(id, member_id, type));
     }
   };
 
-  const unassign = (user) => {
+  const unassign = (user_id) => {
     const type = 'member';
-    dispatch(actions.todo.unassignUser(id, user.id, type));
+    dispatch(actions.todo.unassignUser(id, user_id, type));
   };
 
   const handleDue = (date) => {
@@ -69,17 +105,55 @@ const Todo = (props) => {
     }
   };
 
-  const userSelect = (
-    <Menu onClick={assign}>
-      {householdUsers.map((member) => {
-        return (
-          <Menu.Item key={member.username} member={member}>
-            {member.username}
-          </Menu.Item>
-        );
-      })}
-    </Menu>
-  );
+  const userSelect = () => {
+    if (permission >= perms.ADMIN) {
+      return (
+        <Menu onClick={assign}>
+          {householdUsers.map((member) => {
+            return (
+              <Menu.Item key={member.username} member_id={member.id}>
+                {member.username}
+              </Menu.Item>
+            );
+          })}
+        </Menu>
+      );
+    } else {
+      return (
+        <Menu onClick={assign}>
+          <Menu.Item member_id={user_id}>{username}</Menu.Item>
+        </Menu>
+      );
+    }
+  };
+
+  const AssignedUsersComponent = () => {
+    return (
+      <>
+        {assignedUsers.filter(canUnassignMember).map((user, index) => (
+          <Label
+            className="todo-user-pill"
+            circular
+            basic
+            color="grey"
+            key={index}
+            onClick={() => unassign(user.id)}
+          >
+            {user.username}
+            <Icon style={{ paddingLeft: '4px' }} name="remove" />
+          </Label>
+        ))}
+        {/* TODO: make hovering *not* highlight these as red */}
+        {assignedUsers
+          .filter((user) => !canUnassignMember(user))
+          .map((user, index) => (
+            <Label circular basic color="grey" key={index}>
+              {user.username}
+            </Label>
+          ))}
+      </>
+    );
+  };
 
   useEffect(() => {
     setAssignedUsers(assigned);
@@ -88,14 +162,22 @@ const Todo = (props) => {
   return (
     <SwipeableListItem
       threshold={0.5}
-      swipeLeft={{
-        content: <SwipeLeft />,
-        action: handleRemove,
-      }}
-      swipeRight={{
-        content: <SwipeRight />,
-        action: handleCompleted,
-      }}
+      swipeLeft={
+        canEdit()
+          ? {
+              content: <SwipeLeft />,
+              action: handleRemove,
+            }
+          : undefined
+      }
+      swipeRight={
+        canComplete()
+          ? {
+              content: <SwipeRight />,
+              action: handleCompleted,
+            }
+          : undefined
+      }
     >
       <Row
         align="middle"
@@ -122,25 +204,33 @@ const Todo = (props) => {
               {/* Testing mapping over with selection as an object */}
               <Row justify="end">
                 <Col>
-                  <i
-                    className="ui icon edit large blue todo-icon"
-                    onClick={() => setEditing(true)}
-                  ></i>
-                  <Dropdown overlay={userSelect} trigger={['click']}>
-                    <button
-                      className="ant-dropdown-link"
-                      onClick={(e) => {
-                        e.preventDefault();
-                      }}
+                  {canEdit() && (
+                    <i
+                      className="ui icon edit large blue todo-icon"
+                      onClick={() => setEditing(true)}
+                    ></i>
+                  )}
+                  {canAssign() && (
+                    <Dropdown
+                      overlay={userSelect}
+                      trigger={['click']}
+                      placement="bottomRight"
                     >
-                      <i
-                        className="ui icon add user blue large todo-icon"
-                        style={{ marginRight: '10px' }}
-                      ></i>
-                    </button>
-                  </Dropdown>
+                      <button
+                        className="ant-dropdown-link"
+                        onClick={(e) => {
+                          e.preventDefault();
+                        }}
+                      >
+                        <i
+                          className="ui icon add user blue large todo-icon"
+                          style={{ marginRight: '10px' }}
+                        ></i>
+                      </button>
+                    </Dropdown>
+                  )}
 
-                  <>
+                  {canEdit() && (
                     <i
                       className="ui icon clock large blue todo-icon"
                       onClick={() =>
@@ -150,7 +240,7 @@ const Todo = (props) => {
                         })
                       }
                     ></i>
-                  </>
+                  )}
                   {reschedule.popup ? (
                     <DatePicker onChange={handleDue} open={reschedule.popup} />
                   ) : (
@@ -162,21 +252,7 @@ const Todo = (props) => {
           </Row>
           <Row>
             <Col span={24} style={{ marginTop: '10px' }}>
-              {assignedUsers.map((user, index) => {
-                return (
-                  <Label
-                    className="todo-user-pill"
-                    circular
-                    basic
-                    color="grey"
-                    key={index}
-                    onClick={() => unassign(user)}
-                  >
-                    {user.username}
-                    <Icon style={{ paddingLeft: '4px' }} name="remove" />
-                  </Label>
-                );
-              })}
+              <AssignedUsersComponent />
             </Col>
           </Row>
         </Col>
