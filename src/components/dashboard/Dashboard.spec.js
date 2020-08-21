@@ -26,6 +26,6 @@ describe('Dashboard tests', () => {
       </Router>
     );
 
-    expect(getByTestId('container-section').className).toBe('ui container');
+    expect(getByTestId('container-section').className).toBe('container ui');
   });
 });
