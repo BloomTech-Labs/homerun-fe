@@ -19,7 +19,7 @@ const TodoList = () => {
   useEffect(() => {
     dispatch(actions.todo.fetchTodos());
     dispatch(actions.houseHold.fetchHousehold());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const incomplete = store.filter((todo) => todo.completed === false);
