@@ -32,7 +32,7 @@ const CategoryList = (props) => {
                 <div className="category-item" key={cat.id}>
                   <h3 className="category-name">{cat.category_name}</h3>
 
-                  <i
+                  {permission >= 3 && <><i
                     className="ui icon edit large blue todo-icon edit-icon"
                     onClick={() => {
                       setCategory(cat);
@@ -42,7 +42,7 @@ const CategoryList = (props) => {
                   <i
                     className="ui icon delete large blue todo-icon"
                     onClick={() => handleDelete(cat.id)}
-                  />
+                  /></>}
                 </div>
               );
             })}
@@ -57,20 +57,16 @@ const CategoryList = (props) => {
               Add Category
             </button>
           </div>
-          {permission >= 3 && (
-            <>
-              <CategoryEditModal
-                category={category}
-                open={props.editEditing}
-                setOpened={props.setEditEditing}
-              />
-              <CategoryAddModal
-                category={category}
-                open={props.addEditing}
-                setOpened={props.setAddEditing}
-              />
-            </>
-          )}
+          <CategoryEditModal
+            category={category}
+            open={props.editEditing}
+            setOpened={props.setEditEditing}
+          />
+          <CategoryAddModal
+            category={category}
+            open={props.addEditing}
+            setOpened={props.setAddEditing}
+          />
         </div>
       )}
     </div>
