@@ -51,16 +51,18 @@ const CategoryList = (props) => {
               );
             })}
           </div>
-          <div className="add-btn-center">
-            <button
-              className="rounded-md add-category-btn"
-              onClick={() => {
-                props.setAddEditing(true);
-              }}
-            >
-              Add Category
-            </button>
-          </div>
+          {permission >= 3 && (
+            <div className="add-btn-center">
+              <button
+                className="rounded-md add-category-btn"
+                onClick={() => {
+                  props.setAddEditing(true);
+                }}
+              >
+                Add Category
+              </button>
+            </div>
+          )}
           <CategoryEditModal
             category={category}
             open={props.editEditing}
