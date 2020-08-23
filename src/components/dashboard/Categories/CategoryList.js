@@ -32,17 +32,21 @@ const CategoryList = (props) => {
                 <div className="category-item" key={cat.id}>
                   <h3 className="category-name">{cat.category_name}</h3>
 
-                  {permission >= 3 && <><i
-                    className="ui icon edit large blue todo-icon edit-icon"
-                    onClick={() => {
-                      setCategory(cat);
-                      props.setEditEditing(true);
-                    }}
-                  />
-                  <i
-                    className="ui icon delete large blue todo-icon"
-                    onClick={() => handleDelete(cat.id)}
-                  /></>}
+                  {permission >= 3 && (
+                    <>
+                      <i
+                        className="ui icon edit large blue todo-icon edit-icon"
+                        onClick={() => {
+                          setCategory(cat);
+                          props.setEditEditing(true);
+                        }}
+                      />
+                      <i
+                        className="ui icon delete large blue todo-icon"
+                        onClick={() => handleDelete(cat.id)}
+                      />
+                    </>
+                  )}
                 </div>
               );
             })}
