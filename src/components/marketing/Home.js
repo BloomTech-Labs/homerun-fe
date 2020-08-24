@@ -18,10 +18,10 @@ const Home = () => {
               className="w-full max-w-2xl text-3xl text-center phone: tablet:text-4xl desktop:text-5x desktop:text-left desktop:max-w-xl"
               data-testid="header-test"
             >
-              <span className="text-hive">TidyHive</span> is a home
-              organizational tool where members of a household can create,
-              assign, and complete tasks. Turn your todos into todones with
-              TidyHive today!
+              <span className="text-hive">TidyHive</span> is a group
+              organizational tool where members of a team can create, assign,
+              and complete tasks. Turn your todos into todones with TidyHive
+              today!
             </h1>
           </div>
           <div className="flex justify-center mt-20 desktop:justify-start desktop:pl-10 desktop:mt-10">
@@ -57,12 +57,9 @@ const Home = () => {
           className="max-w-2xl text-2xl text-center tablet:text-3xl desktop:max-w-full desktop:px-16"
           data-testid="content-test"
         >
-          These are the main features that TidyHive has to offer. Keep your
-          household organized and everyone on the same page by creating tasks
-          and assigning members to those tasks. Often times a majority of the
-          work will fall on a single member of a household - delegating work
-          within a household is so important. This includes keeping children on
-          track with their chores and schoolwork or extra-curricular activities!
+          Delegating work within a group is so important and Tidyhive makes it
+          easy. It offers a variety of features that will help keep your team
+          organized and everyone on the same page. Assign participants different levels of permissions, keeping members on track with their tasks and giving assistants more responsibility over the team. Allocate tasks by categories, mantaining the list of todos organized. Customizable categories make it possible to mold the app in a way that works best for you and your team. Analyzing your group's progress has never been easier!  
         </h2>
       </section>
     </>
