@@ -1,5 +1,5 @@
 import configureMockStore from 'redux-mock-store';
-import householdActions from './houseHoldActions';
+import householdActions, * as TYPES from './houseHoldActions';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 
@@ -22,8 +22,8 @@ describe('Household Action testing', () => {
       });
 
       const expectedActions = [
-        { type: 'LOADING' },
-        { type: 'FETCH_MEMBERS_SUCCESS', payload: 'stuff' },
+        { type: TYPES.LOADING },
+        { type: TYPES.FETCH_MEMBERS_SUCCESS, payload: 'stuff' },
       ];
 
       store
@@ -37,8 +37,8 @@ describe('Household Action testing', () => {
       });
 
       const expectedActions = [
-        { type: 'LOADING' },
-        { type: 'ERROR', payload: 'stuff' },
+        { type: TYPES.LOADING },
+        { type: TYPES.ERROR, payload: 'stuff' },
       ];
 
       store
@@ -54,7 +54,7 @@ describe('Household Action testing', () => {
         response: 'response',
       });
 
-      const expectedActions = [{ type: 'LOADING' }];
+      const expectedActions = [{ type: TYPES.LOADING }];
 
       store.dispatch(
         householdActions.inviteMember({ data: 'Info' }, { modalInfo: true })

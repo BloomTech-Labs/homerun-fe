@@ -1,11 +1,11 @@
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
 export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS';
-export const ERROR = 'ERROR';
+export const ERROR = 'CATEGORIES_ERROR';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const UPDATE_CATEGORY_LIST = 'UPDATE_CATEGORY_LIST';
-export const CATEGORY_LOADING = 'LOADING';
+export const CATEGORY_LOADING = 'CATEGORY_LOADING';
 export const RESET_CATEGORIES = 'RESET_CATEGORIES';
 
 const fetchCategories = () => (dispatch) => {
@@ -16,12 +16,11 @@ const fetchCategories = () => (dispatch) => {
         type: FETCH_CATEGORIES_SUCCESS,
         payload: res.data,
       });
-      console.log('im inside fetch', res);
     })
     .catch((err) => {
       dispatch({
         type: ERROR,
-        payload: err.response.data.message || err,
+        payload: err,
       });
     });
 };
