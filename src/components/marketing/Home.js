@@ -59,7 +59,7 @@ const Home = () => {
         >
           Delegating work within a group is so important and Tidyhive makes it
           easy. It offers a variety of features that will help keep your team
-          organized and everyone on the same page. Assign participants different levels of permissions, keeping members on track with their tasks and giving assistants more responsibility over the team. Allocate tasks by categories, mantaining the list of todos organized. Customizable categories make it possible to mold the app in a way that works best for you and your team. Analyzing your group's progress has never been easier!  
+          organized and everyone on the same page. Assign participants different levels of permissions, keeping members on track with their tasks and giving assistants more responsibility over the team. Allocate tasks by categories, maintaining the list of todos organized. Customizable categories make it possible to mold the app in a way that works best for you and your team. Analyzing your group's progress has never been easier!  
         </h2>
       </section>
     </>
