@@ -208,6 +208,7 @@ const Todo = (props) => {
                     <i
                       className="ui icon edit large blue todo-icon"
                       onClick={() => setEditing(true)}
+                      data-testid="iconEdit"
                     ></i>
                   )}
                   {canAssign() && (
@@ -225,11 +226,11 @@ const Todo = (props) => {
                         <i
                           className="ui icon add user blue large todo-icon"
                           style={{ marginRight: '10px' }}
+                          data-testid="iconAssign"
                         ></i>
                       </button>
                     </Dropdown>
                   )}
-
                   {canEdit() && (
                     <i
                       className="ui icon clock large blue todo-icon"
@@ -239,6 +240,7 @@ const Todo = (props) => {
                           popup: !reschedule.popup,
                         })
                       }
+                      data-testid="iconChangeDate"
                     ></i>
                   )}
                   {reschedule.popup ? (

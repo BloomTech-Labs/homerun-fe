@@ -18,7 +18,6 @@ const EditPermissions = (props) => {
     onSubmit,
     (data) => permissionValidation(data, maxAssignablePermission)
   );
-  const stateError = useSelector((state) => state.household.error);
   const loadingState = useSelector((state) => state.household.loading);
   const dispatch = useDispatch();
 
@@ -190,10 +189,13 @@ const EditPermissions = (props) => {
           </p>
         </div>
 
-        <h2 className="edit-level-header">
+        <h2 className="edit-level-header" data-testid="username">
           Edit {props.memberToEdit.username + "'s"} Permission
         </h2>
-        <div className="flex justify-between w-64 m-auto">
+        <div
+          className="flex justify-between w-64 m-auto"
+          data-testid="permissionLevel"
+        >
           <Name name={props.memberToEdit.username} />
           <div key={props.memberToEdit.username} className="flex">
             <label className="edit-level-label">
@@ -220,6 +222,7 @@ const EditPermissions = (props) => {
               min="1"
               max={maxAssignablePermission}
               onChange={handleChange}
+              data-testid="permissionInput"
             />
             {errors.permissionLevel && (
               <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
