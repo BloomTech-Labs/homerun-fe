@@ -8,7 +8,8 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 const CategoryList = (props) => {
   const [category, setCategory] = useState({});
   const loading = useSelector((state) => state.categories.loading);
-  console.log('Loading:', loading);
+  const permission = useSelector((state) => state.user.permission_level);
+
   const handleDelete = (id) => {
     props.dispatch(actions.categories.deleteCategory(id));
     console.log(loading);
@@ -31,31 +32,37 @@ const CategoryList = (props) => {
                 <div className="category-item" key={cat.id}>
                   <h3 className="category-name">{cat.category_name}</h3>
 
-                  <i
-                    className="ui icon edit large blue todo-icon edit-icon"
-                    onClick={() => {
-                      setCategory(cat);
-                      props.setEditEditing(true);
-                    }}
-                  />
-                  <i
-                    className="ui icon delete large blue todo-icon"
-                    onClick={() => handleDelete(cat.id)}
-                  />
+                  {permission >= 3 && (
+                    <>
+                      <i
+                        className="ui icon edit large blue todo-icon edit-icon"
+                        onClick={() => {
+                          setCategory(cat);
+                          props.setEditEditing(true);
+                        }}
+                      />
+                      <i
+                        className="ui icon delete large blue todo-icon"
+                        onClick={() => handleDelete(cat.id)}
+                      />
+                    </>
+                  )}
                 </div>
               );
             })}
           </div>
-          <div className="add-btn-center">
-            <button
-              className="rounded-md add-category-btn"
-              onClick={() => {
-                props.setAddEditing(true);
-              }}
-            >
-              Add Category
-            </button>
-          </div>
+          {permission >= 3 && (
+            <div className="add-btn-center">
+              <button
+                className="rounded-md add-category-btn"
+                onClick={() => {
+                  props.setAddEditing(true);
+                }}
+              >
+                Add Category
+              </button>
+            </div>
+          )}
           <CategoryEditModal
             category={category}
             open={props.editEditing}

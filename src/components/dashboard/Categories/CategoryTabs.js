@@ -7,11 +7,8 @@ import Tab from './Tab.js';
 
 const CategoryTabs = () => {
   const [active, setActive] = useState('all');
-  const [counts, setCounts] = useState({});
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.todos.todos);
   const categoryState = useSelector((state) => state.categories.categories);
-  console.log('This is the cat state', categoryState);
 
   const handleClick = (e, { name }) => {
     e.preventDefault();
@@ -24,29 +21,6 @@ const CategoryTabs = () => {
   useEffect(() => {
     dispatch(actions.categories.fetchCategories());
   }, []);
-
-  // useLayoutEffect(() => {
-  //   if (state) {
-  //     console.log(categoryState);
-  //     // let layoutObj = {};
-  //     // categoryState.forEach((cat, idx) => {
-  //     //   layoutObj.cat[idx].category_name = state.filter((todo) => {
-  //     //     todo.categories.includes(cat[idx].category_name);
-  //     //   });
-  //     // });
-  //     setCounts({
-  //       [categoryState[0].category_name]: state.filter((todo) =>
-  //         todo.categories.includes('living_room')
-  //       ).length,
-  //       bedroom: state.filter((todo) => todo.categories.includes('bedroom'))
-  //         .length,
-  //       kitchen: state.filter((todo) => todo.categories.includes('kitchen'))
-  //         .length,
-  //       bathroom: state.filter((todo) => todo.categories.includes('bathroom'))
-  //         .length,
-  //     });
-  //   }
-  // }, [state]);
 
   return (
     <div className="category-tabs">

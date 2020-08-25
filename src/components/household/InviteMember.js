@@ -9,9 +9,12 @@ import useForm from './inviteUseForm.js';
 import inviteValidation from './inviteValidation.js';
 
 const InviteMember = (props) => {
+  const userPerm = useSelector((state) => state.user.permission_level);
+  const maxAssignablePermission = userPerm - 1;
+
   const { handleChange, handleSubmit, data, errors } = useForm(
     onSubmit,
-    inviteValidation
+    (data) => inviteValidation(data, maxAssignablePermission)
   );
   const dispatch = useDispatch();
   const stateError = useSelector((state) => state.household.error);
@@ -205,16 +208,15 @@ const InviteMember = (props) => {
             <input
               type="number"
               name="permissionLevel"
-              placeholder="1-3"
+              placeholder={`1-${maxAssignablePermission}`}
               min="1"
-              max="3"
+              max={maxAssignablePermission}
               onChange={handleChange}
               data-testid="permission-test"
             />
             {errors.permissionLevel && (
               <p className="pt-1 pl-3 text-red-700">{errors.permissionLevel}</p>
             )}
-            {stateError && <p className={'error'}>{stateError}</p>}
           </Form.Field>
           <Button type="submit" className="w-full invite-button">
             Invite Member

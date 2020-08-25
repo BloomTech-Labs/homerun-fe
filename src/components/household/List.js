@@ -32,6 +32,10 @@ const List = () => {
     return user_perm >= 3 && user_perm > member.permission_level;
   };
 
+  const ordering = (a, b) => {
+    return b.permission_level - a.permission_level;
+  };
+
   useEffect(() => {
     dispatch(actions.houseHold.fetchHousehold());
   }, [dispatch]);
@@ -39,7 +43,7 @@ const List = () => {
   return (
     <div data-testid="list">
       <UiList selection verticalAlign="middle">
-        {household.members.map((member) => {
+        {household.members.sort(ordering).map((member) => {
           return (
             <div key={member.username} className="flex justify-between">
               <Name name={member.username} />

@@ -17,11 +17,9 @@ const ControlTodo = () => {
     created_at: dayjs().unix(),
     category_id: '',
   });
-  console.log('info id', info);
 
   const category = useSelector((state) => state.todos.currentCategory);
   const categories = useSelector((state) => state.categories.categories);
-  console.log(category);
   const currentCat = categories.filter((cat) => {
     return cat.category_name === category;
   });
@@ -92,17 +90,6 @@ const ControlTodo = () => {
           <Form.Field>
             <h3>Due</h3>
             <DatePicker onChange={handleDue} />
-            {/* <DatePicker
-              wrapped
-              size="medium"
-              className="date-picker"
-              selected={new Date()}
-              onChange={handleDue}
-              minDate={new Date()}
-              showTimeSelect
-              timeCaption="time"
-              dateFormat="MMMM d, yyyy"
-            /> */}
           </Form.Field>
           <Button type="submit">Add</Button>
         </Form>

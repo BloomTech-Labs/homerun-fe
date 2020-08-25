@@ -1,8 +1,8 @@
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
-export const LOADING = 'LOADING';
+export const LOADING = 'HOUSEHOLD_LOADING';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
-export const ERROR = 'ERROR';
+export const ERROR = 'HOUSEHOLD_ERROR';
 export const INVITE_MEMBER = 'INVITE_MEMBER';
 
 // Action Creators
