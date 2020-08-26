@@ -41,15 +41,25 @@
 .category-item h3 {
   margin-right: 1em;
 }
+
+.category-list {
+  margin-top: 60px;
+}
+
 #header-cat {
   text-align: center;
-  margin-top: 5%;
 }
 
 .add-category-btn {
-  padding: 1% 6%;
+  padding: 7px 68px;
   background-color: #ff9f1c;
-  color: white;
+  color: #fff;
+  margin: 15px 0px 15px;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: rgb(230, 144, 25);
+  }
 }
 
 div.add-btn-center {

@@ -22,7 +22,7 @@ const CategoryList = (props) => {
           <Loader size="large">Loading</Loader>
         </Dimmer>
       ) : (
-        <div>
+        <div className="category-list">
           <h3 className="ui header" id="header-cat">
             Todo Categories
           </h3>
