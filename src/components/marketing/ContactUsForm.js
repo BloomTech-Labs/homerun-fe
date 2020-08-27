@@ -3,7 +3,6 @@ import axios from 'axios';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 function ContactUsForm() {
-  console.log({ env: process.env });
   const [status, setStatus] = useState('');
   const [form, setForm] = useState({
     name: '',
