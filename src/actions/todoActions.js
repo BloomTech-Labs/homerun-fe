@@ -23,7 +23,6 @@ const addCategory = (data) => (dispatch) => {
 };
 
 const addTodo = (todo) => (dispatch) => {
-  console.log(todo);
   dispatch({ type: 'TODO_LOADING' });
   return axiosWithAuth()
     .post(`/todos/add`, todo)

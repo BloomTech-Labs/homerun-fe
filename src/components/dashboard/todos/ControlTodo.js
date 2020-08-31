@@ -56,9 +56,8 @@ const ControlTodo = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(actions.todo.addTodo(info)).finally(() => {
-      handleModal();
-    });
+    dispatch(actions.todo.addTodo(info));
+    handleModal();
   };
 
   const handleDue = (date) => {

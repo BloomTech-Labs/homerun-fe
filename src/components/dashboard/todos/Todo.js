@@ -82,7 +82,6 @@ const Todo = (props) => {
   };
 
   const handleDue = (date) => {
-    console.log('date is being set to ', date);
     setReschedule({ due: dayjs(date).unix() }).then(() => {
       dispatch(actions.todo.updateTodo(id, { due: dayjs(date).unix() }));
     });
