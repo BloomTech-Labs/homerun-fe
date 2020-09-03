@@ -12,9 +12,9 @@ const ControlTodo = () => {
   const [info, setInfo] = useState({
     title: '',
     desc: '',
-    due: dayjs().unix(),
+    due: null,
     completed: false,
-    created_at: dayjs().unix(),
+    created_at: dayjs(new Date()).unix(),
     category_id: '',
   });
 
@@ -33,10 +33,7 @@ const ControlTodo = () => {
   }, [category]);
 
   const dispatch = useDispatch();
-
-  const [due, setDue] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
-  const futureDate = dayjs(due).unix();
 
   const categoryOptions = categories.map((cat) => {
     return {
@@ -64,8 +61,7 @@ const ControlTodo = () => {
   };
 
   const handleDue = (date) => {
-    setDue(date);
-    setInfo({ ...info, due: futureDate });
+    setInfo({ ...info, due: dayjs(date).unix() });
   };
 
   return (

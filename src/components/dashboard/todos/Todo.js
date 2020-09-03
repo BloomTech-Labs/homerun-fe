@@ -192,13 +192,15 @@ const Todo = (props) => {
           <Row>
             <Col span={12}>
               <h3>{props.title}</h3>
-              <p
-                className={
-                  dayjs().isBefore(dayjs.unix(props.due)) ? '' : 'overdue'
-                }
-              >
-                Due {dayjs.unix(props.due).format('MM/DD/YY')}
-              </p>
+              {props.due && (
+                <p
+                  className={
+                    dayjs().isBefore(dayjs.unix(props.due)) ? '' : 'overdue'
+                  }
+                >
+                  Due {dayjs.unix(props.due).format('MM/DD/YY')}
+                </p>
+              )}
             </Col>
             <Col span={12} style={{ textAlign: 'right' }}>
               {/* Testing mapping over with selection as an object */}
